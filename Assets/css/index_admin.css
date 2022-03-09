@@ -104,6 +104,9 @@
 .sidebar .nav-links li:hover{
   background-color: rgb(90, 13, 13);
 }
+.sidebar .nav-links li.active{
+  background-color: rgb(90, 13, 13);
+}
 
 .sidebar .nav-links li .iocn-link{
   display: flex;
@@ -286,6 +289,9 @@
   width: 100%;
   height: 100%;
   padding: 1em;
+}
+.title-head{
+  font-weight: 800;
   color: var(--color1);
 }
 
@@ -304,8 +310,10 @@
   font-size: .5rem;
 
 }
-
-
+/* ------------------------------CUSTOMER PAGE------------------------------ */
+i.req{
+  color: red;
+}
 
 @media (max-width: 420px) {
   .sidebar.close .nav-links li .sub-menu{
