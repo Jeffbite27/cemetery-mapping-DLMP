@@ -10,14 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="Assets/image/logopngplain.png" type="image/x-icon">
     <title>Divine Life Memorial Park</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> -->
-
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="Assets/css/01_User_Home.css">
     <link rel="stylesheet" href="Assets/css/style.css">
-
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
     <script src="Assets/js/index.js" defer></script>
-    
 
 </head>
 <body>
@@ -344,12 +343,9 @@
             </div>
         </div>
     </div>
-    
+</body>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
     <script src="Assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
 </html>
