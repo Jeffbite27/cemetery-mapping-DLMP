@@ -68,4 +68,15 @@
         </div>
     </div>
 </body>
+<script>
+    // ---------------------------------LOG IN----------------------------------------------
+  $('.login-form').on('submit', function(e){
+    e.preventDefault();
+  
+    $.post("queries/login.php", $(this).serialize(), function(data){
+      $("#notif").html(data);
+      window.history.replaceState( null, null, window.location.href );
+    })
+  });
+</script>
 </html>
