@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700&family=Poppins:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root{
+    --Poppins: 'Poppins', sans-serif;
+    --Font2: 'Roboto', sans-serif;
+    --Font3: 'Inter', sans-serif;
+
+    --color1: #832121;
+    --color2: white;
+    --color3: rgb(107, 21, 21);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .1s ease-out;
+
+    overflow-x:visible;
+    scrollbar-width: none;
+    color: var(--color1);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+h1{
+    font-family: var(--Poppins);
+}
+
+h2{
+    font-family: var(--Poppins);
+    font-size: 1rem;
+}
+
+p{
+    font-family: var(--Poppins);
+}
+
+.main-cont{
+    width: 100%;
+}
+
+.cont-1{
+    width: 100%;
+    text-align: center;
+}
+.cont-1 p{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.cont-2{
+    width: 90%;
+    display: flex;
+    /* justify-content:space-between; */
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    gap: 0em;
+    
+    /* gap: 8em; */
+    /* background-color: aquamarine; */
+}
+
+.cont-2-img{
+    /* background-color: red; */
+    width: 100%;
+}
+
+.cont-2-img img{
+    width: 75%;
+    height: 90%;
+}
+
+.cont-2-img.first img{
+    padding: 2em;
+}
+
+.cont-3{
+    width: 100%;
+    padding-top: 3em;
+    /* background-color: red; */
+    text-align: end;
+    
+}
+
+.get-started-btn{
+    width: 80%;
+    margin: 0 auto;
+    /* background-color: cyan; */
+}
+
+
+
+.get-started-btn a{
+    font-family: var(--Poppins);
+    padding: .9em 1.5em;
+    background-color: #832121;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.findgrave-cont{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: red; */
+}
+
+.findgrave-cont-main{
+    /* padding: 10em; */
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+
