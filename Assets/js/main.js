@@ -1,3 +1,4 @@
+  
 var swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     centeredSlides: true,
@@ -47,8 +48,6 @@ var swiper = new Swiper(".mySwiper", {
 
   })
 
- 
-
   buttonless.addEventListener('click', function(){
 
     for(var i = currentback; i >= currentback -3 ; i--){
@@ -64,15 +63,3 @@ var swiper = new Swiper(".mySwiper", {
       buttonless.style.display='none';
     }
   })
-
-
-
-  // ---------------------------------LOG IN----------------------------------------------
- $(document).on('submit', '.login-form', function(e){
-  e.preventDefault();
-
-  $.post("queries/login.php", $(this).serialize(), function(data){
-    $("#notif").html(data);
-    window.history.replaceState( null, null, window.location.href );
-  })
- });
