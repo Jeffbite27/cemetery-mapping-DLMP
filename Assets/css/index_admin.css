@@ -12,7 +12,9 @@
   --color2: white;
   --color3: rgb(107, 21, 21);
 }
-
+body{
+  overflow-x: hidden;
+}
 
 *{
   margin: 0;

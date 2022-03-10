@@ -13,7 +13,6 @@ sidebarBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("close");
 });
 
-
 const tabs = document.querySelectorAll(".tabs");
 const contents = document.querySelectorAll(".content");
 
@@ -42,4 +41,10 @@ $("#dead-relative, #dead-relative-surname").keyup(function(){
       $("#relative-error").html(data);
     }
   })
+})
+$(document).ready( function () {
+  $('#tbl-customer').DataTable({
+    "responsive": true,
+    "fixedHeader": true
+  });
 })

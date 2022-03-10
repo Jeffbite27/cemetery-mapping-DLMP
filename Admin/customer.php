@@ -4,6 +4,8 @@
   }
   include("../config.php");
   $con=connect();
+
+  $sql=$con->query("SELECT * FROM `customers`");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -11,15 +13,15 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../Assets/image/logopngplain.png" type="image/x-icon">
     <title>Divine Life Memorial Park</title>
+     <link rel="stylesheet" type="text/css" href="../Assets/DataTables/datatables.min.css"/>
     <link rel="stylesheet" href="../Assets/css/index_admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+   
+    
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
-
-    <script src="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
-    <script src="../Assets/js/jquery.min.js"></script>
     <script src="../Assets/js/sweetalert.js"></script>
+
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
@@ -144,9 +146,9 @@
             <h2 class="title-head">CUSTOMER/OWNER</h2>
             <hr>
             <div class="row p-0">
-              <div class="col-sm-12 col-md-7 mb-3 customer-section">
-                <div class="bg-light p-3 h-100 rounded">
-                  <div class="title text-center">
+              <div class="col-sm-12 col-md-12 mb-3 customer-section">
+                <div class="bg-light p-5 h-100 rounded">
+                  <div class="title text-start">
                     <h4>Customer Application Form</h4>
                   </div>
                   <br>
@@ -203,7 +205,7 @@
                       </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <div class="row mb-5">
                       <div class="col-md-3 col-sm-6">
                         <label for="religion">Religion:<i class="req">*</i></label>
                         <input type="text" name="religion" id="religion" class="form-control" placeholder="Religion" required>
@@ -242,7 +244,7 @@
                 </div>
               </div>
 
-              <div class="col-sm-12 col-md-5 mb-3 deceased-section">
+              <!-- <div class="col-sm-12 col-md-5 mb-3 deceased-section">
                 <div class="bg-light p-3 h-100 rounded">
                   <div class="title text-center">
                     <h4>Deceased Application Form</h4>
@@ -355,20 +357,56 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <div class="row p-0">
               <div class="col-sm-12 col-md-12">
-                <div class="bg-light p-3 rounded">
+                <div class="bg-light p-5 h-100 rounded">
                   <div class="title text-start">
-                    <h4>Lot Description</h4>
+                    <h4>Customer Information</h4>
                   </div>
                   <br>
-                  <div class="text-center">
-                    <button type="submit" name="btn-submit-customer" id="btn-submit-customer" class="btn btn-primary">Submit</button>
-                    <button type="reset" name="btn-clear" id="btn-clear" class="btn btn-danger">Clear</button>
+                  <div class="customer-table">
+                    <table class="tbl-customer table table-striped table-bordered w-100" id="tbl-customer">
+                      <thead class="bg-success">
+                        <th>Customer Name</th>
+                        <th>Address</th>
+                        <th>Contact #</th>
+                        <th>Email</th>
+                        <th>Birthday</th>
+                        <th>Gender</th>
+                        <th>Religion</th>
+                        <th>Citizenship</th>
+                        <th>Civil Status</th>
+                        <th>Occupation</th>
+                        <th>Edit</th>
+                      </thead>
+                      <tbody>
+                        <?php while($row=$sql->fetch_array()){?>
+                        <tr>
+                          <td><?php echo $row["first-name"]?></td>
+                          <td><?php echo $row["address"]?></td>
+                          <td><?php echo $row["contact"]?></td>
+                          <td><?php echo $row["email"]?></td>
+                          <td><?php echo $row["bday"]?></td>
+                          <td><?php echo $row["gender"]?></td>
+                          <td><?php echo $row["religion"]?></td>
+                          <td><?php echo $row["citizenship"]?></td>
+                          <td><?php echo $row["status"]?></td>
+                          <td><?php echo $row["work"]?></td>
+                          <td>
+                            <button class="btn btn-success">
+                              <i class="fa fa-pencil"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <?php }?>
+                      </tbody>
+                    </table>
                   </div>
+                  <br>
+                  
                 </div>
               </div>
             </div>
@@ -377,7 +415,13 @@
       </div>
   </section>
 
-  <script src="../Assets/js/index_admin.js"></script>
-
+ 
+  <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+  <script src="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
+  <script src="../Assets/js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../Assets/DataTables/datatables.min.js"></script>
+  <script src="../Assets/js/index_admin.js" defer></script>
+    
 </body>
 </html>
