@@ -81,6 +81,16 @@
       </li>
 
       <li class="tabs">
+        <a href="interment_Setup.php">
+          <i class='bx bxs-user-rectangle' ></i>
+          <span class="link_name">Interment Setup</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="interment_Setup.php">Interment Setup</a></li>
+        </ul>
+      </li>
+
+      <li class="tabs">
         <a href="#">
           <i class='bx bx-map-alt' ></i>
           <span class="link_name">Grave Map</span>
