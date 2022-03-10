@@ -7,6 +7,7 @@
 
   $customers=$con->query("SELECT * FROM `customers`");
   $customer_info=$con->query("SELECT * FROM `customers`");
+  $customer_info_lot=$con->query("SELECT * FROM `customers`");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -336,7 +337,7 @@
                   <br>
                   <div class="customer-table">
                     <table class="tbl-customer table table-striped table-bordered w-100" id="tbl-customer">
-                      <thead class="tbl-customer-header text-light">
+                      <thead class="tbl-header text-light">
                         <th>#</th>
                         <th>Name</th>
                         <th>Address</th>
@@ -353,8 +354,8 @@
                       <tbody>
                         <?php while($row=$customers->fetch_array()){?>
                         <tr>
-                          <td class="align-middle"><?php echo $row["customer-id"]?></td>
-                          <td class="align-middle"><?php echo $row["first-name"].' '.$row["family-name"]?></td>
+                          <td class="align-middle"><?php echo $row["customer_id"]?></td>
+                          <td class="align-middle"><?php echo $row["first_name"].' '.$row["middle_name"].' '.$row["family_name"]?></td>
                           <td class="align-middle"><?php echo $row["address"]?></td>
                           <td class="align-middle"><?php echo $row["contact"]?></td>
                           <td class="align-middle"><?php echo $row["email"]?></td>
@@ -365,9 +366,13 @@
                           <td class="align-middle"><?php echo $row["status"]?></td>
                           <td class="align-middle"><?php echo $row["work"]?></td>
                           <td class="text-center align-middle">
-                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-customer<?php echo $row["customer-id"]?>">
+                            <button class="btn btn-primary" id="btn-select" data-bs-toggle="modal" data-bs-target="#select-owner<?php echo $row["customer_id"]?>">
+                              <i class='bx bx-layer' ></i>
+                            </button>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-customer<?php echo $row["customer_id"]?>">
                               <i class='bx bxs-edit'></i>
                             </button>
+                            
                           </td>
                         </tr>
                         
@@ -484,7 +489,7 @@
   </section>
   <!------------------------- MODALS EDIT CUSTOMER------------------------------------->
   <?php while($row=$customer_info->fetch_array()){?>
-  <div class="modal fade" id="edit-customer<?php echo $row["customer-id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="edit-customer<?php echo $row["customer_id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl"> 
       <div class="modal-content">
         <div class="modal-header">
@@ -496,19 +501,19 @@
         </div>
         <form action="" method="post">
           <div class="modal-body p-5">
-            <input type="hidden" name="modal-customer-id" value="<?php echo $row["customer-id"]?>">
+            <input type="hidden" name="modal-customer-id" value="<?php echo $row["customer_id"]?>">
             <div class="row mb-2">
               <div class="col-md-3 col-sm-6">
                 <label for="modal-family-name">Family name:<i class="req">*</i></label></label>
-                <input type="text" name="modal-family-name" id="modal-family-name" class="form-control" placeholder="Surname" value="<?php echo $row["family-name"]?>" required>
+                <input type="text" name="modal-family-name" id="modal-family-name" class="form-control" placeholder="Surname" value="<?php echo $row["family_name"]?>" required>
               </div>
               <div class="col-md-3 col-sm-6">
                 <label for="modal-first-name">First name:<i class="req">*</i></label></label>
-                <input type="text" name="modal-first-name" id="modal-first-name" class="form-control" placeholder="Given name" value="<?php echo $row["first-name"]?>" required>
+                <input type="text" name="modal-first-name" id="modal-first-name" class="form-control" placeholder="Given name" value="<?php echo $row["first_name"]?>" required>
               </div>
               <div class="col-md-3 col-sm-6">
                 <label for="modal-middle-name">Middle name:</label>
-                <input type="text" name="modal-middle-name" id="modal-middle-name" class="form-control" placeholder="Middle name" value="<?php echo $row["middle-name"]?>">
+                <input type="text" name="modal-middle-name" id="modal-middle-name" class="form-control" placeholder="Middle name" value="<?php echo $row["middle_name"]?>">
               </div>
               <div class="col-md-3 col-sm-6">
                 <label for="modal-nickname">Other name:</label>
@@ -583,7 +588,78 @@
     </div>        
   </div>
   <?php }?>
-
+ <!------------------- MODALS SELECTED CUSTOMER------------------------------------->
+ <?php while($row=$customer_info_lot->fetch_array()){?>
+  <div class="modal fade" id="select-owner<?php echo $row["customer_id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+            <i class='bx bxs-layer fs-1' ></i>
+            &nbsp;Owner Setup
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body p-5">
+            <div class="row mb-3">
+              <div class="col-md-4 mb-2">
+                <label for="owner">Fullname:</label>
+                <input type="text" class="form-control" id="owner" name="owner" value="<?php echo $row["first_name"].' '.$row["middle_name"].' '.$row["family_name"]?>" readonly>
+                <input type="hidden" class="form-control" id="customer-id" name="customer-id" value="<?php echo $row["customer_id"]?>">
+              </div>
+              <div class="col-md-4">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" name="email" value="<?php echo $row["email"]?>" readonly>
+              </div>
+              <div class="col-md-4">
+                <label for="owner">Contact no:</label>
+                <input type="text" class="form-control" id="contact" name="contact" value="<?php echo $row["contact"]?>" readonly>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="owner">Site:</label>
+                <select class="form-select">
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="owner">Lawn Type:</label>
+                <select class="form-select">
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="owner">Lawn Lot:</label>
+                <select class="form-select">
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="owner">Lawn Sector:</label>
+                <select class="form-select">
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="owner">Lawn Block:</label>
+                <select class="form-select">
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="owner">Deed of Sale:</label>
+                <input type="file" name="" id="" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary">Add</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>        
+  </div>
+<?php }?>
  
   <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
   <script src="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>

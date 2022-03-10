@@ -15,7 +15,7 @@ if(isset($_POST["btn-submit-customer"])){
   $civil_status=mysqli_real_escape_string($con, $_POST["civil-status"]);
   $work=mysqli_real_escape_string($con, $_POST["work"]);
 
-  $sql=$con->query("INSERT INTO `customers`(`family-name`, `first-name`, `middle-name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES ('$family_name','$first_name','$middle_name','$nickname','$address','$contact','$email','$bday','$gender','$religion','$citizenship','$civil_status','$work')");
+  $sql=$con->query("INSERT INTO `customers`(`family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES ('$family_name','$first_name','$middle_name','$nickname','$address','$contact','$email','$bday','$gender','$religion','$citizenship','$civil_status','$work')");
 
   echo "<script>
   Swal.fire({
@@ -58,7 +58,7 @@ if(isset($_POST["btn-update"])){
   $modal_civil_status=mysqli_real_escape_string($con, $_POST["modal-civil-status"]);
   $modal_work=mysqli_real_escape_string($con, $_POST["modal-work"]);
 
-  $sql=$con->query("UPDATE `customers` SET `family-name`='$modal_family_name',`first-name`='$modal_first_name',`middle-name`='$modal_middle_name',`nickname`='$modal_nickname',`address`='$modal_address',`contact`='$modal_contact',`email`='$modal_email',`bday`='$modal_bday',`gender`='$modal_gender',`religion`='$modal_religion',`citizenship`='$modal_citizenship',`status`='$modal_civil_status',`work`='$modal_work' WHERE `customer-id`='$modal_customer_id'");
+  $sql=$con->query("UPDATE `customers` SET `family_name`='$modal_family_name',`first_name`='$modal_first_name',`middle_name`='$modal_middle_name',`nickname`='$modal_nickname',`address`='$modal_address',`contact`='$modal_contact',`email`='$modal_email',`bday`='$modal_bday',`gender`='$modal_gender',`religion`='$modal_religion',`citizenship`='$modal_citizenship',`status`='$modal_civil_status',`work`='$modal_work' WHERE `customer-id`='$modal_customer_id'");
 
   echo "<script>
   Swal.fire({
@@ -109,7 +109,7 @@ if(isset($_POST["btn-submit-dead"])){
   $burial_permit="burial-permit";
   $deed_of_sale="deed-of-sale";
 
-  $sql=$con->query("INSERT INTO `deceased`(`customer-id`, `dead-family-name`, `dead-fname`, `dead-mname`, `dead-gender`, `dead-citizenship`, `dead-civil-status`, `dead-relative`, `dead-relative-surname`, `dead-relationship`, `internment-date`, `date-of-birth`, `date-of-death`, `death-cert`, `burial-permit`, `deed-of-sale`) VALUES ('$customer_id', '$dead_family_name', '$dead_first_name', '$dead_middle_name', '$dead_gender', '$dead_citizenship', '$dead_civil_status', '$relative', '$relative_surname', '$relationship', '$internment_date', '$date_of_birth', '$date_of_death', '$death_cert', '$burial_permit', '$deed_of_sale')");
+  $sql=$con->query("INSERT INTO `deceased`(`customer_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead_gender`, `dead_citizenship`, `dead_civil-status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`, `deed_of_sale`) VALUES ('$customer_id', '$dead_family_name', '$dead_first_name', '$dead_middle_name', '$dead_gender', '$dead_citizenship', '$dead_civil_status', '$relative', '$relative_surname', '$relationship', '$internment_date', '$date_of_birth', '$date_of_death', '$death_cert', '$burial_permit', '$deed_of_sale')");
 
   echo "<script>
   Swal.fire({

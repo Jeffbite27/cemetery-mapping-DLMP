@@ -49,7 +49,22 @@ $("#dead-relative, #dead-relative-surname").keyup(function(){
   })
 })
 $(document).ready( function () {
-  $('#tbl-customer').DataTable({
+  $("#tbl-customer").DataTable({
     "responsive": true
   });
+  $("#tbl-owners-info").DataTable({
+    "responsive": true
+  })
+})
+// ----------------------------BLOCK AND LOT PAGE-------------------------------------
+$(document).ready( function () {
+  $("#tbl-site-info").DataTable({
+    "responsive": true
+  })
+  $("#tbl-block-info").DataTable({
+    "responsive": true
+  })
+  $("#tbl-lot-info").DataTable({
+    "responsive": true
+  })
 })

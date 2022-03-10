@@ -327,7 +327,7 @@ body{
 i.req{
   color: red;
 }
-.tbl-customer-header {
+.tbl-header {
   background-color: var(--color1);
 }
 .modal-footer{
@@ -346,6 +346,20 @@ i.req{
 /* .title-header{
   background-color: white !important;
 } */
+/* ------------------------------BLOCK AND LOT PAGE------------------------------ */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-top: 2px solid;
+    border-color: var(--color1) #dee2e6 #fff !important;
+}
+.nav-link {
+  align-items: left;
+  justify-content: center;
+  color: rgba(21, 21, 21, 0.774);
+}
+.nav-link.active {
+  color: rgba(0, 0, 0, 0.774) !important;
+  font-weight: 500;
+}
 @media (max-width: 420px) {
   .sidebar.close .nav-links li .sub-menu{
     display: none;

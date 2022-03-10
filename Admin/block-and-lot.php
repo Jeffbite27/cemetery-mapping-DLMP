@@ -5,8 +5,9 @@
   include("../config.php");
   $con=connect();
 
-  $customers=$con->query("SELECT * FROM `customers`");
-  $customer_info=$con->query("SELECT * FROM `customers`");
+  $sites=$con->query("SELECT * FROM `tbl_sites`");
+  $sites_block=$con->query("SELECT * FROM `tbl_sites`");
+  $blocks=$con->query("SELECT tbl_blocks.block_id, tbl_blocks.site_id, tbl_blocks.block_name, tbl_sites.site_name, tbl_blocks.sector, tbl_blocks.total_lots FROM `tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -26,7 +27,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
-  <?php include("queries/application.php");?>
+  <?php include("queries/block_and_lot.php");?>
   <div class="sidebar close">
 
     <div class="logo-details">
@@ -106,117 +107,245 @@
               <i class='bx bx-layer fs-1'></i>
               &nbsp;BLOCK AND LOT SETUP</h2>
             <hr>
-            <div class="row p-0">
-            
+            <div class="row mb-4 p-0">
+              <div class="col-sm-12 col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link text-dark active" id="sites-tab" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab" aria-controls="sites" aria-selected="true">Garden Sites</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link text-dark" id="blocks-tab" data-bs-toggle="tab" data-bs-target="#blocks" type="button" role="tab" aria-controls="blocks" aria-selected="false">Blocks</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link text-dark" id="lots-tab" data-bs-toggle="tab" data-bs-target="#lots" type="button" role="tab" aria-controls="lots" aria-selected="false">Lots</button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active" id="sites" role="tabpanel" aria-labelledby="sites-tab">
+                        <div class="head">
+                          <div class="row p-0">
+                            <div class="col-sm-12 col-md-12">
+                              <div class="p-3 h-100 rounded">
+                                <div class="title-header p-3 d-flex">
+                                  <h5 class="d-flex align-items-center">
+                                  <i class='bx bx-sitemap fs-3' ></i>
+                                  &nbsp;List of Garden Sites</h5>
+                                  <button class="btn btn-primary add-customer d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#add-site">
+                                    <i class='bx bx-plus fs-4'></i> 
+                                    &nbsp;New Site
+                                  </button>
+                                </div> 
+                                <br>
+                                <div class="site">
+                                  <table class="table table-striped table-bordered w-100" id="tbl-site-info">
+                                    <thead class="tbl-header text-light">
+                                      <th>#</th>
+                                      <th>Sites</th>
+                                      <th>Square Meter</th>
+                                      <th>Total Blocks</th>
+                                      <th>Total Lots</th>
+                                      <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                      <?php while($row=$sites->fetch_array()){?>
+                                        <tr>
+                                          <td class="align-middle"><?php echo $row["site_id"] ?></td>
+                                          <td class="align-middle"><?php echo $row["site_name"] ?></td>
+                                          <td class="align-middle"><?php echo $row["site_sqm2"] ?></td>
+                                          <td class="align-middle"><?php echo $row["total_blocks"] ?></td>
+                                          <td class="align-middle"><?php echo $row["total_lots"] ?></td>
+                                          <td class="align-middle text-center">
+                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-site<?php echo $row["site_id"]?>">
+                                              <i class='bx bxs-edit'></i>
+                                            </button>
+                                          </td>
+                                        </tr>
+                                      <?php }?>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="blocks" role="tabpanel" aria-labelledby="blocks-tab">
+                        <div class="head">
+                          <div class="row p-0">
+                            <div class="col-sm-12 col-md-12">
+                              <div class="p-3 h-100 rounded">
+                                <div class="title-header p-3 d-flex">
+                                  <h5 class="d-flex align-items-center">
+                                  <i class='bx bxs-cube-alt fs-3'></i>
+                                  &nbsp;List of Blocks</h5>
+                                  <button class="btn btn-primary add-customer d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#add-block">
+                                    <i class='bx bx-plus fs-4'></i> 
+                                    &nbsp;New Block
+                                  </button>
+                                </div> 
+                                <br>
+                                <div class="block">
+                                  <table class="table table-striped table-bordered w-100" id="tbl-block-info">
+                                    <thead class="tbl-header text-light">
+                                      <th>#</th>
+                                      <th>Blocks</th>
+                                      <th>Sectors</th>
+                                      <th>Sites</th>
+                                      <th>Total Lots</th>
+                                      <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                      <?php while($row=$blocks->fetch_array()){?>
+                                        <tr>
+                                          <td class="align-middle"><?php echo $row["block_id"] ?></td>
+                                          <td class="align-middle"><?php echo $row["block_name"] ?></td>
+                                          <td class="align-middle"><?php echo $row["sector"] ?></td>
+                                          <td class="align-middle"><?php echo $row["site_name"] ?></td>
+                                          <td class="align-middle"><?php echo $row["total_lots"] ?></td>
+                                          <td class="align-middle text-center">
+                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-block<?php echo $row["block_id"]?>">
+                                              <i class='bx bxs-edit'></i>
+                                            </button>
+                                          </td>
+                                        </tr>
+                                      <?php }?>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="lots" role="tabpanel" aria-labelledby="lots-tab">
+                        <div class="head">
+                          <div class="row p-0">
+                            <div class="col-sm-12 col-md-12">
+                              <div class="p-3 h-100 rounded">
+                                <div class="title-header p-3 d-flex">
+                                  <h5 class="d-flex align-items-center">
+                                  <i class='bx bxs-grid fs-3' ></i>
+                                  &nbsp;List of Lots</h5>
+                                  <button class="btn btn-primary add-customer d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#add-site">
+                                    <i class='bx bx-plus fs-4'></i> 
+                                    &nbsp;New Lot
+                                  </button>
+                                </div> 
+                                <br>
+                                <div class="lot">
+                                  <table class="table table-striped table-bordered w-100" id="tbl-lot-info">
+                                    <thead class="tbl-header text-light">
+                                      <th>#</th>
+                                      <th>Lots</th>
+                                      <th>Blocks</th>
+                                      <th>Sites</th>
+                                      <th>Lawn Type</th>
+                                      <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-<!------------------------- MODALS ADD CUSTOMER --------------------------------------->
           </div>
         </div>
       </div>
   </section>
-  <!------------------------- MODALS EDIT CUSTOMER------------------------------------->
-  <?php while($row=$customer_info->fetch_array()){?>
-  <div class="modal fade" id="edit-customer<?php echo $row["customer-id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <!------------------------- MODAL ADD SITE ----------------------------->
+  <div class="modal fade" id="add-site" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl"> 
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-            <i class='bx bxs-edit fs-1'></i> 
-            &nbsp;Edit Customer's Details
+            <i class='bx bx-sitemap fs-1' ></i>
+            &nbsp;Add New Site
           </h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="" method="post">
           <div class="modal-body p-5">
-            <input type="hidden" name="modal-customer-id" value="<?php echo $row["customer-id"]?>">
-            <div class="row mb-2">
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-family-name">Family name:<i class="req">*</i></label></label>
-                <input type="text" name="modal-family-name" id="modal-family-name" class="form-control" placeholder="Surname" value="<?php echo $row["family-name"]?>" required>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="site-name">Site name:</label>
+                <input type="text" id="site-name" name="site-name" placeholder="Name of Site" class="form-control" required>
               </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-first-name">First name:<i class="req">*</i></label></label>
-                <input type="text" name="modal-first-name" id="modal-first-name" class="form-control" placeholder="Given name" value="<?php echo $row["first-name"]?>" required>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-middle-name">Middle name:</label>
-                <input type="text" name="modal-middle-name" id="modal-middle-name" class="form-control" placeholder="Middle name" value="<?php echo $row["middle-name"]?>">
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-nickname">Other name:</label>
-                <input type="text" name="modal-nickname" id="modal-nickname" class="form-control" placeholder="Nickname" value="<?php echo $row["nickname"]?>">
+              <div class="col-md-6">
+                <label for="site-sqm2">Square meters:</label>
+                <input type="text" id="site-sqm2" name="site-sqm2" placeholder="ex. 4sqm" class="form-control" required>
               </div>
             </div>
-            <div class="row mb-2">
-              <div class="col-md-12 col-sm-12">
-                <label for="modal-home-address">Home Address:<i class="req">*</i></label></label>
-                <input type="text" name="modal-home-address" id="modal-home-address" class="form-control" placeholder="House No./Unit/Purok/Subdivision/Village - Brgy. - City - Province" value="<?php echo $row["address"]?>" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" name="btn-submit-site" id="btn-submit-site" class="btn btn-primary">Add</button>
+            <button type="reset" class="btn btn-danger">Reset</button> 
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!------------------------- MODAL ADD BLOCK ----------------------------->
+  <div class="modal fade" id="add-block" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+            <i class='bx bxs-cube-alt fs-1'></i>
+            &nbsp;Add New Block
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body p-5">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="block-name">Block name:</label>
+                <input type="text" id="block-name" name="block-name" placeholder="Block name" class="form-control" required>
               </div>
-            </div>
-            <div class="row mb-2">
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-contact">Contact No:<i class="req">*</i></label>
-                <input type="text" name="modal-contact" id="modal-contact" class="form-control" placeholder="Contact number" value="<?php echo $row["contact"]?>" required>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-email">Email:<i class="req">*</i></label>
-                <input type="email" name="modal-email" id="modal-email" class="form-control" placeholder="Email address" value="<?php echo $row["email"]?>" required>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-bday">Birthday:<i class="req">*</i></label>
-                <input type="date" name="modal-bday" id="modal-bday" class="form-control" placeholder="Contact number" value="<?php echo $row["bday"]?>" required>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-gender">Gender:<i class="req">*</i></label>
-                <select name="modal-gender" id="modal-gender" class="form-select" required>
-                    <option value="<?php echo $row["gender"]?>"><?php echo $row["gender"]?></option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+              <div class="col-md-4">
+                <label for="sector">Sector:</label>
+                <select id="sector" name="sector" class="form-select" required>
+                  <option value="" selected disabled>Select Sector</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
                 </select>
               </div>
-            </div>
-            <div class="row mb-2">
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-religion">Religion:<i class="req">*</i></label>
-                <input type="text" name="modal-religion" id="modal-religion" class="form-control" placeholder="Religion" value="<?php echo $row["religion"]?>" required>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-citizenship">Citizenship:<i class="req">*</i></label>
-                <input type="text" name="modal-citizenship" id="modal-citizenship" class="form-control" placeholder="Citizenship" value="<?php echo $row["citizenship"]?>" required>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-civil-status">Civil Status:<i class="req">*</i></label>
-                <select name="modal-civil-status" id="modal-civil-status" class="form-select" required>
-                    <option value="<?php echo $row["status"]?>"><?php echo $row["status"]?></option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Seperated">Seperated</option>
-                </select>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <label for="modal-work">Occupation:<i class="req">*</i></label>
-                <select name="modal-work" id="modal-work" class="form-select" required>
-                    <option value="<?php echo $row["work"]?>"><?php echo $row["work"]?></option>
-                    <option value="Government Employee">Government Employee</option>
-                    <option value="Private Employee">Private Employee</option>
-                    <option value="Self-Employed">Self-Employed</option>
-                    <option value="Unemployed">Unemployed</option>
+              <div class="col-md-4">
+                <label for="site-id">Site name:</label>
+                <select type="text" id="site-id" name="site-id" class="form-select" required>
+                  <option value="" selected disabled>Select Site</option>
+                  <?php while($row=$sites_block->fetch_array()){?>
+                    <option value="<?php echo $row["site_id"] ?>"><?php echo $row["site_name"] ?></option>
+                  <?php }?>
                 </select>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" name="btn-update" id="btn-update">Save</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> 
+            <button type="submit" name="btn-submit-block" id="btn-submit-block" class="btn btn-primary">Add</button>
+            <button type="reset" class="btn btn-danger">Reset</button> 
           </div>
         </form>
       </div>
-    </div>        
+    </div>
   </div>
-  <?php }?>
 
- 
+
   <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
   <script src="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
   <script src="../Assets/js/jquery.min.js"></script>
