@@ -35,102 +35,60 @@
 
     <ul class="nav-links">
       
-      <li class="tabs">
+      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
         <a href="dashboard.php">
           <i class='bx bx-grid-alt bx-rotate-180' ></i>
           <span class="link_name">Dashboard</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="dashboard.php">Dashboard</a></li>
-        </ul>
       </li>
 
-      <!-- <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-carousel'></i>
-            <span class="link_name">Pages</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Pages</a></li>
-          <li><a href="#">Slideshow</a></li>
-          <li><a href="#">News & Events</a></li>
-        </ul>
-      </li> -->
-
-      
-
-
-      <li class="tabs active">
+      <li class="tabs active" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customer">
         <a href="customer.php">
           <i class='bx bx-user' ></i>
           <span class="link_name">Customer</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="customer.php">Customer</a></li>
-        </ul>
       </li>
 
-      <li class="tabs">
-        <a href="#">
+      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Block & Lot Setup">
+        <a href="block-and-lot.php">
           <i class='bx bx-layer'></i>
           <span class="link_name">Block & Lot Setup</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Block & Lot Setup</a></li>
-        </ul>
       </li>
 
-      <li class="tabs">
+      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Interment Setup">
         <a href="interment_Setup.php">
           <i class='bx bxs-user-rectangle' ></i>
           <span class="link_name">Interment Setup</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="interment_Setup.php">Interment Setup</a></li>
-        </ul>
       </li>
 
-      <li class="tabs">
+      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Grave Map">
         <a href="#">
           <i class='bx bx-map-alt' ></i>
           <span class="link_name">Grave Map</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Grave Map</a></li>
-        </ul>
       </li>
 
-      <li class="tabs">
+      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Reports">
         <a href="#">
           <i class='bx bx-bar-chart-square'></i>
           <span class="link_name">Reports</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Reports</a></li>
-        </ul>
       </li>
 
-      <li class="tabs">
+      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Slideshow">
         <a href="#">
           <i class='bx bx-carousel' ></i>
           <span class="link_name">Slideshow</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Slideshow</a></li>
-        </ul>
       </li>
 
-      <li class="tabs">
+      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="News & Events">
         <a href="#">
           <i class='bx bx-news'></i>
           <span class="link_name">News & Events</span>
         </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">News & Events</a></li>
-        </ul>
       </li>
       
     </ul>
@@ -520,6 +478,7 @@
                 </div>
               </div>        
             </div>
+          </div>
         </div>
       </div>
   </section>
