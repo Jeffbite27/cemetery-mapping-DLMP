@@ -380,7 +380,7 @@
                     <table class="tbl-customer table table-striped table-bordered w-100" id="tbl-customer">
                       <thead class="tbl-customer-header text-light">
                         <th>#</th>
-                        <th>Customer Name</th>
+                        <th>Name</th>
                         <th>Address</th>
                         <th>Contact #</th>
                         <th>Email</th>
@@ -388,7 +388,7 @@
                         <th>Gender</th>
                         <th>Religion</th>
                         <th>Citizenship</th>
-                        <th>Civil Status</th>
+                        <th>Status</th>
                         <th>Occupation</th>
                         <th>Action</th>
                       </thead>
@@ -535,9 +535,9 @@
           </h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="">
+        <form action="" method="post">
           <div class="modal-body p-5">
-            <input type="hidden" name="customer-ID" value="<?php echo $row["customer-id"]?>">
+            <input type="hidden" name="modal-customer-id" value="<?php echo $row["customer-id"]?>">
             <div class="row mb-2">
               <div class="col-md-3 col-sm-6">
                 <label for="modal-family-name">Family name:<i class="req">*</i></label></label>
@@ -558,8 +558,8 @@
             </div>
             <div class="row mb-2">
               <div class="col-md-12 col-sm-12">
-                <label for="modal-address">Home Address:<i class="req">*</i></label></label>
-                <input type="text" name="modal-address" id="modal-address" class="form-control" placeholder="House No./Unit/Purok/Subdivision/Village - Brgy. - City - Province" value="<?php echo $row["address"]?>" required>
+                <label for="modal-home-address">Home Address:<i class="req">*</i></label></label>
+                <input type="text" name="modal-home-address" id="modal-home-address" class="form-control" placeholder="House No./Unit/Purok/Subdivision/Village - Brgy. - City - Province" value="<?php echo $row["address"]?>" required>
               </div>
             </div>
             <div class="row mb-2">
@@ -573,7 +573,7 @@
               </div>
               <div class="col-md-3 col-sm-6">
                 <label for="modal-bday">Birthday:<i class="req">*</i></label>
-                <input type="date" name="modal-bday" id="modal-bday" class="form-control" placeholder="Contact number" value="<?php echo $row["contact"]?>" required>
+                <input type="date" name="modal-bday" id="modal-bday" class="form-control" placeholder="Contact number" value="<?php echo $row["bday"]?>" required>
               </div>
               <div class="col-md-3 col-sm-6">
                 <label for="modal-gender">Gender:<i class="req">*</i></label>
@@ -616,7 +616,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary" name="btn-update" id="btn-update">Save</button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> 
           </div>
         </form>
