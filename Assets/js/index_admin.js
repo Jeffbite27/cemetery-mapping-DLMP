@@ -44,7 +44,6 @@ $("#dead-relative, #dead-relative-surname").keyup(function(){
 })
 $(document).ready( function () {
   $('#tbl-customer').DataTable({
-    "responsive": true,
-    "fixedHeader": true
+    "responsive": true
   });
 })

@@ -24,11 +24,23 @@ if(isset($_POST["btn-submit-customer"])){
     title: 'Successfully Registered',
     text: 'You added a new customer',
     showConfirmButton: false,
-    timer: 2000
+    timer: 2000,
+    allowOutsideClick: () => {
+      const popup = Swal.getPopup()
+      popup.classList.remove('swal2-show')
+      setTimeout(() => {
+        popup.classList.add('animate__animated', 'animate__headShake')
+      })
+      setTimeout(() => {
+        popup.classList.remove('animate__animated', 'animate__headShake')
+      }, 500)
+      return false
+    }
   })
-
   window.history.replaceState( null, null, window.location.href );
   </script>";
+
+  header("refresh: 2;");
 }
 
 // ---------------------------------DECEASED SUBMIT------------------------------------
