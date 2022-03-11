@@ -4,10 +4,13 @@
   }
   include("../config.php");
   $con=connect();
-
-  $customers=$con->query("SELECT * FROM `customers`");
-  $customer_info=$con->query("SELECT * FROM `customers`");
-  $customer_info_lot=$con->query("SELECT * FROM `customers`");
+  if(isset($_SESSION["username"])){
+    $customers=$con->query("SELECT * FROM `customers`");
+    $customer_info=$con->query("SELECT * FROM `customers`");
+    $customer_info_lot=$con->query("SELECT * FROM `customers`");
+  }else{
+    header("Location: index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

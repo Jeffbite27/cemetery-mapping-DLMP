@@ -4,6 +4,11 @@
   }
   include("../config.php");
   $con=connect();
+  if(isset($_SESSION["username"])){
+
+  }else{
+    header("Location: index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

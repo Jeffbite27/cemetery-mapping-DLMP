@@ -4,10 +4,13 @@
   }
   include("../config.php");
   $con=connect();
-
-  $sites=$con->query("SELECT * FROM `tbl_sites`");
-  $sites_block=$con->query("SELECT * FROM `tbl_sites`");
-  $blocks=$con->query("SELECT tbl_blocks.block_id, tbl_blocks.site_id, tbl_blocks.block_name, tbl_sites.site_name, tbl_blocks.sector, tbl_blocks.total_lots FROM `tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id");
+  if(isset($_SESSION["username"])){
+    $sites=$con->query("SELECT * FROM `tbl_sites`");
+    $sites_block=$con->query("SELECT * FROM `tbl_sites`");
+    $blocks=$con->query("SELECT tbl_blocks.block_id, tbl_blocks.site_id, tbl_blocks.block_name, tbl_sites.site_name, tbl_blocks.sector, tbl_blocks.total_lots FROM `tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id");
+  }else{
+    header("Location: index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
