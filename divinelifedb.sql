@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2022 at 08:55 PM
+-- Generation Time: Mar 11, 2022 at 02:44 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -110,32 +110,6 @@ INSERT INTO `deceased` (`deceased_id`, `customer_id`, `dead_family_name`, `dead_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `staff_employee`
---
-
-CREATE TABLE `staff_employee` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(150) NOT NULL,
-  `lastname` varchar(150) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `username` varchar(150) NOT NULL,
-  `password` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `staff_employee`
---
-
-INSERT INTO `staff_employee` (`id`, `firstname`, `lastname`, `email`, `username`, `password`) VALUES
-(1, 'jeff', 'daño', 'jeffdo19@gmail.com', '222', 'xzxcxx'),
-(6, 'aaa', 'ssd', 'zxczxczx@agag', 'aaas', 'zzzzzz'),
-(7, 'asdaa', 'aasd', 'jeffdo19@gmail.com', 'xxxxx', 'xxxx '),
-(8, 'azxc', 'zxczx', 'asdad@xc', 'zxc', 'asd '),
-(10, 'Rico', 'Guinanao', 'guinanaorico@gmail.com', 'rics', '123 ');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_blocks`
 --
 
@@ -152,7 +126,17 @@ CREATE TABLE `tbl_blocks` (
 --
 
 INSERT INTO `tbl_blocks` (`block_id`, `site_id`, `block_name`, `sector`, `total_lots`) VALUES
-(1, 1, '1', 'A', '0');
+(1, 1, '1', 'A', '3'),
+(2, 1, '2', 'A', '0'),
+(3, 1, '3', 'A', '0'),
+(4, 1, '1', 'B', '0'),
+(5, 1, '2', 'B', '0'),
+(6, 1, '3', 'B', '0'),
+(7, 2, '1', 'A', '1'),
+(8, 2, '2', 'B', '0'),
+(9, 2, '2', 'A', '0'),
+(10, 2, '1', 'B', '0'),
+(11, 1, '1', 'C', '0');
 
 -- --------------------------------------------------------
 
@@ -165,11 +149,18 @@ CREATE TABLE `tbl_lots` (
   `block_id` int(11) NOT NULL,
   `site_id` int(11) NOT NULL,
   `lot_name` varchar(255) NOT NULL,
-  `block_name` varchar(255) NOT NULL,
   `sector` varchar(255) NOT NULL,
-  `site_name` varchar(255) NOT NULL,
   `lawn_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_lots`
+--
+
+INSERT INTO `tbl_lots` (`lot_id`, `block_id`, `site_id`, `lot_name`, `sector`, `lawn_type`) VALUES
+(1, 1, 1, '1', 'A', 'Premium'),
+(2, 1, 1, '2', 'A', 'Premium'),
+(3, 1, 1, '3', 'A', 'Premium');
 
 -- --------------------------------------------------------
 
@@ -190,11 +181,12 @@ CREATE TABLE `tbl_sites` (
 --
 
 INSERT INTO `tbl_sites` (`site_id`, `site_name`, `site_sqm2`, `total_blocks`, `total_lots`) VALUES
-(1, 'Love Garden', '50sqm', '1', '0'),
-(2, 'Faith Garden', '40sqm', '0', '0'),
+(1, 'Love Garden', '50sqm', '7', '3'),
+(2, 'Faith Garden', '40sqm', '4', '1'),
 (3, 'Hope Garden', '30sqm', '0', '0'),
 (4, 'Peace Garden', '60sqm', '0', '0'),
-(5, 'Joy Garden', '40sqm', '0', '0');
+(5, 'Joy Garden', '40sqm', '0', '0'),
+(6, 'Meteor Garden', '60sqm', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -243,12 +235,6 @@ ALTER TABLE `deceased`
   ADD PRIMARY KEY (`deceased_id`);
 
 --
--- Indexes for table `staff_employee`
---
-ALTER TABLE `staff_employee`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_blocks`
 --
 ALTER TABLE `tbl_blocks`
@@ -295,28 +281,22 @@ ALTER TABLE `deceased`
   MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `staff_employee`
---
-ALTER TABLE `staff_employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT for table `tbl_blocks`
 --
 ALTER TABLE `tbl_blocks`
-  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_lots`
 --
 ALTER TABLE `tbl_lots`
-  MODIFY `lot_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `lot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_sites`
 --
 ALTER TABLE `tbl_sites`
-  MODIFY `site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `userregistration`

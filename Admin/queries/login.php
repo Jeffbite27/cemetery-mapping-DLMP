@@ -10,13 +10,10 @@
     $user=mysqli_real_escape_string($con, $_POST["user"]);
     $pwd=mysqli_real_escape_string($con, $_POST["pwd"]);
 
-    $sql=$con->query("SELECT * FROM `staff_employee` WHERE `username`='$user'");
+    $sql=$con->query("SELECT * FROM `admin_acc` WHERE `username`='$user'");
     $row=$sql->fetch_assoc();
     
     if(($sql->num_rows!=0)&&($row["username"]=="$user"&&$row["password"]=="$pwd")){
-      $_SESSION["fname"]=$row["firstname"];
-      $_SESSION["lname"]=$row["lastname"];
-      $_SESSION["email"]=$row["email"];
       $_SESSION["username"]=$row["username"];
       echo 
         "<script>
@@ -24,7 +21,7 @@
             position: 'center',
             icon: 'success',
             title: 'Successfully Logged In',
-            text: 'Welcome $_SESSION[fname]!',
+            text: 'Welcome $_SESSION[username]!',
             showConfirmButton: false,
             timer: 2000
           })

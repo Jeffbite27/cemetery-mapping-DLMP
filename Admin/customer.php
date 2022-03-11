@@ -369,10 +369,10 @@
                           <td class="align-middle"><?php echo $row["status"]?></td>
                           <td class="align-middle"><?php echo $row["work"]?></td>
                           <td class="text-center align-middle">
-                            <button class="btn btn-primary" id="btn-select" data-bs-toggle="modal" data-bs-target="#select-owner<?php echo $row["customer_id"]?>">
+                            <button class="btn btn-primary mb-1" id="btn-select" data-bs-toggle="modal" data-bs-target="#select-owner<?php echo $row["customer_id"]?>">
                               <i class='bx bx-layer' ></i>
                             </button>
-                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-customer<?php echo $row["customer_id"]?>">
+                            <button class="btn btn-success mb-1" data-bs-toggle="modal" data-bs-target="#edit-customer<?php echo $row["customer_id"]?>">
                               <i class='bx bxs-edit'></i>
                             </button>
                             
