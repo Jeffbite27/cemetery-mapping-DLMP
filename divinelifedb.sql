@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2022 at 02:28 PM
+-- Generation Time: Mar 11, 2022 at 02:44 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -106,32 +106,6 @@ CREATE TABLE `deceased` (
 
 INSERT INTO `deceased` (`deceased_id`, `customer_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead-gender`, `dead_citizenship`, `dead_civil_status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`, `deed_of_sale`) VALUES
 (1, 1, 'Musk', 'Elon', 'Estribo', 'Male', 'Filipino', 'Single', 'Rico', 'Guinanao', 'Cousin', '2022-03-17', '2022-03-22', '2022-03-09', 'death-cert', 'burial-permit', 'deed-of-sale');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `staff_employee`
---
-
-CREATE TABLE `staff_employee` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(150) NOT NULL,
-  `lastname` varchar(150) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `username` varchar(150) NOT NULL,
-  `password` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `staff_employee`
---
-
-INSERT INTO `staff_employee` (`id`, `firstname`, `lastname`, `email`, `username`, `password`) VALUES
-(1, 'jeff', 'daño', 'jeffdo19@gmail.com', '222', 'xzxcxx'),
-(6, 'aaa', 'ssd', 'zxczxczx@agag', 'aaas', 'zzzzzz'),
-(7, 'asdaa', 'aasd', 'jeffdo19@gmail.com', 'xxxxx', 'xxxx '),
-(8, 'azxc', 'zxczx', 'asdad@xc', 'zxc', 'asd '),
-(10, 'Rico', 'Guinanao', 'guinanaorico@gmail.com', 'rics', '123 ');
 
 -- --------------------------------------------------------
 
@@ -261,12 +235,6 @@ ALTER TABLE `deceased`
   ADD PRIMARY KEY (`deceased_id`);
 
 --
--- Indexes for table `staff_employee`
---
-ALTER TABLE `staff_employee`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_blocks`
 --
 ALTER TABLE `tbl_blocks`
@@ -311,12 +279,6 @@ ALTER TABLE `customers`
 --
 ALTER TABLE `deceased`
   MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `staff_employee`
---
-ALTER TABLE `staff_employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_blocks`
