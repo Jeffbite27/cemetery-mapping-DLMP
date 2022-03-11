@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script href="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,9 @@
   <title>Log In | Divine Life Memorial Park</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
   <link rel="stylesheet" href="../Assets/css/style.css">
+  <link rel="stylesheet" href="../Assets/css/admin_login.css">
 
   <script src="../Assets/js/main.js" defer></script>
   <script src="../Assets/js/jquery.min.js"></script>
@@ -24,7 +26,47 @@
 <body>
     <div id="notif">
     </div>
-    <div class="container">
+
+    <div class="main-cont">
+        <div class="container1">
+
+            <div class="content first">
+                <img src="../Assets/image/logopngplain.png" alt="">
+            </div>
+
+            <div class="content second">
+                <h1>Admin Login</h1>
+                <form class="login-form mt-2 p-5 form" method="post" action="" enctype="multipart/form-data">
+
+                    <div class="main-input">
+                        <div class="input-cont input-group has-validation">
+                            <i class='bx bx-user'></i>
+                            <input type="text" class="" placeholder="Username" name="user" aria-describedby="inputGroupPrepend" id="user" required>
+                        </div>
+                    </div>
+                    
+                    <div class="main-input">
+                        <div class="input-cont input-group has-validation">
+                            <i class='bx bx-lock-alt' ></i>
+                            <input type="password" class="" placeholder="Password" name="pwd" aria-describedby="inputGroupPrepend" id="pwd" required>
+                        </div>
+                    </div>
+                    
+                    <div class="submit-btn">
+                        <button class="btn w-100 mt-3" type="" id="btn-login" name="btn-login">LOG IN</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="container2">
+            <img src="../Assets/image/logopngplain.png" alt="">
+            <p>Copyright © 2022 Divine Life Memorial Park. All rights reserved.</p>
+        </div>
+    </div>
+
+
+    <!-- <div class="container">
         <div class="sectionlogin">
             <section class="section1 close">
                 <div class="img">
@@ -35,9 +77,6 @@
                 <div class="sec-title">
                     <h1>ADMINISTRATOR</h1>
                 </div>
-                <!-- <div class="login-logo-container bg-white">
-                    <img src="Assets/image/logopngplain.png" alt="Logo" class="login-logo">
-                </div> -->
                 
                 <div class="sec-form text-center">
                     <form class="login-form mt-2 p-5" method="post" action="" enctype="multipart/form-data">
@@ -66,7 +105,7 @@
                 
             </section>
         </div>
-    </div>
+    </div> -->
 </body>
 <script>
     // ---------------------------------LOG IN----------------------------------------------

@@ -1,0 +1,141 @@
+/* Google Fonts Import Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root{
+  --Font1: 'Poppins', sans-serif;
+  --Font2: 'Roboto', sans-serif;
+  --Font3: 'Inter', sans-serif;
+
+  --color1: #832121;
+  --color2: white;
+  --color3: rgb(107, 21, 21);
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--Font1);
+}
+
+
+body{
+  color: var(--color1);
+}
+
+h1{
+  font-weight: 500;
+  font-size: 1.5rem;
+  
+}
+
+
+.main-cont{
+  width: 100%;
+  height: 100vh;
+}
+
+
+.container1{
+  width: 100%;
+  height: 50vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.911), rgba(255, 255, 255, 0.849), rgba(255, 255, 255, 0.925)), url("../image/about-cover.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.container2{
+  width: 100%;
+  height: 50vh;
+}
+
+.content{
+  width: 100%;
+}
+
+.content.first{
+  padding: 1em 2em;
+}
+
+.content.first img{
+  width: 120px;
+}
+
+.content.second{
+  text-align: center;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+
+
+.content.second .form{
+  margin-top: 2em;
+}
+
+.input-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 0em 0em;
+  gap: .5em;
+
+  box-shadow: 0 0 5px -2px rgba(0, 0, 0, .25);
+
+}
+
+.input-cont input{
+  outline: none;
+  border: none;
+  padding: .5em 1em;
+  color: var(--color1);
+  font-size: 1rem;
+
+  width: 80%;
+  
+}
+
+.input-cont i{
+  font-size: 1.3rem;
+}
+
+.submit-btn{
+  width: 10%;
+}
+
+.submit-btn button{
+  width: 300px;
+  color: white;
+  background-color: var(--color1);
+  border: none;
+  padding: .5em;
+}
+
+.submit-btn button:hover{
+    background-color: white;
+    color: var(--color1);
+}
+
+.container2{
+  text-align: center;
+  filter: grayscale(100%);
+  padding-top: 5em;
+}
+
+.container2 img{
+  width: 100px;
+  opacity: 20%;
+}
+
+.container2 p{
+  font-size: .5rem;
+}
