@@ -332,8 +332,10 @@
           <div class="modal-body p-5">
             <div class="row">
               <div class="col-md-4">
+
                 <label for="block-name">Block number:<i class="req">*</i></label>
                 <input type="number" id="block-name" name="block-name" placeholder="Block number" min="1" max="99" class="form-control" required>
+
               </div>
               <div class="col-md-4">
                 <label for="sector">Sector:<i class="req">*</i></label>
