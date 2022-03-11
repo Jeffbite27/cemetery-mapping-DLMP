@@ -3,32 +3,63 @@ if(isset($_POST["btn-submit-site"])){
   $site_name=mysqli_real_escape_string($con, $_POST["site-name"]);
   $square_meters=mysqli_real_escape_string($con, $_POST["site-sqm2"]);
 
-  $sql=$con->query("INSERT INTO `tbl_sites`(`site_name`, `site_sqm2`, `total_blocks`, `total_lots`) VALUES ('$site_name','$square_meters','0','0')");
+  $sql=$con->query("SELECT * FROM `tbl_sites` WHERE `site_name`='$site_name'");
+  $row=$sql->fetch_array();
 
-  echo "<script>
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Garden Site Successfully Added',
-    text: 'You added a new site',
-    showConfirmButton: false,
-    timer: 2000,
-    allowOutsideClick: () => {
-      const popup = Swal.getPopup()
-      popup.classList.remove('swal2-show')
-      setTimeout(() => {
-        popup.classList.add('animate__animated', 'animate__headShake')
-      })
-      setTimeout(() => {
-        popup.classList.remove('animate__animated', 'animate__headShake')
-      }, 500)
-      return false
-    }
-  })
-  window.history.replaceState( null, null, window.location.href );
-  </script>";
+  if($site_name!=isset($row["site_name"])){
+    $sql=$con->query("INSERT INTO `tbl_sites`(`site_name`, `site_sqm2`, `total_blocks`, `total_lots`) VALUES ('$site_name','$square_meters','0','0')");
 
-  header("refresh: 1;");
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Garden Site Successfully Added',
+      text: 'You added a new site',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  
+    header("refresh: 1;");
+  }else{
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Site Already Exists',
+      text: 'Enter another site name',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  
+    header("refresh: 1;");
+  }
+  
 }
 if(isset($_POST["btn-submit-block"])){
   $block_name=mysqli_real_escape_string($con, $_POST["block-name"]);
@@ -79,7 +110,7 @@ if(isset($_POST["btn-submit-block"])){
       position: 'center',
       icon: 'error',
       title: 'Block Already Exists',
-      text: 'Enter other block number',
+      text: 'Enter another block details',
       showConfirmButton: false,
       timer: 2000,
       allowOutsideClick: () => {
@@ -108,41 +139,74 @@ if(isset($_POST["btn-submit-lot"])){
   $lot_name=mysqli_real_escape_string($con, $_POST["lot-name"]);
   $lawn_type=mysqli_real_escape_string($con, $_POST["lawn-type"]);
   
-  $sql=$con->query("INSERT INTO `tbl_lots`(`block_id`, `site_id`, `lot_name`, `sector`, `lawn_type`) VALUES ('$block_id','$site_id','$lot_name','$sector','$lawn_type')");
+  $sql=$con->query("SELECT * FROM `tbl_lots` WHERE `lot_name`='$lot_name' AND `block_id`='$block_id' AND `sector`='$sector' AND `site_id`='$site_id'");
+  $row_lot=$sql->fetch_array();
+
+  if($site_id!=isset($row_lot["site_id"])&&$block_id!=isset($row_lot["block_id"])&&$sector!=isset($row_lot["sector"])&&$lot_name!=isset($row_lot["lot_name"])){
+
+    $sql=$con->query("INSERT INTO `tbl_lots`(`block_id`, `site_id`, `lot_name`, `sector`, `lawn_type`) VALUES ('$block_id','$site_id','$lot_name','$sector','$lawn_type')");
   
-  $sql=$con->query("SELECT COUNT(`lot_id`) AS `lots` FROM `tbl_lots` WHERE `site_id`='$site_id'");
-  $row=$sql->fetch_array();
-  $total_lots=$row["lots"];
+    $sql=$con->query("SELECT COUNT(`lot_id`) AS `lots` FROM `tbl_lots` WHERE `site_id`='$site_id'");
+    $row=$sql->fetch_array();
+    $total_lots=$row["lots"];
 
-  $sql=$con->query("SELECT COUNT(`lot_id`) AS `lots_block` FROM `tbl_lots` WHERE `block_id`='$block_id'");
-  $row=$sql->fetch_array();
-  $total_lots_block=$row["lots_block"];
+    $sql=$con->query("SELECT COUNT(`lot_id`) AS `lots_block` FROM `tbl_lots` WHERE `block_id`='$block_id'");
+    $row=$sql->fetch_array();
+    $total_lots_block=$row["lots_block"];
 
-  $sql=$con->query("UPDATE `tbl_sites` SET `total_lots`='$total_lots' WHERE `site_id`='$site_id'");
-  $sql=$con->query("UPDATE `tbl_blocks` SET `total_lots`='$total_lots_block' WHERE `block_id`='$block_id'");
+    $sql=$con->query("UPDATE `tbl_sites` SET `total_lots`='$total_lots' WHERE `site_id`='$site_id'");
+    $sql=$con->query("UPDATE `tbl_blocks` SET `total_lots`='$total_lots_block' WHERE `block_id`='$block_id'");
 
-  echo "<script>
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Lot Successfully Added',
-    text: 'You added a new lot',
-    showConfirmButton: false,
-    timer: 2000,
-    allowOutsideClick: () => {
-      const popup = Swal.getPopup()
-      popup.classList.remove('swal2-show')
-      setTimeout(() => {
-        popup.classList.add('animate__animated', 'animate__headShake')
-      })
-      setTimeout(() => {
-        popup.classList.remove('animate__animated', 'animate__headShake')
-      }, 500)
-      return false
-    }
-  })
-  window.history.replaceState( null, null, window.location.href );
-  </script>";
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Lot Successfully Added',
+      text: 'You added a new lot',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
 
-  header("refresh: 1;");
+    header("refresh: 1;");
+  }else{
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Lot Already Exists',
+      text: 'Enter another lot details',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  
+    header("refresh: 1;");
+  }
+
+  
 }

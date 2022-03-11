@@ -406,8 +406,8 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label for="lot-name">Lot name:<i class="req">*</i></label>
-                <input type="text" id="lot-name" name="lot-name" placeholder="Block name" class="form-control" required>
+                <label for="lot-name">Lot number:<i class="req">*</i></label>
+                <input type="number" id="lot-name" name="lot-name" min="1" max="99" placeholder="Lot number" class="form-control" required>
               </div>
               <div class="col-md-6">
                 <label for="lawn-type">Lawn Type:<i class="req">*</i></label>
