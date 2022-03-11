@@ -426,7 +426,7 @@
                       <div class="row mb-2">
                         <div class="col-md-3 col-sm-6">
                           <label for="contact">Contact No:<i class="req">*</i></label>
-                          <input type="text" name="contact" id="contact" class="form-control" placeholder="Contact number" required>
+                          <input type="text" name="contact" id="contact" class="form-control" pattern="(\+?\d{2}?\s?\d{3}\s?\d{3}\s?\d{4})|([0]\d{3}\s?\d{3}\s?\d{4})" maxlength="11" placeholder="09XXxxxxxxx" required>
                         </div>
                         <div class="col-md-3 col-sm-6">
                           <label for="email">Email:<i class="req">*</i></label>
@@ -532,7 +532,7 @@
             <div class="row mb-2">
               <div class="col-md-3 col-sm-6">
                 <label for="modal-contact">Contact No:<i class="req">*</i></label>
-                <input type="text" name="modal-contact" id="modal-contact" class="form-control" placeholder="Contact number" value="<?php echo $row["contact"]?>" required>
+                <input type="text" name="modal-contact" id="modal-contact" class="form-control" pattern="(\+?\d{2}?\s?\d{3}\s?\d{3}\s?\d{4})|([0]\d{3}\s?\d{3}\s?\d{4})" maxlength="11" placeholder="09XXxxxxxxx" value="<?php echo $row["contact"]?>" required>
               </div>
               <div class="col-md-3 col-sm-6">
                 <label for="modal-email">Email:<i class="req">*</i></label>

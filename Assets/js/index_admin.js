@@ -70,23 +70,37 @@ $(document).ready( function () {
 })
 $("#site-lot").change(function(){
   if($(this).val()!=""){
+    $("#sector-lot").prop("disabled", false);
+  }else{
+    $("#sector-lot").prop("disabled", true);
+  }
+})
+$("#sector-lot").change(function(){
+  mouseClick();
+  if($(this).val()!=""){
     $("#block-lot").prop("disabled", false);
+    $("#block-lot").html("<option value='' selected disabled>Select Block</option>");
   }else{
     $("#block-lot").prop("disabled", true);
   }
 })
 $("#btn-reset-lot").click(function(){
   $("#block-lot").prop("disabled", true);
+  $("#sector-lot").prop("disabled", true);
 })
-$("#block-lot").on('click', function(e){
-  e.preventDefault();
-  var site_id=$("#site-lot").val();
-  $.ajax({
-    url: "queries/block-select.php",
-    method: "post",
-    data: {site_id:site_id},
-    success:function(data){
-      $("#block-lot").html(data);
-    }
+function mouseClick(){
+  $(document).one('click', '#block-lot', function(e){
+    e.preventDefault();
+    var site_id=$("#site-lot").val();
+    var sector=$("#sector-lot").val();
+    $.ajax({
+      url: "queries/block-select.php",
+      method: "post",
+      data: {site_id:site_id, sector:sector},
+      success:function(data){
+        $("#block-lot").append(data);
+      }
+    })
   })
-})
+}
+

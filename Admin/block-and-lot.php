@@ -10,7 +10,6 @@
     $sites_lot=$con->query("SELECT * FROM `tbl_sites` WHERE `total_blocks`!='0'");
     $blocks=$con->query("SELECT tbl_blocks.block_id, tbl_blocks.site_id, tbl_blocks.block_name, tbl_sites.site_name, tbl_blocks.sector, tbl_blocks.total_lots FROM `tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id");
     $lots=$con->query("SELECT tbl_lots.lot_id, tbl_lots.lot_name, tbl_sites.site_name, tbl_blocks.block_name, tbl_lots.sector, tbl_lots.lawn_type FROM ((`tbl_lots` INNER JOIN `tbl_blocks` ON tbl_lots.block_id=tbl_blocks.block_id) INNER JOIN `tbl_sites` ON tbl_lots.site_id=tbl_sites.site_id)");
-
   }else{
     header("Location: index.php");
   }
@@ -57,7 +56,7 @@
       </li>
 
       <li class="tabs active" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Block & Lot Setup">
-        <a href="#">
+        <a href="block-and-lot.php">
           <i class='bx bx-layer'></i>
           <span class="link_name">Block & Lot Setup</span>
         </a>
@@ -333,8 +332,10 @@
           <div class="modal-body p-5">
             <div class="row">
               <div class="col-md-4">
-                <label for="block-name">Block No.:<i class="req">*</i></label>
-                <input type="text" id="block-name" name="block-name" placeholder="Block name" class="form-control" required>
+
+                <label for="block-name">Block number:<i class="req">*</i></label>
+                <input type="number" id="block-name" name="block-name" placeholder="Block number" min="1" max="99" class="form-control" required>
+
               </div>
               <div class="col-md-4">
                 <label for="sector">Sector:<i class="req">*</i></label>
@@ -389,14 +390,8 @@
                 </select>
               </div>
               <div class="col-md-4">
-                <label for="block-lot">Block No.:<i class="req">*</i></label>
-                <select type="text" id="block-lot" name="block-lot" class="form-select" required disabled>
-                  <option value="" selected disabled>Select Block</option>
-                </select>
-              </div>
-              <div class="col-md-4">
                 <label for="sector-lot">Sector:<i class="req">*</i></label>
-                <select id="sector-lot" name="sector-lot" class="form-select" required>
+                <select id="sector-lot" name="sector-lot" class="form-select" required disabled>
                   <option value="" selected disabled>Select Sector</option>
                   <option value="A">A</option>
                   <option value="B">B</option>
@@ -404,11 +399,17 @@
                   <option value="D">D</option>
                 </select>
               </div>
+              <div class="col-md-4">
+                <label for="block-lot">Block name:<i class="req">*</i></label>
+                <select type="text" id="block-lot" name="block-lot" class="form-select" required disabled>
+                  <option value="" selected disabled>Select Block</option>
+                </select>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label for="lot-name">Lot name:<i class="req">*</i></label>
-                <input type="text" id="lot-name" name="lot-name" placeholder="Block name" class="form-control" required>
+                <label for="lot-name">Lot number:<i class="req">*</i></label>
+                <input type="number" id="lot-name" name="lot-name" min="1" max="99" placeholder="Lot number" class="form-control" required>
               </div>
               <div class="col-md-6">
                 <label for="lawn-type">Lawn Type:<i class="req">*</i></label>
