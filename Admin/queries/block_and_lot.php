@@ -68,3 +68,48 @@ if(isset($_POST["btn-submit-block"])){
 
   header("refresh: 1;");
 }
+if(isset($_POST["btn-submit-lot"])){
+  $site_id=mysqli_real_escape_string($con, $_POST["site-lot"]);
+  $block_id=mysqli_real_escape_string($con, $_POST["block-lot"]);
+  $sector=mysqli_real_escape_string($con, $_POST["sector-lot"]);
+  $lot_name=mysqli_real_escape_string($con, $_POST["lot-name"]);
+  $lawn_type=mysqli_real_escape_string($con, $_POST["lawn-type"]);
+  
+  $sql=$con->query("INSERT INTO `tbl_lots`(`block_id`, `site_id`, `lot_name`, `sector`, `lawn_type`) VALUES ('$block_id','$site_id','$lot_name','$sector','$lawn_type')");
+  
+  $sql=$con->query("SELECT COUNT(`lot_id`) AS `lots` FROM `tbl_lots` WHERE `site_id`='$site_id'");
+  $row=$sql->fetch_array();
+  $total_lots=$row["lots"];
+
+  $sql=$con->query("SELECT COUNT(`lot_id`) AS `lots_block` FROM `tbl_lots` WHERE `block_id`='$block_id'");
+  $row=$sql->fetch_array();
+  $total_lots_block=$row["lots_block"];
+
+  $sql=$con->query("UPDATE `tbl_sites` SET `total_lots`='$total_lots' WHERE `site_id`='$site_id'");
+  $sql=$con->query("UPDATE `tbl_blocks` SET `total_lots`='$total_lots_block' WHERE `block_id`='$block_id'");
+
+  echo "<script>
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Lot Successfully Added',
+    text: 'You added a new lot',
+    showConfirmButton: false,
+    timer: 2000,
+    allowOutsideClick: () => {
+      const popup = Swal.getPopup()
+      popup.classList.remove('swal2-show')
+      setTimeout(() => {
+        popup.classList.add('animate__animated', 'animate__headShake')
+      })
+      setTimeout(() => {
+        popup.classList.remove('animate__animated', 'animate__headShake')
+      }, 500)
+      return false
+    }
+  })
+  window.history.replaceState( null, null, window.location.href );
+  </script>";
+
+  header("refresh: 1;");
+}

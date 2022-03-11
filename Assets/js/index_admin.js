@@ -68,3 +68,25 @@ $(document).ready( function () {
     "responsive": true
   })
 })
+$("#site-lot").change(function(){
+  if($(this).val()!=""){
+    $("#block-lot").prop("disabled", false);
+  }else{
+    $("#block-lot").prop("disabled", true);
+  }
+})
+$("#btn-reset-lot").click(function(){
+  $("#block-lot").prop("disabled", true);
+})
+$("#block-lot").on('click', function(e){
+  e.preventDefault();
+  var site_id=$("#site-lot").val();
+  $.ajax({
+    url: "queries/block-select.php",
+    method: "post",
+    data: {site_id:site_id},
+    success:function(data){
+      $("#block-lot").html(data);
+    }
+  })
+})

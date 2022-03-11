@@ -7,7 +7,10 @@
   if(isset($_SESSION["username"])){
     $sites=$con->query("SELECT * FROM `tbl_sites`");
     $sites_block=$con->query("SELECT * FROM `tbl_sites`");
+    $sites_lot=$con->query("SELECT * FROM `tbl_sites` WHERE `total_blocks`!='0'");
     $blocks=$con->query("SELECT tbl_blocks.block_id, tbl_blocks.site_id, tbl_blocks.block_name, tbl_sites.site_name, tbl_blocks.sector, tbl_blocks.total_lots FROM `tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id");
+    $lots=$con->query("SELECT tbl_lots.lot_id, tbl_lots.lot_name, tbl_sites.site_name, tbl_blocks.block_name, tbl_lots.sector, tbl_lots.lawn_type FROM ((`tbl_lots` INNER JOIN `tbl_blocks` ON tbl_lots.block_id=tbl_blocks.block_id) INNER JOIN `tbl_sites` ON tbl_lots.site_id=tbl_sites.site_id)");
+
   }else{
     header("Location: index.php");
   }
@@ -195,9 +198,9 @@
                                   <table class="table table-striped table-bordered w-100" id="tbl-block-info">
                                     <thead class="tbl-header text-light">
                                       <th>#</th>
-                                      <th>Blocks</th>
-                                      <th>Sectors</th>
-                                      <th>Sites</th>
+                                      <th>Block</th>
+                                      <th>Sector</th>
+                                      <th>Site</th>
                                       <th>Total Lots</th>
                                       <th>Action</th>
                                     </thead>
@@ -233,7 +236,7 @@
                                   <h5 class="d-flex align-items-center">
                                   <i class='bx bxs-grid fs-3' ></i>
                                   &nbsp;List of Lots</h5>
-                                  <button class="btn btn-primary add-customer d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#add-site">
+                                  <button class="btn btn-primary add-customer d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#add-lot">
                                     <i class='bx bx-plus fs-4'></i> 
                                     &nbsp;New Lot
                                   </button>
@@ -243,14 +246,29 @@
                                   <table class="table table-striped table-bordered w-100" id="tbl-lot-info">
                                     <thead class="tbl-header text-light">
                                       <th>#</th>
-                                      <th>Lots</th>
-                                      <th>Blocks</th>
-                                      <th>Sites</th>
+                                      <th>Lot</th>
+                                      <th>Block</th>
+                                      <th>Sector</th>
+                                      <th>Site</th>
                                       <th>Lawn Type</th>
                                       <th>Action</th>
                                     </thead>
                                     <tbody>
-                                    
+                                      <?php while($row=$lots->fetch_array()){?>
+                                        <tr>
+                                          <td class="align-middle"><?php echo $row["lot_id"] ?></td>
+                                          <td class="align-middle"><?php echo $row["lot_name"] ?></td>
+                                          <td class="align-middle"><?php echo $row["block_name"] ?></td>
+                                          <td class="align-middle"><?php echo $row["sector"] ?></td>
+                                          <td class="align-middle"><?php echo $row["site_name"] ?></td>
+                                          <td class="align-middle"><?php echo $row["lawn_type"] ?></td>
+                                          <td class="align-middle text-center">
+                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-block<?php echo $row["lot_id"]?>">
+                                              <i class='bx bxs-edit'></i>
+                                            </button>
+                                          </td>
+                                        </tr>
+                                      <?php }?>
                                     </tbody>
                                   </table>
                                 </div>
@@ -270,7 +288,7 @@
   </section>
   <!------------------------- MODAL ADD SITE ----------------------------->
   <div class="modal fade" id="add-site" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl"> 
+    <div class="modal-dialog modal-dialog-centered modal-lg"> 
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
@@ -283,11 +301,11 @@
           <div class="modal-body p-5">
             <div class="row">
               <div class="col-md-6">
-                <label for="site-name">Site name:</label>
+                <label for="site-name">Site name:<i class="req">*</i></label>
                 <input type="text" id="site-name" name="site-name" placeholder="Name of Site" class="form-control" required>
               </div>
               <div class="col-md-6">
-                <label for="site-sqm2">Square meters:</label>
+                <label for="site-sqm2">Square meters:<i class="req">*</i></label>
                 <input type="text" id="site-sqm2" name="site-sqm2" placeholder="ex. 4sqm" class="form-control" required>
               </div>
             </div>
@@ -302,7 +320,7 @@
   </div>
   <!------------------------- MODAL ADD BLOCK ----------------------------->
   <div class="modal fade" id="add-block" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl"> 
+    <div class="modal-dialog modal-dialog-centered modal-lg"> 
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
@@ -315,11 +333,11 @@
           <div class="modal-body p-5">
             <div class="row">
               <div class="col-md-4">
-                <label for="block-name">Block name:</label>
+                <label for="block-name">Block name:<i class="req">*</i></label>
                 <input type="text" id="block-name" name="block-name" placeholder="Block name" class="form-control" required>
               </div>
               <div class="col-md-4">
-                <label for="sector">Sector:</label>
+                <label for="sector">Sector:<i class="req">*</i></label>
                 <select id="sector" name="sector" class="form-select" required>
                   <option value="" selected disabled>Select Sector</option>
                   <option value="A">A</option>
@@ -329,7 +347,7 @@
                 </select>
               </div>
               <div class="col-md-4">
-                <label for="site-id">Site name:</label>
+                <label for="site-id">Site name:<i class="req">*</i></label>
                 <select type="text" id="site-id" name="site-id" class="form-select" required>
                   <option value="" selected disabled>Select Site</option>
                   <?php while($row=$sites_block->fetch_array()){?>
@@ -342,6 +360,70 @@
           <div class="modal-footer">
             <button type="submit" name="btn-submit-block" id="btn-submit-block" class="btn btn-primary">Add</button>
             <button type="reset" class="btn btn-danger">Reset</button> 
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!------------------------- MODAL ADD LOT ----------------------------->
+  <div class="modal fade" id="add-lot" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+            <i class='bx bxs-grid fs-1' ></i>
+            &nbsp;Add New Lot
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body p-5">
+            <div class="row mb-2">
+              <div class="col-md-4">
+                <label for="site-lot">Site name:<i class="req">*</i></label>
+                <select type="text" id="site-lot" name="site-lot" class="form-select" required>
+                  <option value="" selected disabled>Select Site</option>
+                  <?php while($row=$sites_lot->fetch_array()){?>
+                    <option value="<?php echo $row["site_id"] ?>"><?php echo $row["site_name"] ?></option>
+                  <?php }?>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="block-lot">Block name:<i class="req">*</i></label>
+                <select type="text" id="block-lot" name="block-lot" class="form-select" required disabled>
+                  <option value="" selected disabled>Select Block</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="sector-lot">Sector:<i class="req">*</i></label>
+                <select id="sector-lot" name="sector-lot" class="form-select" required>
+                  <option value="" selected disabled>Select Sector</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="lot-name">Lot name:<i class="req">*</i></label>
+                <input type="text" id="lot-name" name="lot-name" placeholder="Block name" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label for="lawn-type">Lawn Type:<i class="req">*</i></label>
+                <select id="lawn-type" name="lawn-type" class="form-select" required>
+                  <option value="" selected disabled>Select Lawn Type</option>
+                  <option value="Premium">Premium</option>
+                  <option value="Deluxe">Deluxe</option>
+                  <option value="Standard">Standard</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" name="btn-submit-lot" id="btn-submit-lot" class="btn btn-primary">Add</button>
+            <button type="reset" class="btn btn-danger" id="btn-reset-lot">Reset</button> 
           </div>
         </form>
       </div>
