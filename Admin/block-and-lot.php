@@ -398,7 +398,7 @@
                 </select>
               </div>
               <div class="col-md-4">
-                <label for="block-lot">Block name:<i class="req">*</i></label>
+                <label for="block-lot">Block number:<i class="req">*</i></label>
                 <select type="text" id="block-lot" name="block-lot" class="form-select" required disabled>
                   <option value="" selected disabled>Select Block</option>
                 </select>
