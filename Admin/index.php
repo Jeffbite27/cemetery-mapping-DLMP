@@ -53,7 +53,7 @@
                     </div>
                     
                     <div class="submit-btn">
-                        <button class="btn w-100 mt-3" type="" id="btn-login" name="btn-login">LOG IN</button>
+                        <button class="btn w-80 mt-3" type="" id="btn-login" name="btn-login">LOG IN</button>
                     </div>
                 </form>
             </div>
