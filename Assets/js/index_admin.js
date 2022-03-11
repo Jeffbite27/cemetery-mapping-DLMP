@@ -1,3 +1,9 @@
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll("[data-bs-toggle='tooltip']"))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
 let arrow = document.querySelectorAll(".arrow");
 for (var i = 0; i < arrow.length; i++) {
   arrow[i].addEventListener("click", (e)=>{
@@ -12,7 +18,6 @@ console.log(sidebarBtn);
 sidebarBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("close");
 });
-
 
 const tabs = document.querySelectorAll(".tabs");
 const contents = document.querySelectorAll(".content");
@@ -40,6 +45,48 @@ $("#dead-relative, #dead-relative-surname").keyup(function(){
     data: {relative:relative, relative_surname:relative_surname},
     success:function(data){
       $("#relative-error").html(data);
+    }
+  })
+})
+$(document).ready( function () {
+  $("#tbl-customer").DataTable({
+    "responsive": true
+  });
+  $("#tbl-owners-info").DataTable({
+    "responsive": true
+  })
+})
+// ----------------------------BLOCK AND LOT PAGE-------------------------------------
+$(document).ready( function () {
+  $("#tbl-site-info").DataTable({
+    "responsive": true
+  })
+  $("#tbl-block-info").DataTable({
+    "responsive": true
+  })
+  $("#tbl-lot-info").DataTable({
+    "responsive": true
+  })
+})
+$("#site-lot").change(function(){
+  if($(this).val()!=""){
+    $("#block-lot").prop("disabled", false);
+  }else{
+    $("#block-lot").prop("disabled", true);
+  }
+})
+$("#btn-reset-lot").click(function(){
+  $("#block-lot").prop("disabled", true);
+})
+$("#block-lot").on('click', function(e){
+  e.preventDefault();
+  var site_id=$("#site-lot").val();
+  $.ajax({
+    url: "queries/block-select.php",
+    method: "post",
+    data: {site_id:site_id},
+    success:function(data){
+      $("#block-lot").html(data);
     }
   })
 })

@@ -12,7 +12,10 @@
   --color2: white;
   --color3: rgb(107, 21, 21);
 }
-
+body{
+  overflow-x: hidden;
+  background-color: #E4E9F7;
+}
 
 *{
   margin: 0;
@@ -20,7 +23,17 @@
   box-sizing: border-box;
   font-family: var(--Font1);
 }
-
+.table.dataTable th {
+  background-color: unset;
+  border-bottom: #fff;
+ }
+ tr.even td {
+  background-color: unset;
+ }
+ tr.odd td {
+  background-color: unset;
+ }
+ 
 .sidebar{
   position: fixed;
   top: 0;
@@ -314,7 +327,39 @@
 i.req{
   color: red;
 }
-
+.tbl-header {
+  background-color: var(--color1);
+}
+.modal-footer{
+  justify-content: center;
+}
+.add-customer{
+  margin-left: auto;
+}
+.modal-header{
+  background-color: var(--color1);
+  color: white
+}
+.btn-close{
+  background-color: white !important;
+}
+/* .title-header{
+  background-color: white !important;
+} */
+/* ------------------------------BLOCK AND LOT PAGE------------------------------ */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-top: 2px solid;
+    border-color: var(--color1) #dee2e6 #fff !important;
+}
+.nav-link {
+  align-items: left;
+  justify-content: center;
+  color: rgba(21, 21, 21, 0.774);
+}
+.nav-link.active {
+  color: rgba(0, 0, 0, 0.774) !important;
+  font-weight: 500;
+}
 @media (max-width: 420px) {
   .sidebar.close .nav-links li .sub-menu{
     display: none;

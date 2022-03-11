@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2022 at 04:34 PM
+-- Generation Time: Mar 10, 2022 at 08:55 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -47,10 +47,10 @@ INSERT INTO `admin_acc` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `customers` (
-  `customer-id` int(11) NOT NULL,
-  `family-name` varchar(255) NOT NULL,
-  `first-name` varchar(255) NOT NULL,
-  `middle-name` varchar(255) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `family_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
   `nickname` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
@@ -67,9 +67,12 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer-id`, `family-name`, `first-name`, `middle-name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES
-(1, 'Guinanao', 'Rico', 'Estribo', '', 'Block 14 Lot 76 Majada In', '9854216854', 'guinanaorico@gmail.com', '2022-03-25', 'Male', 'Catholic', 'filipino', 'Single', 'Government Employee'),
-(2, 'Admin', 'CCC', 'Estribo', '', 'Block 14 Lot 76 Majada In', '21321231', 'admin@ccc.edu.ph', '2022-03-16', 'Male', 'Catholic', 'filipino', 'Single', 'Private Employee');
+INSERT INTO `customers` (`customer_id`, `family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES
+(1, 'Guinanao', 'Ricod', 'Estribo', 'Rics', 'Block 14 Lot 76 Majada In, Canlubang', '09854216854', 'guinanaorico@gmail.com', '1999-10-31', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
+(2, 'Dano', 'Jeff', 'Estribo', '', 'Cabuyao', '09126546881', 'guinanaorico@gmail.com', '2022-03-21', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
+(3, 'rtyr', 'tyr', 'Estribo', '', 'Block 14 Lot 76 Majada In', '09126546881', 'guinanaorico@gmail.com', '2022-03-18', 'Male', 'dsf', 'Filipino', 'Single', 'Self-Employed'),
+(4, 'Guinanao', 'Ricocgh', 'Estribo', 'fghf', 'Calamba, Laguna', '9542551688', 'estriborics@gmail.com', '2022-03-10', 'Male', 'fgh', 'Filipino', 'Single', 'Private Employee'),
+(5, 'Admin', 'CCC', 'Estribo', '', 'Block 14 Lot 76 Majada In', '09126546881', 'admin@ccc.edu.ph', '2022-03-14', 'Male', 'Catholic', 'Filipino', 'Single', 'Self-Employed');
 
 -- --------------------------------------------------------
 
@@ -78,30 +81,30 @@ INSERT INTO `customers` (`customer-id`, `family-name`, `first-name`, `middle-nam
 --
 
 CREATE TABLE `deceased` (
-  `deceased-id` int(11) NOT NULL,
-  `customer-id` int(11) NOT NULL,
-  `dead-family-name` varchar(255) NOT NULL,
-  `dead-fname` varchar(255) NOT NULL,
-  `dead-mname` varchar(255) NOT NULL,
+  `deceased_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `dead_family_name` varchar(255) NOT NULL,
+  `dead_fname` varchar(255) NOT NULL,
+  `dead_mname` varchar(255) NOT NULL,
   `dead-gender` varchar(255) NOT NULL,
-  `dead-citizenship` varchar(255) NOT NULL,
-  `dead-civil-status` varchar(255) NOT NULL,
-  `dead-relative` varchar(255) NOT NULL,
-  `dead-relative-surname` varchar(255) NOT NULL,
-  `dead-relationship` varchar(255) NOT NULL,
-  `internment-date` varchar(255) NOT NULL,
-  `date-of-birth` varchar(255) NOT NULL,
-  `date-of-death` varchar(255) NOT NULL,
-  `death-cert` varchar(255) NOT NULL,
-  `burial-permit` varchar(255) NOT NULL,
-  `deed-of-sale` varchar(255) NOT NULL
+  `dead_citizenship` varchar(255) NOT NULL,
+  `dead_civil_status` varchar(255) NOT NULL,
+  `dead_relative` varchar(255) NOT NULL,
+  `dead_relative_surname` varchar(255) NOT NULL,
+  `dead_relationship` varchar(255) NOT NULL,
+  `internment_date` varchar(255) NOT NULL,
+  `date_of_birth` varchar(255) NOT NULL,
+  `date_of_death` varchar(255) NOT NULL,
+  `death_cert` varchar(255) NOT NULL,
+  `burial_permit` varchar(255) NOT NULL,
+  `deed_of_sale` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `deceased`
 --
 
-INSERT INTO `deceased` (`deceased-id`, `customer-id`, `dead-family-name`, `dead-fname`, `dead-mname`, `dead-gender`, `dead-citizenship`, `dead-civil-status`, `dead-relative`, `dead-relative-surname`, `dead-relationship`, `internment-date`, `date-of-birth`, `date-of-death`, `death-cert`, `burial-permit`, `deed-of-sale`) VALUES
+INSERT INTO `deceased` (`deceased_id`, `customer_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead-gender`, `dead_citizenship`, `dead_civil_status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`, `deed_of_sale`) VALUES
 (1, 1, 'Musk', 'Elon', 'Estribo', 'Male', 'Filipino', 'Single', 'Rico', 'Guinanao', 'Cousin', '2022-03-17', '2022-03-22', '2022-03-09', 'death-cert', 'burial-permit', 'deed-of-sale');
 
 -- --------------------------------------------------------
@@ -129,6 +132,69 @@ INSERT INTO `staff_employee` (`id`, `firstname`, `lastname`, `email`, `username`
 (7, 'asdaa', 'aasd', 'jeffdo19@gmail.com', 'xxxxx', 'xxxx '),
 (8, 'azxc', 'zxczx', 'asdad@xc', 'zxc', 'asd '),
 (10, 'Rico', 'Guinanao', 'guinanaorico@gmail.com', 'rics', '123 ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_blocks`
+--
+
+CREATE TABLE `tbl_blocks` (
+  `block_id` int(11) NOT NULL,
+  `site_id` int(11) NOT NULL,
+  `block_name` varchar(255) NOT NULL,
+  `sector` varchar(255) NOT NULL,
+  `total_lots` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_blocks`
+--
+
+INSERT INTO `tbl_blocks` (`block_id`, `site_id`, `block_name`, `sector`, `total_lots`) VALUES
+(1, 1, '1', 'A', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_lots`
+--
+
+CREATE TABLE `tbl_lots` (
+  `lot_id` int(11) NOT NULL,
+  `block_id` int(11) NOT NULL,
+  `site_id` int(11) NOT NULL,
+  `lot_name` varchar(255) NOT NULL,
+  `block_name` varchar(255) NOT NULL,
+  `sector` varchar(255) NOT NULL,
+  `site_name` varchar(255) NOT NULL,
+  `lawn_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_sites`
+--
+
+CREATE TABLE `tbl_sites` (
+  `site_id` int(11) NOT NULL,
+  `site_name` varchar(255) NOT NULL,
+  `site_sqm2` varchar(255) NOT NULL,
+  `total_blocks` varchar(255) NOT NULL,
+  `total_lots` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_sites`
+--
+
+INSERT INTO `tbl_sites` (`site_id`, `site_name`, `site_sqm2`, `total_blocks`, `total_lots`) VALUES
+(1, 'Love Garden', '50sqm', '1', '0'),
+(2, 'Faith Garden', '40sqm', '0', '0'),
+(3, 'Hope Garden', '30sqm', '0', '0'),
+(4, 'Peace Garden', '60sqm', '0', '0'),
+(5, 'Joy Garden', '40sqm', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -168,19 +234,37 @@ ALTER TABLE `admin_acc`
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customer-id`);
+  ADD PRIMARY KEY (`customer_id`);
 
 --
 -- Indexes for table `deceased`
 --
 ALTER TABLE `deceased`
-  ADD PRIMARY KEY (`deceased-id`);
+  ADD PRIMARY KEY (`deceased_id`);
 
 --
 -- Indexes for table `staff_employee`
 --
 ALTER TABLE `staff_employee`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_blocks`
+--
+ALTER TABLE `tbl_blocks`
+  ADD PRIMARY KEY (`block_id`);
+
+--
+-- Indexes for table `tbl_lots`
+--
+ALTER TABLE `tbl_lots`
+  ADD PRIMARY KEY (`lot_id`);
+
+--
+-- Indexes for table `tbl_sites`
+--
+ALTER TABLE `tbl_sites`
+  ADD PRIMARY KEY (`site_id`);
 
 --
 -- Indexes for table `userregistration`
@@ -202,19 +286,37 @@ ALTER TABLE `admin_acc`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer-id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `deceased`
 --
 ALTER TABLE `deceased`
-  MODIFY `deceased-id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `staff_employee`
 --
 ALTER TABLE `staff_employee`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `tbl_blocks`
+--
+ALTER TABLE `tbl_blocks`
+  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_lots`
+--
+ALTER TABLE `tbl_lots`
+  MODIFY `lot_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_sites`
+--
+ALTER TABLE `tbl_sites`
+  MODIFY `site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `userregistration`
