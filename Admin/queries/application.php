@@ -15,32 +15,61 @@ if(isset($_POST["btn-submit-customer"])){
   $civil_status=mysqli_real_escape_string($con, $_POST["civil-status"]);
   $work=mysqli_real_escape_string($con, $_POST["work"]);
 
-  $sql=$con->query("INSERT INTO `customers`(`family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES ('$family_name','$first_name','$middle_name','$nickname','$address','$contact','$email','$bday','$gender','$religion','$citizenship','$civil_status','$work')");
+  $sql=$con->query("SELECT * FROM `customers` WHERE `family_name`='$family_name' AND `first_name`='$first_name' AND `middle_name`='$middle_name'");
+  $row=$sql->fetch_array();
 
-  echo "<script>
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Successfully Registered',
-    text: 'You added a new customer',
-    showConfirmButton: false,
-    timer: 2000,
-    allowOutsideClick: () => {
-      const popup = Swal.getPopup()
-      popup.classList.remove('swal2-show')
-      setTimeout(() => {
-        popup.classList.add('animate__animated', 'animate__headShake')
-      })
-      setTimeout(() => {
-        popup.classList.remove('animate__animated', 'animate__headShake')
-      }, 500)
-      return false
-    }
-  })
-  window.history.replaceState( null, null, window.location.href );
-  </script>";
+  if($family_name!=isset($row["family_name"])&&$first_name!=isset($row["first_name"])&&$middle_name!=isset($row["middle_name"])){
+    $sql=$con->query("INSERT INTO `customers`(`family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES ('$family_name','$first_name','$middle_name','$nickname','$address','$contact','$email','$bday','$gender','$religion','$citizenship','$civil_status','$work')");
 
-  header("refresh: 1;");
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Successfully Registered',
+      text: 'You added a new customer',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  
+    header("refresh: 1;");
+  }else{
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Customer Already Exists',
+      text: 'Enter another customer details',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  }
+  
 }
 if(isset($_POST["btn-update"])){
   $modal_customer_id=mysqli_real_escape_string($con, $_POST["modal-customer-id"]);
@@ -58,7 +87,7 @@ if(isset($_POST["btn-update"])){
   $modal_civil_status=mysqli_real_escape_string($con, $_POST["modal-civil-status"]);
   $modal_work=mysqli_real_escape_string($con, $_POST["modal-work"]);
 
-  $sql=$con->query("UPDATE `customers` SET `family_name`='$modal_family_name',`first_name`='$modal_first_name',`middle_name`='$modal_middle_name',`nickname`='$modal_nickname',`address`='$modal_address',`contact`='$modal_contact',`email`='$modal_email',`bday`='$modal_bday',`gender`='$modal_gender',`religion`='$modal_religion',`citizenship`='$modal_citizenship',`status`='$modal_civil_status',`work`='$modal_work' WHERE `customer-id`='$modal_customer_id'");
+  $sql=$con->query("UPDATE `customers` SET `family_name`='$modal_family_name',`first_name`='$modal_first_name',`middle_name`='$modal_middle_name',`nickname`='$modal_nickname',`address`='$modal_address',`contact`='$modal_contact',`email`='$modal_email',`bday`='$modal_bday',`gender`='$modal_gender',`religion`='$modal_religion',`citizenship`='$modal_citizenship',`status`='$modal_civil_status',`work`='$modal_work' WHERE `customer_id`='$modal_customer_id'");
 
   echo "<script>
   Swal.fire({
