@@ -338,14 +338,9 @@ i.req{
 }
 .modal-header{
   background-color: var(--color1);
-  color: white
+  color: white;
+  padding:9px 15px;
 }
-.btn-close{
-  background-color: white !important;
-}
-/* .title-header{
-  background-color: white !important;
-} */
 /* ------------------------------BLOCK AND LOT PAGE------------------------------ */
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     border-top: 2px solid;
