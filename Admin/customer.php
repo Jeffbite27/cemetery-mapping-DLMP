@@ -327,8 +327,8 @@
 
             <div class="row p-0">
               <div class="col-sm-12 col-md-12">
-                <div class="bg-light p-4 h-100 rounded">
-                  <div class="title-header bg-light sticky-top p-3 d-flex">
+                <div class="bg-white p-4 h-100 rounded">
+                  <div class="title-header bg-white sticky-top p-3 d-flex">
                     <h4 class="d-flex align-items-center">
                     <i class='bx bx-info-circle fs-2' ></i>
                     &nbsp;Customer's Information</h4>
@@ -395,7 +395,7 @@
                       <i class='bx bxs-user-plus fs-1' ></i>
                       &nbsp;Add Customer Details
                     </h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <form action="" method="post">
                     <div class="modal-body p-5">
@@ -500,7 +500,7 @@
             <i class='bx bxs-edit fs-1'></i> 
             &nbsp;Edit Customer's Details
           </h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="" method="post">
           <div class="modal-body p-5">
@@ -583,8 +583,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" name="btn-update" id="btn-update">Save</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> 
+            <button type="submit" class="btn btn-primary" name="btn-update" id="btn-update">Update</button>
+            <button type="reset" class="btn btn-danger">Reset</button> 
           </div>
         </form>
       </div>
@@ -601,7 +601,7 @@
             <i class='bx bxs-layer fs-1' ></i>
             &nbsp;Owner Setup
           </h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="" method="post">
           <div class="modal-body p-5">

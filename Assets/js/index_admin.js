@@ -103,4 +103,15 @@ function mouseClick(){
     })
   })
 }
+$(document).ready(function(){
+  $("#sites-tab").addClass("active");
+  $("#sites").addClass("active");
+  $('button[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
+    localStorage.setItem('activeTab', $(this).attr('id'));
+  });
 
+  var activeTab = localStorage.getItem('activeTab');
+  if(activeTab){
+    $('#myTab button[id="' + activeTab + '"]').tab('show');
+  }
+})
