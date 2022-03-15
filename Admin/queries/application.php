@@ -114,7 +114,69 @@ if(isset($_POST["btn-update"])){
 
   header("refresh: 1;");
 }
+// ---------------------------------LOT OWNER SUBMIT---------------------------------
+if(isset($_POST["btn-owner-setup"])){
+  $fullname=mysqli_real_escape_string($con, $_POST["owner-fullname"]);
+  $customer_id=mysqli_real_escape_string($con, $_POST["customer-id"]);
+  $site_id=mysqli_real_escape_string($con, $_POST["customer-site"]);
+  $block_id=mysqli_real_escape_string($con, $_POST["customer-block"]);
+  $lot_id=mysqli_real_escape_string($con, $_POST["customer-lot"]);
 
+  $sql=$con->query("SELECT * FROM `lot_owners` WHERE `site_id`='$site_id' AND `block_id`='$block_id' AND `lot_id`='$lot_id'");
+  $row=$sql->fetch_array();
+  if($site_id!=isset($row["site_id"])&&$block_id!=isset($row["block_id"])&&$lot_id!=isset($row["lot_id"])){
+    $sql=$con->query("INSERT INTO `lot_owners`(`customer_id`, `site_id`, `block_id`, `lot_id`) VALUES ('$customer_id','$site_id','$block_id','$lot_id')");
+
+    echo "<script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Successfully added $fullname as lot owner',
+        text: 'You added a new lot owner',
+        showConfirmButton: false,
+        timer: 2000,
+        allowOutsideClick: () => {
+          const popup = Swal.getPopup()
+          popup.classList.remove('swal2-show')
+          setTimeout(() => {
+            popup.classList.add('animate__animated', 'animate__headShake')
+          })
+          setTimeout(() => {
+            popup.classList.remove('animate__animated', 'animate__headShake')
+          }, 500)
+          return false
+        }
+      })
+      window.history.replaceState( null, null, window.location.href );
+      </script>";
+    
+      header("refresh: 1;");
+  }else{
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Lot Owned By Someone Else',
+      text: 'Enter another lot details',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  }
+  
+}
 // ---------------------------------DECEASED SUBMIT------------------------------------
 if(isset($_POST["btn-submit-dead"])){
   $dead_family_name=mysqli_real_escape_string($con, $_POST["dead-family-name"]);
