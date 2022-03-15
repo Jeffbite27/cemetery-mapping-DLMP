@@ -12,5 +12,5 @@ if($block_lot->num_rows!=0){
     echo "<option value=".$row['block_id'].">".$row['block_name']."</option>";
   }
 }else{
-    echo "<option value='' selected disabled>No block available</option>";
+    echo "<option value='' disabled>No block available</option>";
 }
