@@ -56,6 +56,91 @@ $(document).ready( function () {
     "responsive": true
   })
 })
+  $(".customer-site").load("queries/customer-site.php");
+
+$(".customer-site").change(function(){
+  var id=$(this).attr("data-id");
+  $(".customer-sector").prop("disabled", false);
+  $(".customer-sector").focus();
+  $("#customer-lawn-type-"+id).val("");
+})
+$(".customer-sector").change(function(){
+  var id=$(this).attr("data-id");
+  customer_block();
+  $(".customer-block").prop("disabled", false);
+  $(".customer-block").focus();
+  $(".customer-block").html("<option value='' selected disabled>Select Block</option>");
+  $("#customer-lawn-type-"+id).val("");
+})
+function customer_block(){
+  $(".customer-block").one('click', function(){
+    var id=$(this).attr("data-id");
+    var site_id = $("#customer-site-"+id).val();
+    var sector = $("#customer-sector-"+id).val();
+    $.ajax({
+      url: "queries/customer-block.php",
+      method: "post",
+      data: {site_id:site_id, sector:sector},
+      success: function(data){
+        $("#customer-block-"+id).append(data);
+      }
+    })
+  })
+}
+$(".customer-block").change(function(){
+  var id=$(this).attr("data-id");
+  customer_lot();
+  $(".customer-lot").prop("disabled", false);
+  $(".customer-lot").focus();
+  $(".customer-lot").html("<option value='' selected disabled>Select Lot</option>");
+  $("#customer-lawn-type-"+id).val("");
+})
+function customer_lot(){
+  $(".customer-lot").one('click', function(){
+    var id=$(this).attr("data-id");
+    var site_id = $("#customer-site-"+id).val();
+    var block = $("#customer-block-"+id).val();
+    $.ajax({
+      url: "queries/customer-lot.php",
+      method: "post",
+      data: {site_id:site_id, block:block},
+      success: function(data){
+        $("#customer-lot-"+id).append(data);
+      }
+    })
+  })
+}
+$(".customer-lot").change(function(){
+  $(".owner-deed-sale").focus();
+  var id=$(this).attr("data-id");
+  var lot_id=$(this).val();
+  var site_id=$("#customer-site-"+id).val();
+  var block_id=$("#customer-block-"+id).val();
+  $.ajax({
+    url: "queries/customer-lawn-type.php",
+    method: "post",
+    data: {lot_id:lot_id},
+    success: function(data){
+      $("#customer-lawn-type-"+id).val(data);
+    }
+  })
+  $.ajax({
+    url: "queries/lot-check.php",
+    method: "post",
+    data: {site_id:site_id, block_id:block_id, lot_id:lot_id},
+    success: function(data){
+      $("#lot-warning-"+id).html(data);
+    }
+  })
+})
+
+$(".btn-reset-owner").click(function(){
+  var id=$(this).attr("data-id");
+  $(".customer-sector").prop("disabled", true);
+  $(".customer-block").prop("disabled", true);
+  $(".customer-lot").prop("disabled", true);
+  $(".lot-warning").html("");
+})
 // ----------------------------BLOCK AND LOT PAGE-------------------------------------
 $(document).ready( function () {
   $("#tbl-site-info").DataTable({
@@ -71,6 +156,7 @@ $(document).ready( function () {
 $("#site-lot").change(function(){
   if($(this).val()!=""){
     $("#sector-lot").prop("disabled", false);
+    $("#sector-lot").focus();
   }else{
     $("#sector-lot").prop("disabled", true);
   }
@@ -79,6 +165,7 @@ $("#sector-lot").change(function(){
   mouseClick();
   if($(this).val()!=""){
     $("#block-lot").prop("disabled", false);
+    $("#block-lot").focus();
     $("#block-lot").html("<option value='' selected disabled>Select Block</option>");
   }else{
     $("#block-lot").prop("disabled", true);

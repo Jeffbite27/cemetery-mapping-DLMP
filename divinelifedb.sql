@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2022 at 02:44 PM
+-- Generation Time: Mar 15, 2022 at 03:17 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -72,7 +72,8 @@ INSERT INTO `customers` (`customer_id`, `family_name`, `first_name`, `middle_nam
 (2, 'Dano', 'Jeff', 'Estribo', '', 'Cabuyao', '09126546881', 'guinanaorico@gmail.com', '2022-03-21', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
 (3, 'rtyr', 'tyr', 'Estribo', '', 'Block 14 Lot 76 Majada In', '09126546881', 'guinanaorico@gmail.com', '2022-03-18', 'Male', 'dsf', 'Filipino', 'Single', 'Self-Employed'),
 (4, 'Guinanao', 'Ricocgh', 'Estribo', 'fghf', 'Calamba, Laguna', '9542551688', 'estriborics@gmail.com', '2022-03-10', 'Male', 'fgh', 'Filipino', 'Single', 'Private Employee'),
-(5, 'Admin', 'CCC', 'Estribo', '', 'Block 14 Lot 76 Majada In', '09126546881', 'admin@ccc.edu.ph', '2022-03-14', 'Male', 'Catholic', 'Filipino', 'Single', 'Self-Employed');
+(5, 'Admin', 'CCC', 'Estribo', '', 'Block 14 Lot 76 Majada In', '09126546881', 'admin@ccc.edu.ph', '2022-03-14', 'Male', 'Catholic', 'Filipino', 'Single', 'Self-Employed'),
+(7, '123', '123', '123', '123', '123', '09854216854', 'admin@ccc.edu.ph', '2022-02-28', 'Male', '123', '123', 'Single', 'Government Employee');
 
 -- --------------------------------------------------------
 
@@ -110,6 +111,27 @@ INSERT INTO `deceased` (`deceased_id`, `customer_id`, `dead_family_name`, `dead_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `lot_owners`
+--
+
+CREATE TABLE `lot_owners` (
+  `lot_owner_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `site_id` int(11) NOT NULL,
+  `block_id` int(11) NOT NULL,
+  `lot_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lot_owners`
+--
+
+INSERT INTO `lot_owners` (`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`) VALUES
+(1, 2, 1, 2, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_blocks`
 --
 
@@ -126,13 +148,13 @@ CREATE TABLE `tbl_blocks` (
 --
 
 INSERT INTO `tbl_blocks` (`block_id`, `site_id`, `block_name`, `sector`, `total_lots`) VALUES
-(1, 1, '1', 'A', '3'),
-(2, 1, '2', 'A', '0'),
+(1, 1, '4', 'C', '2'),
+(2, 1, '2', 'A', '1'),
 (3, 1, '3', 'A', '0'),
 (4, 1, '1', 'B', '0'),
 (5, 1, '2', 'B', '0'),
 (6, 1, '3', 'B', '0'),
-(7, 2, '1', 'A', '1'),
+(7, 2, '1', 'A', '0'),
 (8, 2, '2', 'B', '0'),
 (9, 2, '2', 'A', '0'),
 (10, 2, '1', 'B', '0'),
@@ -149,7 +171,6 @@ CREATE TABLE `tbl_lots` (
   `block_id` int(11) NOT NULL,
   `site_id` int(11) NOT NULL,
   `lot_name` varchar(255) NOT NULL,
-  `sector` varchar(255) NOT NULL,
   `lawn_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -157,10 +178,10 @@ CREATE TABLE `tbl_lots` (
 -- Dumping data for table `tbl_lots`
 --
 
-INSERT INTO `tbl_lots` (`lot_id`, `block_id`, `site_id`, `lot_name`, `sector`, `lawn_type`) VALUES
-(1, 1, 1, '1', 'A', 'Premium'),
-(2, 1, 1, '2', 'A', 'Premium'),
-(3, 1, 1, '3', 'A', 'Premium');
+INSERT INTO `tbl_lots` (`lot_id`, `block_id`, `site_id`, `lot_name`, `lawn_type`) VALUES
+(1, 1, 1, '1', 'Deluxe'),
+(2, 2, 1, '1', 'Premium'),
+(3, 1, 1, '2', 'Standard');
 
 -- --------------------------------------------------------
 
@@ -181,8 +202,8 @@ CREATE TABLE `tbl_sites` (
 --
 
 INSERT INTO `tbl_sites` (`site_id`, `site_name`, `site_sqm2`, `total_blocks`, `total_lots`) VALUES
-(1, 'Love Garden', '50sqm', '7', '3'),
-(2, 'Faith Garden', '40sqm', '4', '1'),
+(1, 'Love Garden', '30sqm', '7', '3'),
+(2, 'Faith Garden', '40sqm', '4', '0'),
 (3, 'Hope Garden', '30sqm', '0', '0'),
 (4, 'Peace Garden', '60sqm', '0', '0'),
 (5, 'Joy Garden', '40sqm', '0', '0'),
@@ -235,6 +256,12 @@ ALTER TABLE `deceased`
   ADD PRIMARY KEY (`deceased_id`);
 
 --
+-- Indexes for table `lot_owners`
+--
+ALTER TABLE `lot_owners`
+  ADD PRIMARY KEY (`lot_owner_id`);
+
+--
 -- Indexes for table `tbl_blocks`
 --
 ALTER TABLE `tbl_blocks`
@@ -272,13 +299,19 @@ ALTER TABLE `admin_acc`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `deceased`
 --
 ALTER TABLE `deceased`
   MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `lot_owners`
+--
+ALTER TABLE `lot_owners`
+  MODIFY `lot_owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_blocks`
