@@ -339,7 +339,7 @@
                   </div>
                   <br>
                   <div class="customer-table">
-                    <table class="tbl-customer table table-striped table-bordered w-100" id="tbl-customer">
+                    <table class="tbl-customer table table-striped table-bordered w-100" id="tbl-customer"  style="font-size: 15px">
                       <thead class="tbl-header text-light">
                         <th>#</th>
                         <th>Name</th>
@@ -607,56 +607,65 @@
           <div class="modal-body p-5">
             <div class="row mb-3">
               <div class="col-md-4 mb-2">
-                <label for="owner">Fullname:</label>
-                <input type="text" class="form-control" id="owner" name="owner" value="<?php echo $row["first_name"].' '.$row["middle_name"].' '.$row["family_name"]?>" readonly>
+                <label for="owner-fullname-<?php echo $row["customer_id"] ?>">Fullname:</label>
+                <input type="text" class="form-control" id="owner-fullname-<?php echo $row["customer_id"] ?>" name="owner-fullname" value="<?php echo $row["first_name"].' '.$row["middle_name"].' '.$row["family_name"]?>" readonly>
                 <input type="hidden" class="form-control" id="customer-id" name="customer-id" value="<?php echo $row["customer_id"]?>">
               </div>
               <div class="col-md-4">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" id="email" name="email" value="<?php echo $row["email"]?>" readonly>
+                <label for="owner-email-<?php echo $row["customer_id"] ?>">Email:</label>
+                <input type="text" class="form-control" id="owner-email-<?php echo $row["customer_id"] ?>" name="owner-email" value="<?php echo $row["email"]?>" readonly>
               </div>
               <div class="col-md-4">
-                <label for="owner">Contact no:</label>
-                <input type="text" class="form-control" id="contact" name="contact" value="<?php echo $row["contact"]?>" readonly>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-4">
-                <label for="owner">Site:</label>
-                <select class="form-select">
-                </select>
-              </div>
-              <div class="col-md-4">
-                <label for="owner">Lawn Type:</label>
-                <select class="form-select">
-                </select>
-              </div>
-              <div class="col-md-4">
-                <label for="owner">Lawn Lot:</label>
-                <select class="form-select">
-                </select>
+                <label for="owner-contact-<?php echo $row["customer_id"] ?>">Contact no:</label>
+                <input type="text" class="form-control" id="owner-contact-<?php echo $row["customer_id"] ?>" name="owner-contact" value="<?php echo $row["contact"]?>" readonly>
               </div>
             </div>
             <div class="row mb-3">
               <div class="col-md-4">
-                <label for="owner">Lawn Sector:</label>
-                <select class="form-select">
+                <label for="customer-site-<?php echo $row["customer_id"] ?>">Site:<i class="req">*</i></label></label>
+                <select class="form-select customer-site" data-id="<?php echo $row["customer_id"]?>" id="customer-site-<?php echo $row["customer_id"] ?>" name="customer-site" required>
                 </select>
               </div>
               <div class="col-md-4">
-                <label for="owner">Lawn Block:</label>
-                <select class="form-select">
+                <label for="customer-sector-<?php echo $row["customer_id"] ?>">Lawn Sector:<i class="req">*</i></label></label>
+                <select class="form-select customer-sector" data-id="<?php echo $row["customer_id"]?>" id="customer-sector-<?php echo $row["customer_id"] ?>" name="customer-sector" disabled required>
+                  <option value="" selected disabled>Select Sector</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                </select>
+              </div> 
+              <div class="col-md-4">
+                <label for="customer-block-<?php echo $row["customer_id"] ?>">Lawn Block:<i class="req">*</i></label></label>
+                <select class="form-select customer-block" data-id="<?php echo $row["customer_id"]?>" id="customer-block-<?php echo $row["customer_id"] ?>" name="customer-block" disabled required>
+                  <option value="" selected disabled>Select Block</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="customer-lot-<?php echo $row["customer_id"] ?>">Lawn Lot:<i class="req">*</i></label></label>
+                <select class="form-select customer-lot" data-id="<?php echo $row["customer_id"]?>" id="customer-lot-<?php echo $row["customer_id"] ?>" name="customer-lot" disabled required>
+                  <option value="" selected disabled>Select Lot</option>
                 </select>
               </div>
               <div class="col-md-4">
-                <label for="owner">Deed of Sale:</label>
-                <input type="file" name="" id="" class="form-control">
+                <label for="customer-lawn-type-<?php echo $row["customer_id"]?>">Lawn Type:<i class="req">*</i></label></label>
+                <input class="form-control customer-lawn-type" data-id="<?php echo $row["customer_id"]?>" id="customer-lawn-type-<?php echo $row["customer_id"] ?>" name="customer-lawn-type" placeholder="Lawn Type" readonly>
+                </inp>
+              </div>
+              <div class="col-md-4">
+                <label for="owner-deed-sale-<?php echo $row["customer_id"]?>">Deed of Sale:<i class="req">*</i></label></label>
+                <input type="file" name="owner-deed-sale" id="owner-deed-sale-<?php echo $row["customer_id"]?>" class="form-control owner-deed-sale" >
               </div>
             </div>
           </div>
+          <div class="text-center text-danger lot-warning" id="lot-warning-<?php echo $row["customer_id"]?>">
+          </div>
           <div class="modal-footer">
-            <button class="btn btn-primary">Add</button>
-            <button type="reset" class="btn btn-danger">Reset</button>
+            <button type="submit" class="btn btn-primary" name="btn-owner-setup">Add</button>
+            <button type="reset" class="btn btn-danger btn-reset-owner" id="btn-reset-owner" data-id="<?php echo $row["customer_id"]?>">Reset</button>
           </div>
         </form>
       </div>
