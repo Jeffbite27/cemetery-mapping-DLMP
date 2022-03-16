@@ -114,7 +114,7 @@
         <div class="content active">
           <div class="div-content">
             <h2 class="title-head d-flex align-items-center">
-              <i class='bx bx-layer fs-1'></i>
+              <i class='bx bxs-layer fs-1'></i>
               &nbsp;BLOCK AND LOT SETUP</h2>
             <hr>
             <div class="row mb-4 p-0">
@@ -123,13 +123,13 @@
                   <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                       <li class="nav-item" role="presentation">
-                          <button class="nav-link text-dark " id="sites-tab" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab" aria-controls="sites" aria-selected="true">Garden Sites</button>
+                          <button class="nav-link text-dark  block-setup" id="sites-tab" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab" aria-controls="sites" aria-selected="true">Garden Sites</button>
                       </li>
                       <li class="nav-item" role="presentation">
-                          <button class="nav-link text-dark" id="blocks-tab" data-bs-toggle="tab" data-bs-target="#blocks" type="button" role="tab" aria-controls="blocks" aria-selected="false">Blocks</button>
+                          <button class="nav-link text-dark block-setup" id="blocks-tab" data-bs-toggle="tab" data-bs-target="#blocks" type="button" role="tab" aria-controls="blocks" aria-selected="false">Blocks</button>
                       </li>
                       <li class="nav-item" role="presentation">
-                          <button class="nav-link text-dark" id="lots-tab" data-bs-toggle="tab" data-bs-target="#lots" type="button" role="tab" aria-controls="lots" aria-selected="false">Lots</button>
+                          <button class="nav-link text-dark block-setup" id="lots-tab" data-bs-toggle="tab" data-bs-target="#lots" type="button" role="tab" aria-controls="lots" aria-selected="false">Lots</button>
                       </li>
                     </ul>
                   </div>
