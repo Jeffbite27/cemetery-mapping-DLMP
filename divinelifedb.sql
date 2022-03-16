@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2022 at 03:13 PM
+-- Generation Time: Mar 16, 2022 at 04:37 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -69,7 +69,7 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`customer_id`, `family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES
 (1, 'Guinanao', 'Ricod', 'Estribo', 'Rics', 'Block 14 Lot 76 Majada In, Canlubang', '09854216854', 'guinanaorico@gmail.com', '1999-10-31', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
-(2, 'Dano', 'Jeff', 'Estribo', '', 'Cabuyao', '09126546881', 'guinanaorico@gmail.com', '2022-03-21', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
+(2, 'Dano', 'Jeff', 'Bite', '', 'Cabuyao', '09126546881', 'jeffdo19@gmail.com', '2022-03-21', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
 (3, 'rtyr', 'tyr', 'Estribo', '', 'Block 14 Lot 76 Majada In', '09126546881', 'guinanaorico@gmail.com', '2022-03-18', 'Male', 'dsf', 'Filipino', 'Single', 'Self-Employed'),
 (4, 'Guinanao', 'Ricocgh', 'Estribo', 'fghf', 'Calamba, Laguna', '9542551688', 'estriborics@gmail.com', '2022-03-10', 'Male', 'fgh', 'Filipino', 'Single', 'Private Employee'),
 (5, 'Admin', 'CCC', 'Estribo', '', 'Block 14 Lot 76 Majada In', '09126546881', 'admin@ccc.edu.ph', '2022-03-14', 'Male', 'Catholic', 'Filipino', 'Single', 'Self-Employed'),
@@ -128,7 +128,7 @@ CREATE TABLE `lot_owners` (
 --
 
 INSERT INTO `lot_owners` (`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `deed_of_sale`) VALUES
-(1, 2, 1, 2, 2, '');
+(1, 2, 1, 2, 2, 'Jeff Estribo Dano.jpg');
 
 -- --------------------------------------------------------
 
