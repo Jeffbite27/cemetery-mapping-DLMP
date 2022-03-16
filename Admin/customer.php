@@ -601,9 +601,9 @@
             <i class='bx bxs-layer fs-1' ></i>
             &nbsp;Owner Setup
           </h4>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white close-owner-lot" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
           <div class="modal-body p-5">
             <div class="row mb-3">
               <div class="col-md-4 mb-2">
@@ -657,7 +657,7 @@
               </div>
               <div class="col-md-4">
                 <label for="owner-deed-sale-<?php echo $row["customer_id"]?>">Deed of Sale:<i class="req">*</i></label></label>
-                <input type="file" name="owner-deed-sale" id="owner-deed-sale-<?php echo $row["customer_id"]?>" class="form-control owner-deed-sale" >
+                <input type="file" accept=".pdf, .png, .jpg" name="owner-deed-sale" id="owner-deed-sale-<?php echo $row["customer_id"]?>" class="form-control owner-deed-sale" required>
               </div>
             </div>
           </div>
