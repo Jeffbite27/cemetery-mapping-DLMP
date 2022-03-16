@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2022 at 03:17 PM
+-- Generation Time: Mar 16, 2022 at 03:13 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -119,15 +119,16 @@ CREATE TABLE `lot_owners` (
   `customer_id` int(11) NOT NULL,
   `site_id` int(11) NOT NULL,
   `block_id` int(11) NOT NULL,
-  `lot_id` int(11) NOT NULL
+  `lot_id` int(11) NOT NULL,
+  `deed_of_sale` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `lot_owners`
 --
 
-INSERT INTO `lot_owners` (`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`) VALUES
-(1, 2, 1, 2, 2);
+INSERT INTO `lot_owners` (`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `deed_of_sale`) VALUES
+(1, 2, 1, 2, 2, '');
 
 -- --------------------------------------------------------
 
