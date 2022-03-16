@@ -5,7 +5,8 @@
   include("../config.php");
   $con=connect();
   if(isset($_SESSION["username"])){
-
+    $sql=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
+    
   }else{
     header("Location: index.php");
   }
@@ -102,9 +103,106 @@
       <div class="main-container">
         <div class="content active">
           <div class="div-content">
-            <h2 class="title-head">INTERMENT SETUP</h2>
+            <h2 class="title-head d-flex align-items-center">
+            <i class='bx bxs-user-rectangle fs-1' ></i>
+            &nbsp;INTERMENT SETUP</h2>
             <hr>
-            
+            <div class="row mb-4 p-0">
+              <div class="col-sm-12 col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab-interment" role="tablist">
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link text-dark internments" id="internment-setup" data-bs-toggle="tab" data-bs-target="#owners" type="button" role="tab" aria-controls="owners" aria-selected="true">Internment Setup</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link text-dark internments" id="internment-table" data-bs-toggle="tab" data-bs-target="#deads" type="button" role="tab" aria-controls="deads" aria-selected="false">Internment Table</button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane" id="owners" role="tabpanel" aria-labelledby="sites-tab">
+                        <div class="head">
+                          <div class="row p-0">
+                            <div class="col-sm-12 col-md-12">
+                              <div class="bg-white p-3 h-100 rounded">
+                                <div class="title-header bg-white sticky-top p-3 d-flex">
+                                  <h5 class="d-flex align-items-center">
+                                  <i class='bx bx-group fs-3'></i>
+                                  &nbsp;List of Lot Owners</h5>
+                                </div> 
+                                <div class="lot-owners">
+                                  <table class="tbl-customer table table-striped table-bordered w-100" id="tbl-customer"  style="font-size: 14px">
+                                    <thead class="tbl-header text-light">
+                                      <th>#</th>
+                                      <th>Fullname</th>
+                                      <th>Email</th>
+                                      <th>Contact #</th>
+                                      <th>Site</th>
+                                      <th>Sector</th>
+                                      <th>Block</th>
+                                      <th>Lot</th>
+                                      <th>Type</th>
+                                      <th>Deed of Sale</th>
+                                      <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                      <?php while($row=$sql->fetch_array()){ ?>
+                                      <tr>
+                                        <td class="align-middle"><?php echo $row["lot_owner_id"] ?></td>
+                                        <td class="align-middle"><?php echo $row["first_name"].' '.$row["middle_name"].' '.$row["family_name"]?></td>
+                                        <td class="align-middle"><?php echo $row["email"] ?></td>
+                                        <td class="align-middle"><?php echo $row["contact"] ?></td>
+                                        <td class="align-middle"><?php echo $row["site_name"] ?></td>
+                                        <td class="align-middle"><?php echo $row["sector"] ?></td>
+                                        <td class="align-middle"><?php echo $row["block_name"] ?></td>
+                                        <td class="align-middle"><?php echo $row["lot_name"] ?></td>
+                                        <td class="align-middle"><?php echo $row["lawn_type"] ?></td>
+                                        <td class="align-middle text-center">
+                                          <a href="files/deed_of_sales/<?php echo $row["deed_of_sale"] ?>">
+                                            <button class="btn btn-primary">
+                                              <i class='bx bxs-file fs-5' ></i>
+                                            </button>
+                                          </a>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                          <button class="btn btn-success">
+                                            <i class='bx bxs-edit'></i>
+                                          </button>
+                                        </td>
+                                      </tr>
+                                      <?php } ?>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="deads" role="tabpanel" aria-labelledby="blocks-tab">
+                        <div class="head">
+                          <div class="row p-0">
+                            <div class="col-sm-12 col-md-12">
+                              <div class="bg-white p-3 h-100 rounded">
+                                <div class="title-header bg-white sticky-top p-3 d-flex">
+                                  <h5 class="d-flex align-items-center">
+                                  <i class='bx bx-user-x fs-3'></i>
+                                  &nbsp;List of Deceased</h5>
+                                </div>
+                                <div class="list-of-deads">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
