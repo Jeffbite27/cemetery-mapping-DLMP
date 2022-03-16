@@ -64,14 +64,6 @@ $(".customer-site").change(function(){
   $(".customer-sector").focus();
   $("#customer-lawn-type-"+id).val("");
 })
-$(".customer-sector").change(function(){
-  var id=$(this).attr("data-id");
-  customer_block();
-  $(".customer-block").prop("disabled", false);
-  $(".customer-block").focus();
-  $(".customer-block").html("<option value='' selected disabled>Select Block</option>");
-  $("#customer-lawn-type-"+id).val("");
-})
 function customer_block(){
   $(".customer-block").one('click', function(){
     var id=$(this).attr("data-id");
@@ -87,12 +79,12 @@ function customer_block(){
     })
   })
 }
-$(".customer-block").change(function(){
+$(".customer-sector").change(function(){
   var id=$(this).attr("data-id");
-  customer_lot();
-  $(".customer-lot").prop("disabled", false);
-  $(".customer-lot").focus();
-  $(".customer-lot").html("<option value='' selected disabled>Select Lot</option>");
+  customer_block();
+  $(".customer-block").prop("disabled", false);
+  $(".customer-block").focus();
+  $(".customer-block").html("<option value='' selected disabled>Select Block</option>");
   $("#customer-lawn-type-"+id).val("");
 })
 function customer_lot(){
@@ -110,6 +102,14 @@ function customer_lot(){
     })
   })
 }
+$(".customer-block").change(function(){
+  var id=$(this).attr("data-id");
+  customer_lot();
+  $(".customer-lot").prop("disabled", false);
+  $(".customer-lot").focus();
+  $(".customer-lot").html("<option value='' selected disabled>Select Lot</option>");
+  $("#customer-lawn-type-"+id).val("");
+})
 $(".customer-lot").change(function(){
   $(".owner-deed-sale").focus();
   var id=$(this).attr("data-id");
@@ -136,6 +136,12 @@ $(".customer-lot").change(function(){
 
 $(".btn-reset-owner").click(function(){
   var id=$(this).attr("data-id");
+  $(".customer-sector").prop("disabled", true);
+  $(".customer-block").prop("disabled", true);
+  $(".customer-lot").prop("disabled", true);
+  $(".lot-warning").html("");
+})
+$(".close-owner-lot").click(function(){
   $(".customer-sector").prop("disabled", true);
   $(".customer-block").prop("disabled", true);
   $(".customer-lot").prop("disabled", true);
@@ -193,7 +199,7 @@ function mouseClick(){
 $(document).ready(function(){
   $("#sites-tab").addClass("active");
   $("#sites").addClass("active");
-  $('button[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
+  $('button.block-setup[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
     localStorage.setItem('activeTab', $(this).attr('id'));
   });
 
@@ -202,3 +208,16 @@ $(document).ready(function(){
     $('#myTab button[id="' + activeTab + '"]').tab('show');
   }
 })
+// ----------------------------INTERNMENT PAGE-------------------------------------
+// $(document).ready(function(){
+//   $("#internment-setup").addClass("active");
+//   $("#owners").addClass("active");
+//   $('button.internments[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
+//     localStorage.setItem('internment-tab', $(this).attr('id'));
+//   });
+
+//   var internment = localStorage.getItem('internment-tab');
+//   if(internment){
+//     $('#myTab-internment button[id="' + internment + '"]').tab('show');
+//   }
+// })

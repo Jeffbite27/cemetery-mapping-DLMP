@@ -121,12 +121,14 @@ if(isset($_POST["btn-owner-setup"])){
   $site_id=mysqli_real_escape_string($con, $_POST["customer-site"]);
   $block_id=mysqli_real_escape_string($con, $_POST["customer-block"]);
   $lot_id=mysqli_real_escape_string($con, $_POST["customer-lot"]);
+  $deed_of_sale=$fullname.'.'.pathinfo($_FILES["owner-deed-sale"]['name'], PATHINFO_EXTENSION);
+  $deed_of_saleTarget="files/deed_of_sales/".$deed_of_sale;
 
   $sql=$con->query("SELECT * FROM `lot_owners` WHERE `site_id`='$site_id' AND `block_id`='$block_id' AND `lot_id`='$lot_id'");
   $row=$sql->fetch_array();
   if($site_id!=isset($row["site_id"])&&$block_id!=isset($row["block_id"])&&$lot_id!=isset($row["lot_id"])){
-    $sql=$con->query("INSERT INTO `lot_owners`(`customer_id`, `site_id`, `block_id`, `lot_id`) VALUES ('$customer_id','$site_id','$block_id','$lot_id')");
-
+    $sql=$con->query("INSERT INTO `lot_owners`(`customer_id`, `site_id`, `block_id`, `lot_id`, `deed_of_sale`) VALUES ('$customer_id','$site_id','$block_id','$lot_id','$deed_of_sale')");
+    move_uploaded_file($_FILES["owner-deed-sale"]["tmp_name"], $deed_of_saleTarget);
     echo "<script>
       Swal.fire({
         position: 'center',
