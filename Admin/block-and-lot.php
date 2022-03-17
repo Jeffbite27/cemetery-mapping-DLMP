@@ -123,13 +123,22 @@
                   <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                       <li class="nav-item" role="presentation">
-                          <button class="nav-link text-dark  block-setup" id="sites-tab" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab" aria-controls="sites" aria-selected="true">Garden Sites</button>
+                          <button class="nav-link text-dark d-flex align-items-center block-setup" id="sites-tab" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab" aria-controls="sites" aria-selected="true">
+                            <i class='bx bx-sitemap fs-5' ></i>
+                            &nbsp;Garden Sites
+                          </button>
                       </li>
                       <li class="nav-item" role="presentation">
-                          <button class="nav-link text-dark block-setup" id="blocks-tab" data-bs-toggle="tab" data-bs-target="#blocks" type="button" role="tab" aria-controls="blocks" aria-selected="false">Blocks</button>
+                          <button class="nav-link text-dark d-flex align-items-center block-setup" id="blocks-tab" data-bs-toggle="tab" data-bs-target="#blocks" type="button" role="tab" aria-controls="blocks" aria-selected="false">
+                            <i class='bx bxs-cube-alt fs-5'></i>
+                            &nbsp;Blocks
+                        </button>
                       </li>
                       <li class="nav-item" role="presentation">
-                          <button class="nav-link text-dark block-setup" id="lots-tab" data-bs-toggle="tab" data-bs-target="#lots" type="button" role="tab" aria-controls="lots" aria-selected="false">Lots</button>
+                          <button class="nav-link text-dark d-flex align-items-center block-setup" id="lots-tab" data-bs-toggle="tab" data-bs-target="#lots" type="button" role="tab" aria-controls="lots" aria-selected="false">
+                            <i class='bx bxs-grid fs-5' ></i>
+                            &nbsp;Lots
+                          </button>
                       </li>
                     </ul>
                   </div>
