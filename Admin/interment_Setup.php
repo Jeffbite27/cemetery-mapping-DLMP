@@ -6,6 +6,7 @@
   $con=connect();
   if(isset($_SESSION["username"])){
     $sql=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
+    $sql_modal=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     
   }else{
     header("Location: index.php");
@@ -113,10 +114,16 @@
                   <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs" id="myTab-interment" role="tablist">
                       <li class="nav-item" role="presentation">
-                          <button class="nav-link text-dark internments" id="internment-setup" data-bs-toggle="tab" data-bs-target="#owners" type="button" role="tab" aria-controls="owners" aria-selected="true">Internment Setup</button>
+                          <button class="nav-link text-dark d-flex align-items-center internments" id="internment-setup" data-bs-toggle="tab" data-bs-target="#owners" type="button" role="tab" aria-controls="owners" aria-selected="true">
+                            <i class='bx bx-group fs-5'></i>
+                            &nbsp;Lot Owners
+                          </button>
                       </li>
                       <li class="nav-item" role="presentation">
-                          <button class="nav-link text-dark internments" id="internment-table" data-bs-toggle="tab" data-bs-target="#deads" type="button" role="tab" aria-controls="deads" aria-selected="false">Internment Table</button>
+                          <button class="nav-link text-dark d-flex align-items-center internments" id="internment-table" data-bs-toggle="tab" data-bs-target="#deads" type="button" role="tab" aria-controls="deads" aria-selected="false">
+                            <i class='bx bx-user-x fs-5'></i>
+                            &nbsp;Deceased Persons
+                        </button>
                       </li>
                     </ul>
                   </div>
@@ -160,15 +167,16 @@
                                         <td class="align-middle"><?php echo $row["lot_name"] ?></td>
                                         <td class="align-middle"><?php echo $row["lawn_type"] ?></td>
                                         <td class="align-middle text-center">
-                                          <a href="files/deed_of_sales/<?php echo $row["deed_of_sale"] ?>">
-                                            <button class="btn btn-primary">
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-deed-of-sale-<?php echo $row['lot_owner_id']?>">
                                               <i class='bx bxs-file fs-5' ></i>
                                             </button>
-                                          </a>
                                         </td>
                                         <td class="align-middle text-center">
+                                          <button class="btn btn-primary">
+                                            <i class='bx bxs-ghost fs-5'></i>
+                                          </button>
                                           <button class="btn btn-success">
-                                            <i class='bx bxs-edit'></i>
+                                            <i class='bx bxs-edit fs-5'></i>
                                           </button>
                                         </td>
                                       </tr>
@@ -189,7 +197,7 @@
                                 <div class="title-header bg-white sticky-top p-3 d-flex">
                                   <h5 class="d-flex align-items-center">
                                   <i class='bx bx-user-x fs-3'></i>
-                                  &nbsp;List of Deceased</h5>
+                                  &nbsp;List of Deceased Persons</h5>
                                 </div>
                                 <div class="list-of-deads">
                                 </div>
@@ -207,7 +215,31 @@
         </div>
       </div>
   </section>
+  <!------------------------------- DEED OF SALE MODAL PREVIEW -------------------------->
+  <?php while($row=$sql_modal->fetch_array()){ ?>
+  <div class="modal fade" id="preview-deed-of-sale-<?php echo $row['lot_owner_id']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+            <i class='bx bxs-edit fs-1'></i> 
+            &nbsp;<?php echo $row['first_name']." ".$row['family_name']?>'s Deed of Sale Preview
+          </h4>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body p-5">
+            <div class="text-center">
+                <iframe style="width: 100%; height: 500px" src="files/deed_of_sales/<?php echo $row['deed_of_sale']?>" frameborder="0">
 
+                </iframe>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
   <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
   <script src="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
   <script src="../Assets/js/jquery.min.js"></script>
