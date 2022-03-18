@@ -36,18 +36,6 @@ tabs.forEach((tab, index)=>{
 })
 
 // ----------------------------CUSTOMER PAGE-------------------------------------
-$("#dead-relative, #dead-relative-surname").keyup(function(){
-  var relative = $("#dead-relative").val();
-  var relative_surname = $("#dead-relative-surname").val();
-  $.ajax({
-    url: "queries/relativeCheck.php",
-    type: "post",
-    data: {relative:relative, relative_surname:relative_surname},
-    success:function(data){
-      $("#relative-error").html(data);
-    }
-  })
-})
 $(document).ready( function () {
   $("#tbl-customer").DataTable({
     "responsive": true
