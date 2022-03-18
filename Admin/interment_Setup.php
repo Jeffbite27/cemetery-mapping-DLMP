@@ -8,6 +8,7 @@
     $sql=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_modal=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_deceased=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
+    $sql_dead=$con->query("SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)");
     
   }else{
     header("Location: index.php");
@@ -113,7 +114,7 @@
               <div class="col-sm-12 col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs" id="myTab-interment" role="tablist">
+                    <ul class="nav nav-tabs card-header-tabs" id="tab-interment" role="tablist">
                       <li class="nav-item" role="presentation">
                           <button class="nav-link text-dark d-flex align-items-center internments" id="internment-setup" data-bs-toggle="tab" data-bs-target="#owners" type="button" role="tab" aria-controls="owners" aria-selected="true">
                             <i class='bx bx-group fs-5'></i>
@@ -141,7 +142,7 @@
                                   &nbsp;List of Lot Owners</h5>
                                 </div> 
                                 <div class="lot-owners">
-                                  <table class="tbl-customer table table-striped table-bordered w-100" id="tbl-customer"  style="font-size: 14px">
+                                  <table class="table table-striped table-bordered w-100" id="tbl-lot-owners"  style="font-size: 14px">
                                     <thead class="tbl-header text-light">
                                       <th>#</th>
                                       <th>Fullname</th>
@@ -201,6 +202,44 @@
                                   &nbsp;List of Deceased Persons</h5>
                                 </div>
                                 <div class="list-of-deads">
+                                  <table class="table table-striped table-bordered w-100" id="tbl-deads"  style="font-size: 14px">
+                                    <thead class="tbl-header text-light">
+                                      <th>#</th>
+                                      <th>Fullname</th>
+                                      <th>Gender</th>
+                                      <th>Relative</th>
+                                      <th>Relationship</th>
+                                      <th>Internment Date</th>
+                                      <th>Birthday</th>
+                                      <th>Date of death</th>
+                                      <th>Grave Address</th>
+                                      <th>Death Certificate</th>
+                                      <th>Burial Permit</th>
+                                      <th>Actions</th>
+                                    </thead>
+                                    <tbody>
+                                      <?php while($row=$sql_dead->fetch_array()){ ?>
+                                        <tr>
+                                          <td class="align-middle"><?php echo $row["deceased_id"]?></td>
+                                          <td class="align-middle"><?php echo $row["dead_fname"]." ".$row["dead_mname"]." ".$row["dead_family_name"]?></td>
+                                          <td class="align-middle"><?php echo $row["dead_gender"]?></td>
+                                          <td class="align-middle"><?php echo $row["dead_relative"]." ".$row["dead_relative_surname"]?></td>
+                                          <td class="align-middle"><?php echo $row["dead_relationship"]?></td>
+                                          <td class="align-middle"><?php echo $row["internment_date"]?></td>
+                                          <td class="align-middle"><?php echo $row["date_of_birth"]?></td>
+                                          <td class="align-middle"><?php echo $row["date_of_death"]?></td>
+                                          <td class="align-middle"><?php echo "Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?></td>
+                                          <td class="align-middle"><?php echo $row["death_cert"]?></td>
+                                          <td class="align-middle"><?php echo $row["burial_permit"]?></td>
+                                          <td class="align-middle text-center">
+                                            <button class="btn btn-success">
+                                              <i class="bx bxs-edit fs-5"></i>
+                                            </button>
+                                          </td>
+                                        </tr>
+                                      <?php } ?>
+                                    </tbody>
+                                  </table>
                                 </div>
                               </div>
                             </div>
@@ -353,7 +392,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" name="btn-submit-deceased" id="btn-submit-deceased" class="btn btn-primary">Register</button>
+              <button type="submit" name="btn-submit-dead" id="btn-submit-dead" class="btn btn-primary">Register</button>
               <button type="reset" class="btn btn-danger">Reset</button> 
             </div>
           </form>
