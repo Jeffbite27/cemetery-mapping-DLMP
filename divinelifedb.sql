@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2022 at 04:37 PM
+-- Generation Time: Mar 18, 2022 at 04:48 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -68,7 +68,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES
-(1, 'Guinanao', 'Ricod', 'Estribo', 'Rics', 'Block 14 Lot 76 Majada In, Canlubang', '09854216854', 'guinanaorico@gmail.com', '1999-10-31', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
+(1, 'Guinanao', 'Rico', 'Estribo', 'Rics', 'Block 14 Lot 76 Majada In, Canlubang', '09854216854', 'guinanaorico@gmail.com', '1999-10-31', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
 (2, 'Dano', 'Jeff', 'Bite', '', 'Cabuyao', '09126546881', 'jeffdo19@gmail.com', '2022-03-21', 'Male', 'Catholic', 'Filipino', 'Single', 'Government Employee'),
 (3, 'rtyr', 'tyr', 'Estribo', '', 'Block 14 Lot 76 Majada In', '09126546881', 'guinanaorico@gmail.com', '2022-03-18', 'Male', 'dsf', 'Filipino', 'Single', 'Self-Employed'),
 (4, 'Guinanao', 'Ricocgh', 'Estribo', 'fghf', 'Calamba, Laguna', '9542551688', 'estriborics@gmail.com', '2022-03-10', 'Male', 'fgh', 'Filipino', 'Single', 'Private Employee'),
@@ -78,16 +78,20 @@ INSERT INTO `customers` (`customer_id`, `family_name`, `first_name`, `middle_nam
 -- --------------------------------------------------------
 
 --
--- Table structure for table `deceased`
+-- Table structure for table `deceased_persons`
 --
 
-CREATE TABLE `deceased` (
+CREATE TABLE `deceased_persons` (
   `deceased_id` int(11) NOT NULL,
+  `lot_owner_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
+  `site_id` int(11) NOT NULL,
+  `block_id` int(11) NOT NULL,
+  `lot_id` int(11) NOT NULL,
   `dead_family_name` varchar(255) NOT NULL,
   `dead_fname` varchar(255) NOT NULL,
   `dead_mname` varchar(255) NOT NULL,
-  `dead-gender` varchar(255) NOT NULL,
+  `dead_gender` varchar(255) NOT NULL,
   `dead_citizenship` varchar(255) NOT NULL,
   `dead_civil_status` varchar(255) NOT NULL,
   `dead_relative` varchar(255) NOT NULL,
@@ -97,16 +101,15 @@ CREATE TABLE `deceased` (
   `date_of_birth` varchar(255) NOT NULL,
   `date_of_death` varchar(255) NOT NULL,
   `death_cert` varchar(255) NOT NULL,
-  `burial_permit` varchar(255) NOT NULL,
-  `deed_of_sale` varchar(255) NOT NULL
+  `burial_permit` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `deceased`
+-- Dumping data for table `deceased_persons`
 --
 
-INSERT INTO `deceased` (`deceased_id`, `customer_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead-gender`, `dead_citizenship`, `dead_civil_status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`, `deed_of_sale`) VALUES
-(1, 1, 'Musk', 'Elon', 'Estribo', 'Male', 'Filipino', 'Single', 'Rico', 'Guinanao', 'Cousin', '2022-03-17', '2022-03-22', '2022-03-09', 'death-cert', 'burial-permit', 'deed-of-sale');
+INSERT INTO `deceased_persons` (`deceased_id`, `lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead_gender`, `dead_citizenship`, `dead_civil_status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`) VALUES
+(1, 2, 1, 1, 1, 1, 'Musk', 'Elon', 'Estribo', 'Male', 'Filipino', 'Single', 'Rico', 'Guinanao', 'Cousin', '2022-03-17', '2022-03-22', '2022-03-09', 'death-cert', 'burial-permit');
 
 -- --------------------------------------------------------
 
@@ -128,7 +131,9 @@ CREATE TABLE `lot_owners` (
 --
 
 INSERT INTO `lot_owners` (`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `deed_of_sale`) VALUES
-(1, 2, 1, 2, 2, 'Jeff Estribo Dano.jpg');
+(1, 2, 1, 2, 2, 'Jeff Estribo Dano.jpg'),
+(2, 2, 1, 1, 1, 'Jeff Bite Dano.jpg'),
+(3, 1, 2, 7, 4, 'Rico Estribo Guinanao.pdf');
 
 -- --------------------------------------------------------
 
@@ -155,7 +160,7 @@ INSERT INTO `tbl_blocks` (`block_id`, `site_id`, `block_name`, `sector`, `total_
 (4, 1, '1', 'B', '0'),
 (5, 1, '2', 'B', '0'),
 (6, 1, '3', 'B', '0'),
-(7, 2, '1', 'A', '0'),
+(7, 2, '1', 'A', '1'),
 (8, 2, '2', 'B', '0'),
 (9, 2, '2', 'A', '0'),
 (10, 2, '1', 'B', '0'),
@@ -180,9 +185,10 @@ CREATE TABLE `tbl_lots` (
 --
 
 INSERT INTO `tbl_lots` (`lot_id`, `block_id`, `site_id`, `lot_name`, `lawn_type`) VALUES
-(1, 1, 1, '1', 'Deluxe'),
-(2, 2, 1, '1', 'Premium'),
-(3, 1, 1, '2', 'Standard');
+(1, 1, 1, '1', 'Standard'),
+(2, 2, 1, '1', 'Deluxe'),
+(3, 1, 1, '2', 'Standard'),
+(4, 7, 2, '1', 'Premium');
 
 -- --------------------------------------------------------
 
@@ -204,7 +210,7 @@ CREATE TABLE `tbl_sites` (
 
 INSERT INTO `tbl_sites` (`site_id`, `site_name`, `site_sqm2`, `total_blocks`, `total_lots`) VALUES
 (1, 'Love Garden', '30sqm', '7', '3'),
-(2, 'Faith Garden', '40sqm', '4', '0'),
+(2, 'Faith Garden', '40sqm', '4', '1'),
 (3, 'Hope Garden', '30sqm', '0', '0'),
 (4, 'Peace Garden', '60sqm', '0', '0'),
 (5, 'Joy Garden', '40sqm', '0', '0'),
@@ -251,9 +257,9 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`customer_id`);
 
 --
--- Indexes for table `deceased`
+-- Indexes for table `deceased_persons`
 --
-ALTER TABLE `deceased`
+ALTER TABLE `deceased_persons`
   ADD PRIMARY KEY (`deceased_id`);
 
 --
@@ -303,16 +309,16 @@ ALTER TABLE `customers`
   MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `deceased`
+-- AUTO_INCREMENT for table `deceased_persons`
 --
-ALTER TABLE `deceased`
+ALTER TABLE `deceased_persons`
   MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lot_owners`
 --
 ALTER TABLE `lot_owners`
-  MODIFY `lot_owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `lot_owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_blocks`
@@ -324,7 +330,7 @@ ALTER TABLE `tbl_blocks`
 -- AUTO_INCREMENT for table `tbl_lots`
 --
 ALTER TABLE `tbl_lots`
-  MODIFY `lot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `lot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_sites`
