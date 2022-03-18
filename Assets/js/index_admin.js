@@ -209,15 +209,21 @@ $(document).ready(function(){
   }
 })
 // ----------------------------INTERNMENT PAGE-------------------------------------
-// $(document).ready(function(){
-//   $("#internment-setup").addClass("active");
-//   $("#owners").addClass("active");
-//   $('button.internments[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
-//     localStorage.setItem('internment-tab', $(this).attr('id'));
-//   });
+$(document).ready(function(){
+  
+  $('button.internments[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
+    localStorage.setItem('internmentTab', $(this).attr('id'));
+  });
 
-//   var internment = localStorage.getItem('internment-tab');
-//   if(internment){
-//     $('#myTab-internment button[id="' + internment + '"]').tab('show');
-//   }
-// })
+  var internment = localStorage.getItem('internmentTab');
+  if(internment=="internment-setup"){
+    $("#internment-setup").addClass("active");
+    $("#owners").addClass("active");
+  }else if(internment=="internment-table"){
+    $("#internment-table").addClass("active");
+    $("#deads").addClass("active");
+  }else{
+    $("#internment-setup").addClass("active");
+    $("#owners").addClass("active");
+  }
+})
