@@ -25,10 +25,9 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../Assets/image/logopngplain.png" type="image/x-icon">
     <title>Divine Life Memorial Park</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../Assets/DataTables/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../Assets/css/index_admin.css">
     
@@ -208,7 +207,7 @@
                                 </div> 
                                 <br>
                                 <div class="block">
-                                  <table class="table table-striped table-bordered w-100" id="tbl-block-info">
+                                  <table class="table table-striped table-bordered w-100 " id="tbl-block-info">
                                     <thead class="tbl-header text-light">
                                       <th>#</th>
                                       <th>Block</th>
@@ -256,7 +255,7 @@
                                 </div> 
                                 <br>
                                 <div class="lot">
-                                  <table class="table table-striped table-bordered w-100" id="tbl-lot-info">
+                                  <table class="table table-striped table-bordered w-100" id="tbl-lot-info" >
                                     <thead class="tbl-header text-light">
                                       <th>#</th>
                                       <th>Lot</th>
@@ -563,13 +562,13 @@
     </div>
   </div>
   <?php }?>
-
+  <script src="../Assets/js/index_admin.js" defer></script>
+  <script src="../Assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../Assets/DataTables/datatables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
   <script src="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
-  <script src="../Assets/js/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="../Assets/DataTables/datatables.min.js"></script>
-  <script src="../Assets/js/index_admin.js" defer></script>
+  
     
 </body>
 </html>

@@ -36,25 +36,10 @@ tabs.forEach((tab, index)=>{
 })
 
 // ----------------------------CUSTOMER PAGE-------------------------------------
-$("#dead-relative, #dead-relative-surname").keyup(function(){
-  var relative = $("#dead-relative").val();
-  var relative_surname = $("#dead-relative-surname").val();
-  $.ajax({
-    url: "queries/relativeCheck.php",
-    type: "post",
-    data: {relative:relative, relative_surname:relative_surname},
-    success:function(data){
-      $("#relative-error").html(data);
-    }
-  })
-})
 $(document).ready( function () {
   $("#tbl-customer").DataTable({
     "responsive": true
   });
-  $("#tbl-owners-info").DataTable({
-    "responsive": true
-  })
 })
   $(".customer-site").load("queries/customer-site.php");
 
@@ -149,6 +134,11 @@ $(".close-owner-lot").click(function(){
 })
 // ----------------------------BLOCK AND LOT PAGE-------------------------------------
 $(document).ready( function () {
+  $("button.block-setup[data-bs-toggle='tab']").on('shown.bs.tab', function (e) {
+    $($.fn.dataTable.tables(true)).DataTable()
+       .columns.adjust()
+       .responsive.recalc();
+  });
   $("#tbl-site-info").DataTable({
     "responsive": true
   })
@@ -197,8 +187,7 @@ function mouseClick(){
   })
 }
 $(document).ready(function(){
-  $("#sites-tab").addClass("active");
-  $("#sites").addClass("active");
+  $('#myTab button[id="sites-tab"]').tab('show');
   $('button.block-setup[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
     localStorage.setItem('activeTab', $(this).attr('id'));
   });
@@ -209,15 +198,27 @@ $(document).ready(function(){
   }
 })
 // ----------------------------INTERNMENT PAGE-------------------------------------
-// $(document).ready(function(){
-//   $("#internment-setup").addClass("active");
-//   $("#owners").addClass("active");
-//   $('button.internments[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
-//     localStorage.setItem('internment-tab', $(this).attr('id'));
-//   });
-
-//   var internment = localStorage.getItem('internment-tab');
-//   if(internment){
-//     $('#myTab-internment button[id="' + internment + '"]').tab('show');
-//   }
-// })
+$(document).ready(function(){
+  $("button.internments[data-bs-toggle='tab']").on('shown.bs.tab', function (e) {
+    $($.fn.dataTable.tables(true)).DataTable()
+       .columns.adjust()
+       .responsive.recalc();
+  });
+  $("#tbl-lot-owners").DataTable({
+    "responsive": true
+  })
+  $("#tbl-deads").DataTable({
+    "responsive": true
+  })
+  $('button.internments[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
+    localStorage.setItem('internmentTab', $(this).attr('id'));
+  });
+  var internment = localStorage.getItem('internmentTab');
+  if(internment=="internment-setup"){
+    $("#internment-setup").tab('show');
+  }else if(internment=="internment-table"){
+    $("#internment-table").tab('show');
+  }else{
+    $("#internment-setup").tab('show');
+  }
+})
