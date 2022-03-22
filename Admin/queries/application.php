@@ -202,19 +202,74 @@ if(isset($_POST["btn-submit-dead"])){
   $death_cert="death-cert";
   $burial_permit="burial-permit";
 
-  $sql=$con->query("INSERT INTO `deceased_persons`(`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead_gender`, `dead_citizenship`, `dead_civil_status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`) VALUES (' $lot_owner_id', '$customer_id', '$site_id', '$block_id', '$lot_id', '$dead_family_name', '$dead_first_name', '$dead_middle_name', '$dead_gender', '$dead_citizenship', '$dead_civil_status', '$relative', '$relative_surname', '$relationship', '$internment_date', '$date_of_birth', '$date_of_death', '$death_cert', '$burial_permit')");
+  $sql_dead=$con->query("SELECT * FROM `deceased_persons` WHERE `dead_fname`='$dead_first_name' AND `dead_mname`='$dead_middle_name' AND `dead_family_name`='$dead_family_name'");
+  $sql_site=$con->query("SELECT * FROM `deceased_persons` WHERE `site_id`='$site_id' AND `block_id`='$block_id' AND `lot_id`='$lot_id'");
+  $row=$sql_dead->fetch_array();
+  $rows=$sql_site->fetch_array();
+  if($dead_first_name==isset($row["dead_fname"])&&$dead_middle_name==isset($row["dead_mname"])&&$dead_family_name==isset($row["dead_family_name"])){
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Deceased Person is Already Exists',
+      text: 'Enter another deceased person details',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+    header("refresh: 1;");
+  }else if($site_id==isset($rows["site_id"])&&$block_id==isset($rows["block_id"])&&$lot_id==isset($rows["lot_id"])){
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Grave Address Owned By Someone Else',
+      text: 'Please select other grave address',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+    header("refresh: 1;");
+  }else{
+    $sql=$con->query("INSERT INTO `deceased_persons`(`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead_gender`, `dead_citizenship`, `dead_civil_status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`) VALUES (' $lot_owner_id', '$customer_id', '$site_id', '$block_id', '$lot_id', '$dead_family_name', '$dead_first_name', '$dead_middle_name', '$dead_gender', '$dead_citizenship', '$dead_civil_status', '$relative', '$relative_surname', '$relationship', '$internment_date', '$date_of_birth', '$date_of_death', '$death_cert', '$burial_permit')");
 
-  echo "<script>
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Successfully Registered',
-    text: 'You added a new deceased person',
-    showConfirmButton: false,
-    timer: 2000
-  })
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Successfully Registered',
+      text: 'You added a new deceased person',
+      showConfirmButton: false,
+      timer: 2000
+    })
 
-  window.history.replaceState( null, null, window.location.href );
-  </script>";
-  header("refresh: 1;");
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+    header("refresh: 1;");
+  }
+  
 }
