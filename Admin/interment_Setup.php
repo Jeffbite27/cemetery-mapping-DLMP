@@ -337,7 +337,11 @@
                   <div class="col-md-4 col-sm-4">
                     <label for="dead-relative">Relative:<i class="req">*</i></label>
                     <input type="text" name="dead-relative" id="dead-relative" placeholder="First name" class="form-control" value="<?php echo $row['first_name']?>" readonly required>
-                    <input type="hidden" id="customer-id" name="customer-id">
+                    <input type="hidden" id="lot-owner-id" value="<?php echo $row['lot_owner_id']?>" name="lot-owner-id">
+                    <input type="hidden" id="customer-id" value="<?php echo $row['customer_id']?>" name="customer-id">
+                    <input type="hidden" id="site-id" value="<?php echo $row['site_id']?>" name="site-id">
+                    <input type="hidden" id="block-id" value="<?php echo $row['block_id']?>" name="block-id">
+                    <input type="hidden" id="lot-id" value="<?php echo $row['lot_id']?>" name="lot-id">
                     <small class="text-danger" id="relative-error"></small>
                   </div>
                   <div class="col-md-4 col-sm-4">
