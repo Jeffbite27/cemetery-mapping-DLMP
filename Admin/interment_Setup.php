@@ -9,7 +9,8 @@
     $sql_modal=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_deceased=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_dead=$con->query("SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)");
-    
+    $sql_death_cert=$con->query("SELECT * FROM `deceased_persons`");
+    $sql_burial_permit=$con->query("SELECT * FROM `deceased_persons`");
   }else{
     header("Location: index.php");
   }
@@ -170,15 +171,15 @@
                                         <td class="align-middle"><?php echo $row["lawn_type"] ?></td>
                                         <td class="align-middle text-center">
                                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-deed-of-sale-<?php echo $row['lot_owner_id']?>">
-                                              <i class='bx bxs-file fs-5' ></i>
+                                              <i class='bx bxs-file' ></i>
                                             </button>
                                         </td>
                                         <td class="align-middle text-center">
                                           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-deceased-<?php echo $row['lot_owner_id']?>">
-                                            <i class='bx bxs-user-x fs-5'></i>
+                                            <i class='bx bxs-user-x'></i>
                                           </button>
                                           <button class="btn btn-success">
-                                            <i class='bx bxs-edit fs-5'></i>
+                                            <i class='bx bxs-edit'></i>
                                           </button>
                                         </td>
                                       </tr>
@@ -229,11 +230,19 @@
                                           <td class="align-middle"><?php echo $row["date_of_birth"]?></td>
                                           <td class="align-middle"><?php echo $row["date_of_death"]?></td>
                                           <td class="align-middle"><?php echo "Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?></td>
-                                          <td class="align-middle"><?php echo $row["death_cert"]?></td>
-                                          <td class="align-middle"><?php echo $row["burial_permit"]?></td>
+                                          <td class="align-middle text-center">
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-death-cert-<?php echo $row['deceased_id']?>">
+                                              <i class="bx bxs-file"></i>
+                                            </button>
+                                          </td>
+                                          <td class="align-middle text-center">
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-burial-permit-<?php echo $row['deceased_id']?>">
+                                              <i class="bx bxs-file"></i>
+                                            </button>
+                                          </td>
                                           <td class="align-middle text-center">
                                             <button class="btn btn-success">
-                                              <i class="bx bxs-edit fs-5"></i>
+                                              <i class="bx bxs-edit"></i>
                                             </button>
                                           </td>
                                         </tr>
@@ -262,7 +271,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-            <i class='bx bxs-edit fs-1'></i> 
+            <i class='bx bxs-file fs-1'></i> 
             &nbsp;<?php echo $row['first_name']." ".$row['family_name']?>'s Deed of Sale Preview
           </h4>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -271,6 +280,56 @@
           <div class="modal-body p-5">
             <div class="text-center">
                 <iframe style="width: 100%; height: 500px" src="files/deed_of_sales/<?php echo $row['deed_of_sale']?>" frameborder="0">
+
+                </iframe>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+  <!------------------------------- DEATH CERTIFICATE MODAL PREVIEW -------------------------->
+  <?php while($row=$sql_death_cert->fetch_array()){ ?>
+  <div class="modal fade" id="preview-death-cert-<?php echo $row['deceased_id']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+            <i class='bx bxs-file fs-1'></i> 
+            &nbsp;Preview of <?php echo $row['dead_fname']." ".$row['dead_mname']." ".$row['dead_family_name']?>'s Death Certificate
+          </h4>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body p-5">
+            <div class="text-center">
+                <iframe style="width: 100%; height: 500px" src="files/death_certificates/<?php echo $row['death_cert']?>" frameborder="0">
+
+                </iframe>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+  <!------------------------------- BURIAL PERMIT MODAL PREVIEW -------------------------->
+  <?php while($row=$sql_burial_permit->fetch_array()){ ?>
+  <div class="modal fade" id="preview-burial-permit-<?php echo $row['deceased_id']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+            <i class='bx bxs-file fs-1'></i> 
+            &nbsp;Preview of <?php echo $row['dead_fname']." ".$row['dead_mname']." ".$row['dead_family_name']?>'s Burial Permit
+          </h4>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body p-5">
+            <div class="text-center">
+                <iframe style="width: 100%; height: 500px" src="files/burial_permits/<?php echo $row['burial_permit']?>" frameborder="0">
 
                 </iframe>
             </div>
@@ -292,7 +351,7 @@
             </h4>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             <div class="modal-body p-5">
               <div class="">
                 <div class="row mb-3">
@@ -386,11 +445,11 @@
                 <div class="row mb-3">
                   <div class="col-md-6 col-sm-6">
                     <label for="death-cert">Death Certificate:<i class="req">*</i></label>
-                    <input type="file" name="death-cert" id="death-cert" class="form-control" required>
+                    <input type="file" name="death-cert" id="death-cert" class="form-control" accept=".pdf, .docx, .jpg, .png" required>
                   </div>
                   <div class="col-md-6 col-sm-6">
                     <label for="burial-permit">Burial Permit:<i class="req">*</i></label>
-                    <input type="file" name="burial-permit" id="burial-permit" class="form-control" required>
+                    <input type="file" name="burial-permit" id="burial-permit" class="form-control" accept=".pdf, .docx, .jpg, .png" required>
                   </div>
                 </div>
               </div>
