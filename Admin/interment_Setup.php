@@ -292,7 +292,7 @@
             </h4>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             <div class="modal-body p-5">
               <div class="">
                 <div class="row mb-3">
@@ -386,11 +386,11 @@
                 <div class="row mb-3">
                   <div class="col-md-6 col-sm-6">
                     <label for="death-cert">Death Certificate:<i class="req">*</i></label>
-                    <input type="file" name="death-cert" id="death-cert" class="form-control" required>
+                    <input type="file" name="death-cert" id="death-cert" class="form-control" accept=".pdf, .docx, .jpg, .png" required>
                   </div>
                   <div class="col-md-6 col-sm-6">
                     <label for="burial-permit">Burial Permit:<i class="req">*</i></label>
-                    <input type="file" name="burial-permit" id="burial-permit" class="form-control" required>
+                    <input type="file" name="burial-permit" id="burial-permit" class="form-control" accept=".pdf, .docx, .jpg, .png" required>
                   </div>
                 </div>
               </div>
