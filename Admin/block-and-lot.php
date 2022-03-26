@@ -451,7 +451,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-            <i class='bx bx-sitemap fs-1' ></i>
+            <i class='bx bx-edit fs-1' ></i>
             &nbsp;Edit <?php echo $row["site_name"] ?> Site
           </h4>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -486,7 +486,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-            <i class='bx bxs-cube-alt fs-1'></i>
+            <i class='bx bxs-edit fs-1'></i>
             &nbsp;Edit Block: <?php echo $row["block_name"] ?> - Sector: <?php echo $row["sector"] ?> - Site: <?php echo $row["site_name"] ?>
           </h4>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -528,7 +528,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-            <i class='bx bxs-grid fs-1' ></i>
+            <i class='bx bxs-edit fs-1' ></i>
             &nbsp;Edit Lot: <?php echo $row["lot_name"] ?> - Block: <?php echo $row["block_name"] ?> - Sector: <?php echo $row["sector"] ?> - Site: <?php echo $row["site_name"] ?>
           </h4>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
