@@ -221,4 +221,35 @@ $(document).ready(function(){
   }else{
     $("#internment-setup").tab('show');
   }
+  $(".edit-customer-site").one("click", function(){
+    var lot_owner_id=$(this).attr("data-id");
+    $.ajax({
+      url: "queries/lot-owner-site.php",
+      method: "post",
+      data: {lot_owner_id:lot_owner_id},
+      success:function(data){
+        $("#edit-customer-site-"+lot_owner_id).html(data);
+      }
+    })
+  })
+  $(".edit-customer-sector").change(function(e){
+    e.preventDefault();
+    lot_owner_block();
+  })
+  function lot_owner_block(){
+    $(".edit-customer-block").one("click", function(){
+      var lot_owner_id=$(this).attr("data-id");
+      var sector=$("#edit-customer-sector-"+lot_owner_id).val();
+      var site_id=$("#edit-customer-site-"+lot_owner_id).val();
+      $.ajax({
+        url: "queries/lot-owner-block.php",
+        method: "post",
+        data: {lot_owner_id:lot_owner_id, sector:sector, site_id:site_id},
+        success:function(data){
+          $("#edit-customer-block-"+lot_owner_id).html(data);
+        }
+      })
+    })
+  }
+  
 })
