@@ -7,6 +7,7 @@
   if(isset($_SESSION["username"])){
     $sql=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_modal=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
+    $sql_edit_modal=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_deceased=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_dead=$con->query("SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)");
     $sql_death_cert=$con->query("SELECT * FROM `deceased_persons`");
@@ -178,7 +179,7 @@
                                           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-deceased-<?php echo $row['lot_owner_id']?>">
                                             <i class='bx bxs-user-x'></i>
                                           </button>
-                                          <button class="btn btn-success">
+                                          <button class="btn btn-success" data-bs-toggle="modal" data-id="<?php echo $row["lot_owner_id"]?>" data-bs-target="#lot-owners-edit-<?php echo $row["lot_owner_id"]?>">
                                             <i class='bx bxs-edit'></i>
                                           </button>
                                         </td>
@@ -231,17 +232,17 @@
                                           <td class="align-middle"><?php echo $row["date_of_death"]?></td>
                                           <td class="align-middle"><?php echo "Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?></td>
                                           <td class="align-middle text-center">
-                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-death-cert-<?php echo $row['deceased_id']?>">
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-death-cert-<?php echo $row["deceased_id"]?>">
                                               <i class="bx bxs-file"></i>
                                             </button>
                                           </td>
                                           <td class="align-middle text-center">
-                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-burial-permit-<?php echo $row['deceased_id']?>">
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-burial-permit-<?php echo $row["deceased_id"]?>">
                                               <i class="bx bxs-file"></i>
                                             </button>
                                           </td>
                                           <td class="align-middle text-center">
-                                            <button class="btn btn-success">
+                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#preview-burial-permit-<?php echo $row["deceased_id"]?>">
                                               <i class="bx bxs-edit"></i>
                                             </button>
                                           </td>
@@ -264,6 +265,73 @@
         </div>
       </div>
   </section>
+  <!------------------------------- EDIT LOT OWNERS MODAL -------------------------->
+  <?php while($row=$sql_edit_modal->fetch_array()) { ?>
+    <div class="modal fade" id="lot-owners-edit-<?php echo $row["lot_owner_id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+              <i class='bx bxs-edit fs-1' ></i>
+              &nbsp;Edit Lot Details Owned by <?php echo $row["first_name"].' '.$row["middle_name"].' '.$row["family_name"]?>
+            </h4>
+            <button type="button" class="btn-close btn-close-white close-owner-lot" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="" method="post" enctype="multipart/form-data">
+            <div class="modal-body p-5">
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="edit-customer-site-<?php echo $row["lot_owner_id"] ?>">Site:<i class="req">*</i></label>
+                  <select class="form-select edit-customer-site" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-site-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-site">
+                    <option value="<?php echo $row["site_id"] ?>"><?php echo $row["site_name"] ?></option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="edit-customer-sector-<?php echo $row["lot_owner_id"] ?>">Lawn Sector:<i class="req">*</i></label>
+                  <select class="form-select edit-customer-sector" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-sector-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-sector">
+                    <option value="<?php echo $row["sector"] ?>" selected><?php echo $row["sector"] ?></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                  </select>
+                </div> 
+                <div class="col-md-4">
+                  <label for="edit-customer-block-<?php echo $row["lot_owner_id"] ?>">Lawn Block:<i class="req">*</i></label>
+                  <select class="form-select edit-customer-block" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-block-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-block">
+                    <option value="<?php echo $row["block_id"] ?>" selected><?php echo $row["block_name"] ?></option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="edit-customer-lot-<?php echo $row["lot_owner_id"] ?>">Lawn Lot:<i class="req">*</i></label>
+                  <select class="form-select edit-customer-lot" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-lot-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-lot">
+                    <option value="<?php echo $row["lot_id"] ?>" selected><?php echo $row["lot_name"] ?></option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="edit-customer-lawn-type-<?php echo $row["lot_owner_id"]?>">Lawn Type:<i class="req">*</i></label>
+                  <input class="form-control edit-customer-lawn-type" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-lawn-type-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-lawn-type" placeholder="Lawn Type" value="<?php echo $row["lawn_type"] ?>" readonly>
+                  </inp>
+                </div>
+                <div class="col-md-4">
+                  <label for="edit-owner-deed-sale-<?php echo $row["lot_owner_id"]?>">Deed of Sale:<i class="req">*</i></label> <a href="" data-bs-toggle="modal" data-bs-target="#preview-deed-of-sale-<?php echo $row['lot_owner_id']?>"><i class='bx bx-paperclip bx-rotate-270' ></i>Current Deed of Sale </a>
+                  <input type="file" accept=".pdf, .png, .jpg" name="edit-owner-deed-sale" id="edit-owner-deed-sale-<?php echo $row["lot_owner_id"]?>" class="form-control owner-deed-sale">
+                </div>
+              </div>
+            </div>
+            <div class="text-center text-danger lot-warning" id="lot-warning-<?php echo $row["customer_id"]?>">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" name="btn-update-owner-setup">Update</button>
+              <button type="reset" class="btn btn-danger btn-reset-lot-owner" id="btn-reset-owner" data-id="<?php echo $row["customer_id"]?>">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>        
+    </div>
+  <?php } ?>
   <!------------------------------- DEED OF SALE MODAL PREVIEW -------------------------->
   <?php while($row=$sql_modal->fetch_array()){ ?>
   <div class="modal fade" id="preview-deed-of-sale-<?php echo $row['lot_owner_id']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -339,7 +407,7 @@
     </div>
   </div>
   <?php } ?>
-  <!------------------------------- INTERNMENT FOR DECEASED MODAL PREVIEW -------------------------->
+  <!------------------------------- INTERNMENT FOR DECEASED MODAL -------------------------->
   <?php while($row=$sql_deceased->fetch_array()){ ?>
     <div class="modal fade" id="add-deceased-<?php echo $row['lot_owner_id']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl"> 

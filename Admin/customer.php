@@ -411,12 +411,12 @@
             </div>
             <div class="row mb-3">
               <div class="col-md-4">
-                <label for="customer-site-<?php echo $row["customer_id"] ?>">Site:<i class="req">*</i></label></label>
+                <label for="customer-site-<?php echo $row["customer_id"] ?>">Site:<i class="req">*</i></label>
                 <select class="form-select customer-site" data-id="<?php echo $row["customer_id"]?>" id="customer-site-<?php echo $row["customer_id"] ?>" name="customer-site" required>
                 </select>
               </div>
               <div class="col-md-4">
-                <label for="customer-sector-<?php echo $row["customer_id"] ?>">Lawn Sector:<i class="req">*</i></label></label>
+                <label for="customer-sector-<?php echo $row["customer_id"] ?>">Lawn Sector:<i class="req">*</i></label>
                 <select class="form-select customer-sector" data-id="<?php echo $row["customer_id"]?>" id="customer-sector-<?php echo $row["customer_id"] ?>" name="customer-sector" disabled required>
                   <option value="" selected disabled>Select Sector</option>
                   <option value="A">A</option>
@@ -426,7 +426,7 @@
                 </select>
               </div> 
               <div class="col-md-4">
-                <label for="customer-block-<?php echo $row["customer_id"] ?>">Lawn Block:<i class="req">*</i></label></label>
+                <label for="customer-block-<?php echo $row["customer_id"] ?>">Lawn Block:<i class="req">*</i></label>
                 <select class="form-select customer-block" data-id="<?php echo $row["customer_id"]?>" id="customer-block-<?php echo $row["customer_id"] ?>" name="customer-block" disabled required>
                   <option value="" selected disabled>Select Block</option>
                 </select>
@@ -434,18 +434,17 @@
             </div>
             <div class="row">
               <div class="col-md-4">
-                <label for="customer-lot-<?php echo $row["customer_id"] ?>">Lawn Lot:<i class="req">*</i></label></label>
+                <label for="customer-lot-<?php echo $row["customer_id"] ?>">Lawn Lot:<i class="req">*</i></label>
                 <select class="form-select customer-lot" data-id="<?php echo $row["customer_id"]?>" id="customer-lot-<?php echo $row["customer_id"] ?>" name="customer-lot" disabled required>
                   <option value="" selected disabled>Select Lot</option>
                 </select>
               </div>
               <div class="col-md-4">
-                <label for="customer-lawn-type-<?php echo $row["customer_id"]?>">Lawn Type:<i class="req">*</i></label></label>
+                <label for="customer-lawn-type-<?php echo $row["customer_id"]?>">Lawn Type:<i class="req">*</i></label>
                 <input class="form-control customer-lawn-type" data-id="<?php echo $row["customer_id"]?>" id="customer-lawn-type-<?php echo $row["customer_id"] ?>" name="customer-lawn-type" placeholder="Lawn Type" readonly>
-                </inp>
               </div>
               <div class="col-md-4">
-                <label for="owner-deed-sale-<?php echo $row["customer_id"]?>">Deed of Sale:<i class="req">*</i></label></label>
+                <label for="owner-deed-sale-<?php echo $row["customer_id"]?>">Deed of Sale:<i class="req">*</i></label>
                 <input type="file" accept=".pdf, .png, .jpg" name="owner-deed-sale" id="owner-deed-sale-<?php echo $row["customer_id"]?>" class="form-control owner-deed-sale" required>
               </div>
             </div>
