@@ -232,7 +232,7 @@ $(document).ready(function(){
       }
     })
   })
-  $(".edit-customer-sector").change(function(e){
+  $(".edit-customer-sector").click(function(e){
     e.preventDefault();
     lot_owner_block();
   })
@@ -251,5 +251,38 @@ $(document).ready(function(){
       })
     })
   }
+  $(".edit-customer-block").click(function(e){
+    e.preventDefault();
+    lot_owner_lot();
+  });
+  function lot_owner_lot(){
+    $(".edit-customer-lot").one("click", function(){
+      var lot_owner_id=$(this).attr("data-id");
+      var sector=$("#edit-customer-sector-"+lot_owner_id).val();
+      var site_id=$("#edit-customer-site-"+lot_owner_id).val();
+      var block_id=$("#edit-customer-block-"+lot_owner_id).val();
+      $.ajax({
+        url: "queries/lot-owner-lot.php",
+        method: "post",
+        data: {lot_owner_id:lot_owner_id, sector:sector, site_id:site_id, block_id:block_id},
+        success:function(data){
+          $("#edit-customer-lot-"+lot_owner_id).html(data);
+        }
+      })
+    })
+  }
+  $(".edit-customer-lot").change(function(e){
+    e.preventDefault();
+    var lot_owner_id=$(this).attr("data-id");
+    var lot_id=$("#edit-customer-lot-"+lot_owner_id).val();
+    $.ajax({
+      url: "queries/lot-owner-lawn-type.php",
+      method: "post",
+      data: {lot_owner_id:lot_owner_id, lot_id:lot_id},
+      success:function(data){
+        $("#edit-customer-lawn-type-"+lot_owner_id).val(data);
+      }
+    })
+  })
   
 })
