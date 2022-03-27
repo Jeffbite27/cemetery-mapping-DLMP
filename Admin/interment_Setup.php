@@ -282,13 +282,13 @@
               <div class="row mb-3">
                 <div class="col-md-4">
                   <label for="edit-customer-site-<?php echo $row["lot_owner_id"] ?>">Site:<i class="req">*</i></label>
-                  <select class="form-select edit-customer-site" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-site-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-site" required>
+                  <select class="form-select edit-customer-site" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-site-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-site">
                     <option value="<?php echo $row["site_id"] ?>"><?php echo $row["site_name"] ?></option>
                   </select>
                 </div>
                 <div class="col-md-4">
                   <label for="edit-customer-sector-<?php echo $row["lot_owner_id"] ?>">Lawn Sector:<i class="req">*</i></label>
-                  <select class="form-select edit-customer-sector" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-sector-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-sector" required>
+                  <select class="form-select edit-customer-sector" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-sector-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-sector">
                     <option value="<?php echo $row["sector"] ?>" selected><?php echo $row["sector"] ?></option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -298,7 +298,7 @@
                 </div> 
                 <div class="col-md-4">
                   <label for="edit-customer-block-<?php echo $row["lot_owner_id"] ?>">Lawn Block:<i class="req">*</i></label>
-                  <select class="form-select edit-customer-block" data-id="<?php echo $row["customer_id"]?>" id="edit-customer-block-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-block" required>
+                  <select class="form-select edit-customer-block" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-block-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-block">
                     <option value="<?php echo $row["block_id"] ?>" selected><?php echo $row["block_name"] ?></option>
                   </select>
                 </div>
@@ -306,18 +306,18 @@
               <div class="row">
                 <div class="col-md-4">
                   <label for="edit-customer-lot-<?php echo $row["lot_owner_id"] ?>">Lawn Lot:<i class="req">*</i></label>
-                  <select class="form-select edit-customer-lot" data-id="<?php echo $row["customer_id"]?>" id="edit-customer-lot-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-lot" required>
+                  <select class="form-select edit-customer-lot" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-lot-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-lot">
                     <option value="<?php echo $row["lot_id"] ?>" selected><?php echo $row["lot_name"] ?></option>
                   </select>
                 </div>
                 <div class="col-md-4">
                   <label for="edit-customer-lawn-type-<?php echo $row["lot_owner_id"]?>">Lawn Type:<i class="req">*</i></label>
-                  <input class="form-control edit-customer-lawn-type" data-id="<?php echo $row["customer_id"]?>" id="edit-customer-lawn-type-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-lawn-type" placeholder="Lawn Type" value="<?php echo $row["lawn_type"] ?>" readonly>
+                  <input class="form-control edit-customer-lawn-type" data-id="<?php echo $row["lot_owner_id"]?>" id="edit-customer-lawn-type-<?php echo $row["lot_owner_id"] ?>" name="edit-customer-lawn-type" placeholder="Lawn Type" value="<?php echo $row["lawn_type"] ?>" readonly>
                   </inp>
                 </div>
                 <div class="col-md-4">
-                  <label for="edit-owner-deed-sale-<?php echo $row["lot_owner_id"]?>">Deed of Sale:<i class="req">*</i></label>
-                  <input type="file" accept=".pdf, .png, .jpg" name="edit-owner-deed-sale" id="edit-owner-deed-sale-<?php echo $row["lot_owner_id"]?>" class="form-control owner-deed-sale" required>
+                  <label for="edit-owner-deed-sale-<?php echo $row["lot_owner_id"]?>">Deed of Sale:<i class="req">*</i></label> <a href="" data-bs-toggle="modal" data-bs-target="#preview-deed-of-sale-<?php echo $row['lot_owner_id']?>"><i class='bx bx-paperclip bx-rotate-270' ></i>Current Deed of Sale </a>
+                  <input type="file" accept=".pdf, .png, .jpg" name="edit-owner-deed-sale" id="edit-owner-deed-sale-<?php echo $row["lot_owner_id"]?>" class="form-control owner-deed-sale">
                 </div>
               </div>
             </div>
