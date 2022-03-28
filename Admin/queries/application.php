@@ -188,36 +188,64 @@ if(isset($_POST["btn-update-owner-setup"])){
   $site_id=mysqli_real_escape_string($con, $_POST["edit-customer-site"]);
   $block_id=mysqli_real_escape_string($con, $_POST["edit-customer-block"]);
   $lot_id=mysqli_real_escape_string($con, $_POST["edit-customer-lot"]);
+  $sector=mysqli_real_escape_string($con, $_POST["edit-customer-sector"]);
   
-  $sql_lot_owner=$con->query("SELECT * FROM `lot_owners` WHERE `site_id`='$site_id' AND `block_id`='$block_id' AND `lot_id`='$lot_id' AND `lot_owner_id`='$lot_owner_id'");
+  $sql_lot_owner=$con->query("SELECT * FROM `lot_owners` WHERE `lot_owner_id`='$lot_owner_id'");
   $rows=$sql_lot_owner->fetch_array();
-
-
-  if(!empty($_FILES["edit-owner-deed-sale"]["name"])){
-    if(!empty($rows["deed_of_sale"])){
-      unlink("files/deed_of_sales/".$rows["deed_of_sale"]);
-    }
-    $time=time();
-    $deed_of_sale=$fullname.'_'.$time.'.'.pathinfo($_FILES["edit-owner-deed-sale"]['name'], PATHINFO_EXTENSION);
-    $deed_of_saleTarget="files/deed_of_sales/".$deed_of_sale;
-    move_uploaded_file($_FILES["edit-owner-deed-sale"]["tmp_name"], $deed_of_saleTarget);
-  }else{
-    $deed_of_sale=$rows["deed_of_sale"];
-  }
 
   $sql=$con->query("SELECT * FROM `lot_owners` WHERE `site_id`='$site_id' AND `block_id`='$block_id' AND `lot_id`='$lot_id' AND `lot_owner_id`!='$lot_owner_id'");
   $row=$sql->fetch_array();
 
-  if($site_id!=isset($row["site_id"])&&$block_id!=isset($row["block_id"])&&$lot_id!=isset($row["lot_id"])){
-    // $sql=$con->query("INSERT INTO `lot_owners`(`customer_id`, `site_id`, `block_id`, `lot_id`, `deed_of_sale`) VALUES ('$customer_id','$site_id','$block_id','$lot_id','$deed_of_sale')");
-    $sql=$con->query("UPDATE `lot_owners` SET `site_id`='$site_id', `block_id`='$block_id', `lot_id`='$lot_id', `deed_of_sale`='$deed_of_sale' WHERE `lot_owner_id`='$lot_owner_id'");
-  
-    echo "<script>
+  $sql_lots=$con->query("SELECT * FROM `tbl_blocks` INNER JOIN `tbl_lots` ON tbl_blocks.block_id=tbl_lots.block_id WHERE tbl_lots.site_id='$site_id' AND tbl_lots.block_id='$block_id' AND tbl_lots.lot_id='$lot_id' AND tbl_blocks.sector='$sector'");
+
+  if($sql_lots->num_rows!=0){
+    if($site_id!=isset($row["site_id"])&&$block_id!=isset($row["block_id"])&&$lot_id!=isset($row["lot_id"])){
+
+      if(!empty($_FILES["edit-owner-deed-sale"]["name"])){
+        if(!empty($rows["deed_of_sale"])){
+          unlink("files/deed_of_sales/".$rows["deed_of_sale"]);
+        }
+        $time=time();
+        $deed_of_sale=$fullname.'_'.$time.'.'.pathinfo($_FILES["edit-owner-deed-sale"]['name'], PATHINFO_EXTENSION);
+        $deed_of_saleTarget="files/deed_of_sales/".$deed_of_sale;
+        move_uploaded_file($_FILES["edit-owner-deed-sale"]["tmp_name"], $deed_of_saleTarget);
+      }else{
+        $deed_of_sale=$rows["deed_of_sale"];
+      }
+
+      $sql_update=$con->query("UPDATE `lot_owners` SET `site_id`='$site_id', `block_id`='$block_id', `lot_id`='$lot_id', `deed_of_sale`='$deed_of_sale' WHERE `lot_owner_id`='$lot_owner_id'");
+      $sql_dead=$con->query("UPDATE `deceased_persons` SET `site_id`='$site_id', `block_id`='$block_id', `lot_id`='$lot_id' WHERE `lot_owner_id`='$lot_owner_id'");
+
+      echo "<script>
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Lot Owner Details Successfully Updated',
+          text: 'You updated a lot owner details',
+          showConfirmButton: false,
+          timer: 2000,
+          allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+              popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+              popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+          }
+        })
+        window.history.replaceState( null, null, window.location.href );
+        </script>";
+        header("refresh: 1;");
+    }else{
+      echo "<script>
       Swal.fire({
         position: 'center',
-        icon: 'success',
-        title: 'Lot Owner Details Successfully Updated',
-        text: 'You updated a lot owner details',
+        icon: 'error',
+        title: 'Lot Owner Details Already Exists',
+        text: 'Enter another lot owner details',
         showConfirmButton: false,
         timer: 2000,
         allowOutsideClick: () => {
@@ -234,15 +262,15 @@ if(isset($_POST["btn-update-owner-setup"])){
       })
       window.history.replaceState( null, null, window.location.href );
       </script>";
-    
       header("refresh: 1;");
+    }
   }else{
     echo "<script>
     Swal.fire({
       position: 'center',
       icon: 'error',
-      title: 'Lot Owner Details Already Exists',
-      text: 'Enter another lot owner details',
+      title: 'Lot Does not Exist',
+      text: 'A lot you entered is not yet registered.',
       showConfirmButton: false,
       timer: 2000,
       allowOutsideClick: () => {
@@ -259,7 +287,6 @@ if(isset($_POST["btn-update-owner-setup"])){
     })
     window.history.replaceState( null, null, window.location.href );
     </script>";
-
     header("refresh: 1;");
   }
 }
@@ -283,8 +310,9 @@ if(isset($_POST["btn-submit-dead"])){
   $date_of_birth=mysqli_real_escape_string($con, $_POST["dead-bday"]);
   $date_of_death=mysqli_real_escape_string($con, $_POST["dead-death"]);
 
-  $death_cert=$dead_first_name.'_'.$dead_family_name.'.'.pathinfo($_FILES["death-cert"]['name'], PATHINFO_EXTENSION);
-  $burial_permit=$dead_first_name.'_'.$dead_family_name.'.'.pathinfo($_FILES["burial-permit"]['name'], PATHINFO_EXTENSION);
+  $time=time();
+  $death_cert=$dead_first_name.'_'.$dead_family_name.'_'.$time.'.'.pathinfo($_FILES["death-cert"]['name'], PATHINFO_EXTENSION);
+  $burial_permit=$dead_first_name.'_'.$dead_family_name.'_'.$time.'.'.pathinfo($_FILES["burial-permit"]['name'], PATHINFO_EXTENSION);
 
   $death_certTarget="files/death_certificates/".$death_cert;
   $burial_permitTarget="files/burial_permits/".$burial_permit;
@@ -361,4 +389,102 @@ if(isset($_POST["btn-submit-dead"])){
     header("refresh: 1;");
   }
   
+}
+// ---------------------------------DECEASED UPDATE------------------------------------
+if(isset($_POST["btn-edit-dead"])){
+  $deceased_id=mysqli_real_escape_string($con, $_POST["edit-deceased-id"]);
+  $dead_family_name=mysqli_real_escape_string($con, $_POST["edit-dead-family-name"]);
+  $dead_first_name=mysqli_real_escape_string($con, $_POST["edit-dead-first-name"]);
+  $dead_middle_name=mysqli_real_escape_string($con, $_POST["edit-dead-middle-name"]);
+  $dead_gender=mysqli_real_escape_string($con, $_POST["edit-dead-gender"]);
+  $dead_citizenship=mysqli_real_escape_string($con, $_POST["edit-dead-citizenship"]);
+  $dead_civil_status=mysqli_real_escape_string($con, $_POST["edit-dead-civil-status"]);
+  $relative=mysqli_real_escape_string($con, $_POST["edit-dead-relative"]);
+  $relative_surname=mysqli_real_escape_string($con, $_POST["edit-dead-relative-surname"]);
+  $relationship=mysqli_real_escape_string($con, $_POST["edit-dead-relationship"]);
+  $internment_date=mysqli_real_escape_string($con, $_POST["edit-dead-intern"]);
+  $date_of_birth=mysqli_real_escape_string($con, $_POST["edit-dead-bday"]);
+  $date_of_death=mysqli_real_escape_string($con, $_POST["edit-dead-death"]);
+
+  $sql_dead=$con->query("SELECT * FROM `deceased_persons` WHERE `deceased_id`='$deceased_id'");
+  $rows=$sql_dead->fetch_array();
+
+  $sql_deads=$con->query("SELECT * FROM `deceased_persons` WHERE `dead_fname`='$dead_first_name' AND `dead_mname`='$dead_middle_name' AND `dead_family_name`='$dead_family_name' AND `deceased_id`!='$deceased_id'");
+  $row=$sql_deads->fetch_array();
+
+  if($dead_first_name!=isset($row["dead_fname"])&&$dead_middle_name!=isset($row["dead_mname"])&&$dead_family_name!=isset($row["dead_family_name"])){
+    if(!empty($_FILES["edit-death-cert"]['name'])){
+      if(!empty($rows["death_cert"])){
+        unlink("files/death_certificates/".$rows["death_cert"]);
+      }
+      $time=time();
+      $death_cert=$dead_first_name.'_'.$dead_family_name.'_'.$time.'.'.pathinfo($_FILES["edit-death-cert"]['name'], PATHINFO_EXTENSION);
+      $death_certTarget="files/death_certificates/".$death_cert;
+      move_uploaded_file($_FILES["edit-death-cert"]["tmp_name"], $death_certTarget);
+    }else{
+      $death_cert=$rows["death_cert"];
+    }
+
+    if(!empty($_FILES["edit-burial-permit"]['name'])){
+      if(!empty($rows["burial_permit"])){
+        unlink("files/burial_permits/".$rows["burial_permit"]);
+      }
+      $time=time();
+      $burial_permit=$dead_first_name.'_'.$dead_family_name.'_'.$time.'.'.pathinfo($_FILES["edit-burial-permit"]['name'], PATHINFO_EXTENSION);
+      $burial_permitTarget="files/burial_permits/".$burial_permit;
+      move_uploaded_file($_FILES["edit-burial-permit"]["tmp_name"], $burial_permitTarget);
+    }else{
+      $burial_permit=$rows["burial_permit"];
+    }
+
+    $sql=$con->query("UPDATE `deceased_persons` SET `dead_family_name`='$dead_family_name', `dead_fname`='$dead_first_name', `dead_mname`='$dead_middle_name', `dead_gender`='$dead_gender', `dead_citizenship`='$dead_citizenship', `dead_civil_status`='$dead_civil_status', `dead_relationship`='$relationship', `internment_date`='$internment_date', `date_of_birth`='$date_of_birth', `date_of_death`='$date_of_death', `death_cert`='$death_cert', `burial_permit`='$burial_permit' WHERE `deceased_id`='$deceased_id'");
+
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Deceased Person Details Successfully Updated',
+      text: 'You updated a deceased person details',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+    header("refresh: 1;");
+  }else{
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Deceased Person is Already Exists',
+      text: 'Enter another deceased person details',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+    header("refresh: 1;");
+  }
 }
