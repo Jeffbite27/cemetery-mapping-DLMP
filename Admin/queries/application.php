@@ -71,6 +71,7 @@ if(isset($_POST["btn-submit-customer"])){
   }
   
 }
+// ---------------------------------CUSTOMER UPDATE------------------------------------
 if(isset($_POST["btn-update"])){
   $modal_customer_id=mysqli_real_escape_string($con, $_POST["modal-customer-id"]);
   $modal_family_name=mysqli_real_escape_string($con, $_POST["modal-family-name"]);
@@ -121,7 +122,8 @@ if(isset($_POST["btn-owner-setup"])){
   $site_id=mysqli_real_escape_string($con, $_POST["customer-site"]);
   $block_id=mysqli_real_escape_string($con, $_POST["customer-block"]);
   $lot_id=mysqli_real_escape_string($con, $_POST["customer-lot"]);
-  $deed_of_sale=$fullname.'.'.pathinfo($_FILES["owner-deed-sale"]['name'], PATHINFO_EXTENSION);
+  $time=time();
+  $deed_of_sale=$fullname.'_'.$time.'.'.pathinfo($_FILES["owner-deed-sale"]['name'], PATHINFO_EXTENSION);
   $deed_of_saleTarget="files/deed_of_sales/".$deed_of_sale;
 
   $sql=$con->query("SELECT * FROM `lot_owners` WHERE `site_id`='$site_id' AND `block_id`='$block_id' AND `lot_id`='$lot_id'");
@@ -178,6 +180,88 @@ if(isset($_POST["btn-owner-setup"])){
     </script>";
   }
   
+}
+// ---------------------------------LOT OWNER UPDATE---------------------------------
+if(isset($_POST["btn-update-owner-setup"])){
+  $lot_owner_id=mysqli_real_escape_string($con, $_POST["edit-lot-owner-id"]);
+  $fullname=mysqli_real_escape_string($con, $_POST["edit-owner-fullname"]);
+  $site_id=mysqli_real_escape_string($con, $_POST["edit-customer-site"]);
+  $block_id=mysqli_real_escape_string($con, $_POST["edit-customer-block"]);
+  $lot_id=mysqli_real_escape_string($con, $_POST["edit-customer-lot"]);
+  
+  $sql_lot_owner=$con->query("SELECT * FROM `lot_owners` WHERE `site_id`='$site_id' AND `block_id`='$block_id' AND `lot_id`='$lot_id' AND `lot_owner_id`='$lot_owner_id'");
+  $rows=$sql_lot_owner->fetch_array();
+
+
+  if(!empty($_FILES["edit-owner-deed-sale"]["name"])){
+    if(!empty($rows["deed_of_sale"])){
+      unlink("files/deed_of_sales/".$rows["deed_of_sale"]);
+    }
+    $time=time();
+    $deed_of_sale=$fullname.'_'.$time.'.'.pathinfo($_FILES["edit-owner-deed-sale"]['name'], PATHINFO_EXTENSION);
+    $deed_of_saleTarget="files/deed_of_sales/".$deed_of_sale;
+    move_uploaded_file($_FILES["edit-owner-deed-sale"]["tmp_name"], $deed_of_saleTarget);
+  }else{
+    $deed_of_sale=$rows["deed_of_sale"];
+  }
+
+  $sql=$con->query("SELECT * FROM `lot_owners` WHERE `site_id`='$site_id' AND `block_id`='$block_id' AND `lot_id`='$lot_id' AND `lot_owner_id`!='$lot_owner_id'");
+  $row=$sql->fetch_array();
+
+  if($site_id!=isset($row["site_id"])&&$block_id!=isset($row["block_id"])&&$lot_id!=isset($row["lot_id"])){
+    // $sql=$con->query("INSERT INTO `lot_owners`(`customer_id`, `site_id`, `block_id`, `lot_id`, `deed_of_sale`) VALUES ('$customer_id','$site_id','$block_id','$lot_id','$deed_of_sale')");
+    $sql=$con->query("UPDATE `lot_owners` SET `site_id`='$site_id', `block_id`='$block_id', `lot_id`='$lot_id', `deed_of_sale`='$deed_of_sale' WHERE `lot_owner_id`='$lot_owner_id'");
+  
+    echo "<script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Lot Owner Details Successfully Updated',
+        text: 'You updated a lot owner details',
+        showConfirmButton: false,
+        timer: 2000,
+        allowOutsideClick: () => {
+          const popup = Swal.getPopup()
+          popup.classList.remove('swal2-show')
+          setTimeout(() => {
+            popup.classList.add('animate__animated', 'animate__headShake')
+          })
+          setTimeout(() => {
+            popup.classList.remove('animate__animated', 'animate__headShake')
+          }, 500)
+          return false
+        }
+      })
+      window.history.replaceState( null, null, window.location.href );
+      </script>";
+    
+      header("refresh: 1;");
+  }else{
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Lot Owner Details Already Exists',
+      text: 'Enter another lot owner details',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+
+    header("refresh: 1;");
+  }
 }
 // ---------------------------------DECEASED SUBMIT------------------------------------
 if(isset($_POST["btn-submit-dead"])){
