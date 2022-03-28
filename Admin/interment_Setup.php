@@ -278,6 +278,8 @@
             <button type="button" class="btn-close btn-close-white close-owner-lot" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="edit-owner-fullname" value="<?php echo $row["first_name"].'_'.$row["middle_name"].'_'.$row["family_name"]?>">
+            <input type="hidden" name="edit-lot-owner-id" value="<?php echo $row["lot_owner_id"]?>">
             <div class="modal-body p-5">
               <div class="row mb-3">
                 <div class="col-md-4">
