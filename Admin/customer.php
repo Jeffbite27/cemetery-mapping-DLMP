@@ -17,7 +17,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../Assets/image/logopngplain.png" type="image/x-icon">
-    <title>Divine Life Memorial Park</title>
+    <title>Block & Lot Setup | Divine Life Memorial Park</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../Assets/DataTables/datatables.min.css"/>
@@ -68,7 +68,7 @@
       </li>
 
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Grave Map">
-        <a href="#">
+        <a href="grave-map.php">
           <i class='bx bx-map-alt' ></i>
           <span class="link_name">Grave Map</span>
         </a>
