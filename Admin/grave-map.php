@@ -83,6 +83,30 @@
     </ul>
 
   </div>
-  
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+    </div>
+
+    <div class="main-container">
+      <div class="content active">
+        <div class="div-content">
+          <h2 class="title-head d-flex align-items-center">
+          <i class='bx bxs-map-alt' ></i>
+          &nbsp;Grave Map</h2>
+          <hr>
+
+        </div>
+      </div>
+    </div>
+    
+  <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+  <script src="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
+  <script src="../Assets/js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../Assets/DataTables/datatables.min.js"></script>
+  <script src="../Assets/js/index_admin.js" defer></script>
+
+  </section>
 </body>
 </html>
