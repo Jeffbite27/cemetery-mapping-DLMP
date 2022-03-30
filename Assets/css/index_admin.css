@@ -360,3 +360,11 @@ i.req{
     display: none;
   }
 }
+/* ------------------------------GRAVE MAP PAGE------------------------------ */
+.find-grave-title{
+  color:var(--color1);
+}
+.btn-view-location{
+  background-color: var(--color1) !important;
+  border: none !important;
+}
