@@ -147,7 +147,7 @@
                           <td class="align-middle"><?php echo $row["address"]?></td>
                           <td class="align-middle"><?php echo $row["contact"]?></td>
                           <td class="align-middle"><?php echo $row["email"]?></td>
-                          <td class="align-middle"><?php echo $row["bday"]?></td>
+                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["bday"]))?></td>
                           <td class="align-middle"><?php echo $row["gender"]?></td>
                           <td class="align-middle"><?php echo $row["religion"]?></td>
                           <td class="align-middle"><?php echo $row["citizenship"]?></td>
