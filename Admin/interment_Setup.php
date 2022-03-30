@@ -22,7 +22,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../Assets/image/logopngplain.png" type="image/x-icon">
-    <title>Divine Life Memorial Park</title>
+    <title>Internmet Setup | Divine Life Memorial Park</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../Assets/DataTables/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -71,7 +71,7 @@
       </li>
 
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Grave Map">
-        <a href="#">
+        <a href="grave-map.php">
           <i class='bx bx-map-alt' ></i>
           <span class="link_name">Grave Map</span>
         </a>
@@ -228,10 +228,10 @@
                                           <td class="align-middle"><?php echo $row["dead_gender"]?></td>
                                           <td class="align-middle"><?php echo $row["dead_relative"]." ".$row["dead_relative_surname"]?></td>
                                           <td class="align-middle"><?php echo $row["dead_relationship"]?></td>
-                                          <td class="align-middle"><?php echo $row["internment_date"]?></td>
-                                          <td class="align-middle"><?php echo $row["date_of_birth"]?></td>
-                                          <td class="align-middle"><?php echo $row["date_of_death"]?></td>
-                                          <td class="align-middle"><?php echo "Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?></td>
+                                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["internment_date"]))?></td>
+                                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["date_of_birth"]))?></td>
+                                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["date_of_death"]))?></td>
+                                          <td class="align-middle"><?php echo "<br>Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?></td>
                                           <td class="align-middle text-center">
                                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-death-cert-<?php echo $row["deceased_id"]?>">
                                               <i class="bx bxs-file"></i>

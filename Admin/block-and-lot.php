@@ -74,7 +74,7 @@
       </li>
 
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Grave Map">
-        <a href="#">
+        <a href="grave-map.php">
           <i class='bx bx-map-alt' ></i>
           <span class="link_name">Grave Map</span>
         </a>

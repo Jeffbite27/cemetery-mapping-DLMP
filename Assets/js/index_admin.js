@@ -286,3 +286,14 @@ $(document).ready(function(){
   })
   
 })
+// ----------------------------GRAVE MAP PAGE-------------------------------------
+$(document).ready(function(){
+  $("button.grave-maps[data-bs-toggle='tab']").on('shown.bs.tab', function (e) {
+    $($.fn.dataTable.tables(true)).DataTable()
+       .columns.adjust()
+       .responsive.recalc();
+  });
+  $("#tbl-find-map").DataTable({
+    "responsive": true
+  })
+})
