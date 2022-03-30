@@ -228,10 +228,10 @@
                                           <td class="align-middle"><?php echo $row["dead_gender"]?></td>
                                           <td class="align-middle"><?php echo $row["dead_relative"]." ".$row["dead_relative_surname"]?></td>
                                           <td class="align-middle"><?php echo $row["dead_relationship"]?></td>
-                                          <td class="align-middle"><?php echo $row["internment_date"]?></td>
-                                          <td class="align-middle"><?php echo $row["date_of_birth"]?></td>
-                                          <td class="align-middle"><?php echo $row["date_of_death"]?></td>
-                                          <td class="align-middle"><?php echo "Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?></td>
+                                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["internment_date"]))?></td>
+                                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["date_of_birth"]))?></td>
+                                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["date_of_death"]))?></td>
+                                          <td class="align-middle"><?php echo "<br>Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?></td>
                                           <td class="align-middle text-center">
                                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview-death-cert-<?php echo $row["deceased_id"]?>">
                                               <i class="bx bxs-file"></i>
