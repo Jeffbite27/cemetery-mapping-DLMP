@@ -1,3 +1,15 @@
+<?php
+  if(!isset($_SESSION)){
+    session_start();    
+  }
+  include("../config.php");
+  $con=connect();
+  if(isset($_SESSION["username"])){
+    $sql=$con->query("SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)");
+  }else{
+    header("Location: index.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,7 +107,95 @@
           <i class='bx bxs-map-alt' ></i>
           &nbsp;Grave Map</h2>
           <hr>
-
+          <div class="row p-0">
+            <div class="col-sm-12 col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <ul class="nav nav-tabs card-header-tabs" id="tab-find-grave" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-dark d-flex align-items-center grave-maps" id="find-grave-btn" data-bs-toggle="tab" data-bs-target="#find-graves" type="button" role="tab" aria-controls="find-graves" aria-selected="true">
+                          <i class='bx bx-search-alt-2 fs-5'></i>
+                          &nbsp;Find Grave
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-dark d-flex align-items-center grave-maps" id="view-map-btn" data-bs-toggle="tab" data-bs-target="#view-maps" type="button" role="tab" aria-controls="view-maps" aria-selected="false">
+                          <i class='bx bxs-map-pin fs-5' ></i>
+                          &nbsp;View Map
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-body">
+                  <div class="tab-content" id="myTabGraveMap">
+                    <div class="tab-pane" id="find-graves" role="tabpanel" aria-labelledby="find-grave-tab">
+                      <div class="head">
+                        <div class="row p-0">
+                          <div class="col-sm-12 col-md-12">
+                            <div class="bg-white p-3 h-100 rounded">
+                              <div class="text-center title-header bg-white sticky-top p-3">
+                                <h5 class="find-grave-title">Guiding Path To Your Loved Ones</h5>
+                                <br>
+                              </div>
+                              <div class="find-grave">
+                                <table class="table table-striped table-bordered w-100" id="tbl-find-map">
+                                  <thead class="tbl-header text-light">
+                                    <th>#</th>
+                                    <th>Fullname</th>
+                                    <th>Relative</th>
+                                    <th>Relationship</th>
+                                    <th>Details</th>
+                                    <th>Grave Address</th>
+                                    <th>Action</th>
+                                  </thead>
+                                  <tbody>
+                                    <?php while($row=$sql->fetch_array()) {?>
+                                    <tr>
+                                      <td class="align-middle"><?php echo $row["deceased_id"]?></td>
+                                      <td class="align-middle"><?php echo $row["dead_fname"]." ".$row["dead_mname"]." ".$row["dead_family_name"]?></td>
+                                      <td class="align-middle"><?php echo $row["dead_relative"]." ".$row["dead_relative_surname"]?></td>
+                                      <td class="align-middle"><?php echo $row["dead_relationship"]?></td>
+                                      <td class="align-middle">
+                                        <?php echo "<br>Gender: ".$row["dead_gender"]."<br>Date Born: ".date("M j, Y", strtotime($row["date_of_birth"]))."<br>Date Died: ".date("M j, Y", strtotime($row["date_of_death"]))."<br>Internment Date: ".date("M j, Y", strtotime($row["internment_date"])) ?>
+                                      </td>
+                                      <td class="align-middle">
+                                        <?php echo "<br>Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?>
+                                      </td>
+                                      <td class="align-middle text-center">
+                                        <button class="btn btn-danger btn-view-location"><i class='bx bx-search-alt-2' ></i> View Location</button>
+                                      </td>
+                                    </tr>
+                                    <?php } ?>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="view-maps" role="tabpanel" aria-labelledby="find-grave-tab">
+                      <div class="head">
+                        <div class="row p-0">
+                          <div class="col-sm-12 col-md-12">
+                            <div class="bg-white p-3 h-100 rounded">
+                              <div class="title-header bg-white sticky-top p-3 d-flex">
+                                <h5 class="d-flex align-items-center">
+                                <i class='bx bxs-map-pin fs-3' ></i>
+                                &nbsp;View Map</h5>
+                              </div>
+                              <div class="view-map">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
