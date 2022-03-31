@@ -361,10 +361,172 @@ i.req{
   }
 }
 /* ------------------------------GRAVE MAP PAGE------------------------------ */
-.find-grave-title{
-  color:var(--color1);
-}
 .btn-view-location{
   background-color: var(--color1) !important;
   border: none !important;
+}
+.map-wrapper {
+  position: relative;
+}
+.whole-map{
+  width: 100%;
+  max-width: 100%;
+}
+.map-sites {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  /* text-align: center; */
+}
+.btn-joy-a:hover, .btn-joy-b:hover, .btn-joy-c:hover, .btn-joy-d:hover, .btn-peace-a:hover, .btn-peace-b:hover, .btn-peace-c:hover, .btn-peace-d:hover, .btn-hope-a:hover, .btn-hope-b:hover, .btn-hope-c:hover, .btn-hope-d:hover{
+  border: yellow 2px solid !important;
+}
+/*JOY GARDEN BUTTONS*/
+.btn-joy-a{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 52%;
+  bottom: 0%;
+  left: 16%;
+  right: 10%;
+  height: 13%;
+  width: 9%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-joy-b{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 39%;
+  bottom: 0%;
+  left: 13%;
+  right: 0%;
+  height: 13%;
+  width: 9%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-joy-c{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 34%;
+  bottom: 0%;
+  left: 22%;
+  right: 0%;
+  height: 13%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-joy-d{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 47%;
+  bottom: 0%;
+  left: 25%;
+  right: 0%;
+  height: 12%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+/*PEACE GARDEN BUTTONS*/
+.btn-peace-a{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 40%;
+  bottom: 0%;
+  left: 34%;
+  right: 0%;
+  height: 13%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-peace-b{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 29%;
+  bottom: 0%;
+  left: 31.5%;
+  right: 0%;
+  height: 11%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-peace-c{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 25%;
+  bottom: 0%;
+  left: 39%;
+  right: 0%;
+  height: 11%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-peace-d{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 35.5%;
+  bottom: 0%;
+  left: 42%;
+  right: 0%;
+  height: 13.5%;
+  width: 7.5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+/*HOPE GARDEN BUTTONS*/
+.btn-hope-a{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 32.8%;
+  bottom: 0%;
+  left: 51.8%;
+  right: 0%;
+  height: 13.8%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-hope-b{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 20.3%;
+  bottom: 0%;
+  left: 48.5%;
+  right: 0%;
+  height: 13.9%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-hope-c{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 16%;
+  bottom: 0%;
+  left: 56%;
+  right: 0%;
+  height: 14%;
+  width: 7%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-hope-d{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 29%;
+  bottom: 0%;
+  left: 59.5%;
+  right: 0%;
+  height: 13.9%;
+  width: 6.6%;
+  background-color: transparent !important;
+  border: 0px !important;
 }
