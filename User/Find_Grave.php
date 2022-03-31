@@ -71,7 +71,7 @@
             </div>
             <div class="main-cont cont-3" style="text-align: center">
                 <div class="get-started-btn">
-                    <a href="">Get Started</a>
+                    <a href="user_map.php">Get Started</a>
                 </div>
             </div>
         </div>

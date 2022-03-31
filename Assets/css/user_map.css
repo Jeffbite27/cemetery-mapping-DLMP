@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700&family=Poppins:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root{
+    --Poppins: 'Poppins', sans-serif;
+    --Font2: 'Roboto', sans-serif;
+    --Font3: 'Inter', sans-serif;
+
+    --color1: #832121;
+    --color2: white;
+    --color3: rgb(107, 21, 21);
+}
+
+.sec{
+    padding: 1em;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.911), rgba(255, 255, 255, 0.822)), url("../image/find-map-bg2.jpg");
+    background-position: center;
+    background-size: cover;
+
+    color: var(--color1);
+}
+
+.cont-main{
+    font-family: var(--Poppins);
+    text-align: center;
+    margin-top: 5em;
+}
+
+.cont-main .search-btn{
+    background-color: var(--color1);
+    color: var(--color2);
+}
+
+.table thead{
+    background-color: var(--color1);
+    color: var(--color2);
+}
