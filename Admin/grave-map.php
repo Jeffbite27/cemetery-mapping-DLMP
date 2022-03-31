@@ -133,9 +133,10 @@
                         <div class="row p-0">
                           <div class="col-sm-12 col-md-12">
                             <div class="bg-white p-3 h-100 rounded">
-                              <div class="text-center title-header bg-white sticky-top p-3">
-                                <h5 class="find-grave-title">Guiding Path To Your Loved Ones</h5>
-                                <br>
+                              <div class="title-header bg-white sticky-top p-3 d-flex">
+                                <h5 class="d-flex align-items-center">
+                                <i class='bx bx-search-alt-2 fs-3' ></i>
+                                &nbsp;Find Grave Location of Deceased Persons</h5>
                               </div>
                               <div class="find-grave">
                                 <table class="table table-striped table-bordered w-100" id="tbl-find-map">
@@ -182,9 +183,29 @@
                               <div class="title-header bg-white sticky-top p-3 d-flex">
                                 <h5 class="d-flex align-items-center">
                                 <i class='bx bxs-map-pin fs-3' ></i>
-                                &nbsp;View Map</h5>
+                                &nbsp;Click Sectors to View Map</h5>
                               </div>
-                              <div class="view-map">
+                              <br>
+                              <div class="view-map text-center">
+                                <div class="map-wrapper">
+                                  <img class="img-fluid rounded whole-map" src="../Assets/image/whole-map.png" alt="">
+                                  <div class="map-sites">
+                                    <!-- JOY GARDEN BUTTONS -->
+                                    <button class="btn btn-sm btn-success btn-joy-a" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Joy Garden Sector A"></button>
+                                    <button class="btn btn-sm btn-success btn-joy-b" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Joy Garden Sector B"></button>
+                                    <button class="btn btn-sm btn-success btn-joy-c" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Joy Garden Sector C"></button>
+                                    <button class="btn btn-sm btn-success btn-joy-d" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Joy Garden Sector D"></button>
+                                    <!-- PEACE GARDEN BUTTONS -->
+                                    <button class="btn btn-sm btn-success btn-peace-a" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Peace Garden Sector A"></button>
+                                    <button class="btn btn-sm btn-success btn-peace-b" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Peace Garden Sector B"></button>
+                                    <button class="btn btn-sm btn-success btn-peace-c" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Peace Garden Sector C"></button>
+                                    <button class="btn btn-sm btn-success btn-peace-d" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Peace Garden Sector D"></button> 
+                                    <!-- HOPE GARDEN BUTTONS -->
+                                    <button class="btn btn-sm btn-success btn-hope-a" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Hope Garden Sector A"></button>
+                                    <button class="btn btn-sm btn-success btn-hope-b" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Hope Garden Sector B"></button>
+                                    <button class="btn btn-sm btn-success btn-hope-c" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Hope Garden Sector C"></button>
+                                    <button class="btn btn-sm btn-success btn-hope-d" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Hope Garden Sector D"></button> 
+                                </div>
                               </div>
                             </div>
                           </div>
