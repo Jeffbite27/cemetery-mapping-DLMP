@@ -296,4 +296,16 @@ $(document).ready(function(){
   $("#tbl-find-map").DataTable({
     "responsive": true
   })
+  $('button.grave-maps[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
+    localStorage.setItem('gravemapTab', $(this).attr('id'));
+  });
+  var grave_map = localStorage.getItem('gravemapTab');
+  if(grave_map=="find-grave-btn"){
+    $("#find-grave-btn").tab('show');
+  }else if(grave_map=="view-map-btn"){
+    $("#view-map-btn").tab('show');
+  }else{
+    $("#find-grave-btn").tab('show');
+  }
+  
 })
