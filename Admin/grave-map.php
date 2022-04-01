@@ -199,12 +199,22 @@
                                     <button class="btn btn-sm btn-success btn-peace-a" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Peace Garden Sector A"></button>
                                     <button class="btn btn-sm btn-success btn-peace-b" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Peace Garden Sector B"></button>
                                     <button class="btn btn-sm btn-success btn-peace-c" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Peace Garden Sector C"></button>
-                                    <button class="btn btn-sm btn-success btn-peace-d" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Peace Garden Sector D"></button> 
+                                    <button class="btn btn-sm btn-success btn-peace-d" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Peace Garden Sector D"></button> 
                                     <!-- HOPE GARDEN BUTTONS -->
                                     <button class="btn btn-sm btn-success btn-hope-a" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Hope Garden Sector A"></button>
                                     <button class="btn btn-sm btn-success btn-hope-b" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Hope Garden Sector B"></button>
                                     <button class="btn btn-sm btn-success btn-hope-c" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Hope Garden Sector C"></button>
-                                    <button class="btn btn-sm btn-success btn-hope-d" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Hope Garden Sector D"></button> 
+                                    <button class="btn btn-sm btn-success btn-hope-d" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Hope Garden Sector D"></button> 
+                                    <!-- FAITH GARDEN BUTTONS -->
+                                    <button class="btn btn-sm btn-success btn-faith-a" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Faith Garden Sector A"></button>
+                                    <button class="btn btn-sm btn-success btn-faith-b" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Faith Garden Sector B"></button>
+                                    <button class="btn btn-sm btn-success btn-faith-c" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Faith Garden Sector C"></button>
+                                    <button class="btn btn-sm btn-success btn-faith-d" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Faith Garden Sector D"></button> 
+                                    <!-- LOVE GARDEN BUTTONS -->
+                                    <button class="btn btn-sm btn-success btn-love-a" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Love Garden Sector A"></button>
+                                    <button class="btn btn-sm btn-success btn-love-b" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Love Garden Sector B"></button>
+                                    <button class="btn btn-sm btn-success btn-love-c" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Love Garden Sector C"></button>
+                                    <button class="btn btn-sm btn-success btn-love-d" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Love Garden Sector D"></button> 
                                 </div>
                               </div>
                             </div>
