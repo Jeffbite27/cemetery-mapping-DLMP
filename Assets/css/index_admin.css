@@ -380,7 +380,7 @@ i.req{
   right: 0%;
   /* text-align: center; */
 }
-.btn-joy-a:hover, .btn-joy-b:hover, .btn-joy-c:hover, .btn-joy-d:hover, .btn-peace-a:hover, .btn-peace-b:hover, .btn-peace-c:hover, .btn-peace-d:hover, .btn-hope-a:hover, .btn-hope-b:hover, .btn-hope-c:hover, .btn-hope-d:hover{
+.btn-joy-a:hover, .btn-joy-b:hover, .btn-joy-c:hover, .btn-joy-d:hover, .btn-peace-a:hover, .btn-peace-b:hover, .btn-peace-c:hover, .btn-peace-d:hover, .btn-hope-a:hover, .btn-hope-b:hover, .btn-hope-c:hover, .btn-hope-d:hover, .btn-faith-a:hover, .btn-faith-b:hover, .btn-faith-c:hover, .btn-faith-d:hover, .btn-love-a:hover, .btn-love-b:hover, .btn-love-c:hover, .btn-love-d:hover{
   border: yellow 2px solid !important;
 }
 /*JOY GARDEN BUTTONS*/
@@ -527,6 +527,104 @@ i.req{
   right: 0%;
   height: 13.9%;
   width: 6.6%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+/*LOVE GARDEN BUTTONS*/
+.btn-faith-a{
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 25%;
+  bottom: 0%;
+  left: 67.5%;
+  right: 0%;
+  height: 13.8%;
+  width: 5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-faith-b{
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 12.5%;
+  bottom: 0%;
+  left: 63.9%;
+  right: 0%;
+  height: 13.9%;
+  width: 5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-faith-c{
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 9.5%;
+  bottom: 0%;
+  left: 69%;
+  right: 0%;
+  height: 14%;
+  width: 5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-faith-d{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 21%;
+  bottom: 0%;
+  left: 72.5%;
+  right: 0%;
+  height: 16%;
+  width: 10%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+/*LOVE GARDEN BUTTONS*/
+.btn-love-a{
+  transform: rotate(-22deg);
+  position: absolute;
+  top: 60%;
+  bottom: 0%;
+  left: 57.5%;
+  right: 0%;
+  height: 10.5%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-love-b{
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 50.5%;
+  bottom: 0%;
+  left: 55.3%;
+  right: 0%;
+  height: 10%;
+  width: 8.1%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-love-c{
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 46%;
+  bottom: 0%;
+  left: 63%;
+  right: 0%;
+  height: 10%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-love-d{
+  transform: rotate(-20deg);
+  position: absolute;
+  top: 55%;
+  bottom: 0%;
+  left: 65%;
+  right: 0%;
+  height: 10%;
+  width: 9%;
   background-color: transparent !important;
   border: 0px !important;
 }
