@@ -23,6 +23,8 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../Assets/css/index_admin.css">
     
+    <link rel="stylesheet" href="../Assets/css/index_admin.css">
+    
     <script src="../Assets/js/sweetalert.js"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -108,6 +110,28 @@
           <i class='bx bxs-grid-alt' ></i>
           &nbsp;ADMIN DASHBOARD</h2>
           <hr>
+
+            <div class="row p-0">
+              <div class="col-sm-12 col-md-12">
+                <div class="bg-white p-4 h-100 rounded contents">
+                  <div class="row g-5">
+                    <div class="col-md shadow p-3 mx-3">
+                      <div class="p-3" >
+                        <p>Customer/Owner</p>
+                        <hr>
+                        <div class="d-sm-flex align-items-center justify-content-between px-3">
+                          <h1>30</h1>
+                          <i class='bx bxs-user fs-1' ></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md shadow p-3 mx-3"></div>
+                    <div class="col-md shadow p-3 mx-3"></div>
+                    <div class="col-md shadow p-3 mx-3"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
         </div>
       </div>
