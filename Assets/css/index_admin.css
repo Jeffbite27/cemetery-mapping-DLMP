@@ -631,15 +631,3 @@ i.req{
 .img-sector{
   position: relative;
 }
-.tbl-Love-A{
-  position: absolute;
-  top: 3%;
-  bottom: 0%;
-  left: 3%;
-  right: 0%;
-  /* height: %; */
-  width: 100%;
-}
-.tbl-Love-A td{
-  height: 50px;
-}
