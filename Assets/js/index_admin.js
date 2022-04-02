@@ -308,4 +308,10 @@ $(document).ready(function(){
     $("#find-grave-btn").tab('show');
   }
   
+  $(".btn-sectors").click(function(e){
+    e.preventDefault();
+    var sector=$(this).attr("data-sector");
+    var site_name=$(this).attr("data-site");
+    
+  })
 })
