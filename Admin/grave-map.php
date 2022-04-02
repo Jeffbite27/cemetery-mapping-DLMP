@@ -207,20 +207,20 @@
                                     <button class="btn btn-sm btn-success btn-Peace-C" data-bs-toggle="modal" data-bs-target="#Peace-C"></button>
                                     <button class="btn btn-sm btn-success btn-Peace-D" data-bs-toggle="modal" data-bs-target="#Peace-D"></button> 
                                     <!-- HOPE GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-Hope-A" data-bs-toggle="modal" data-bs-target="#Hope-A"></button>
-                                    <button class="btn btn-sm btn-success btn-Hope-B" data-bs-toggle="modal" data-bs-target="#Hope-B"></button>
-                                    <button class="btn btn-sm btn-success btn-Hope-C" data-bs-toggle="modal" data-bs-target="#Hope-C"></button>
-                                    <button class="btn btn-sm btn-success btn-Hope-D" data-bs-toggle="modal" data-bs-target="#Hope-D"></button> 
+                                    <button class="btn btn-sm btn-success btn-Hope-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-A"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-B"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-D"></button> 
                                     <!-- FAITH GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-Faith-A" data-bs-toggle="modal" data-bs-target="#Faith-A"></button>
-                                    <button class="btn btn-sm btn-success btn-Faith-B" data-bs-toggle="modal" data-bs-target="#Faith-B"></button>
-                                    <button class="btn btn-sm btn-success btn-Faith-C" data-bs-toggle="modal" data-bs-target="#Faith-C"></button>
-                                    <button class="btn btn-sm btn-success btn-Faith-D" data-bs-toggle="modal" data-bs-target="#Faith-D"></button> 
+                                    <button class="btn btn-sm btn-success btn-Faith-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-A"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-B"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-D"></button> 
                                     <!-- LOVE GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-Love-A" data-bs-toggle="modal" data-bs-target="#Love-A"></button>
-                                    <button class="btn btn-sm btn-success btn-Love-B" data-bs-toggle="modal" data-bs-target="#Love-B"></button>
-                                    <button class="btn btn-sm btn-success btn-Love-C" data-bs-toggle="modal" data-bs-target="#Love-C"></button>
-                                    <button class="btn btn-sm btn-success btn-Love-D" data-bs-toggle="modal" data-bs-target="#Love-D"></button> 
+                                    <button class="btn btn-sm btn-success btn-Love-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-A" data-site="Love Garden" data-sector="A"></button>
+                                    <button class="btn btn-sm btn-success btn-Love-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-B" data-site="Love Garden" data-sector="B"></button>
+                                    <button class="btn btn-sm btn-success btn-Love-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Love-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-D"></button> 
                                 </div>
                               </div>
                             </div>
@@ -291,94 +291,7 @@
               </div>
               <div class="img-sector text-center">
                 <img class="img-fluid rounded img-sector" src="../Assets/image/map/<?php echo $row["site_name"] ?> - <?php echo $row["sector"] ?>.png" alt="">
-                <!-- <div class="table-map p-3"> -->
-                  <table class="table table-bordered tbl-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>" style="border: 1px solid red">
-                    <tbody>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                <!-- </div> -->
+                
                 
               </div>
             </div>
