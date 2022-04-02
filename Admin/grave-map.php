@@ -6,6 +6,7 @@
   $con=connect();
   if(isset($_SESSION["username"])){
     $sql=$con->query("SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)");
+    $sql_modal_map=$con->query("SELECT * FROm (`tbl_sites` INNER JOIN `tbl_blocks` ON tbl_sites.site_id=tbl_blocks.site_id)  GROUP BY tbl_blocks.block_id");
   }else{
     header("Location: index.php");
   }
@@ -163,7 +164,12 @@
                                         <?php echo "<br>Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?>
                                       </td>
                                       <td class="align-middle text-center">
-                                        <button class="btn btn-danger btn-view-location"><i class='bx bx-search-alt-2' ></i> View Location</button>
+                                        <button class="btn btn-danger btn-view-location" data-bs-toggle="modal" data-bs-target="#<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                                        <div class="d-flex align-items-center">
+                                          <i class='bx bx-search-alt-2' "></i> 
+                                          View Location
+                                        </div>
+                                      </button>
                                       </td>
                                     </tr>
                                     <?php } ?>
@@ -191,30 +197,30 @@
                                   <img class="img-fluid rounded whole-map" src="../Assets/image/map/whole-map.png" alt="">
                                   <div class="map-sites">
                                     <!-- JOY GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-joy-a" ></button>
-                                    <button class="btn btn-sm btn-success btn-joy-b" ></button>
-                                    <button class="btn btn-sm btn-success btn-joy-c" ></button>
-                                    <button class="btn btn-sm btn-success btn-joy-d" ></button>
+                                    <button class="btn btn-sm btn-success btn-Joy-A" data-bs-toggle="modal" data-bs-target="#Joy-A"></button>
+                                    <button class="btn btn-sm btn-success btn-Joy-B" data-bs-toggle="modal" data-bs-target="#Joy-B"></button>
+                                    <button class="btn btn-sm btn-success btn-Joy-C" data-bs-toggle="modal" data-bs-target="#Joy-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Joy-D" data-bs-toggle="modal" data-bs-target="#Joy-D"></button>
                                     <!-- PEACE GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-peace-a" ></button>
-                                    <button class="btn btn-sm btn-success btn-peace-b" ></button>
-                                    <button class="btn btn-sm btn-success btn-peace-c" ></button>
-                                    <button class="btn btn-sm btn-success btn-peace-d" ></button> 
+                                    <button class="btn btn-sm btn-success btn-Peace-A" data-bs-toggle="modal" data-bs-target="#Peace-A"></button>
+                                    <button class="btn btn-sm btn-success btn-Peace-B" data-bs-toggle="modal" data-bs-target="#Peace-B"></button>
+                                    <button class="btn btn-sm btn-success btn-Peace-C" data-bs-toggle="modal" data-bs-target="#Peace-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Peace-D" data-bs-toggle="modal" data-bs-target="#Peace-D"></button> 
                                     <!-- HOPE GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-hope-a" ></button>
-                                    <button class="btn btn-sm btn-success btn-hope-b" ></button>
-                                    <button class="btn btn-sm btn-success btn-hope-c" ></button>
-                                    <button class="btn btn-sm btn-success btn-hope-d"></button> 
+                                    <button class="btn btn-sm btn-success btn-Hope-A" data-bs-toggle="modal" data-bs-target="#Hope-A"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-B" data-bs-toggle="modal" data-bs-target="#Hope-B"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-C" data-bs-toggle="modal" data-bs-target="#Hope-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-D" data-bs-toggle="modal" data-bs-target="#Hope-D"></button> 
                                     <!-- FAITH GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-faith-a" ></button>
-                                    <button class="btn btn-sm btn-success btn-faith-b" ></button>
-                                    <button class="btn btn-sm btn-success btn-faith-c" ></button>
-                                    <button class="btn btn-sm btn-success btn-faith-d" ></button> 
+                                    <button class="btn btn-sm btn-success btn-Faith-A" data-bs-toggle="modal" data-bs-target="#Faith-A"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-B" data-bs-toggle="modal" data-bs-target="#Faith-B"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-C" data-bs-toggle="modal" data-bs-target="#Faith-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-D" data-bs-toggle="modal" data-bs-target="#Faith-D"></button> 
                                     <!-- LOVE GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-love-a" data-bs-toggle="modal" data-bs-target="#love-a"></button>
-                                    <button class="btn btn-sm btn-success btn-love-b" data-bs-toggle="modal" data-bs-target="#love-b"></button>
-                                    <button class="btn btn-sm btn-success btn-love-c" data-bs-toggle="modal" data-bs-target="#love-c"></button>
-                                    <button class="btn btn-sm btn-success btn-love-d" data-bs-toggle="modal" data-bs-target="#love-d"></button> 
+                                    <button class="btn btn-sm btn-success btn-Love-A" data-bs-toggle="modal" data-bs-target="#Love-A"></button>
+                                    <button class="btn btn-sm btn-success btn-Love-B" data-bs-toggle="modal" data-bs-target="#Love-B"></button>
+                                    <button class="btn btn-sm btn-success btn-Love-C" data-bs-toggle="modal" data-bs-target="#Love-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Love-D" data-bs-toggle="modal" data-bs-target="#Love-D"></button> 
                                 </div>
                               </div>
                             </div>
@@ -231,13 +237,14 @@
       </div>
     </div>
     <!---------------------------------- Love Garden Sector A MODAL ----------------------------------------->
-    <div class="modal fade" id="love-a" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <?php while($row = $sql_modal_map->fetch_array()) { ?>
+    <div class="modal fade" id="<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl"> 
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
               <i class='bx bx-street-view fs-1'></i>
-              &nbsp;View Love Garden Sector A Map
+              &nbsp;View <?php echo $row["site_name"] ?> Sector <?php echo $row["sector"] ?> Map
             </h4>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
@@ -249,8 +256,8 @@
                     <h5>Filter by:</h5>
                     <div class="filter d-flex align-items-center">
                       <div class="owned" style="margin-right: 20px">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="owned-lots">
-                        <label for="owned-lots">Owned Lots</label>
+                        <input type="radio" class="form-check-input" name="filter-radio" id="owned-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                        <label for="owned-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">Owned Lots</label>
                         <div class="owned-legend">
                           <i class='bx bxs-checkbox' style="color: #9e0505;"></i>
                           <small>-Owned</small> <br>
@@ -259,8 +266,8 @@
                         </div>
                       </div>
                       <div class="occupied">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="occupied-lots">
-                        <label for="occupied-lots">Occupied Lots</label>
+                        <input type="radio" class="form-check-input" name="filter-radio" id="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                        <label for="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">Occupied Lots</label>
                         <div class="occupied-legend">
                           <i class='bx bxs-checkbox' style="color: #db8812;"></i>
                           <small>-Occupied</small> <br>
@@ -282,7 +289,98 @@
                 </div>
                 
               </div>
-              <img class="img-fluid rounded img-love-a" src="../Assets/image/map/Joy Garden - A.png" alt="">
+              <div class="img-sector text-center">
+                <img class="img-fluid rounded img-sector" src="../Assets/image/map/<?php echo $row["site_name"] ?> - <?php echo $row["sector"] ?>.png" alt="">
+                <!-- <div class="table-map p-3"> -->
+                  <table class="table table-bordered tbl-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>" style="border: 1px solid red">
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <!-- </div> -->
+                
+              </div>
             </div>
             <!-- <div class="modal-footer .map-footer">
               
@@ -291,189 +389,9 @@
         </div>
       </div>
     </div>
+    <?php } ?>
     <!---------------------------------- Love Garden Sector B MODAL ----------------------------------------->
-    <div class="modal fade" id="love-b" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl"> 
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-              <i class='bx bx-street-view fs-1'></i>
-              &nbsp;View Love Garden Sector B Map
-            </h4>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form action="" method="post">
-            <div class="modal-body p-4">
-              <div class="filter mb-4">
-                <div class="row">
-                  <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h5>Filter by:</h5>
-                    <div class="filter d-flex align-items-center">
-                      <div class="owned" style="margin-right: 20px">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="owned-lots">
-                        <label for="owned-lots">Owned Lots</label>
-                        <div class="owned-legend">
-                          <i class='bx bxs-checkbox' style="color: #9e0505;"></i>
-                          <small>-Owned</small> <br>
-                          <i class='bx bxs-checkbox' style="color: #188f03;"></i>
-                          <small>-Available</small>
-                        </div>
-                      </div>
-                      <div class="occupied">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="occupied-lots">
-                        <label for="occupied-lots">Occupied Lots</label>
-                        <div class="occupied-legend">
-                          <i class='bx bxs-checkbox' style="color: #db8812;"></i>
-                          <small>-Occupied</small> <br>
-                          <i class='bx bxs-checkbox' style="color: #6e18c9;"></i>
-                          <small>-Available</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h5>Legends:</h5>
-                    <i class='bx bxs-checkbox' style="color: #ebcd81;"></i>
-                    <small>-Standard</small> <br>
-                    <i class='bx bxs-checkbox' style="color: #0cbab0;"></i>
-                    <small>-Deluxe</small> <br>
-                    <i class='bx bxs-checkbox' style="color: #e1e32b;"></i>
-                    <small>-Premium</small> <br>
-                  </div>
-                </div>
-                
-              </div>
-              <img class="img-fluid rounded img-love-a" src="../Assets/image/map/Joy Garden - B.png" alt="">
-            </div>
-            <!-- <div class="modal-footer .map-footer">
-            
-            </div> -->
-          </form>
-        </div>
-      </div>
-    </div>
-    <!---------------------------------- Love Garden Sector C MODAL ----------------------------------------->
-    <div class="modal fade" id="love-c" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl"> 
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-              <i class='bx bx-street-view fs-1'></i>
-              &nbsp;View Love Garden Sector C Map
-            </h4>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form action="" method="post">
-            <div class="modal-body p-4">
-              <div class="filter mb-4">
-                <div class="row">
-                  <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h5>Filter by:</h5>
-                    <div class="filter d-flex align-items-center">
-                      <div class="owned" style="margin-right: 20px">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="owned-lots">
-                        <label for="owned-lots">Owned Lots</label>
-                        <div class="owned-legend">
-                          <i class='bx bxs-checkbox' style="color: #9e0505;"></i>
-                          <small>-Owned</small> <br>
-                          <i class='bx bxs-checkbox' style="color: #188f03;"></i>
-                          <small>-Available</small>
-                        </div>
-                      </div>
-                      <div class="occupied">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="occupied-lots">
-                        <label for="occupied-lots">Occupied Lots</label>
-                        <div class="occupied-legend">
-                          <i class='bx bxs-checkbox' style="color: #db8812;"></i>
-                          <small>-Occupied</small> <br>
-                          <i class='bx bxs-checkbox' style="color: #6e18c9;"></i>
-                          <small>-Available</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h5>Legends:</h5>
-                    <i class='bx bxs-checkbox' style="color: #ebcd81;"></i>
-                    <small>-Standard</small> <br>
-                    <i class='bx bxs-checkbox' style="color: #0cbab0;"></i>
-                    <small>-Deluxe</small> <br>
-                    <i class='bx bxs-checkbox' style="color: #e1e32b;"></i>
-                    <small>-Premium</small> <br>
-                  </div>
-                </div>
-                
-              </div>
-              <img class="img-fluid rounded img-love-a" src="../Assets/image/map/Joy Garden - C.png" alt="">
-            </div>
-            <!-- <div class="modal-footer .map-footer">
-            
-            </div> -->
-          </form>
-        </div>
-      </div>
-    </div>
-    <!---------------------------------- Love Garden Sector D MODAL ----------------------------------------->
-    <div class="modal fade" id="love-d" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl"> 
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-              <i class='bx bx-street-view fs-1'></i>
-              &nbsp;View Love Garden Sector D Map
-            </h4>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form action="" method="post">
-            <div class="modal-body p-4">
-              <div class="filter mb-4">
-                <div class="row">
-                  <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h5>Filter by:</h5>
-                    <div class="filter d-flex align-items-center">
-                      <div class="owned" style="margin-right: 20px">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="owned-lots">
-                        <label for="owned-lots">Owned Lots</label>
-                        <div class="owned-legend">
-                          <i class='bx bxs-checkbox' style="color: #9e0505;"></i>
-                          <small>-Owned</small> <br>
-                          <i class='bx bxs-checkbox' style="color: #188f03;"></i>
-                          <small>-Available</small>
-                        </div>
-                      </div>
-                      <div class="occupied">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="occupied-lots">
-                        <label for="occupied-lots">Occupied Lots</label>
-                        <div class="occupied-legend">
-                          <i class='bx bxs-checkbox' style="color: #db8812;"></i>
-                          <small>-Occupied</small> <br>
-                          <i class='bx bxs-checkbox' style="color: #6e18c9;"></i>
-                          <small>-Available</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h5>Legends:</h5>
-                    <i class='bx bxs-checkbox' style="color: #ebcd81;"></i>
-                    <small>-Standard</small> <br>
-                    <i class='bx bxs-checkbox' style="color: #0cbab0;"></i>
-                    <small>-Deluxe</small> <br>
-                    <i class='bx bxs-checkbox' style="color: #e1e32b;"></i>
-                    <small>-Premium</small> <br>
-                  </div>
-                </div>
-                
-              </div>
-              <img class="img-fluid rounded img-love-a" src="../Assets/image/map/Joy Garden - D.png" alt="">
-            </div>
-            <!-- <div class="modal-footer .map-footer">
-            
-            </div> -->
-          </form>
-        </div>
-      </div>
-    </div>
+    
     
     
   <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
