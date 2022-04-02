@@ -380,11 +380,11 @@ i.req{
   right: 0%;
   /* text-align: center; */
 }
-.btn-joy-a:hover, .btn-joy-b:hover, .btn-joy-c:hover, .btn-joy-d:hover, .btn-peace-a:hover, .btn-peace-b:hover, .btn-peace-c:hover, .btn-peace-d:hover, .btn-hope-a:hover, .btn-hope-b:hover, .btn-hope-c:hover, .btn-hope-d:hover, .btn-faith-a:hover, .btn-faith-b:hover, .btn-faith-c:hover, .btn-faith-d:hover, .btn-love-a:hover, .btn-love-b:hover, .btn-love-c:hover, .btn-love-d:hover{
+.btn-Joy-A:hover, .btn-Joy-B:hover, .btn-Joy-C:hover, .btn-Joy-D:hover, .btn-Peace-A:hover, .btn-Peace-B:hover, .btn-Peace-C:hover, .btn-Peace-D:hover, .btn-Hope-A:hover, .btn-Hope-B:hover, .btn-Hope-C:hover, .btn-Hope-D:hover, .btn-Faith-A:hover, .btn-Faith-B:hover, .btn-Faith-C:hover, .btn-Faith-D:hover, .btn-Love-A:hover, .btn-Love-B:hover, .btn-Love-C:hover, .btn-Love-D:hover{
   border: yellow 2px solid !important;
 }
 /*JOY GARDEN BUTTONS*/
-.btn-joy-a{
+.btn-Joy-A{
   transform: rotate(-20deg);
   position: absolute;
   top: 52%;
@@ -396,7 +396,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-joy-b{
+.btn-Joy-B{
   transform: rotate(-20deg);
   position: absolute;
   top: 39%;
@@ -408,7 +408,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-joy-c{
+.btn-Joy-C{
   transform: rotate(-20deg);
   position: absolute;
   top: 34%;
@@ -420,7 +420,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-joy-d{
+.btn-Joy-D{
   transform: rotate(-20deg);
   position: absolute;
   top: 47%;
@@ -433,7 +433,7 @@ i.req{
   border: 0px !important;
 }
 /*PEACE GARDEN BUTTONS*/
-.btn-peace-a{
+.btn-Peace-A{
   transform: rotate(-20deg);
   position: absolute;
   top: 40%;
@@ -445,7 +445,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-peace-b{
+.btn-Peace-B{
   transform: rotate(-20deg);
   position: absolute;
   top: 29%;
@@ -457,7 +457,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-peace-c{
+.btn-Peace-C{
   transform: rotate(-20deg);
   position: absolute;
   top: 25%;
@@ -469,7 +469,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-peace-d{
+.btn-Peace-D{
   transform: rotate(-20deg);
   position: absolute;
   top: 35.5%;
@@ -482,7 +482,7 @@ i.req{
   border: 0px !important;
 }
 /*HOPE GARDEN BUTTONS*/
-.btn-hope-a{
+.btn-Hope-A{
   transform: rotate(-20deg);
   position: absolute;
   top: 32.8%;
@@ -494,7 +494,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-hope-b{
+.btn-Hope-B{
   transform: rotate(-20deg);
   position: absolute;
   top: 20.3%;
@@ -506,7 +506,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-hope-c{
+.btn-Hope-C{
   transform: rotate(-20deg);
   position: absolute;
   top: 16%;
@@ -518,7 +518,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-hope-d{
+.btn-Hope-D{
   transform: rotate(-20deg);
   position: absolute;
   top: 29%;
@@ -531,7 +531,7 @@ i.req{
   border: 0px !important;
 }
 /*LOVE GARDEN BUTTONS*/
-.btn-faith-a{
+.btn-Faith-A{
   transform: rotate(-21deg);
   position: absolute;
   top: 25%;
@@ -543,7 +543,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-faith-b{
+.btn-Faith-B{
   transform: rotate(-21deg);
   position: absolute;
   top: 12.5%;
@@ -555,7 +555,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-faith-c{
+.btn-Faith-C{
   transform: rotate(-21deg);
   position: absolute;
   top: 9.5%;
@@ -567,7 +567,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-faith-d{
+.btn-Faith-D{
   transform: rotate(-20deg);
   position: absolute;
   top: 21%;
@@ -580,7 +580,7 @@ i.req{
   border: 0px !important;
 }
 /*LOVE GARDEN BUTTONS*/
-.btn-love-a{
+.btn-Love-A{
   transform: rotate(-22deg);
   position: absolute;
   top: 60%;
@@ -592,7 +592,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-love-b{
+.btn-Love-B{
   transform: rotate(-21deg);
   position: absolute;
   top: 50.5%;
@@ -604,7 +604,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-love-c{
+.btn-Love-C{
   transform: rotate(-21deg);
   position: absolute;
   top: 46%;
@@ -616,7 +616,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-love-d{
+.btn-Love-D{
   transform: rotate(-20deg);
   position: absolute;
   top: 55%;
@@ -627,4 +627,19 @@ i.req{
   width: 9%;
   background-color: transparent !important;
   border: 0px !important;
+}
+.img-sector{
+  position: relative;
+}
+.tbl-Love-A{
+  position: absolute;
+  top: 3%;
+  bottom: 0%;
+  left: 3%;
+  right: 0%;
+  /* height: %; */
+  width: 100%;
+}
+.tbl-Love-A td{
+  height: 50px;
 }
