@@ -325,6 +325,17 @@ body{
 }
 
 /* ------------------------------DASHBOARD PAGE------------------------------ */
+.cont-dash p,
+.cont-dash i,
+.cont-dash h1,
+.cont-dash hr{
+  color: var(--color1);
+}
+
+
+
+
+
 
 /* ------------------------------CUSTOMER PAGE------------------------------ */
 i.req{

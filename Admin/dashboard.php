@@ -21,10 +21,9 @@
     <link rel="stylesheet" type="text/css" href="../Assets/DataTables/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
     <link rel="stylesheet" href="../Assets/css/index_admin.css">
-    
-    <link rel="stylesheet" href="../Assets/css/index_admin.css">
-    
+
     <script src="../Assets/js/sweetalert.js"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -111,23 +110,90 @@
           &nbsp;ADMIN DASHBOARD</h2>
           <hr>
 
-            <div class="row p-0">
+            <div class="row p-0 cont-dash">
               <div class="col-sm-12 col-md-12">
                 <div class="bg-white p-4 h-100 rounded contents">
-                  <div class="row g-5">
-                    <div class="col-md shadow p-3 mx-3">
+                  <div class="row g-3">
+                    <div class="col-md shadow p-2 rounded mx-0 mx-md-2">
                       <div class="p-3" >
-                        <p>Customer/Owner</p>
+                        <p class="fs-5 ">Customer/Owner</p>
                         <hr>
-                        <div class="d-sm-flex align-items-center justify-content-between px-3">
-                          <h1>30</h1>
+                        <div class="d-flex align-items-center justify-content-between px-3">
+                          <?php
+                            $query = "SELECT  customer_id FROM customers ORDER BY customer_id";
+                            $query_run = mysqli_query($con, $query);
+                            $row = mysqli_num_rows($query_run);
+                            echo '<h1>' .$row. '</h1>'
+                          ?>
+                          
                           <i class='bx bxs-user fs-1' ></i>
                         </div>
                       </div>
                     </div>
-                    <div class="col-md shadow p-3 mx-3"></div>
-                    <div class="col-md shadow p-3 mx-3"></div>
-                    <div class="col-md shadow p-3 mx-3"></div>
+                    <div class="col-md shadow p-2 rounded mx-0 mx-md-2">
+                      <div class="p-3" >
+                          <p class="fs-5 ">Deceased</p>
+                          <hr>
+                          <div class="d-flex align-items-center justify-content-between px-3">
+                            <?php
+                              $query = "SELECT  deceased_id FROM deceased_persons ORDER BY deceased_id";
+                              $query_run = mysqli_query($con, $query);
+                              $row = mysqli_num_rows($query_run);
+                              echo '<h1>' .$row. '</h1>'
+                            ?>
+                            
+                            <i class='bx bxs-user-rectangle fs-1' ></i>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md shadow p-2 rounded mx-0 mx-md-2">
+                        <div class="p-3" >
+                          <p class="fs-5 ">Garden Sites</p>
+                          <hr>
+                          <div class="d-flex align-items-center justify-content-between px-3">
+                            <?php
+                              $query = "SELECT  site_id FROM tbl_sites ORDER BY site_id";
+                              $query_run = mysqli_query($con, $query);
+                              $row = mysqli_num_rows($query_run);
+                              echo '<h1>' .$row. '</h1>'
+                            ?>
+                            
+                            <i class='bx bx-sitemap fs-1' ></i>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md shadow p-2 rounded mx-0 mx-md-2">
+                        <div class="p-3" >
+                          <p class="fs-5 ">Lawn Blocks</p>
+                          <hr>
+                          <div class="d-flex align-items-center justify-content-between px-3">
+                            <?php
+                              $query = "SELECT  block_id FROM tbl_blocks ORDER BY block_id";
+                              $query_run = mysqli_query($con, $query);
+                              $row = mysqli_num_rows($query_run);
+                              echo '<h1>' .$row. '</h1>'
+                            ?>
+                            
+                            <i class='bx bxs-cube-alt fs-1'></i>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md shadow p-2 rounded mx-0 mx-md-2">
+                        <div class="p-3" >
+                          <p class="fs-5 ">Lawn Lots</p>
+                          <hr>
+                          <div class="d-flex align-items-center justify-content-between px-3">
+                            <?php
+                              $query = "SELECT  lot_id FROM tbl_lots ORDER BY lot_id";
+                              $query_run = mysqli_query($con, $query);
+                              $row = mysqli_num_rows($query_run);
+                              echo '<h1>' .$row. '</h1>'
+                            ?>
+                            
+                            <i class='bx bxs-grid fs-1' ></i>
+                          </div>
+                        </div>
+                    </div>
                   </div>
                 </div>
               </div>
