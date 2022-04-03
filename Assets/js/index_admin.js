@@ -308,10 +308,16 @@ $(document).ready(function(){
     $("#find-grave-btn").tab('show');
   }
   
-  $(".btn-sectors").click(function(e){
-    e.preventDefault();
+  $(".btn-sectors, .btn-view-location").click(function(){
     var sector=$(this).attr("data-sector");
     var site_name=$(this).attr("data-site");
-    
+    $.ajax({
+      url: "queries/map-select-lots.php",
+      method: "post",
+      data: {sector:sector, site_name:site_name},
+      success:function(data){
+        $(".lot_info").html(data);
+      }
+    })
   })
 })
