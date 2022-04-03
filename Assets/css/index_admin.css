@@ -631,3 +631,28 @@ i.req{
 .img-sector{
   position: relative;
 }
+
+.Joy-A-block-1-lot-1{
+  position: absolute;
+  top: 1%;
+  bottom: 0%;
+  left: 12.5%;
+  right: 0%;
+  height: 5%;
+  width: 2%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 2px solid white !important;
+}
+.Joy-A-block-1-lot-2{
+  position: absolute;
+  top: 1%;
+  bottom: 0%;
+  left: 14%;
+  right: 0%;
+  height: 5%;
+  width: 2%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 2px solid white !important;
+}
