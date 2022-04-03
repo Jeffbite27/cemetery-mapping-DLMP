@@ -6,7 +6,7 @@
   $con=connect();
   if(isset($_SESSION["username"])){
     $sql=$con->query("SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)");
-    $sql_modal_map=$con->query("SELECT * FROm (`tbl_sites` INNER JOIN `tbl_blocks` ON tbl_sites.site_id=tbl_blocks.site_id)  GROUP BY tbl_blocks.block_id");
+    $sql_modal_map=$con->query("SELECT * FROM (`tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id)");
   }else{
     header("Location: index.php");
   }
@@ -164,7 +164,7 @@
                                         <?php echo "<br>Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?>
                                       </td>
                                       <td class="align-middle text-center">
-                                        <button class="btn btn-danger btn-view-location" data-bs-toggle="modal" data-bs-target="#<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                                        <button class="btn btn-danger btn-view-location" data-site="<?php echo $row["site_name"] ?>" data-sector="<?php echo $row["sector"] ?>" data-bs-toggle="modal" data-bs-target="#<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
                                         <div class="d-flex align-items-center">
                                           <i class='bx bx-search-alt-2' "></i> 
                                           View Location
@@ -197,30 +197,30 @@
                                   <img class="img-fluid rounded whole-map" src="../Assets/image/map/whole-map.png" alt="">
                                   <div class="map-sites">
                                     <!-- JOY GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-Joy-A" data-bs-toggle="modal" data-bs-target="#Joy-A"></button>
-                                    <button class="btn btn-sm btn-success btn-Joy-B" data-bs-toggle="modal" data-bs-target="#Joy-B"></button>
-                                    <button class="btn btn-sm btn-success btn-Joy-C" data-bs-toggle="modal" data-bs-target="#Joy-C"></button>
-                                    <button class="btn btn-sm btn-success btn-Joy-D" data-bs-toggle="modal" data-bs-target="#Joy-D"></button>
+                                    <button class="btn btn-sm btn-success btn-Joy-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Joy-A" data-site="Joy Garden" data-sector="A"></button>
+                                    <button class="btn btn-sm btn-success btn-Joy-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Joy-B" data-site="Joy Garden" data-sector="B"></button>
+                                    <button class="btn btn-sm btn-success btn-Joy-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Joy-C" data-site="Joy Garden" data-sector="C"></button>
+                                    <button class="btn btn-sm btn-success btn-Joy-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Joy-D" data-site="Joy Garden" data-sector="D"></button>
                                     <!-- PEACE GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-Peace-A" data-bs-toggle="modal" data-bs-target="#Peace-A"></button>
-                                    <button class="btn btn-sm btn-success btn-Peace-B" data-bs-toggle="modal" data-bs-target="#Peace-B"></button>
-                                    <button class="btn btn-sm btn-success btn-Peace-C" data-bs-toggle="modal" data-bs-target="#Peace-C"></button>
-                                    <button class="btn btn-sm btn-success btn-Peace-D" data-bs-toggle="modal" data-bs-target="#Peace-D"></button> 
+                                    <button class="btn btn-sm btn-success btn-Peace-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Peace-A"></button>
+                                    <button class="btn btn-sm btn-success btn-Peace-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Peace-B"></button>
+                                    <button class="btn btn-sm btn-success btn-Peace-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Peace-C"></button>
+                                    <button class="btn btn-sm btn-success btn-Peace-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Peace-D"></button> 
                                     <!-- HOPE GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-Hope-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-A"></button>
-                                    <button class="btn btn-sm btn-success btn-Hope-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-B"></button>
-                                    <button class="btn btn-sm btn-success btn-Hope-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-C"></button>
-                                    <button class="btn btn-sm btn-success btn-Hope-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-D"></button> 
+                                    <button class="btn btn-sm btn-success btn-Hope-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-A" data-site="Hope Garden" data-sector="A"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-B" data-site="Hope Garden" data-sector="B"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-C" data-site="Hope Garden" data-sector="C"></button>
+                                    <button class="btn btn-sm btn-success btn-Hope-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-D" data-site="Hope Garden" data-sector="D"></button> 
                                     <!-- FAITH GARDEN BUTTONS -->
-                                    <button class="btn btn-sm btn-success btn-Faith-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-A"></button>
-                                    <button class="btn btn-sm btn-success btn-Faith-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-B"></button>
-                                    <button class="btn btn-sm btn-success btn-Faith-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-C"></button>
-                                    <button class="btn btn-sm btn-success btn-Faith-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-D"></button> 
+                                    <button class="btn btn-sm btn-success btn-Faith-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-A" data-site="Faith Garden" data-sector="A"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-B" data-site="Faith Garden" data-sector="B"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-C" data-site="Faith Garden" data-sector="C"></button>
+                                    <button class="btn btn-sm btn-success btn-Faith-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-D" data-site="Faith Garden" data-sector="D"></button> 
                                     <!-- LOVE GARDEN BUTTONS -->
                                     <button class="btn btn-sm btn-success btn-Love-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-A" data-site="Love Garden" data-sector="A"></button>
                                     <button class="btn btn-sm btn-success btn-Love-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-B" data-site="Love Garden" data-sector="B"></button>
-                                    <button class="btn btn-sm btn-success btn-Love-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-C"></button>
-                                    <button class="btn btn-sm btn-success btn-Love-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-D"></button> 
+                                    <button class="btn btn-sm btn-success btn-Love-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-C" data-site="Love Garden" data-sector="C"></button>
+                                    <button class="btn btn-sm btn-success btn-Love-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-D" data-site="Love Garden" data-sector="D"></button> 
                                 </div>
                               </div>
                             </div>
@@ -292,7 +292,9 @@
               <div class="img-sector text-center">
                 <img class="img-fluid rounded img-sector" src="../Assets/image/map/<?php echo $row["site_name"] ?> - <?php echo $row["sector"] ?>.png" alt="">
                 
-                
+                <div class="lot_info">
+                  
+                </div>
               </div>
             </div>
             <!-- <div class="modal-footer .map-footer">

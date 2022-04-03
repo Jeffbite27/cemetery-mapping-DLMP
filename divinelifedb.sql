@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2022 at 04:48 PM
+-- Generation Time: Apr 03, 2022 at 04:45 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -109,7 +109,9 @@ CREATE TABLE `deceased_persons` (
 --
 
 INSERT INTO `deceased_persons` (`deceased_id`, `lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead_gender`, `dead_citizenship`, `dead_civil_status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`) VALUES
-(1, 2, 1, 1, 1, 1, 'Musk', 'Elon', 'Estribo', 'Male', 'Filipino', 'Single', 'Rico', 'Guinanao', 'Cousin', '2022-03-17', '2022-03-22', '2022-03-09', 'death-cert', 'burial-permit');
+(1, 1, 2, 1, 1, 1, 'Guinanao', 'Rico', 'Estribo', 'Male', 'Filipino', 'Single', 'Jeff', 'Dano', 'Mother', '2022-03-10', '2022-03-25', '2022-03-09', 'Rico_Guinanao_1648478478.jpg', 'Rico_Guinanao_1648478503.jpg'),
+(2, 4, 5, 1, 3, 6, 'Brando', 'Dio', 'Bobo', 'Male', 'Filipino', 'Single', 'CCC', 'Admin', 'Father', '2022-03-10', '2022-03-25', '2022-03-30', 'Dio_Brando_1648478521.jpg', 'Dio_Brando_1648478535.jpg'),
+(3, 5, 1, 5, 19, 8, 'asd', 'asd', 'asd', 'Male', 'Filipino', 'Single', 'Rico', 'Guinanao', 'Sibling', '2022-03-31', '2022-04-13', '2022-04-17', 'asd_asd_1648984028.jpg', 'asd_asd_1648984028.jpg');
 
 -- --------------------------------------------------------
 
@@ -131,9 +133,11 @@ CREATE TABLE `lot_owners` (
 --
 
 INSERT INTO `lot_owners` (`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `deed_of_sale`) VALUES
-(1, 2, 1, 2, 2, 'Jeff Estribo Dano.jpg'),
-(2, 2, 1, 1, 1, 'Jeff Bite Dano.jpg'),
-(3, 1, 2, 7, 4, 'Rico Estribo Guinanao.pdf');
+(1, 2, 1, 1, 1, 'Jeff_Bite_Dano_1648479475.jpg'),
+(2, 2, 1, 2, 2, 'Jeff_Bite_Dano_1648479252.jpg'),
+(3, 1, 2, 7, 4, 'Rico_Estribo_Guinanao_1648478924.jpg'),
+(4, 5, 1, 3, 6, 'CCC_Estribo_Admin_1648478936.jpg'),
+(5, 1, 5, 19, 8, 'Rico Estribo Guinanao_1648983583.jpg');
 
 -- --------------------------------------------------------
 
@@ -156,15 +160,27 @@ CREATE TABLE `tbl_blocks` (
 INSERT INTO `tbl_blocks` (`block_id`, `site_id`, `block_name`, `sector`, `total_lots`) VALUES
 (1, 1, '4', 'C', '2'),
 (2, 1, '2', 'A', '1'),
-(3, 1, '3', 'A', '0'),
+(3, 1, '1', 'A', '2'),
 (4, 1, '1', 'B', '0'),
 (5, 1, '2', 'B', '0'),
 (6, 1, '3', 'B', '0'),
-(7, 2, '1', 'A', '1'),
+(7, 2, '3', 'A', '1'),
 (8, 2, '2', 'B', '0'),
 (9, 2, '2', 'A', '0'),
 (10, 2, '1', 'B', '0'),
-(11, 1, '1', 'C', '0');
+(11, 1, '1', 'C', '0'),
+(12, 1, '1', 'D', '0'),
+(13, 2, '1', 'D', '0'),
+(14, 2, '1', 'C', '0'),
+(15, 3, '1', 'A', '0'),
+(16, 3, '1', 'B', '0'),
+(17, 3, '1', 'C', '0'),
+(18, 3, '1', 'D', '0'),
+(19, 5, '1', 'A', '2'),
+(20, 5, '2', 'B', '0'),
+(21, 5, '1', 'D', '0'),
+(22, 5, '1', 'C', '0'),
+(23, 5, '2', 'A', '0');
 
 -- --------------------------------------------------------
 
@@ -188,7 +204,11 @@ INSERT INTO `tbl_lots` (`lot_id`, `block_id`, `site_id`, `lot_name`, `lawn_type`
 (1, 1, 1, '1', 'Standard'),
 (2, 2, 1, '1', 'Deluxe'),
 (3, 1, 1, '2', 'Standard'),
-(4, 7, 2, '1', 'Premium');
+(4, 7, 2, '1', 'Premium'),
+(5, 3, 1, '5', 'Premium'),
+(6, 3, 1, '4', 'Premium'),
+(7, 19, 5, '2', 'Premium'),
+(8, 19, 5, '1', 'Premium');
 
 -- --------------------------------------------------------
 
@@ -209,11 +229,11 @@ CREATE TABLE `tbl_sites` (
 --
 
 INSERT INTO `tbl_sites` (`site_id`, `site_name`, `site_sqm2`, `total_blocks`, `total_lots`) VALUES
-(1, 'Love Garden', '30sqm', '7', '3'),
-(2, 'Faith Garden', '40sqm', '4', '1'),
-(3, 'Hope Garden', '30sqm', '0', '0'),
+(1, 'Love Garden', '30sqm', '8', '5'),
+(2, 'Faith Garden', '40sqm', '6', '1'),
+(3, 'Hope Garden', '30sqm', '4', '0'),
 (4, 'Peace Garden', '60sqm', '0', '0'),
-(5, 'Joy Garden', '40sqm', '0', '0'),
+(5, 'Joy Garden', '40sqm', '5', '2'),
 (6, 'Meteor Garden', '60sqm', '0', '0');
 
 -- --------------------------------------------------------
@@ -312,25 +332,25 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `deceased_persons`
 --
 ALTER TABLE `deceased_persons`
-  MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lot_owners`
 --
 ALTER TABLE `lot_owners`
-  MODIFY `lot_owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `lot_owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_blocks`
 --
 ALTER TABLE `tbl_blocks`
-  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tbl_lots`
 --
 ALTER TABLE `tbl_lots`
-  MODIFY `lot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `lot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_sites`
