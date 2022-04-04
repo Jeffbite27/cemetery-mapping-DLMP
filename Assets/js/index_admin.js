@@ -308,13 +308,27 @@ $(document).ready(function(){
     $("#find-grave-btn").tab('show');
   }
   
-  $(".btn-sectors, .btn-view-location").click(function(){
+  $(".btn-sectors").click(function(){
     var sector=$(this).attr("data-sector");
     var site_name=$(this).attr("data-site");
     $.ajax({
       url: "queries/map-select-lots.php",
       method: "post",
       data: {sector:sector, site_name:site_name},
+      success:function(data){
+        $(".lot_info").html(data);
+      }
+    })
+  })
+  $(".btn-view-location").click(function(){
+    var sector=$(this).attr("data-sector");
+    var site_name=$(this).attr("data-site");
+    var block_name=$(this).attr("data-block");
+    var lot_name=$(this).attr("data-lot");
+    $.ajax({
+      url: "queries/view-location.php",
+      method: "post",
+      data: {sector:sector, site_name:site_name, block_name:block_name, lot_name:lot_name},
       success:function(data){
         $(".lot_info").html(data);
       }
