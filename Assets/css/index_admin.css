@@ -395,7 +395,7 @@ i.req{
   /* text-align: center; */
 }
 .btn-Joy-A:hover, .btn-Joy-B:hover, .btn-Joy-C:hover, .btn-Joy-D:hover, .btn-Peace-A:hover, .btn-Peace-B:hover, .btn-Peace-C:hover, .btn-Peace-D:hover, .btn-Hope-A:hover, .btn-Hope-B:hover, .btn-Hope-C:hover, .btn-Hope-D:hover, .btn-Faith-A:hover, .btn-Faith-B:hover, .btn-Faith-C:hover, .btn-Faith-D:hover, .btn-Love-A:hover, .btn-Love-B:hover, .btn-Love-C:hover, .btn-Love-D:hover{
-  border: yellow 2px solid !important;
+  border: red 5px solid !important;
 }
 /*JOY GARDEN BUTTONS*/
 .btn-Joy-A{
@@ -656,7 +656,7 @@ i.req{
   width: 2%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 2px solid white !important;
+  /* border: 2px solid white !important; */
 }
 .Joy-A-block-1-lot-2{
   position: absolute;
@@ -668,5 +668,17 @@ i.req{
   width: 2%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 2px solid white !important;
+  /* border: 2px solid white !important; */
+}
+.Joy-A-block-1-lot-3{
+  position: absolute;
+  top: 5.5%;
+  bottom: 0%;
+  left: 12.5%;
+  right: 0%;
+  height: 4.6%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  /* border: 2px solid white !important; */
 }
