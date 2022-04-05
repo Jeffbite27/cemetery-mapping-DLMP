@@ -334,4 +334,17 @@ $(document).ready(function(){
       }
     })
   })
+  $(".rdo-occupied").click(function(){
+    var site_name=$(this).attr("data-site");
+    var sector=$(this).attr("data-sector");
+    
+    $.ajax({
+      url: "queries/occupied-lots.php",
+      method: "post",
+      data: {site_name:site_name, sector:sector},
+      success:function(data){
+        $(".lot_info").html(data);
+      }
+    })
+  })
 })

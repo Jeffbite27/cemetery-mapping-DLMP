@@ -257,7 +257,7 @@
                     <h5>Filter by:</h5>
                     <div class="filter d-flex align-items-center">
                       <div class="owned" style="margin-right: 20px">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="owned-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                        <input type="radio" class="form-check-input rdo-owned" name="filter-radio" id="owned-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
                         <label for="owned-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">Owned Lots</label>
                         <div class="owned-legend">
                           <i class='bx bxs-checkbox' style="color: #9e0505;"></i>
@@ -267,7 +267,7 @@
                         </div>
                       </div>
                       <div class="occupied">
-                        <input type="radio" class="form-check-input" name="filter-radio" id="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                        <input type="radio" class="form-check-input rdo-occupied" name="filter-radio" data-site="<?php echo $row["site_name"] ?>" data-sector="<?php echo $row["sector"] ?>" id="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
                         <label for="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">Occupied Lots</label>
                         <div class="occupied-legend">
                           <i class='bx bxs-checkbox' style="color: #db8812;"></i>
