@@ -19,7 +19,26 @@ if($sql->num_rows!=0){
     ";
   }
 }else{
-  $output.="<p>No lots found</p>";
+  $output.="<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'No Lots Found',
+      text: 'Please add blocks and lots for this sector',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+    }});
+  </script>";
 }
 
 
