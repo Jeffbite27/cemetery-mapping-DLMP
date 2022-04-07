@@ -347,4 +347,17 @@ $(document).ready(function(){
       }
     })
   })
+  $(".rdo-owned").click(function(){
+    var site_name=$(this).attr("data-site");
+    var sector=$(this).attr("data-sector");
+    
+    $.ajax({
+      url: "queries/owned-lots.php",
+      method: "post",
+      data: {site_name:site_name, sector:sector},
+      success:function(data){
+        $(".lot_info").html(data);
+      }
+    })
+  })
 })
