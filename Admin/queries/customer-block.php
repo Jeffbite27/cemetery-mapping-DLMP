@@ -6,7 +6,7 @@ include("../../config.php");
 $con=connect();
 extract($_POST);
 
-$customer_block=$con->query("SELECT * FROM `tbl_blocks` WHERE `site_id`='$site_id' AND `sector`='$sector' ORDER BY `block_name` ASC");
+$customer_block=$con->query("SELECT * FROM `tbl_blocks` WHERE `site_id`='$site_id' AND `sector`='$sector' ORDER BY `block_id` ASC");
 $output='';
 if($customer_block->num_rows!=0){
   while($row=$customer_block->fetch_array()){
