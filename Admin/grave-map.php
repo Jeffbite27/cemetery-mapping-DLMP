@@ -25,6 +25,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../Assets/css/index_admin.css">
+
+
+    <link rel="stylesheet" href="../Assets/css/view_location.css">
+    <link rel="stylesheet" href="../Assets/css/view_location_occupied.css">
+    <link rel="stylesheet" href="../Assets/css/view_location_owned.css">
+    
     
     <script src="../Assets/js/sweetalert.js"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
