@@ -600,6 +600,23 @@ p{
     font-weight: 700;
 }
 
+.news-section{
+    color: var(--color1);
+}
+
+.news-section p{
+    font-size: .9rem;
+}
+
+.news-img img{
+    width: 100%;
+    height: 25vh;
+}
+
+.news-section .date-txt{
+    font-size: .8rem;
+}
+
 .content-body{
     
 }
@@ -775,14 +792,6 @@ p{
 .contact-div2 .content .map-img{
     width: 70%;
 }
-
-
-
-
-
-
-
-
 
 
 

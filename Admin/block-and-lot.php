@@ -95,7 +95,7 @@
       </li>
 
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="News & Events">
-        <a href="#">
+        <a href="news-events.php">
           <i class='bx bx-news'></i>
           <span class="link_name">News & Events</span>
         </a>

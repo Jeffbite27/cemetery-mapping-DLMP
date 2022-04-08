@@ -1,23 +1,23 @@
 /* Google Fonts Import Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
 
-:root{
-  --Font1: 'Poppins', sans-serif;
-  --Font2: 'Roboto', sans-serif;
-  --Font3: 'Inter', sans-serif;
+:root {
+  --Font1: "Poppins", sans-serif;
+  --Font2: "Roboto", sans-serif;
+  --Font3: "Inter", sans-serif;
 
   --color1: #832121;
   --color2: white;
   --color3: rgb(107, 21, 21);
 }
-body{
+body {
   overflow-x: hidden;
-  background-color: #E4E9F7;
+  background-color: #e4e9f7;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -26,15 +26,15 @@ body{
 .table.dataTable th {
   background-color: unset;
   border-bottom: #fff;
- }
- tr.even td {
+}
+tr.even td {
   background-color: unset;
- }
- tr.odd td {
+}
+tr.odd td {
   background-color: unset;
- }
- 
-.sidebar{
+}
+
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -45,28 +45,27 @@ body{
   transition: all 0.5s ease;
 }
 
-.sidebar.close{
+.sidebar.close {
   width: 78px;
 }
 
-.sidebar .logo-details{
+.sidebar .logo-details {
   height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
-  padding: .5em;
-  
+  padding: 0.5em;
 }
 
-.sidebar .logo-details img{
+.sidebar .logo-details img {
   width: 100px;
   transition: 0.3s ease;
   transition-delay: 0.1s;
 }
 
-.sidebar .logo-details i{
+.sidebar .logo-details i {
   font-size: 30px;
   color: #fff;
   height: 50px;
@@ -75,63 +74,60 @@ body{
   line-height: 50px;
 }
 
-.sidebar .logo-details .logo_name{
+.sidebar .logo-details .logo_name {
   font-size: 22px;
   color: #fff;
   font-weight: 600;
-  
 }
 
-.sidebar.close .logo-details .logo_name{
+.sidebar.close .logo-details .logo_name {
   transition-delay: 0s;
   opacity: 0;
   pointer-events: none;
 }
 
-.sidebar.close .logo-details img{
+.sidebar.close .logo-details img {
   width: 50px;
-  
 }
 
-
-.sidebar .nav-links{
+.sidebar .nav-links {
   height: 100%;
   padding: 30px 0 150px 0;
   overflow: auto;
 }
 
-.sidebar.close .nav-links{
+.sidebar.close .nav-links {
   overflow: visible;
 }
 
-.sidebar .nav-links::-webkit-scrollbar{
+.sidebar .nav-links::-webkit-scrollbar {
   display: none;
 }
 
-.sidebar .nav-links li{
+.sidebar .nav-links li {
   position: relative;
   list-style: none;
   transition: all 0.2s ease;
 }
 
-.sidebar .nav-links li:hover{
+.sidebar .nav-links li:hover {
   background-color: rgb(90, 13, 13);
 }
-.sidebar .nav-links li.active{
+.sidebar .nav-links li.active {
   background-color: rgb(90, 13, 13);
 }
 
-.sidebar .nav-links li .iocn-link{
+.sidebar .nav-links li .iocn-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.sidebar.close .nav-links li .iocn-link{
-  display: block
+.sidebar.close .nav-links li .iocn-link {
+  display: block;
 }
 
-.sidebar .nav-links li i{
+.sidebar .nav-links li i {
   height: 50px;
   min-width: 78px;
   text-align: center;
@@ -142,59 +138,57 @@ body{
   transition: all 0.2s ease;
 }
 
-
-.sidebar .nav-links li.showMenu i.arrow{
+.sidebar .nav-links li.showMenu i.arrow {
   transform: rotate(-180deg);
 }
 
-.sidebar.close .nav-links i.arrow{
+.sidebar.close .nav-links i.arrow {
   display: none;
 }
 
-.sidebar .nav-links li a{
+.sidebar .nav-links li a {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 
-.sidebar .nav-links li a .link_name{
-  font-size: .9rem;
+.sidebar .nav-links li a .link_name {
+  font-size: 0.9rem;
   font-weight: 400;
   color: #fff;
   transition: all 0.4s ease;
 }
 
-
-.sidebar.close .nav-links li a .link_name{
+.sidebar.close .nav-links li a .link_name {
   opacity: 0;
   pointer-events: none;
 }
 
-.sidebar .nav-links li .sub-menu{
+.sidebar .nav-links li .sub-menu {
   padding: 6px 6px 14px 80px;
   margin-top: -10px;
   background-color: rgb(90, 13, 13);
   display: none;
 }
 
-.sidebar .nav-links li.showMenu .sub-menu{
+.sidebar .nav-links li.showMenu .sub-menu {
   display: block;
 }
 
-.sidebar .nav-links li .sub-menu a{
+.sidebar .nav-links li .sub-menu a {
   color: #fff;
-  font-size: .8rem;
+  font-size: 0.8rem;
   padding: 5px 0;
   white-space: nowrap;
   opacity: 0.6;
   transition: all 0.3s ease;
 }
 
-.sidebar .nav-links li .sub-menu a:hover{
+.sidebar .nav-links li .sub-menu a:hover {
   opacity: 1;
 }
 
-.sidebar.close .nav-links li .sub-menu{
+.sidebar.close .nav-links li .sub-menu {
   position: absolute;
   left: 100%;
   top: -10px;
@@ -207,26 +201,24 @@ body{
   transition: 0s;
 }
 
-.sidebar.close .nav-links li:hover .sub-menu{
+.sidebar.close .nav-links li:hover .sub-menu {
   top: 0;
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s ease;
 }
 
-.sidebar .nav-links li .sub-menu .link_name{
+.sidebar .nav-links li .sub-menu .link_name {
   display: none;
 }
 
-
-
-.sidebar.close .nav-links li .sub-menu .link_name{
-  font-size: .9rem;
+.sidebar.close .nav-links li .sub-menu .link_name {
+  font-size: 0.9rem;
   opacity: 1;
   display: block;
 }
 
-.sidebar .nav-links li .sub-menu.blank{
+.sidebar .nav-links li .sub-menu.blank {
   opacity: 1;
   pointer-events: auto;
   padding: 3px 20px 6px 16px;
@@ -234,27 +226,26 @@ body{
   pointer-events: none;
 }
 
-.sidebar .nav-links li:hover .sub-menu.blank{
+.sidebar .nav-links li:hover .sub-menu.blank {
   top: 50%;
   transform: translateY(-50%);
 }
 
-
-.home-section{
+.home-section {
   position: relative;
-  background: #E4E9F7;
+  background: #e4e9f7;
   height: 100vh;
   left: 260px;
   width: calc(100% - 260px);
   transition: all 0.5s ease;
 }
 
-.sidebar.close ~ .home-section{
+.sidebar.close ~ .home-section {
   left: 78px;
   width: calc(100% - 78px);
 }
 
-.home-section .home-content{
+.home-section .home-content {
   height: 60px;
   display: flex;
   align-items: center;
@@ -263,29 +254,29 @@ body{
 }
 
 .home-section .home-content .bx-menu,
-.home-section .home-content .text{
+.home-section .home-content .text {
   color: var(--color3);
   font-size: 30px;
 }
 
-.home-section .home-content .bx-menu{
+.home-section .home-content .bx-menu {
   margin: 0 15px;
   cursor: pointer;
 }
 
-.home-section .home-content .text{
+.home-section .home-content .text {
   font-size: 26px;
   font-weight: 600;
 }
 
-.main-container{
+.main-container {
   width: 100%;
   height: 100%;
 
   position: relative;
 }
 
-.content{
+.content {
   width: 100%;
   height: 100%;
   padding-top: 3.5em;
@@ -294,71 +285,66 @@ body{
   display: none;
 }
 
-.content.active{
+.content.active {
   display: block;
 }
 
-.div-content{
+.div-content {
   width: 100%;
   height: 100%;
   padding: 1em;
 }
-.title-head{
+.title-head {
   font-weight: 800;
   color: var(--color1);
 }
 
-.Pages{
+.Pages {
   margin-top: 1em;
 }
 
-.Pages::before{
-  content: 'Pages';
+.Pages::before {
+  content: "Pages";
   width: 100%;
   height: 100%;
   position: absolute;
   top: -1em;
   left: 3em;
   color: white;
-  font-size: .5rem;
-
+  font-size: 0.5rem;
 }
 
 /* ------------------------------DASHBOARD PAGE------------------------------ */
 .cont-dash p,
 .cont-dash i,
 .cont-dash h1,
-.cont-dash hr{
+.cont-dash hr {
   color: var(--color1);
 }
 
-
-
-
-
-
 /* ------------------------------CUSTOMER PAGE------------------------------ */
-i.req{
+i.req {
   color: red;
 }
 .tbl-header {
   background-color: var(--color1);
 }
-.modal-footer{
+.modal-footer {
   justify-content: center;
 }
-.add-customer{
+.add-customer {
   margin-left: auto;
 }
-.modal-header{
+.modal-header {
   background-color: var(--color1);
   color: white;
-  padding:9px 15px;
+  padding: 9px 15px;
 }
 /* ------------------------------BLOCK AND LOT PAGE------------------------------ */
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    border-top: 2px solid;
-    border-color: var(--color1) #dee2e6 #fff !important;
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  border-top: 2px solid;
+  border-color: var(--color1) #dee2e6 #fff !important;
 }
 .nav-link {
   align-items: left;
@@ -370,19 +356,19 @@ i.req{
   font-weight: 500;
 }
 @media (max-width: 420px) {
-  .sidebar.close .nav-links li .sub-menu{
+  .sidebar.close .nav-links li .sub-menu {
     display: none;
   }
 }
 /* ------------------------------GRAVE MAP PAGE------------------------------ */
-.btn-view-location{
+.btn-view-location {
   background-color: var(--color1) !important;
   border: none !important;
 }
 .map-wrapper {
   position: relative;
 }
-.whole-map{
+.whole-map {
   width: 100%;
   max-width: 100%;
 }
@@ -394,11 +380,30 @@ i.req{
   right: 0%;
   /* text-align: center; */
 }
-.btn-Joy-A:hover, .btn-Joy-B:hover, .btn-Joy-C:hover, .btn-Joy-D:hover, .btn-Peace-A:hover, .btn-Peace-B:hover, .btn-Peace-C:hover, .btn-Peace-D:hover, .btn-Hope-A:hover, .btn-Hope-B:hover, .btn-Hope-C:hover, .btn-Hope-D:hover, .btn-Faith-A:hover, .btn-Faith-B:hover, .btn-Faith-C:hover, .btn-Faith-D:hover, .btn-Love-A:hover, .btn-Love-B:hover, .btn-Love-C:hover, .btn-Love-D:hover{
+.btn-Joy-A:hover,
+.btn-Joy-B:hover,
+.btn-Joy-C:hover,
+.btn-Joy-D:hover,
+.btn-Peace-A:hover,
+.btn-Peace-B:hover,
+.btn-Peace-C:hover,
+.btn-Peace-D:hover,
+.btn-Hope-A:hover,
+.btn-Hope-B:hover,
+.btn-Hope-C:hover,
+.btn-Hope-D:hover,
+.btn-Faith-A:hover,
+.btn-Faith-B:hover,
+.btn-Faith-C:hover,
+.btn-Faith-D:hover,
+.btn-Love-A:hover,
+.btn-Love-B:hover,
+.btn-Love-C:hover,
+.btn-Love-D:hover {
   border: red 5px solid !important;
 }
 /*JOY GARDEN BUTTONS*/
-.btn-Joy-A{
+.btn-Joy-A {
   transform: rotate(-20deg);
   position: absolute;
   top: 52%;
@@ -410,7 +415,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Joy-B{
+.btn-Joy-B {
   transform: rotate(-20deg);
   position: absolute;
   top: 39%;
@@ -422,7 +427,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Joy-C{
+.btn-Joy-C {
   transform: rotate(-20deg);
   position: absolute;
   top: 34%;
@@ -434,7 +439,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Joy-D{
+.btn-Joy-D {
   transform: rotate(-20deg);
   position: absolute;
   top: 47%;
@@ -447,7 +452,7 @@ i.req{
   border: 0px !important;
 }
 /*PEACE GARDEN BUTTONS*/
-.btn-Peace-A{
+.btn-Peace-A {
   transform: rotate(-20deg);
   position: absolute;
   top: 40%;
@@ -459,7 +464,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Peace-B{
+.btn-Peace-B {
   transform: rotate(-20deg);
   position: absolute;
   top: 29%;
@@ -471,7 +476,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Peace-C{
+.btn-Peace-C {
   transform: rotate(-20deg);
   position: absolute;
   top: 25%;
@@ -483,7 +488,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Peace-D{
+.btn-Peace-D {
   transform: rotate(-20deg);
   position: absolute;
   top: 35.5%;
@@ -496,7 +501,7 @@ i.req{
   border: 0px !important;
 }
 /*HOPE GARDEN BUTTONS*/
-.btn-Hope-A{
+.btn-Hope-A {
   transform: rotate(-20deg);
   position: absolute;
   top: 32.8%;
@@ -508,7 +513,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Hope-B{
+.btn-Hope-B {
   transform: rotate(-20deg);
   position: absolute;
   top: 20.3%;
@@ -520,7 +525,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Hope-C{
+.btn-Hope-C {
   transform: rotate(-20deg);
   position: absolute;
   top: 16%;
@@ -532,7 +537,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Hope-D{
+.btn-Hope-D {
   transform: rotate(-20deg);
   position: absolute;
   top: 29%;
@@ -545,7 +550,7 @@ i.req{
   border: 0px !important;
 }
 /*LOVE GARDEN BUTTONS*/
-.btn-Faith-A{
+.btn-Faith-A {
   transform: rotate(-21deg);
   position: absolute;
   top: 25%;
@@ -557,7 +562,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Faith-B{
+.btn-Faith-B {
   transform: rotate(-21deg);
   position: absolute;
   top: 12.5%;
@@ -569,7 +574,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Faith-C{
+.btn-Faith-C {
   transform: rotate(-21deg);
   position: absolute;
   top: 9.5%;
@@ -581,7 +586,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Faith-D{
+.btn-Faith-D {
   transform: rotate(-20deg);
   position: absolute;
   top: 21%;
@@ -594,7 +599,7 @@ i.req{
   border: 0px !important;
 }
 /*LOVE GARDEN BUTTONS*/
-.btn-Love-A{
+.btn-Love-A {
   transform: rotate(-22deg);
   position: absolute;
   top: 60%;
@@ -606,7 +611,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Love-B{
+.btn-Love-B {
   transform: rotate(-21deg);
   position: absolute;
   top: 50.5%;
@@ -618,7 +623,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Love-C{
+.btn-Love-C {
   transform: rotate(-21deg);
   position: absolute;
   top: 46%;
@@ -630,7 +635,7 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.btn-Love-D{
+.btn-Love-D {
   transform: rotate(-20deg);
   position: absolute;
   top: 55%;
@@ -642,12 +647,12 @@ i.req{
   background-color: transparent !important;
   border: 0px !important;
 }
-.img-sector{
+.img-sector {
   position: relative;
 }
 
 /* VIEW LOCATION */
-.Joy-A-block-1-lot-1{
+.Joy-A-block-1-lot-1 {
   position: absolute;
   top: 1%;
   bottom: 0%;
@@ -659,7 +664,7 @@ i.req{
   /* background-color: red !important; */
   /* border: 2px solid white !important; */
 }
-.Joy-A-block-1-lot-2{
+.Joy-A-block-1-lot-2 {
   position: absolute;
   top: 1%;
   bottom: 0%;
@@ -671,7 +676,7 @@ i.req{
   /* background-color: red !important; */
   /* border: 2px solid white !important; */
 }
-.Joy-A-block-1-lot-3{
+.Joy-A-block-1-lot-3 {
   position: absolute;
   top: 5.5%;
   bottom: 0%;
@@ -682,9 +687,21 @@ i.req{
   background-color: transparent !important;
   /* background-color: red !important; */
   /* border: 2px solid white !important; */
+}
+.Joy-A-block-1-lot-4 {
+  position: absolute;
+  top: 5.5%;
+  bottom: 0%;
+  left: 15.5%;
+  right: 0%;
+  height: 4.6%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 2px solid white !important;
 }
 /* OCCUPIED LOTS */
-.occupied-Joy-A-block-1-lot-1{
+.occupied-Joy-A-block-1-lot-1 {
   position: absolute;
   top: 1%;
   bottom: 0%;
@@ -693,11 +710,11 @@ i.req{
   height: 5%;
   width: 2%;
   background-color: #db8812 !important;
-  opacity:.5;
+  opacity: 0.5;
   /* background-color: red !important; */
   border: 2px solid red !important;
 }
-.occupied-Joy-A-block-1-lot-2{
+.occupied-Joy-A-block-1-lot-2 {
   position: absolute;
   top: 1%;
   bottom: 0%;
@@ -706,11 +723,11 @@ i.req{
   height: 5%;
   width: 2%;
   background-color: #db8812 !important;
-  opacity:.5;
+  opacity: 0.5;
   /* background-color: red !important; */
   border: 2px solid red !important;
 }
-.occupied-Joy-A-block-1-lot-3{
+.occupied-Joy-A-block-1-lot-3 {
   position: absolute;
   top: 5.5%;
   bottom: 0%;
@@ -719,12 +736,24 @@ i.req{
   height: 4.6%;
   width: 1.8%;
   background-color: #db8812 !important;
-  opacity:.5;
+  opacity: 0.5;
   /* background-color: red !important; */
   border: 2px solid red !important;
+}
+.occupied-Joy-A-block-1-lot-4 {
+  position: absolute;
+  top: 5.5%;
+  bottom: 0%;
+  left: 15.5%;
+  right: 0%;
+  height: 4.6%;
+  width: 1.8%;
+  background-color: #db8812 !important;
+  /* background-color: red !important; */
+  border: 2px solid white !important;
 }
 /* OWNED LOTS */
-.owned-Joy-A-block-1-lot-1{
+.owned-Joy-A-block-1-lot-1 {
   position: absolute;
   top: 1%;
   bottom: 0%;
@@ -733,11 +762,11 @@ i.req{
   height: 5%;
   width: 2%;
   background-color: #db1212 !important;
-  opacity:.5;
+  opacity: 0.5;
   /* background-color: red !important; */
   border: 2px solid red !important;
 }
-.owned-Joy-A-block-1-lot-2{
+.owned-Joy-A-block-1-lot-2 {
   position: absolute;
   top: 1%;
   bottom: 0%;
@@ -746,11 +775,11 @@ i.req{
   height: 5%;
   width: 2%;
   background-color: #db1212 !important;
-  opacity:.5;
+  opacity: 0.5;
   /* background-color: red !important; */
   border: 2px solid red !important;
 }
-.owned-Joy-A-block-1-lot-3{
+.owned-Joy-A-block-1-lot-3 {
   position: absolute;
   top: 5.5%;
   bottom: 0%;
@@ -759,7 +788,20 @@ i.req{
   height: 4.6%;
   width: 1.8%;
   background-color: #db1212 !important;
-  opacity:.5;
+  opacity: 0.5;
+  /* background-color: red !important; */
+  border: 2px solid red !important;
+}
+.owned-Joy-A-block-1-lot-4 {
+  position: absolute;
+  top: 5.5%;
+  bottom: 0%;
+  left: 15.5%;
+  right: 0%;
+  height: 4.6%;
+  width: 1.8%;
+  opacity: 0.5;
+  background-color: #db1212 !important;
   /* background-color: red !important; */
   border: 2px solid red !important;
 }

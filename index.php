@@ -264,10 +264,26 @@
             </div>
             
         </div>
-
-
-        
     </div>
+
+    <section class="news">
+        <div class="container">
+            <div class="row row-cols-lg-3 row-cols-sm-1">
+                <div class="col ">
+                    <div class="card news-section shadow">
+                        <div class="news-img">
+                            <img src="Assets/image/service-type1.jpg" class="card-img-top img-fluid d-inline-block " alt="This is the picture">
+                        </div>
+                        <div class="card-body pb-4">
+                            <h4 class="card-title fw-bold">News Title</h4>
+                            <p class="date-txt fw-bold" >January 5 2027</p>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="contact-us" id="contact">
         <div class="contact-div1">
