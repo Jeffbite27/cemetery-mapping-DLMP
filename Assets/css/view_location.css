@@ -1,142 +1,3631 @@
+:root {
+  --top-row1: 0.05%;
+  --top-row2: 0.255%;
+  --top-row3: 0.46%;
+  --top-row4: 0.655%;
+  --top-row5: 0.86%;
+  --top-row6: 1.06%;
+  --top-row7: 1.265%;
+}
+
 /* VIEW LOCATION */
 .Joy-A-block-1-lot-1 {
   position: absolute;
-  top: 0.8%;
+  top: var(--top-row1);
   bottom: 0%;
   left: 12.4%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
+  /* box-shadow: 0, 4px, 10px, 5px, rgba(0, 0, 0, 0.5); */
 }
 .Joy-A-block-1-lot-2 {
   position: absolute;
-  top: 0.8%;
+  top: var(--top-row1);
   bottom: 0%;
   left: 14.3%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 .Joy-A-block-1-lot-3 {
   position: absolute;
-  top: 4.8%;
+  top: var(--top-row2);
   bottom: 0%;
   left: 12.4%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 .Joy-A-block-1-lot-4 {
   position: absolute;
-  top: 4.8%;
+  top: var(--top-row2);
   bottom: 0%;
   left: 14.3%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 
 .Joy-A-block-1-lot-5 {
   position: absolute;
-  top: 8.6%;
+  top: var(--top-row3);
   bottom: 0%;
   left: 12.4%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 
 .Joy-A-block-1-lot-6 {
   position: absolute;
-  top: 8.6%;
+  top: var(--top-row3);
   bottom: 0%;
   left: 14.3%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 
 .Joy-A-block-2-lot-1 {
   position: absolute;
-  top: 0.8%;
+  top: var(--top-row1);
   bottom: 0%;
   left: 16.2%;
   right: 0%;
-  height: 4.2%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 
 .Joy-A-block-2-lot-2 {
   position: absolute;
-  top: 0.8%;
+  top: var(--top-row1);
   bottom: 0%;
   left: 18.1%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 
 .Joy-A-block-2-lot-3 {
   position: absolute;
-  top: 4.8%;
+  top: var(--top-row2);
   bottom: 0%;
   left: 16.2%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 
 .Joy-A-block-2-lot-4 {
   position: absolute;
-  top: 4.8%;
+  top: var(--top-row2);
   bottom: 0%;
   left: 18.1%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 
 .Joy-A-block-2-lot-5 {
   position: absolute;
-  top: 8.6%;
+  top: var(--top-row3);
   bottom: 0%;
   left: 16.2%;
   right: 0%;
-  height: 4.1%;
+  height: 0.2%;
   width: 1.8%;
   background-color: transparent !important;
   /* background-color: red !important; */
-  border: 3px solid white !important;
+  border: 4px solid white !important;
 }
 
+.Joy-A-block-2-lot-6 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 18.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-1 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 20%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-2 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 21.95%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-3-lot-3 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 23.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-3-lot-4 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 25.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-3-lot-5 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 27.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-3-lot-6 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 29.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-3-lot-7 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 31.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-8 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 19.95%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-9 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 21.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-10 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 23.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-11 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 25.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-12 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 27.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-13 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 29.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-3-lot-14 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 31.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-1 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 33.31%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-2 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 35.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-3 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 37.05%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-4 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 38.95%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-4-lot-5 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 40.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-4-lot-6 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 42.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-7 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 44.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-8 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 46.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-9 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 33.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-10 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 35.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-11 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 37.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-12 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 39%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-13 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 40.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-14 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 42.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-15 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 44.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-4-lot-16 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 46.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-1 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 48.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-2 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 50.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-3 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 52.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-4 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 54.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-5 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 56.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-6 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 58.125%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-7 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 60%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-8 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 61.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-9 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 48.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-10 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 50.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-11 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 52.25%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-12 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 54.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-13 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 56.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-14 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 58%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-15 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 59.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-5-lot-16 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 61.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-1 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 63.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-2 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 65.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-3 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 67.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-4 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 69.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-5 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 71.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-6 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 73.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-7 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 75.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-8 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 77.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-9 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 63.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-10 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 65.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-11 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 67.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-12 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 69.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-6-lot-13 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 71.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-6-lot-14 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 73.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-6-lot-15 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 75.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-6-lot-16 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 77%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-1 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 79%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-2 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 80.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-3 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 82.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-4 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 84.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-5 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 86.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-6 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 88.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-7 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 90.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-8 {
+  position: absolute;
+  top: var(--top-row1);
+  bottom: 0%;
+  left: 92.25%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-9 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 78.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-10 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 80.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-11 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 82.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-12 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 84.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-13 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 86.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-14 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 88.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-15 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 90.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-7-lot-16 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 92.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-13-lot-1 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 19.95%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-13-lot-2 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 21.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-13-lot-3 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 23.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-13-lot-4 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 25.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-13-lot-5 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 27.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-13-lot-6 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 29.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-13-lot-7 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 31.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-12-lot-1 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 33.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-12-lot-2 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 35.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-12-lot-3 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 37.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-12-lot-4 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 39.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-12-lot-5 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 41%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-12-lot-6 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 42.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-12-lot-7 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 44.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-12-lot-8 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 46.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-11-lot-1 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 48.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-11-lot-2 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 50.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-11-lot-3 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 52.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-11-lot-4 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 54.25%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-11-lot-5 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 56.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-11-lot-6 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 58%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-11-lot-7 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 59.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-11-lot-8 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 61.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-10-lot-1 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 63.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-10-lot-2 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 65.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-10-lot-3 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 67.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-10-lot-4 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 69.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-10-lot-5 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 71.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-10-lot-6 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 73.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-10-lot-7 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 75.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-10-lot-8 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 77%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-9-lot-1 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 78.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-9-lot-2 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 80.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-9-lot-3 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 82.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-9-lot-4 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 84.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-9-lot-5 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 86.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-9-lot-6 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 88.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-9-lot-7 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 90.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-8-lot-8 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 92.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-8-lot-3 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 94%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-8-lot-4 {
+  position: absolute;
+  top: var(--top-row3);
+  bottom: 0%;
+  left: 95.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-8-lot-2 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 95.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-8-lot-1 {
+  position: absolute;
+  top: var(--top-row2);
+  bottom: 0%;
+  left: 94%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-14-lot-1 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 10.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-14-lot-2 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 12.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-14-lot-3 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 10.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-14-lot-4 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 12.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-15-lot-1 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 14.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-15-lot-2 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 16.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-15-lot-4 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 16.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-15-lot-3 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 14.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-1 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 18.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-2 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 19.95%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-3 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 21.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-4 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 23.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-5 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 25.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-6 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 27.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-7 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 29.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-8 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 31.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-9 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 18.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-10 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 19.95%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-11 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 21.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-12 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 23.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-13 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 25.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-14 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 27.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-15 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 29.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-16-lot-16 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 31.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-1 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 33.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-2 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 35.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-3 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 37.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-4 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 39.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-5 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 41%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-6 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 42.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-7 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 44.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-8 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 46.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-9 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 33.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-10 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 35.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-11 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 37.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-12 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 39.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-13 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 41%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-14 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 42.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-15 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 44.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-17-lot-16 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 46.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-1 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 48.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-2 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 50.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-3 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 52.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-4 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 54.25%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-5 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 56.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-18-lot-6 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 58%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-7 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 59.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-8 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 61.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-9 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 48.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-10 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 50.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-11 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 52.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-12 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 54.25%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-13 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 56.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-18-lot-14 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 58%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-15 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 59.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-18-lot-16 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 61.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-1 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 63.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-2 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 65.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-3 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 67.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-19-lot-4 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 69.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-5 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 71.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-6 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 73.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-7 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 75.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-8 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 77%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-9 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 63.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-10 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 65.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-11 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 67.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-19-lot-12 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 69.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-13 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 71.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-14 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 73.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-15 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 75.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-19-lot-16 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 77%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-1 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 78.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-2 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 80.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-3 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 82.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-4 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 84.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-5 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 86.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-6 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 88.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-7 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 90.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-8 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 92.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-9 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 78.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-10 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 80.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-11 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 82.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-12 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 84.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-13 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 86.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-14 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 88.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-15 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 90.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-20-lot-16 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 92.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-21-lot-1 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 94%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-21-lot-2 {
+  position: absolute;
+  top: var(--top-row4);
+  bottom: 0%;
+  left: 95.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-21-lot-3 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 94%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-21-lot-4 {
+  position: absolute;
+  top: var(--top-row5);
+  bottom: 0%;
+  left: 95.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-29-lot-1 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 10.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-29-lot-2 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 12.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-29-lot-4 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 10.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-29-lot-3 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 8.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-28-lot-1 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 14.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-28-lot-2 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 16.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-28-lot-3 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 12.4%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-28-lot-4 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 14.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-1 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 18.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-2 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 19.95%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-3 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 21.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-4 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 23.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-5 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 25.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-6 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 27.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-7 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 29.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-8 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 31.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-9 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 16.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-10 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 18.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-11 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 19.95%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-12 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 21.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-13 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 23.85%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-14 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 25.75%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-15 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 27.7%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-16 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 29.6%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-27-lot-17 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 31.5%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-1 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 33.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-2 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 35.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-3 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 37.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-4 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 39.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-5 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 41%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-6 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 42.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-7 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 44.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-8 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 33.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-9 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 35.3%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-10 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 37.2%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-11 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 39.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-12 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 41%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-13 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 42.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-26-lot-14 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 44.8%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-1 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 46.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-2 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 48.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-3 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 50.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-4 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 52.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-5 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 54.25%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-6 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 56.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-25-lot-7 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 58%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-8 {
+  position: absolute;
+  top: var(--top-row6);
+  bottom: 0%;
+  left: 59.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-9 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 46.65%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-10 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 48.55%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-11 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 50.45%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-12 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 52.35%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-13 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 54.25%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-14 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 56.1%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+.Joy-A-block-25-lot-15 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 58%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
+
+.Joy-A-block-25-lot-16 {
+  position: absolute;
+  top: var(--top-row7);
+  bottom: 0%;
+  left: 59.9%;
+  right: 0%;
+  height: 0.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 4px solid white !important;
+}
 /* End of Block 50 */
