@@ -1,54 +1,142 @@
-/* OCCUPIED LOTS */
-.occupied-Joy-A-block-1-lot-1 {
+/* VIEW LOCATION */
+.Joy-A-block-1-lot-1 {
   position: absolute;
-  top: 1%;
+  top: 0.8%;
   bottom: 0%;
-  left: 12.5%;
+  left: 12.4%;
   right: 0%;
-  height: 5%;
-  width: 2%;
-  background-color: #db8812 !important;
-  opacity: 0.5;
-  /* background-color: red !important; */
-  border: 2px solid red !important;
-}
-.occupied-Joy-A-block-1-lot-2 {
-  position: absolute;
-  top: 1%;
-  bottom: 0%;
-  left: 14%;
-  right: 0%;
-  height: 5%;
-  width: 2%;
-  background-color: #db8812 !important;
-  opacity: 0.5;
-  /* background-color: red !important; */
-  border: 2px solid red !important;
-}
-.occupied-Joy-A-block-1-lot-3 {
-  position: absolute;
-  top: 5.5%;
-  bottom: 0%;
-  left: 12.5%;
-  right: 0%;
-  height: 4.6%;
+  height: 4.1%;
   width: 1.8%;
-  background-color: #db8812 !important;
-  opacity: 0.5;
+  background-color: transparent !important;
   /* background-color: red !important; */
-  border: 2px solid red !important;
+  border: 3px solid white !important;
 }
-.occupied-Joy-A-block-1-lot-4 {
+.Joy-A-block-1-lot-2 {
   position: absolute;
-  top: 5.5%;
+  top: 0.8%;
   bottom: 0%;
-  left: 15.5%;
+  left: 14.3%;
   right: 0%;
-  height: 4.6%;
+  height: 4.1%;
   width: 1.8%;
-  background-color: #db8812 !important;
+  background-color: transparent !important;
   /* background-color: red !important; */
-  border: 2px solid white !important;
+  border: 3px solid white !important;
+}
+.Joy-A-block-1-lot-3 {
+  position: absolute;
+  top: 4.8%;
+  bottom: 0%;
+  left: 12.4%;
+  right: 0%;
+  height: 4.1%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
+}
+.Joy-A-block-1-lot-4 {
+  position: absolute;
+  top: 4.8%;
+  bottom: 0%;
+  left: 14.3%;
+  right: 0%;
+  height: 4.1%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
+}
+
+.Joy-A-block-1-lot-5 {
+  position: absolute;
+  top: 8.6%;
+  bottom: 0%;
+  left: 12.4%;
+  right: 0%;
+  height: 4.1%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
+}
+
+.Joy-A-block-1-lot-6 {
+  position: absolute;
+  top: 8.6%;
+  bottom: 0%;
+  left: 14.3%;
+  right: 0%;
+  height: 4.1%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
+}
+
+.Joy-A-block-2-lot-1 {
+  position: absolute;
+  top: 0.8%;
+  bottom: 0%;
+  left: 16.2%;
+  right: 0%;
+  height: 4.2%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
+}
+
+.Joy-A-block-2-lot-2 {
+  position: absolute;
+  top: 0.8%;
+  bottom: 0%;
+  left: 18.1%;
+  right: 0%;
+  height: 4.1%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
+}
+
+.Joy-A-block-2-lot-3 {
+  position: absolute;
+  top: 4.8%;
+  bottom: 0%;
+  left: 16.2%;
+  right: 0%;
+  height: 4.1%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
+}
+
+.Joy-A-block-2-lot-4 {
+  position: absolute;
+  top: 4.8%;
+  bottom: 0%;
+  left: 18.1%;
+  right: 0%;
+  height: 4.1%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
+}
+
+.Joy-A-block-2-lot-5 {
+  position: absolute;
+  top: 8.6%;
+  bottom: 0%;
+  left: 16.2%;
+  right: 0%;
+  height: 4.1%;
+  width: 1.8%;
+  background-color: transparent !important;
+  /* background-color: red !important; */
+  border: 3px solid white !important;
 }
 
 /* End of Block 50 */
