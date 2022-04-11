@@ -15,7 +15,6 @@ if($sql->num_rows!=0){
       <div class='".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]'>
            <!--button>$row[lot_name]</!--button----->    
       </div>
-      <br>
     ";
   }
 }else{
