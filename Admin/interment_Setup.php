@@ -5,7 +5,7 @@
   include("../config.php");
   $con=connect();
   if(isset($_SESSION["username"])){
-    $sql=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
+    $sql=$con->query("SELECT lot_owners.lot_owner_id, customers.first_name, customers.contact, customers.family_name, customers.middle_name, customers.email, tbl_sites.site_name, tbl_blocks.sector, tbl_blocks.block_name, tbl_lots.lot_name, tbl_lots.lawn_type, deceased_persons.deceased_id FROM (((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id) LEFT JOIN `deceased_persons` ON customers.customer_id=deceased_persons.customer_id)");
     $sql_modal=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_edit_modal=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
     $sql_deceased=$con->query("SELECT * FROM ((((`lot_owners` INNER JOIN `customers` ON lot_owners.customer_id=customers.customer_id) INNER JOIN `tbl_sites` ON lot_owners.site_id=tbl_sites.site_id) INNER JOIN `tbl_blocks` ON lot_owners.block_id=tbl_blocks.block_id) INNER JOIN `tbl_lots` ON lot_owners.lot_id=tbl_lots.lot_id)");
@@ -160,7 +160,17 @@
                                       <th>Action</th>
                                     </thead>
                                     <tbody>
-                                      <?php while($row=$sql->fetch_array()){ ?>
+                                      <?php while($row=$sql->fetch_array()){ 
+                                        
+                                        if(isset($row["deceased_id"])!=NULL){
+                                          $disabled="disabled";
+                                          $btn="secondary";
+                                        }else{
+                                          $disabled="";
+                                          $btn="primary";
+                                        }
+
+                                        ?>
                                       <tr>
                                         <td class="align-middle"><?php echo $row["lot_owner_id"] ?></td>
                                         <td class="align-middle"><?php echo $row["first_name"].' '.$row["middle_name"].' '.$row["family_name"]?></td>
@@ -177,7 +187,7 @@
                                             </button>
                                         </td>
                                         <td class="align-middle text-center">
-                                          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-deceased-<?php echo $row['lot_owner_id']?>">
+                                          <button class="btn btn-<?php echo $btn ?>" data-bs-toggle="modal" data-bs-target="#add-deceased-<?php echo $row['lot_owner_id']?>" <?php echo $disabled ?>>
                                             <i class='bx bxs-user-x'></i>
                                           </button>
                                           <button class="btn btn-success" data-bs-toggle="modal" data-id="<?php echo $row["lot_owner_id"]?>" data-bs-target="#lot-owners-edit-<?php echo $row["lot_owner_id"]?>">
