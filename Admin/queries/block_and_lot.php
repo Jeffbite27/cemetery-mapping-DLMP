@@ -73,6 +73,19 @@ if(isset($_POST["btn-update-site"])){
   if($site_name!=isset($row["site_name"])){
     $sql=$con->query("UPDATE `tbl_sites` SET `site_name`='$site_name', `site_sqm2`='$square_meters' WHERE `site_id`='$site_id'");
 
+    //COUNT BLOCKS
+    $sql=$con->query("SELECT COUNT(`block_id`) AS `blocks` FROM `tbl_blocks` WHERE `site_id`='$site_id'");
+    $row=$sql->fetch_array();
+    $total_blocks=$row["blocks"];
+  
+     //COUNT UPDATE BLOCKS
+    $sql=$con->query("UPDATE `tbl_sites` SET `total_blocks`='$total_blocks' WHERE `site_id`='$site_id'");
+
+    //UPDATE TOTAL LOTS IN SITE
+    $sql=$con->query("UPDATE `tbl_sites` SET `total_lots`='$total_lots' WHERE `site_id`='$site_id'");
+
+    $sql=$con->query("UPDATE `tbl_blocks` SET `total_lots`='$total_lots_block' WHERE `block_id`='$block_id'");
+
     echo "<script>
     Swal.fire({
       position: 'center',
@@ -207,6 +220,14 @@ if(isset($_POST["btn-update-block"])){
   if($block_name!=isset($row["block_name"])&&$sector!=isset($row["sector"])){
     $sql=$con->query("UPDATE `tbl_blocks` SET `block_name`='$block_name', `sector`='$sector' WHERE `block_id`='$block_id'");
 
+    //COUNT BLOCKS
+    $sql=$con->query("SELECT COUNT(`block_id`) AS `blocks` FROM `tbl_blocks` WHERE `site_id`='$site_id'");
+    $row=$sql->fetch_array();
+    $total_blocks=$row["blocks"];
+  
+     //COUNT UPDATE BLOCKS
+    $sql=$con->query("UPDATE `tbl_sites` SET `total_blocks`='$total_blocks' WHERE `site_id`='$site_id'");
+
     echo "<script>
     Swal.fire({
       position: 'center',
@@ -336,6 +357,7 @@ if(isset($_POST["btn-submit-lot"])){
 }
 
 if(isset($_POST["btn-update-lot"])){
+  $site_id=mysqli_real_escape_string($con, $_POST["edit-site-lot"]);
   $lot_id=mysqli_real_escape_string($con, $_POST["edit-lot-id"]);
   $lot_name=mysqli_real_escape_string($con, $_POST["edit-lot-name"]);
   $block_id=mysqli_real_escape_string($con, $_POST["edit-block-id"]);
@@ -347,6 +369,20 @@ if(isset($_POST["btn-update-lot"])){
 
   if($lot_name!=isset($row["lot_name"])&&$block_id!=isset($row["block_id"])){
     $sql=$con->query("UPDATE `tbl_lots` SET `lot_name`='$lot_name',`lawn_type`='$lawn_type' WHERE `lot_id`='$lot_id'");
+
+     //UPDATE TOTAL LOTS IN BLOCKS
+    $sql=$con->query("SELECT COUNT(`lot_id`) AS `lots` FROM `tbl_lots` WHERE `site_id`='$site_id'");
+    $row=$sql->fetch_array();
+    $total_lots=$row["lots"];
+
+    $sql=$con->query("SELECT COUNT(`lot_id`) AS `lots_block` FROM `tbl_lots` WHERE `block_id`='$block_id'");
+    $row=$sql->fetch_array();
+    $total_lots_block=$row["lots_block"];
+
+    //UPDATE TOTAL LOTS IN SITE
+    $sql=$con->query("UPDATE `tbl_sites` SET `total_lots`='$total_lots' WHERE `site_id`='$site_id'");
+
+    $sql=$con->query("UPDATE `tbl_blocks` SET `total_lots`='$total_lots_block' WHERE `block_id`='$block_id'");
 
     echo "<script>
     Swal.fire({
