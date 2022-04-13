@@ -36,11 +36,11 @@ $output="";
 $output2="";
 
 while($row=$sql_occupied->fetch_array()){
-  $output.="<div class='occupied-".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]'>
+  $output.="<div class='occupied-".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]' title='Occupied'>
   </div>";
 }
 while($row=$sql_available->fetch_array()){
-  $output.="<div class='vacant-".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]'>
+  $output.="<div class='vacant-".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]' title='Vacant'>
   </div>";
 }
 echo $output;
