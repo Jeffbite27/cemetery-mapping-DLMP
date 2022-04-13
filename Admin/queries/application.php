@@ -495,8 +495,8 @@ if(isset($_POST["btn-edit-dead"])){
 if(isset($_POST["btn-submit-news"])){
   $news_title=mysqli_real_escape_string($con, $_POST["title"]);
   $news_subtitle=mysqli_real_escape_string($con, $_POST["subtitle"]);
-  $news_date=mysqli_real_escape_string($con, $_POST["news_date"]);
   $news_description=mysqli_real_escape_string($con, $_POST["description"]);
+  $news_date=mysqli_real_escape_string($con, $_POST["news_date"]);
 
 
   $time=time();
@@ -507,7 +507,7 @@ if(isset($_POST["btn-submit-news"])){
   $row=$sql->fetch_array();
 
   if($news_title!=isset($news_title["title"])&&$news_subtitle!=isset($row["news_subtitle"])){
-    $sql=$con->query("INSERT INTO `news_events`(`news_title`, `news_subtitle`, `news_description`, `news_date`, `news_img`) VALUES ('$news_title','$news_subtitle','$news_date','$news_description','$news_thumbnail')");
+    $sql=$con->query("INSERT INTO `news_events`(`news_title`, `news_subtitle`, `news_description`, `news_date`, `news_img`) VALUES ('$news_title','$news_subtitle', '$news_description','$news_date','$news_thumbnail')");
     move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $news_thumbnail_saleTarget);
     echo "<script>
       Swal.fire({
@@ -539,7 +539,7 @@ if(isset($_POST["btn-submit-news"])){
       position: 'center',
       icon: 'error',
       title: 'Already Added',
-      text: 'Enter another lot details',
+      text: 'Enter another details',
       showConfirmButton: false,
       timer: 2000,
       allowOutsideClick: () => {
