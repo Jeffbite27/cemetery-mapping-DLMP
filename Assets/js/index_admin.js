@@ -326,6 +326,15 @@ $(document).ready(function () {
     $("#find-grave-btn").tab("show");
   }
 
+  //RESET MAP LEGENDS
+  $(".btn-reset-view-location").click(function(){
+    $(".lot_info").html("");
+  })
+  $(".btn-reset-view-map").click(function(){
+    $(".lot_info").html("");
+    $(".rdo-occupied").prop("checked", false);
+    $(".rdo-owned").prop("checked", false);
+  })
   // $(".btn-sectors").click(function(){
   //   var sector=$(this).attr("data-sector");
   //   var site_name=$(this).attr("data-site");
