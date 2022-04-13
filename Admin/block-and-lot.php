@@ -15,6 +15,7 @@
     
     $lots=$con->query("SELECT tbl_lots.lot_id, tbl_lots.lot_name, tbl_sites.site_name, tbl_blocks.block_name, tbl_blocks.sector, tbl_lots.lawn_type FROM ((`tbl_lots` INNER JOIN `tbl_blocks` ON tbl_lots.block_id=tbl_blocks.block_id) INNER JOIN `tbl_sites` ON tbl_lots.site_id=tbl_sites.site_id)");
     $lots_edit=$con->query("SELECT tbl_lots.lot_id, tbl_lots.lot_name, tbl_sites.site_name, tbl_blocks.block_name, tbl_blocks.block_id, tbl_blocks.sector, tbl_lots.lawn_type FROM ((`tbl_lots` INNER JOIN `tbl_blocks` ON tbl_lots.block_id=tbl_blocks.block_id) INNER JOIN `tbl_sites` ON tbl_lots.site_id=tbl_sites.site_id)");
+    
   }else{
     header("Location: index.php");
   }

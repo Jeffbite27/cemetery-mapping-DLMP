@@ -122,6 +122,7 @@ if(isset($_POST["btn-owner-setup"])){
   $site_id=mysqli_real_escape_string($con, $_POST["customer-site"]);
   $block_id=mysqli_real_escape_string($con, $_POST["customer-block"]);
   $lot_id=mysqli_real_escape_string($con, $_POST["customer-lot"]);
+
   $time=time();
   $deed_of_sale=$fullname.'_'.$time.'.'.pathinfo($_FILES["owner-deed-sale"]['name'], PATHINFO_EXTENSION);
   $deed_of_saleTarget="files/deed_of_sales/".$deed_of_sale;
@@ -486,5 +487,74 @@ if(isset($_POST["btn-edit-dead"])){
     window.history.replaceState( null, null, window.location.href );
     </script>";
     header("refresh: 1;");
+  }
+}
+
+// ---------------------------------NEWS & EVENTS SUBMIT------------------------------------
+
+if(isset($_POST["btn-submit-news"])){
+  $news_title=mysqli_real_escape_string($con, $_POST["title"]);
+  $news_subtitle=mysqli_real_escape_string($con, $_POST["subtitle"]);
+  $news_date=mysqli_real_escape_string($con, $_POST["news_date"]);
+  $news_description=mysqli_real_escape_string($con, $_POST["description"]);
+
+
+  $time=time();
+  $news_thumbnail=$time.'.'.pathinfo($_FILES["thumbnail"]['name'], PATHINFO_EXTENSION);
+  $news_thumbnail_saleTarget="files/news_img/".$news_thumbnail;
+
+  $sql=$con->query("SELECT * FROM `news_events` WHERE `news_title`='$news_title' AND `news_subtitle`='$news_subtitle'");
+  $row=$sql->fetch_array();
+
+  if($news_title!=isset($news_title["title"])&&$news_subtitle!=isset($row["news_subtitle"])){
+    $sql=$con->query("INSERT INTO `news_events`(`news_title`, `news_subtitle`, `news_description`, `news_date`, `news_img`) VALUES ('$news_title','$news_subtitle','$news_date','$news_description','$news_thumbnail')");
+    move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $news_thumbnail_saleTarget);
+    echo "<script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Successfully Added',
+        text: 'You added News & Update',
+        showConfirmButton: false,
+        timer: 2000,
+        allowOutsideClick: () => {
+          const popup = Swal.getPopup()
+          popup.classList.remove('swal2-show')
+          setTimeout(() => {
+            popup.classList.add('animate__animated', 'animate__headShake')
+          })
+          setTimeout(() => {
+            popup.classList.remove('animate__animated', 'animate__headShake')
+          }, 500)
+          return false
+        }
+      })
+      window.history.replaceState( null, null, window.location.href );
+      </script>";
+    
+      header("refresh: 1;");
+  }else{
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Already Added',
+      text: 'Enter another lot details',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
   }
 }

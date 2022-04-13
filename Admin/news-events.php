@@ -109,77 +109,59 @@
     </div>
 
     <div class="main-container">
+
       <div class="content active">
+
         <div class="div-content">
+
           <h2 class="title-head d-flex align-items-center">
           <i class='bx bx-news' ></i>
           &nbsp;NEWS AND EVENTS</h2>
           <hr>
+
           <div class="row p-0">
             <div class="col-sm-12 col-md-12">
                 <div class="bg-white p-4 h-100 rounded">
                   <div class="title-header bg-white sticky-top p-3 d-flex">
                     <h4 class="d-flex align-items-center">
-                      <i class='bx bx-info-circle fs-2' ></i>
-                      &nbsp;Customer's Information</h4>
-                      <button class="btn btn-primary add-customer d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#add-customer">
+                      <i class='bx bx-news fs-1'></i>
+                      &nbsp;News & Events Setup</h4>
+                      <button class="btn btn-primary add-customer d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#newsmodal">
                       <i class='bx bxs-user-plus fs-4'></i> 
-                      &nbsp;Add Customer
+                      &nbsp;Add News & Events
                       </button>      
                     </h4>
                   </div>
                   <br>
                   <div class="customer-table">
+
                     <table class="tbl-customer table table-striped table-bordered w-100" id="tbl-customer"  style="font-size: 15px">
+
                       <thead class="tbl-header text-light">
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Contact #</th>
-                        <th>Email</th>
-                        <th>Birthday</th>
-                        <th>Gender</th>
-                        <th>Religion</th>
-                        <th>Citizenship</th>
-                        <th>Status</th>
-                        <th>Occupation</th>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Subtitle</th>
+                        <th>Description</th>
+                        <th>News Image</th>  
                         <th>Action</th>
                       </thead>
+
                       <tbody>
-                        <?php while($row=$customers->fetch_array()){?>
-                        <tr>
-                          <td class="align-middle"><?php echo $row["customer_id"]?></td>
-                          <td class="align-middle"><?php echo $row["first_name"].' '.$row["middle_name"].' '.$row["family_name"]?></td>
-                          <td class="align-middle"><?php echo $row["address"]?></td>
-                          <td class="align-middle"><?php echo $row["contact"]?></td>
-                          <td class="align-middle"><?php echo $row["email"]?></td>
-                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["bday"]))?></td>
-                          <td class="align-middle"><?php echo $row["gender"]?></td>
-                          <td class="align-middle"><?php echo $row["religion"]?></td>
-                          <td class="align-middle"><?php echo $row["citizenship"]?></td>
-                          <td class="align-middle"><?php echo $row["status"]?></td>
-                          <td class="align-middle"><?php echo $row["work"]?></td>
-            
-                          <td class="text-center align-middle">
-                            <button class="btn btn-primary mb-1" id="btn-select" data-bs-toggle="modal" data-bs-target="#select-owner<?php echo $row["customer_id"]?>">
-                              <i class='bx bx-layer' ></i>
-                            </button>
-                            <button class="btn btn-success mb-1" data-bs-toggle="modal" data-bs-target="#edit-customer<?php echo $row["customer_id"]?>">
-                              <i class='bx bxs-edit'></i>
-                            </button>
-                            
-                          </td>
-                        </tr>
-                        
-                        <?php }?>
+
                       </tbody>
+
                     </table>
+
                   </div>
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
+
     </div>
 
 
@@ -187,6 +169,69 @@
   </section>
 
   <!-- modal for adding section  -->
+
+<!-- Modal -->
+<div class="modal fade" id="newsmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+          <i class='bx bx-news fs-1'></i>
+          &nbsp;Add News & Events
+        </h4>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form action="" method="POST" >
+
+        <div class="modal-body p-5">
+            <div class="row mb-2">
+              <div class="col">
+                <label for="title" class="">News/Events Title</label>
+                <input type="text" class="form-control w-100" id="title" name="title" required>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-md-8">
+                <div class="col">
+                  <label for="subtitle" class="">Subtitle</label>
+                  <input type="text" class="form-control" id="subtitle" name="subtitle" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="col">
+                  <label for="news_date" class="">Date</label>
+                  <input type="date" name="news_date" id="news_date" class="form-control" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-mb-2">
+              <div class="col-12 mb-2">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="5"></textarea required>
+              </div>
+              <div class="col-12">
+                <label for="thumbnail">Thumbnail</label>
+                <input class="form-control thumbnail" type="file" accept=" .png, .jpg" id="thumbnail" name="thumbnail">
+              </div>
+            </div>
+
+            
+
+          
+        </div>
+        <div class="modal-footer">
+            <button type="submit" name="btn-submit-news" id="btn-submit-news" class="btn btn-primary">Register</button>
+            <button type="reset" class="btn btn-danger">Reset</button> 
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
   
 
   <!-- box-icons cdn  -->
