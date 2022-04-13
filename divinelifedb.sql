@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2022 at 04:45 AM
+-- Generation Time: Apr 13, 2022 at 10:34 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -68,8 +68,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES
-(1, 'Guinanao', 'Rico', 'Estribo', 'rics', 'Block 14 Lot 76 Majada In', '09854216854', 'guinanaorico@gmail.com', '1999-10-31', 'Male', 'Catholic', 'Filipino', 'Single', 'Self-Employed'),
-(2, 'Dano', 'Jeff', 'Bite', 'paa', 'Block 14 Lot 76 Majada In', '09232323232', 'jeffdo19@gmail.com', '2022-04-14', 'Male', 'Catholic', 'Filipino', 'Married', 'Self-Employed');
+(1, 'Merk', 'James', 'Falco', 'asd', 'Block 14 Lot 76 Majada In', '09854216854', 'James@gmail.com', '1999-10-31', 'Male', 'Catholic', 'Filipino', 'Single', 'Self-Employed'),
+(2, 'Dano', 'Jeff', 'Bite', 'paa', 'Block 14 Lot 76 Majada In', '09232323232', 'jeffdo19@gmail.com', '2022-04-14', 'Male', 'Catholic', 'Filipino', 'Married', 'Self-Employed'),
+(3, 'Oladipo', 'Levi', 'Ackerman', '', 'wall maria', '09554642170', 'Levi@gmail.com', '2022-04-06', 'Male', 'Catholic', 'Merleyan', 'Single', 'Private Employee');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,8 @@ CREATE TABLE `deceased_persons` (
 
 INSERT INTO `deceased_persons` (`deceased_id`, `lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `dead_family_name`, `dead_fname`, `dead_mname`, `dead_gender`, `dead_citizenship`, `dead_civil_status`, `dead_relative`, `dead_relative_surname`, `dead_relationship`, `internment_date`, `date_of_birth`, `date_of_death`, `death_cert`, `burial_permit`) VALUES
 (1, 2, 2, 1, 1, 2, 'Yeager', 'Eren', 'Tatakae', 'Male', 'Filipino', 'Single', 'Jeff', 'Dano', 'Father', '2022-04-20', '2022-04-21', '2022-04-21', 'Eren_Yeager_1649350636.jpg', 'Eren_Yeager_1649350636.jpg'),
-(2, 1, 1, 1, 1, 3, 'Braun', 'Reiner', '', 'Male', 'Filipino', 'Single', 'Rico', 'Guinanao', 'Grandparent', '2022-04-12', '2022-04-19', '2022-04-11', 'Reiner_Braun_1649423530.png', 'Reiner_Braun_1649423530.png');
+(2, 1, 1, 1, 1, 3, 'Braun', 'Reiner', '', 'Male', 'Filipino', 'Single', 'Rico', 'Guinanao', 'Grandparent', '2022-04-12', '2022-04-19', '2022-04-11', 'Reiner_Braun_1649423530.png', 'Reiner_Braun_1649423530.png'),
+(3, 3, 3, 1, 4, 42, 'Oladipo', 'Marco', 'blits', 'Male', 'Filipino', 'Single', 'Levi', 'Oladipo', 'Child', '2022-04-14', '2022-04-06', '2022-04-17', 'Marco_Oladipo_1649722440.png', 'Marco_Oladipo_1649722440.png');
 
 -- --------------------------------------------------------
 
@@ -129,7 +131,45 @@ CREATE TABLE `lot_owners` (
 
 INSERT INTO `lot_owners` (`lot_owner_id`, `customer_id`, `site_id`, `block_id`, `lot_id`, `deed_of_sale`) VALUES
 (1, 1, 1, 1, 3, 'Rico Estribo Guinanao_1649350172.jpg'),
-(2, 2, 1, 1, 2, 'Jeff Bite Dano_1649350574.jpg');
+(2, 2, 1, 1, 2, 'Jeff Bite Dano_1649350574.jpg'),
+(3, 3, 1, 4, 42, 'Levi Ackerman Oladipo_1649722384.png'),
+(4, 1, 1, 1, 6, 'James Falco Merk_1649812918.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news_events`
+--
+
+CREATE TABLE `news_events` (
+  `news_id` int(11) NOT NULL,
+  `news_title` varchar(50) NOT NULL,
+  `news_subtitle` varchar(50) NOT NULL,
+  `news_description` varchar(250) NOT NULL,
+  `news_date` varchar(150) NOT NULL,
+  `news_img` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news_events`
+--
+
+INSERT INTO `news_events` (`news_id`, `news_title`, `news_subtitle`, `news_description`, `news_date`, `news_img`) VALUES
+(1, 'asdsad', 'xzczxc', '2022-04-05', '0', '1649831782.'),
+(2, 'ddasd', 'sadas', '2022-04-05', '0', '1649831803.'),
+(3, 'fsaaddas', 'dasdasd', 'zxcxzccvfgbvbc', '2022', '1649831935.'),
+(4, 'xzczx', 'czxczxc', 'xczzxczxczxc', '2022', '1649832022.'),
+(5, 'czx', 'xzc', 'asd', '2022', '1649832225.'),
+(6, 'wqeqwe', 'zxczxc', 'zxcxzc', '2022', '1649832651.'),
+(7, 'dadasdasd', 'asdasdas', 'gdfhgffghj', '2022', '1649832709.'),
+(8, 'cxzczx', 'czxc', 'sadasd', '2022', '1649832774.'),
+(9, 'asd', 'asd', 'vv', '2022', '1649832788.'),
+(10, 'asdsad', 'asdasd', 'asdasd', '2022', '1649833420.'),
+(11, 'zcx', 'das', 'qwe', '2022', '1649833577.'),
+(12, 'xcz', 'rty', 'fgh', '2022-04-14', '1649833651.'),
+(13, 'rty', 'gfh', 'bnmvbn', '2022-04-12', '1649835834.'),
+(14, 'asd', 'cc', 'vbnfgh', '2022-04-05', '1649838292.'),
+(15, 'zxc', 'dfsad', 'dd', '2022-04-11', '1649838307.');
 
 -- --------------------------------------------------------
 
@@ -226,7 +266,8 @@ INSERT INTO `tbl_blocks` (`block_id`, `site_id`, `block_name`, `sector`, `total_
 (74, 1, '74', 'A', '0'),
 (75, 1, '75', 'A', '0'),
 (76, 1, '76', 'A', '0'),
-(77, 1, '77', 'A', '0');
+(77, 1, '77', 'A', '0'),
+(78, 1, '5', 'C', '0');
 
 -- --------------------------------------------------------
 
@@ -1179,7 +1220,7 @@ CREATE TABLE `tbl_sites` (
 --
 
 INSERT INTO `tbl_sites` (`site_id`, `site_name`, `site_sqm2`, `total_blocks`, `total_lots`) VALUES
-(1, 'Joy Garden', '50sqm', '77', '917');
+(1, 'Joy Garden', '50sqm', '78', '917');
 
 --
 -- Indexes for dumped tables
@@ -1208,6 +1249,12 @@ ALTER TABLE `deceased_persons`
 --
 ALTER TABLE `lot_owners`
   ADD PRIMARY KEY (`lot_owner_id`);
+
+--
+-- Indexes for table `news_events`
+--
+ALTER TABLE `news_events`
+  ADD PRIMARY KEY (`news_id`);
 
 --
 -- Indexes for table `tbl_blocks`
@@ -1241,25 +1288,31 @@ ALTER TABLE `admin_acc`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `deceased_persons`
 --
 ALTER TABLE `deceased_persons`
-  MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `deceased_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lot_owners`
 --
 ALTER TABLE `lot_owners`
-  MODIFY `lot_owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `lot_owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `news_events`
+--
+ALTER TABLE `news_events`
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_blocks`
 --
 ALTER TABLE `tbl_blocks`
-  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `tbl_lots`
