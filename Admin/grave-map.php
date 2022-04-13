@@ -27,9 +27,11 @@
     <link rel="stylesheet" href="../Assets/css/index_admin.css">
 
 
-    <link rel="stylesheet" href="../Assets/css/view_location.css">
+    <!-- <link rel="stylesheet" href="../Assets/css/view_location.css"> -->
     <link rel="stylesheet" href="../Assets/css/view_location_occupied.css">
+    <link rel="stylesheet" href="../Assets/css/view_location_vacant.css">
     <link rel="stylesheet" href="../Assets/css/view_location_owned.css">
+    <link rel="stylesheet" href="../Assets/css/view_location_available.css">
     
     
     <script src="../Assets/js/sweetalert.js"></script>
@@ -279,7 +281,7 @@
                           <i class='bx bxs-checkbox' style="color: #db8812;"></i>
                           <small>-Occupied</small> <br>
                           <i class='bx bxs-checkbox' style="color: #6e18c9;"></i>
-                          <small>-Available</small>
+                          <small>-Vacant</small>
                         </div>
                       </div>
                     </div>

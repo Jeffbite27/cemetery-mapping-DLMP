@@ -14,7 +14,7 @@
     $blocks_edit=$con->query("SELECT tbl_blocks.block_id, tbl_blocks.site_id, tbl_blocks.block_name, tbl_sites.site_name, tbl_blocks.sector, tbl_blocks.total_lots FROM `tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id");
     
     $lots=$con->query("SELECT tbl_lots.lot_id, tbl_lots.lot_name, tbl_sites.site_name, tbl_blocks.block_name, tbl_blocks.sector, tbl_lots.lawn_type FROM ((`tbl_lots` INNER JOIN `tbl_blocks` ON tbl_lots.block_id=tbl_blocks.block_id) INNER JOIN `tbl_sites` ON tbl_lots.site_id=tbl_sites.site_id)");
-    $lots_edit=$con->query("SELECT tbl_lots.lot_id, tbl_lots.lot_name, tbl_sites.site_name, tbl_blocks.block_name, tbl_blocks.block_id, tbl_blocks.sector, tbl_lots.lawn_type FROM ((`tbl_lots` INNER JOIN `tbl_blocks` ON tbl_lots.block_id=tbl_blocks.block_id) INNER JOIN `tbl_sites` ON tbl_lots.site_id=tbl_sites.site_id)");
+    $lots_edit=$con->query("SELECT tbl_lots.lot_id, tbl_lots.lot_name, tbl_sites.site_name, tbl_lots.site_id, tbl_blocks.block_name, tbl_blocks.block_id, tbl_blocks.sector, tbl_lots.lawn_type FROM ((`tbl_lots` INNER JOIN `tbl_blocks` ON tbl_lots.block_id=tbl_blocks.block_id) INNER JOIN `tbl_sites` ON tbl_lots.site_id=tbl_sites.site_id)");
   }else{
     header("Location: index.php");
   }
@@ -539,6 +539,7 @@
               <div class="col-md-6">
                 <label for="edit-lot-name">Lot number:<i class="req">*</i></label>
                 <input type="number" id="edit-lot-name" name="edit-lot-name" min="1" max="99" placeholder="Lot number" class="form-control" value="<?php echo $row["lot_name"] ?>" required>
+                <input type="hidden" name="edit-site-lot" value="<?php echo $row["site_id"] ?>">
                 <input type="hidden" name="edit-lot-id" value="<?php echo $row["lot_id"] ?>">
                 <input type="hidden" name="edit-block-id" value="<?php echo $row["block_id"] ?>">
               </div>
