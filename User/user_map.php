@@ -13,28 +13,20 @@
     <link rel="shortcut icon" href="../Assets/image/logopngplain.png" type="image/x-icon">
     <title>Divine Life Memorial Park</title>
     
-    <link rel="stylesheet" href="../Assets/css/style.css">
-    <script src="../Assets/js/index.js" defer></script>
 
+    <link rel="stylesheet" type="text/css" href="../Assets/DataTables/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../Assets/css/user_map.css">
+    <link rel="stylesheet" href="../Assets/css/style.css">
 
-
-    <!-- bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <!-- bootstrap icon cdn -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-    <!-- jquery cdn  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <!-- boxicons cdn  -->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- swiper js cdn -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 
+    
 
+    <script src="../Assets/js/sweetalert.js"></script>
 
 </head>
 <body>
@@ -78,10 +70,7 @@
             <div class="container-fluid  py-4 cont-main">
                 <h1>Guiding Path To Your Loved Ones</h1>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam eos vero ullam eius unde ut ex voluptas reprehenderit ab cumque?</p>
-                <form action="" method="post" class="w-25 m-auto pt-3" >
-                    <input type="text" class="form-control w-20" name="filter_value" placeholder="Name of deceased">
-                    <button class="btn mt-3 px-5 search-btn text-white" type="submit" name="filter_btn">Search</button>
-                </form>
+                <button class="btn mt-3 px-5 view-map-btn text-white">View Map</button>
             </div>
         </div>
         
@@ -89,7 +78,12 @@
 
     <div class="sec2">
         <div class="container">
-            <table class="table table-striped table-bordered " id="tbl-find-map">
+            <div class="title-header text-center bg-white ">
+                <h4>
+                    List of Deceased Persons
+                </h4>
+            </div>
+            <table class="tbl-find-map table table-striped table-bordered w-100" id="tbl-find-map">
                 <thead class="tbl-header text-light">
                     <th scope="col">#</th>
                     <th scope="col">Fullname</th>
@@ -102,34 +96,36 @@
                 <tbody>
                     <?php
                     $connection = mysqli_connect("localhost","root","", "divinelifedb");
-                    if(isset($_POST['filter_btn'])){
-                        $value_filter = $_POST['filter_value'];
-                        $query = "Select * from deceased_persons WHERE CONCAT(dead_family_name,dead_fname,dead_mname,dead_relative,dead_relative_surname) LIKE '%$value_filter%'";
-                        $query_run = mysqli_query($connection, $query);
 
-                        if(mysqli_num_rows($query_run) > 0){
-                            while($row = mysqli_fetch_array($query_run)){
-                                ?>
-                                <tr>
-                                    <td><?php echo $row['dead_family_name']; ?></td>
-                                    <td><?php echo $row['dead_fname']; ?></td>
-                                    <td><?php echo $row['dead_mname']; ?></td>
-                                    <td><?php echo $row['dead_relative']; ?></td>
-                                    <td><?php echo $row['dead_relative_surname']; ?></td>
-                                </tr>
+                    $query = "SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)";
+                    $query_run = mysqli_query($connection, $query);
 
-                                <?php
-                            }
-                        }
+                
+                        while($row = mysqli_fetch_array($query_run)){
+                            ?>
+                            <tr>
+                                <td class="align-middle"><?php echo $row["deceased_id"]?></td>
+                                <td class="align-middle"><?php echo $row["dead_fname"]." ".$row["dead_mname"]." ".$row["dead_family_name"]?></td>
+                                <td class="align-middle"><?php echo $row["dead_relative"]." ".$row["dead_relative_surname"]?></td>
+                                <td class="align-middle"><?php echo $row["dead_relationship"]?></td>
+                                <td class="align-middle">
+                                <?php echo "<br>Gender: ".$row["dead_gender"]."<br>Date Born: ".date("M j, Y", strtotime($row["date_of_birth"]))."<br>Date Died: ".date("M j, Y", strtotime($row["date_of_death"]))."<br>Internment Date: ".date("M j, Y", strtotime($row["internment_date"])) ?>
+                                </td>
+                                <td class="align-middle">
+                                <?php echo "<br>Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?>
+                                </td>
+                                <td class="align-middle text-center">
+                                <button class="btn btn-danger btn-view-location" data-site="<?php echo $row["site_name"] ?>" data-sector="<?php echo $row["sector"] ?>" data-block="<?php echo $row["block_name"] ?>" data-lot="<?php echo $row["lot_name"] ?>" data-bs-toggle="modal" data-bs-target="#view-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                                <div class="d-flex align-items-center">
+                                    <i class='bx bx-search-alt-2' "></i> 
+                                    &nbsp;View Location
+                                </div>
+                                </button>
+                                </td>
+                            </tr>
 
-                        else{
-                             ?>
-                             <tr>
-                                 <td colspan="6">No Record Found</td>
-                             </tr>
-                             <?php
-                        }
-                    }
+                            <?php
+                        }        
                     ?>
                 </tbody>
             </table>
@@ -137,6 +133,12 @@
     </div>
 
 <!-- bootstrap js cdn -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+    <script src="../Assets/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../Assets/DataTables/datatables.min.js"></script>
+    <script src="../Assets/js/index.js" defer></script>
+
 </body>
 </html>

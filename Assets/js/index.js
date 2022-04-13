@@ -20,8 +20,10 @@ window.addEventListener("scroll", function(){
     var nav = document.querySelector(".primary-header")
     nav.classList.toggle("sticky", window.scrollY > 0);
 });
-
-
+//USER MAP
+$("#tbl-find-map").DataTable({
+ responsive: true,
+});
 
 
 

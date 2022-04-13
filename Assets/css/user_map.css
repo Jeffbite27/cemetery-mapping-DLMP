@@ -12,7 +12,16 @@
     --color2: white;
     --color3: rgb(107, 21, 21);
 }
-
+.table.dataTable th {
+    background-color: unset;
+    border-bottom: #fff;
+}
+tr.even td {
+    background-color: unset;
+}
+tr.odd td {
+    background-color: unset;
+}
 .sec{
     padding: 1em;
     background-image: linear-gradient(rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.911), rgba(255, 255, 255, 0.822)), url("../image/find-map-bg2.jpg");
@@ -28,12 +37,19 @@
     margin-top: 5em;
 }
 
-.cont-main .search-btn{
+.cont-main .view-map-btn{
     background-color: var(--color1);
     color: var(--color2);
 }
 
-.table thead{
+/* .table thead{
     background-color: var(--color1);
     color: var(--color2);
+} */
+.tbl-header{
+    background-color: var(--color1) !important;
+}
+.btn-view-location {
+background-color: var(--color1) !important;
+border: none !important;
 }
