@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="../Assets/css/index_admin.css">
 
 
-    <!-- <link rel="stylesheet" href="../Assets/css/view_location.css"> -->
+    <link rel="stylesheet" href="../Assets/css/view_location.css">
     <link rel="stylesheet" href="../Assets/css/view_location_occupied.css">
     <link rel="stylesheet" href="../Assets/css/view_location_vacant.css">
     <link rel="stylesheet" href="../Assets/css/view_location_owned.css">
@@ -255,7 +255,7 @@
               <i class='bx bx-street-view fs-1'></i>
               &nbsp;View <?php echo $row["site_name"] ?> Sector <?php echo $row["sector"] ?> Map
             </h4>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white btn-reset-view-map" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form action="" method="post">
             <div class="modal-body p-4">
@@ -333,7 +333,7 @@
               <i class='bx bx-street-view fs-1'></i>
               &nbsp;View <?php echo $row["site_name"] ?> Sector <?php echo $row["sector"] ?> Map
             </h4>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white btn-reset-view-location" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form action="" method="post">
             <div class="modal-body p-4">

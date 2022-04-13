@@ -13,11 +13,11 @@ $output="";
 $output2="";
 
 while($row=$sql_occupied->fetch_array()){
-  $output.="<div class='owned-".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]'>
+  $output.="<div class='owned-".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]' title='Owned'>
   </div>";
 }
 while($row=$sql_available->fetch_array()){
-  $output.="<div class='available-".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]'>
+  $output.="<div class='available-".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]' title='Available'>
   </div>";
 }
 echo $output;
