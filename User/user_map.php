@@ -70,7 +70,12 @@
             <div class="container-fluid  py-4 cont-main">
                 <h1>Guiding Path To Your Loved Ones</h1>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam eos vero ullam eius unde ut ex voluptas reprehenderit ab cumque?</p>
-                <button class="btn mt-3 px-5 view-map-btn text-white">View Map</button>
+                <button class="btn mt-3 px-5 view-map-btn text-white" data-bs-toggle="modal" data-bs-target="#view-map-modal">
+                    <div class="d-flex align-items-center">
+                        <i class='bx bxs-map-pin fs-3'></i>
+                        &nbsp;<b>View Map</b>
+                    </div>
+                </button>
             </div>
         </div>
         
@@ -129,6 +134,59 @@
                     ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="view-map-modal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl"> 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+                        <i class='bx bxs-map fs-1'></i>
+                        &nbsp;View Map
+                    </h4>
+                    <button type="button" class="btn-close btn-close-white btn-reset-view-map" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="view-map text-center">
+                        <div class="map-wrapper">
+                            <div class="title-header bg-white sticky-top p-3 d-flex">
+                                <h5 class="d-flex align-items-center">
+                                <i class='bx bxs-map-pin fs-3' ></i>
+                                &nbsp;Click Sectors to View Map</h5>
+                            </div>
+                            <img class="img-fluid rounded whole-map" src="../Assets/image/map/whole-map.png" alt="">
+                            <div class="map-sites">
+                                <!-- JOY GARDEN BUTTONS -->
+                                <button class="btn btn-sm btn-success btn-Joy-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Joy-A" data-site="Joy Garden" data-sector="A"></button>
+                                <button class="btn btn-sm btn-success btn-Joy-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Joy-B" data-site="Joy Garden" data-sector="B"></button>
+                                <button class="btn btn-sm btn-success btn-Joy-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Joy-C" data-site="Joy Garden" data-sector="C"></button>
+                                <button class="btn btn-sm btn-success btn-Joy-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Joy-D" data-site="Joy Garden" data-sector="D"></button>
+                                <!-- PEACE GARDEN BUTTONS -->
+                                <button class="btn btn-sm btn-success btn-Peace-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Peace-A"></button>
+                                <button class="btn btn-sm btn-success btn-Peace-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Peace-B"></button>
+                                <button class="btn btn-sm btn-success btn-Peace-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Peace-C"></button>
+                                <button class="btn btn-sm btn-success btn-Peace-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Peace-D"></button> 
+                                <!-- HOPE GARDEN BUTTONS -->
+                                <button class="btn btn-sm btn-success btn-Hope-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-A" data-site="Hope Garden" data-sector="A"></button>
+                                <button class="btn btn-sm btn-success btn-Hope-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-B" data-site="Hope Garden" data-sector="B"></button>
+                                <button class="btn btn-sm btn-success btn-Hope-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-C" data-site="Hope Garden" data-sector="C"></button>
+                                <button class="btn btn-sm btn-success btn-Hope-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Hope-D" data-site="Hope Garden" data-sector="D"></button> 
+                                <!-- FAITH GARDEN BUTTONS -->
+                                <button class="btn btn-sm btn-success btn-Faith-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-A" data-site="Faith Garden" data-sector="A"></button>
+                                <button class="btn btn-sm btn-success btn-Faith-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-B" data-site="Faith Garden" data-sector="B"></button>
+                                <button class="btn btn-sm btn-success btn-Faith-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-C" data-site="Faith Garden" data-sector="C"></button>
+                                <button class="btn btn-sm btn-success btn-Faith-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Faith-D" data-site="Faith Garden" data-sector="D"></button> 
+                                <!-- LOVE GARDEN BUTTONS -->
+                                <button class="btn btn-sm btn-success btn-Love-A btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-A" data-site="Love Garden" data-sector="A"></button>
+                                <button class="btn btn-sm btn-success btn-Love-B btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-B" data-site="Love Garden" data-sector="B"></button>
+                                <button class="btn btn-sm btn-success btn-Love-C btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-C" data-site="Love Garden" data-sector="C"></button>
+                                <button class="btn btn-sm btn-success btn-Love-D btn-sectors" data-bs-toggle="modal" data-bs-target="#Love-D" data-site="Love Garden" data-sector="D"></button> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
