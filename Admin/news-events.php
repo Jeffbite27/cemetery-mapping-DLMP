@@ -154,7 +154,7 @@
                       <?php while($row=$news_events->fetch_array()){ ?>
                         <tr>
                           <td class="align-middle"><?php echo $row["news_id"] ?></td>
-                          <td class="align-middle"><?php echo $row["news_date"] ?></td>
+                          <td class="align-middle"><?php echo date("M j, Y", strtotime($row["news_date"]))?></td>
                           <td class="align-middle"><?php echo $row["news_title"] ?></td>
                           <td class="align-middle"><?php echo $row["news_subtitle"] ?></td>
                           <td class="align-middle"><?php echo $row["news_description"] ?></td>
