@@ -21,9 +21,12 @@ window.addEventListener("scroll", function(){
     nav.classList.toggle("sticky", window.scrollY > 0);
 });
 //USER MAP
-$("#tbl-find-map").DataTable({
- responsive: true,
-});
+$(document).ready(function(){
+  $("#tbl-find-map").DataTable({
+    responsive: true,
+   });
+})
+
 $(".btn-reset-view-location").click(function(){
     $(".lot_info").html("");
   })
