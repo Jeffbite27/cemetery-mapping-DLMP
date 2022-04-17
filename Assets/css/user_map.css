@@ -49,7 +49,296 @@ tr.odd td {
 .tbl-header{
     background-color: var(--color1) !important;
 }
+.modal-header {
+    background-color: var(--color1);
+    color: white;
+    padding: 9px 15px;
+}
 .btn-view-location {
 background-color: var(--color1) !important;
 border: none !important;
+}
+.map-wrapper {
+    position: relative;
+}
+.whole-map {
+    width: 100%;
+    max-width: 100%;
+}
+.map-sites {
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    /* text-align: center; */
+}
+
+.btn-Joy-A:hover,
+.btn-Joy-B:hover,
+.btn-Joy-C:hover,
+.btn-Joy-D:hover,
+.btn-Peace-A:hover,
+.btn-Peace-B:hover,
+.btn-Peace-C:hover,
+.btn-Peace-D:hover,
+.btn-Hope-A:hover,
+.btn-Hope-B:hover,
+.btn-Hope-C:hover,
+.btn-Hope-D:hover,
+.btn-Faith-A:hover,
+.btn-Faith-B:hover,
+.btn-Faith-C:hover,
+.btn-Faith-D:hover,
+.btn-Love-A:hover,
+.btn-Love-B:hover,
+.btn-Love-C:hover,
+.btn-Love-D:hover {
+  border: red 3px solid !important;
+}
+/*JOY GARDEN BUTTONS*/
+.btn-Joy-A {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 55%;
+  bottom: 0%;
+  left: 16%;
+  right: 10%;
+  height: 12.5%;
+  width: 9%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Joy-B {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 44%;
+  bottom: 0%;
+  left: 13%;
+  right: 0%;
+  height: 12.5%;
+  width: 9.5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Joy-C {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 40%;
+  bottom: 0%;
+  left: 22%;
+  right: 0%;
+  height: 12.5%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Joy-D {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 51%;
+  bottom: 0%;
+  left: 25%;
+  right: 0%;
+  height: 12.5%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+/*PEACE GARDEN BUTTONS*/
+.btn-Peace-A {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 45%;
+  bottom: 0%;
+  left: 34%;
+  right: 0%;
+  height: 13%;
+  width: 8.5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Peace-B {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 35%;
+  bottom: 0%;
+  left: 31.5%;
+  right: 0%;
+  height: 11%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Peace-C {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 31%;
+  bottom: 0%;
+  left: 39%;
+  right: 0%;
+  height: 11%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Peace-D {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 41%;
+  bottom: 0%;
+  left: 42%;
+  right: 0%;
+  height: 12.5%;
+  width: 7.5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+/*HOPE GARDEN BUTTONS*/
+.btn-Hope-A {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 38%;
+  bottom: 0%;
+  left: 51.8%;
+  right: 0%;
+  height: 12.8%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Hope-B {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 26.5%;
+  bottom: 0%;
+  left: 48.5%;
+  right: 0%;
+  height: 12.9%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Hope-C {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 24%;
+  bottom: 0%;
+  left: 56%;
+  right: 0%;
+  height: 12%;
+  width: 7%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Hope-D {
+  transform: rotate(-19deg);
+  position: absolute;
+  top: 35%;
+  bottom: 0%;
+  left: 59.5%;
+  right: 0%;
+  height: 12.9%;
+  width: 6.6%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+/*LOVE GARDEN BUTTONS*/
+.btn-Faith-A {
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 32%;
+  bottom: 0%;
+  left: 67.5%;
+  right: 0%;
+  height: 12.8%;
+  width: 5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Faith-B {
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 19.8%;
+  bottom: 0%;
+  left: 63.9%;
+  right: 0%;
+  height: 12.5%;
+  width: 5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Faith-C {
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 17.5%;
+  bottom: 0%;
+  left: 69%;
+  right: 0%;
+  height: 13%;
+  width: 5%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Faith-D {
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 27%;
+  bottom: 0%;
+  left: 72.5%;
+  right: 0%;
+  height: 15.5%;
+  width: 10%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+/*LOVE GARDEN BUTTONS*/
+.btn-Love-A {
+  transform: rotate(-22deg);
+  position: absolute;
+  top: 64%;
+  bottom: 0%;
+  left: 57.5%;
+  right: 0%;
+  height: 9.5%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Love-B {
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 53.5%;
+  bottom: 0%;
+  left: 55.3%;
+  right: 0%;
+  height: 10%;
+  width: 8.1%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Love-C {
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 51%;
+  bottom: 0%;
+  left: 63%;
+  right: 0%;
+  height: 10%;
+  width: 8%;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+.btn-Love-D {
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 59%;
+  bottom: 0%;
+  left: 65%;
+  right: 0%;
+  height: 9.5%;
+  width: 9%;
+  background-color: transparent !important;
+  border: 0px !important;
+  border: red 3px solid !important;
 }
