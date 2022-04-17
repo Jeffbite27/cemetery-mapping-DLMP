@@ -1,26 +1,39 @@
 
+<?php 
 
+    include("../config.php");
+    $con=connect();
+
+    $query = $con->query("SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)");
+
+    $sql_modal_map=$con->query("SELECT * FROM (`tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id)");
+
+    $sql_view_loc=$con->query("SELECT * FROM (`tbl_blocks` INNER JOIN `tbl_sites` ON tbl_blocks.site_id=tbl_sites.site_id)");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <script href="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-
+ 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../Assets/image/logopngplain.png" type="image/x-icon">
     <title>Divine Life Memorial Park</title>
     
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../Assets/DataTables/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../Assets/css/user_map.css">
     <link rel="stylesheet" href="../Assets/css/style.css">
-
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../Assets/css/view_location.css">
+    <link rel="stylesheet" href="../Assets/css/view_location_occupied.css">
+    <link rel="stylesheet" href="../Assets/css/view_location_vacant.css">
+    <link rel="stylesheet" href="../Assets/css/view_location_owned.css">
+    <link rel="stylesheet" href="../Assets/css/view_location_available.css">
     <!-- swiper js cdn -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 
@@ -99,15 +112,7 @@
                     <th scope="col">Action</th>
                 </thead>
                 <tbody>
-                    <?php
-                    $connection = mysqli_connect("localhost","root","", "divinelifedb");
-
-                    $query = "SELECT * FROM (((((`deceased_persons` INNER JOIN `customers` ON deceased_persons.customer_id=customers.customer_id)INNER JOIN `lot_owners` ON deceased_persons.lot_owner_id=lot_owners.lot_owner_id)INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id)INNER JOIN `tbl_blocks` ON deceased_persons.block_id=tbl_blocks.block_id)INNER JOIN `tbl_lots` ON deceased_persons.lot_id=tbl_lots.lot_id)";
-                    $query_run = mysqli_query($connection, $query);
-
-                
-                        while($row = mysqli_fetch_array($query_run)){
-                            ?>
+                    <?php while($row =$query->fetch_array()){ ?>
                             <tr>
                                 <td class="align-middle"><?php echo $row["deceased_id"]?></td>
                                 <td class="align-middle"><?php echo $row["dead_fname"]." ".$row["dead_mname"]." ".$row["dead_family_name"]?></td>
@@ -128,10 +133,7 @@
                                 </button>
                                 </td>
                             </tr>
-
-                            <?php
-                        }        
-                    ?>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -189,7 +191,130 @@
             </div>
         </div>
     </div>
-
+<!---------------------------------- MODAL VIEW MAP----------------------------------------->
+<?php while($row = $sql_modal_map->fetch_array()) { ?>
+    <div class="modal fade" id="<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+              <i class='bx bx-street-view fs-1'></i>
+              &nbsp;View <?php echo $row["site_name"] ?> Sector <?php echo $row["sector"] ?> Map
+            </h4>
+            <button type="button" class="btn-close btn-close-white btn-reset-view-map" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="" method="post">
+            <div class="modal-body p-4">
+              <div class="filter mb-4">
+                <div class="row">
+                  <div class="col-lg-6 col-md-12 col-sm-12">
+                    <h5>Filter by:</h5>
+                    <div class="filter d-flex align-items-center">
+                      <div class="owned" style="margin-right: 20px">
+                        <input type="radio" class="form-check-input rdo-owned" name="filter-radio" data-site="<?php echo $row["site_name"] ?>" data-sector="<?php echo $row["sector"] ?>" id="owned-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                        <label for="owned-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">Owned Lots</label>
+                        <div class="owned-legend">
+                          <i class='bx bxs-checkbox' style="color: #9e0505;"></i>
+                          <small>-Owned</small> <br>
+                          <i class='bx bxs-checkbox' style="color: #188f03;"></i>
+                          <small>-Available</small>
+                        </div>
+                      </div>
+                      <div class="occupied">
+                        <input type="radio" class="form-check-input rdo-occupied" name="filter-radio" data-site="<?php echo $row["site_name"] ?>" data-sector="<?php echo $row["sector"] ?>" id="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
+                        <label for="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">Occupied Lots</label>
+                        <div class="occupied-legend">
+                          <i class='bx bxs-checkbox' style="color: #db8812;"></i>
+                          <small>-Occupied</small> <br>
+                          <i class='bx bxs-checkbox' style="color: #6e18c9;"></i>
+                          <small>-Vacant</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="right-side d-flex align-items-center justify-content-between px-3">
+                      <div class="legends">
+                        <h5>Legends:</h5>
+                        <i class='bx bxs-checkbox' style="color: #ebcd81;"></i>
+                        <small>-Standard</small> <br>
+                        <i class='bx bxs-checkbox' style="color: #0cbab0;"></i>
+                        <small>-Deluxe</small> <br>
+                        <i class='bx bxs-checkbox' style="color: #e1e32b;"></i>
+                        <small>-Premium</small> <br>
+                      </div>
+                      <div class="minimap p-1" style="border: 1px solid black; border-radius: 5px">
+                        <img width="200px" src="../Assets/image/minimap/<?php echo $row["site_name"] ?>-<?php echo $row["sector"] ?>.png" alt="">
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+              </div>
+              <div class="img-sector text-center">
+                <img class="img-fluid rounded img-sector" src="../Assets/image/map/<?php echo $row["site_name"] ?> - <?php echo $row["sector"] ?>.png" alt="">
+                
+                <div class="lot_info">
+                  
+                </div>
+              </div>
+            </div>
+            <!-- <div class="modal-footer .map-footer">
+              
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+<?php } ?>
+<!---------------------------------- VIEW LOCATION MAP----------------------------------------->
+<?php while($row = $sql_view_loc->fetch_array()) { ?>
+    <div class="modal fade" id="view-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
+              <i class='bx bx-street-view fs-1'></i>
+              &nbsp;View <?php echo $row["site_name"] ?> Sector <?php echo $row["sector"] ?> Map
+            </h4>
+            <button type="button" class="btn-close btn-close-white btn-reset-view-location" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="" method="post">
+            <div class="modal-body p-4">
+              <div class="filter mb-4">
+                <div class="legend d-flex justify-content-between px-3">
+                  <div class="text-start">
+                    <h5>Legends:</h5>
+                    <i class='bx bxs-checkbox' style="color: #ebcd81;"></i>
+                    <small>-Standard</small> <br>
+                    <i class='bx bxs-checkbox' style="color: #0cbab0;"></i>
+                    <small>-Deluxe</small> <br>
+                    <i class='bx bxs-checkbox' style="color: #e1e32b;"></i>
+                    <small>-Premium</small> <br>
+                  </div>
+                  <div class="text-end p-1" style="border: 1px solid black; border-radius: 5px">
+                      <img width="200px" src="../Assets/image/minimap/<?php echo $row["site_name"] ?>-<?php echo $row["sector"] ?>.png" alt="">
+                  </div>
+                </div>
+                
+              </div>
+              <div class="img-sector text-center">
+                <img class="img-fluid rounded img-sector" src="../Assets/image/map/<?php echo $row["site_name"] ?> - <?php echo $row["sector"] ?>.png" alt="">
+                
+                <div class="lot_info">
+                  
+                </div>
+              </div>
+            </div>
+            <!-- <div class="modal-footer .map-footer">
+              
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+<?php } ?>
 <!-- bootstrap js cdn -->
 
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>

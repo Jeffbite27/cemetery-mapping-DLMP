@@ -21,9 +21,66 @@ window.addEventListener("scroll", function(){
     nav.classList.toggle("sticky", window.scrollY > 0);
 });
 //USER MAP
-$("#tbl-find-map").DataTable({
- responsive: true,
+$(document).ready(function(){
+  $("#tbl-find-map").DataTable({
+    responsive: true,
+   });
+})
+
+$(".btn-reset-view-location").click(function(){
+    $(".lot_info").html("");
+  })
+$(".btn-reset-view-map").click(function(){
+    $(".lot_info").html("");
+    $(".rdo-occupied").prop("checked", false);
+    $(".rdo-owned").prop("checked", false);
+})
+$(".btn-view-location").click(function () {
+    var sector = $(this).attr("data-sector");
+    var site_name = $(this).attr("data-site");
+    var block_name = $(this).attr("data-block");
+    var lot_name = $(this).attr("data-lot");
+    $.ajax({
+      url: "queries/view-location.php",
+      method: "post",
+      data: {
+        sector: sector,
+        site_name: site_name,
+        block_name: block_name,
+        lot_name: lot_name,
+      },
+      success: function (data) {
+        $(".lot_info").html(data);
+      },
+    });
 });
+$(".rdo-occupied").click(function () {
+    var site_name = $(this).attr("data-site");
+    var sector = $(this).attr("data-sector");
+
+    $.ajax({
+      url: "queries/occupied-lots.php",
+      method: "post",
+      data: { site_name: site_name, sector: sector },
+      success: function (data) {
+        $(".lot_info").html(data);
+      },
+    });
+});
+$(".rdo-owned").click(function () {
+    var site_name = $(this).attr("data-site");
+    var sector = $(this).attr("data-sector");
+
+    $.ajax({
+      url: "queries/owned-lots.php",
+      method: "post",
+      data: { site_name: site_name, sector: sector },
+      success: function (data) {
+        $(".lot_info").html(data);
+      },
+    });
+});
+  
 
 
 
