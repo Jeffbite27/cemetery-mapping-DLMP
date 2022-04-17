@@ -335,6 +335,9 @@ i.req {
 .add-customer {
   margin-left: auto;
 }
+.edit-news {
+  margin-left: auto;
+}
 .modal-header {
   background-color: var(--color1);
   color: white;
