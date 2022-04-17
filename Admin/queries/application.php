@@ -202,6 +202,7 @@ if(isset($_POST["btn-update-owner-setup"])){
   if($sql_lots->num_rows!=0){
     if($site_id!=isset($row["site_id"])&&$block_id!=isset($row["block_id"])&&$lot_id!=isset($row["lot_id"])){
 
+
       if(!empty($_FILES["edit-owner-deed-sale"]["name"])){
         if(!empty($rows["deed_of_sale"])){
           unlink("files/deed_of_sales/".$rows["deed_of_sale"]);
@@ -490,7 +491,7 @@ if(isset($_POST["btn-edit-dead"])){
   }
 }
 
-// ---------------------------------NEWS & EVENTS SUBMIT------------------------------------
+// ----------------------------NEWS & EVENTS SUBMIT------------------------------------
 
 if(isset($_POST["btn-submit-news"])){
   $news_title=mysqli_real_escape_string($con, $_POST["title"]);
@@ -498,17 +499,18 @@ if(isset($_POST["btn-submit-news"])){
   $news_description=mysqli_real_escape_string($con, $_POST["description"]);
   $news_date=mysqli_real_escape_string($con, $_POST["news_date"]);
 
-
-  $time=time();
-  $news_thumbnail=$time.'.'.pathinfo($_FILES["thumbnail"]['name'], PATHINFO_EXTENSION);
-  $news_thumbnail_saleTarget="files/news_img/".$news_thumbnail;
-
-  $sql=$con->query("SELECT * FROM `news_events` WHERE `news_title`='$news_title' AND `news_subtitle`='$news_subtitle'");
+  $sql=$con->query("SELECT * FROM `news_events` WHERE `news_title`='$news_title'");
   $row=$sql->fetch_array();
 
-  if($news_title!=isset($news_title["title"])&&$news_subtitle!=isset($row["news_subtitle"])){
+  if($news_title!=isset($row["news_title"])){
+
+    $time=time();
+    $news_thumbnail=$time.'.'.pathinfo($_FILES["thumbnail"]['name'], PATHINFO_EXTENSION);
+    $news_thumbnail_saleTarget="files/thumbnails/".$news_thumbnail;
+
     $sql=$con->query("INSERT INTO `news_events`(`news_title`, `news_subtitle`, `news_description`, `news_date`, `news_img`) VALUES ('$news_title','$news_subtitle', '$news_description','$news_date','$news_thumbnail')");
     move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $news_thumbnail_saleTarget);
+
     echo "<script>
       Swal.fire({
         position: 'center',
@@ -538,7 +540,7 @@ if(isset($_POST["btn-submit-news"])){
     Swal.fire({
       position: 'center',
       icon: 'error',
-      title: 'Already Added',
+      title: 'Title Already Exists',
       text: 'Enter another details',
       showConfirmButton: false,
       timer: 2000,
@@ -556,5 +558,83 @@ if(isset($_POST["btn-submit-news"])){
     })
     window.history.replaceState( null, null, window.location.href );
     </script>";
+  }
+}
+// ----------------------------NEWS & EVENTS UPDATE------------------------------------
+
+if(isset($_POST["btn-edit-news"])){
+  $news_id=mysqli_real_escape_string($con, $_POST["edit_news_id"]);
+  $news_title=mysqli_real_escape_string($con, $_POST["edit_title"]);
+  $news_subtitle=mysqli_real_escape_string($con, $_POST["edit_subtitle"]);
+  $news_description=mysqli_real_escape_string($con, $_POST["edit_description"]);
+  $news_date=mysqli_real_escape_string($con, $_POST["edit_news_date"]);
+
+  $sql_news=$con->query("SELECT * FROM `news_events` WHERE `news_id`='$news_id'");
+  $rows=$sql_news->fetch_array();
+
+  $sql=$con->query("SELECT * FROM `news_events` WHERE `news_title`='$news_title' AND `news_id`!='$news_id'");
+  $row=$sql->fetch_array();
+
+  if($news_title!=isset($row["news_title"])){
+    if(!empty($_FILES["edit_thumbnail"]["name"])){
+      if(!empty($rows["news_img"])){
+        unlink("files/thumbnails/".$rows["news_img"]);
+      }
+      $time=time();
+      $thumbnail=$time.'.'.pathinfo($_FILES["edit_thumbnail"]['name'], PATHINFO_EXTENSION);
+      $thumbnailTarget="files/thumbnails/".$thumbnail;
+      move_uploaded_file($_FILES["edit_thumbnail"]["tmp_name"], $thumbnailTarget);
+    }else{
+      $thumbnail=$rows["news_img"];
+    }
+    $sql=$con->query("UPDATE `news_events` SET `news_title`='$news_title',`news_subtitle`='$news_subtitle',`news_description`='$news_description',`news_date`='$news_date',`news_img`='$thumbnail' WHERE `news_id`='$news_id'");
+
+    echo "<script>
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'A News and Event Successfully Updated',
+          text: 'You updated a lot owner details',
+          showConfirmButton: false,
+          timer: 2000,
+          allowOutsideClick: () => {
+            const popup = Swal.getPopup()
+            popup.classList.remove('swal2-show')
+            setTimeout(() => {
+              popup.classList.add('animate__animated', 'animate__headShake')
+            })
+            setTimeout(() => {
+              popup.classList.remove('animate__animated', 'animate__headShake')
+            }, 500)
+            return false
+          }
+        })
+        window.history.replaceState( null, null, window.location.href );
+        </script>";
+        header("refresh: 1;");
+  }else{
+    echo "<script>
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Title Already Exists',
+        text: 'Enter another lot owner details',
+        showConfirmButton: false,
+        timer: 2000,
+        allowOutsideClick: () => {
+          const popup = Swal.getPopup()
+          popup.classList.remove('swal2-show')
+          setTimeout(() => {
+            popup.classList.add('animate__animated', 'animate__headShake')
+          })
+          setTimeout(() => {
+            popup.classList.remove('animate__animated', 'animate__headShake')
+          }, 500)
+          return false
+        }
+      })
+      window.history.replaceState( null, null, window.location.href );
+      </script>";
+      header("refresh: 1;");
   }
 }
