@@ -341,3 +341,6 @@ border: none !important;
   background-color: transparent !important;
   border: 0px !important;
 }
+.img-sector {
+  position: relative;
+}
