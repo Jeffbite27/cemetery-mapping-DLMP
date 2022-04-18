@@ -283,30 +283,43 @@
             
         </div> -->
     </div>
-
-    <section class="news pt-5 mt-5" id="news">
+    <div id="news"></div>
+    <section class="news pt-5 mt-5">
         <div class="news-header ">
             <h1>NEWS AND EVENTS</h1>
         </div>
         <div class="container">
             <div class="row row-cols-lg-3 row-cols-sm-1">
-            <?php while($row=$news_events->fetch_array()){ ?>
-                <div class="col p-2 pt-5">
-                    <div class="card news-section shadow news-card">
-                        <div class="news-img" style="height: 25vh;">
-                            <div class="div-img" style="height: 100%;">
-                              <img style="width: 100%; height: 100%" src="Admin/files/news_img/<?php echo $row["news_img"] ?>">
+                <?php while($row=$news_events->fetch_array()){ ?>
+                    <div class="col-lg-4 col-md-6 col-sm-12 p-2 pt-5">
+                        <div class="card news-section shadow news-card h-100">
+                            <div class="news-img" style="height: 25vh;">
+                                <img style="width: 100%; height: 100%" src="Admin/files/news_img/<?php echo $row["news_img"] ?>">
+                            </div>
+                            <div class="card-body pb-4">
+                                <p class="date-txt fw-light">
+                                    <?php echo date("M j, Y", strtotime($row["news_date"]))?>
+                                </p>
+                                <h4 class="card-title fw-bold">
+                                    <?php echo $row["news_title"] ?>
+                                </h4>
+                                <h4 class="lead fst-italic" style="font-size: 1rem;">
+                                    <?php echo $row["news_subtitle"] ?>
+                                </h4>
+                                <div class="text-desc mb-5">
+                                    <p class="card-text">
+                                        <?php echo $row["news_description"] ?>
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-primary" style="position: absolute; bottom: 15px;">
+                                        See More
+                                    </button>
+                                </div>
+                                
                             </div>
                         </div>
-                        <div class="card-body pb-4">
-                            <p class="date-txt fw-light"><?php echo date("M j, Y", strtotime($row["news_date"]))?></p>
-                            <h4 class="card-title fw-bold"><?php echo $row["news_title"] ?></h4>
-                            <h4 class="lead fst-italic" style="font-size: 1rem;"><?php echo $row["news_subtitle"] ?></h4>
-                            
-                            <p class="card-text"><?php echo $row["news_description"] ?></p>
-                        </div>
                     </div>
-                </div>
                 <?php }?>
             </div>
 
