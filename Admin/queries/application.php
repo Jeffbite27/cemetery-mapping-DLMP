@@ -506,7 +506,7 @@ if(isset($_POST["btn-submit-news"])){
 
     $time=time();
     $news_thumbnail=$time.'.'.pathinfo($_FILES["thumbnail"]['name'], PATHINFO_EXTENSION);
-    $news_thumbnail_saleTarget="files/thumbnails/".$news_thumbnail;
+    $news_thumbnail_saleTarget="files/news_img/".$news_thumbnail;
 
     $sql=$con->query("INSERT INTO `news_events`(`news_title`, `news_subtitle`, `news_description`, `news_date`, `news_img`) VALUES ('$news_title','$news_subtitle', '$news_description','$news_date','$news_thumbnail')");
     move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $news_thumbnail_saleTarget);
@@ -578,11 +578,11 @@ if(isset($_POST["btn-edit-news"])){
   if($news_title!=isset($row["news_title"])){
     if(!empty($_FILES["edit_thumbnail"]["name"])){
       if(!empty($rows["news_img"])){
-        unlink("files/thumbnails/".$rows["news_img"]);
+        unlink("files/news_img/".$rows["news_img"]);
       }
       $time=time();
       $thumbnail=$time.'.'.pathinfo($_FILES["edit_thumbnail"]['name'], PATHINFO_EXTENSION);
-      $thumbnailTarget="files/thumbnails/".$thumbnail;
+      $thumbnailTarget="files/news_img/".$thumbnail;
       move_uploaded_file($_FILES["edit_thumbnail"]["tmp_name"], $thumbnailTarget);
     }else{
       $thumbnail=$rows["news_img"];

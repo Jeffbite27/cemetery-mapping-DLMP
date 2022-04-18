@@ -158,7 +158,7 @@
                           <td class="align-middle"><?php echo $row["news_title"] ?></td>
                           <td class="align-middle"><?php echo $row["news_subtitle"] ?></td>
                           <td class="align-middle"><?php echo $row["news_description"] ?></td>
-                          <td class="align-middle text-center"><img style="width: 60%;" src="files/thumbnails/<?php echo $row["news_img"] ?>"></td>
+                          <td class="align-middle text-center"><img style="width: 60%;" src="files/news_img/<?php echo $row["news_img"] ?>"></td>
                           <td class="align-middle text-center">
                             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-news-<?php echo $row["news_id"]?>">
                               <i class='bx bxs-edit'></i>
@@ -219,11 +219,11 @@
             <div class="row-mb-2">
               <div class="col-12 mb-2">
                 <label for="description">Description:<i class="req">*</i></label>
-                <textarea class="form-control" id="description" name="description" rows="5"></textarea required>
+                <textarea  maxlength="200" class="form-control " id="description" name="description" rows="2"></textarea required>
               </div>
               <div class="col-12">
                 <label for="thumbnail">Thumbnail:<i class="req">*</i></label>
-                <input class="form-control thumbnail" type="file" accept=" .png, .jpg" id="thumbnail" name="thumbnail" required>
+                <input class="form-control thumbnail" type="file" accept=".png, .jpg, .jpeg" id="thumbnail" name="thumbnail" required>
               </div>
             </div>
         </div>

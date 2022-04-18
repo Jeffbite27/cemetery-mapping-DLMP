@@ -1,3 +1,21 @@
+<?php 
+  if(!isset($_SESSION)){
+    session_start();    
+  }
+  include("config.php");
+  $con=connect();
+
+  if(isset($_SESSION["username"])){
+    $news_events=$con->query("SELECT * FROM `news_events`");
+    $news_events_edit=$con->query("SELECT * FROM `news_events`");
+    $news_thumbnail=$con->query("SELECT * FROM `news_events`");
+
+  }else{
+    header("Location: index.php");
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +125,7 @@
             <h1>Where Love And Care Last A Lifetime</h1>
             <p> We recognize the importance of delivering compassionate services to families and loved ones,
                 A cemetery that embraces a culture of healing and compassionate care in every area of stewardship for the living and those that are resting here.</p>
-</div>
+        </div>
         </div>
         <div class="about-content">
             <h1 class="service-text">INTERMENT TYPES</h1>
@@ -140,7 +158,7 @@
     </div>
 
 
-    <div class="news-events" id="news">
+    <!-- <div class="news-events" id="news">
         <div class="news-header">
             <h1>NEWS AND EVENTS</h1>
         </div>
@@ -250,9 +268,9 @@
                 </div>
             </div>
             
-        </div>
+        </div> -->
 
-        <div class="loadmore">
+        <!-- <div class="loadmore">
             <div class="box loadmorebtn">
                 <i class="fa fa-plus"></i>
                 <h2>LOAD MORE</h2>
@@ -263,24 +281,46 @@
                 <h2>LOAD LESS</h2>
             </div>
             
-        </div>
+        </div> -->
     </div>
 
-    <section class="news">
+    <section class="news pt-5 mt-5" id="news">
+        <div class="news-header ">
+            <h1>NEWS AND EVENTS</h1>
+        </div>
         <div class="container">
             <div class="row row-cols-lg-3 row-cols-sm-1">
-                <div class="col ">
-                    <div class="card news-section shadow">
-                        <div class="news-img">
-                            <img src="Assets/image/service-type1.jpg" class="card-img-top img-fluid d-inline-block " alt="This is the picture">
+            <?php while($row=$news_events->fetch_array()){ ?>
+                <div class="col p-2 pt-5">
+                    <div class="card news-section shadow news-card">
+                        <div class="news-img" style="height: 25vh;">
+                            <div class="div-img" style="height: 100%;">
+                              <img style="width: 100%; height: 100%" src="Admin/files/news_img/<?php echo $row["news_img"] ?>">
+                            </div>
                         </div>
                         <div class="card-body pb-4">
-                            <h4 class="card-title fw-bold">News Title</h4>
-                            <p class="date-txt fw-bold" >January 5 2027</p>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="date-txt fw-light"><?php echo date("M j, Y", strtotime($row["news_date"]))?></p>
+                            <h4 class="card-title fw-bold"><?php echo $row["news_title"] ?></h4>
+                            <h4 class="lead fst-italic" style="font-size: 1rem;"><?php echo $row["news_subtitle"] ?></h4>
+                            
+                            <p class="card-text"><?php echo $row["news_description"] ?></p>
                         </div>
                     </div>
                 </div>
+                <?php }?>
+            </div>
+
+            <div class="loadmore">
+                <div class="box loadmorebtn">
+                    <i class="fa fa-plus"></i>
+                    <h2>LOAD MORE</h2>
+                </div>
+
+                <div class="box loadlessbtn">
+                    <i class="fa fa-plus"></i>
+                    <h2>LOAD LESS</h2>
+                </div>`
+            
             </div>
         </div>
     </section>
