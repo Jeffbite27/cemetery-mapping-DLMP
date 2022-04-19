@@ -308,7 +308,7 @@
         <form action="" method="post">
           <div class="modal-body p-5">
             <div class="text-center">
-                <iframe style="width: 100%; height: 500px" src="files/thumbnails/<?php echo $row['news_img']?>" frameborder="0">
+                <iframe style="width: 100%; height: 500px" src="files/news_img/<?php echo $row['news_img']?>" frameborder="0">
                 </iframe>
             </div>
           </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2022 at 10:34 AM
+-- Generation Time: Apr 18, 2022 at 03:38 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -147,7 +147,7 @@ CREATE TABLE `news_events` (
   `news_subtitle` varchar(50) NOT NULL,
   `news_description` varchar(250) NOT NULL,
   `news_date` varchar(150) NOT NULL,
-  `news_img` varchar(50) NOT NULL
+  `news_img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -155,21 +155,9 @@ CREATE TABLE `news_events` (
 --
 
 INSERT INTO `news_events` (`news_id`, `news_title`, `news_subtitle`, `news_description`, `news_date`, `news_img`) VALUES
-(1, 'asdsad', 'xzczxc', '2022-04-05', '0', '1649831782.'),
-(2, 'ddasd', 'sadas', '2022-04-05', '0', '1649831803.'),
-(3, 'fsaaddas', 'dasdasd', 'zxcxzccvfgbvbc', '2022', '1649831935.'),
-(4, 'xzczx', 'czxczxc', 'xczzxczxczxc', '2022', '1649832022.'),
-(5, 'czx', 'xzc', 'asd', '2022', '1649832225.'),
-(6, 'wqeqwe', 'zxczxc', 'zxcxzc', '2022', '1649832651.'),
-(7, 'dadasdasd', 'asdasdas', 'gdfhgffghj', '2022', '1649832709.'),
-(8, 'cxzczx', 'czxc', 'sadasd', '2022', '1649832774.'),
-(9, 'asd', 'asd', 'vv', '2022', '1649832788.'),
-(10, 'asdsad', 'asdasd', 'asdasd', '2022', '1649833420.'),
-(11, 'zcx', 'das', 'qwe', '2022', '1649833577.'),
-(12, 'xcz', 'rty', 'fgh', '2022-04-14', '1649833651.'),
-(13, 'rty', 'gfh', 'bnmvbn', '2022-04-12', '1649835834.'),
-(14, 'asd', 'cc', 'vbnfgh', '2022-04-05', '1649838292.'),
-(15, 'zxc', 'dfsad', 'dd', '2022-04-11', '1649838307.');
+(29, 'Memorial Day', 'World Peace', 'There is no greater sacrifice than those who gave their lives to protect us. We honor all veterans who died protecting our country -- and those they left behind. ', '2022-04-19', '1650244769.jpg'),
+(30, 'In Times Like These, Learn What Matters Most.', 'Plan Ahead to Protect the Ones You Love', 'These times have shown us that life does not come with a guarantee. We hold on tight to those we hold dear and we\'ve learned to take nothing for granted.', '2022-04-25', '1650245217.jpg'),
+(31, 'Why Visitation Matters', 'Divine Life Memorial Park', 'Post-death rituals were once culturally significant, and there\'s strong evidence to suggest that a visitation can be psychologically beneficial.', '2022-04-27', '1650245615.jpg');
 
 -- --------------------------------------------------------
 
@@ -1306,7 +1294,7 @@ ALTER TABLE `lot_owners`
 -- AUTO_INCREMENT for table `news_events`
 --
 ALTER TABLE `news_events`
-  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_blocks`
