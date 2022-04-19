@@ -312,9 +312,11 @@
                                     </p>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-primary" style="position: absolute; bottom: 15px;">
-                                        See More
-                                    </button>
+                                    <a href="User/news_and_events.php?item=<?php echo $row['news_id']?>">
+                                        <button class="btn btn-primary" style="position: absolute; bottom: 15px;">
+                                            See More
+                                        </button>
+                                    </a>
                                 </div>
                                 
                             </div>
