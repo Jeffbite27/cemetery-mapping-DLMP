@@ -137,7 +137,7 @@
             <div class="mx-3">
               <a href="news_and_events.php?item=<?php echo $rows["news_id"] ?>">
                 <button class="btn btn-primary w-100 mt-3 mb-3">
-                  View more
+                  View this article
                 </button>
               </a>
             </div>
