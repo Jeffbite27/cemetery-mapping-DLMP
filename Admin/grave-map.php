@@ -270,7 +270,7 @@
                         <div class="owned-legend">
                           <i class='bx bxs-checkbox' style="color: #9e0505;"></i>
                           <small>-Owned</small> <br>
-                          <i class='bx bxs-checkbox' style="color: #188f03;"></i>
+                          <i class='bx bxs-checkbox' style="color: #5fc500;"></i>
                           <small>-Available</small>
                         </div>
                       </div>
@@ -278,9 +278,9 @@
                         <input type="radio" class="form-check-input rdo-occupied" name="filter-radio" data-site="<?php echo $row["site_name"] ?>" data-sector="<?php echo $row["sector"] ?>" id="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">
                         <label for="occupied-lots-<?php echo explode(' ', trim($row["site_name"] ))[0].'-'.$row["sector"] ?>">Occupied Lots</label>
                         <div class="occupied-legend">
-                          <i class='bx bxs-checkbox' style="color: #db8812;"></i>
+                          <i class='bx bxs-checkbox' style="color: #101820FF;"></i>
                           <small>-Occupied</small> <br>
-                          <i class='bx bxs-checkbox' style="color: #6e18c9;"></i>
+                          <i class='bx bxs-checkbox' style="color: #ff2962;"></i>
                           <small>-Vacant</small>
                         </div>
                       </div>
