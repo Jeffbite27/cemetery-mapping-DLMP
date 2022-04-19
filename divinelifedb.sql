@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 03:38 AM
+-- Generation Time: Apr 19, 2022 at 05:31 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -145,7 +145,7 @@ CREATE TABLE `news_events` (
   `news_id` int(11) NOT NULL,
   `news_title` varchar(50) NOT NULL,
   `news_subtitle` varchar(50) NOT NULL,
-  `news_description` varchar(250) NOT NULL,
+  `news_description` longtext NOT NULL,
   `news_date` varchar(150) NOT NULL,
   `news_img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -156,8 +156,9 @@ CREATE TABLE `news_events` (
 
 INSERT INTO `news_events` (`news_id`, `news_title`, `news_subtitle`, `news_description`, `news_date`, `news_img`) VALUES
 (29, 'Memorial Day', 'World Peace', 'There is no greater sacrifice than those who gave their lives to protect us. We honor all veterans who died protecting our country -- and those they left behind. ', '2022-04-19', '1650244769.jpg'),
-(30, 'In Times Like These, Learn What Matters Most.', 'Plan Ahead to Protect the Ones You Love', 'These times have shown us that life does not come with a guarantee. We hold on tight to those we hold dear and we\'ve learned to take nothing for granted.', '2022-04-25', '1650245217.jpg'),
-(31, 'Why Visitation Matters', 'Divine Life Memorial Park', 'Post-death rituals were once culturally significant, and there\'s strong evidence to suggest that a visitation can be psychologically beneficial.', '2022-04-27', '1650245615.jpg');
+(30, 'In Times Like These, Learn What Matters Most.', 'Plan Ahead to Protect the Ones You Love', 'These times have shown us that life does not come with a guarantee.  We hold on tight to those we hold dear and we\'ve learned to take nothing for granted.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quod quisquam dolorum su  Lorem ipsum dolor sit amet consectetur, adipisicing elit. In voluptatibus nulla ut, quos eos ipsam accusamus fuga enim repudiandae? Molestiae!', '2022-04-25', '1650245217.jpg'),
+(31, 'Why Visitation Matters', 'Divine Life Memorial Park', 'Post-death rituals were once culturally significant, and there\'s strong evidence to suggest that a visitation can be psychologically beneficial.', '2022-04-27', '1650245615.jpg'),
+(32, 'Utot na Pinasok sa Ref Tumigas', 'Cyka Blyat', 'Союз нерушимый республик свободных\r\nСплотила навеки Великая Русь.\r\nДа здравствует созданный волей народов\r\nЕдиный, могучий Советский Союз!\r\nСлавься, Отечество наше свободное,\r\nДружбы, народов надежный оплот!\r\nЗнамя советское, знамя народное\r\nПусть от победы, к победе ведет!\r\nСквозь грозы сияло нам солнце свободы,\r\nИ Ленин великий нам путь озарил.\r\nНас вырастил Сталин - на верность народу\r\nНа труд и на подвиги нас вдохновил.\r\nСлавься, Отечество чаше свободное,\r\nСчастья народов надежный оплот!\r\nЗнамя советское, знамя народное\r\nПусть от победы к победе ведет!\r\nSkvoz grozy siialo nam solntse svobody,\r\nI Lenin velikij nam put ozaril.\r\nNas vyrastil Stalin - na vernost narodu\r\nNa trud i na podvigi nas vdokhnovil.\r\nSlavsia, Otechestvo chashe svobodnoe,\r\nSchastia narodov nadezhnyj oplot!\r\nZnamia sovetskoe, znamia narodnoe\r\nPust ot pobedy k pobede vedet!\r\nМы армию нашу растили в сраженьях,\r\nЗахватчиков подлых с дороги сметем!\r\nМы в битвах решаем судьбу поколений,\r\nМы к славе Отчизну свою поведем!\r\nСлавься, Отечество наше свободное,\r\nСлавы народов надежный оплот!\r\nЗнамя советское, знамя народное\r\nПусть от победы к победе ведет!', '2022-04-20', '1650282720.jpg');
 
 -- --------------------------------------------------------
 
@@ -1294,7 +1295,7 @@ ALTER TABLE `lot_owners`
 -- AUTO_INCREMENT for table `news_events`
 --
 ALTER TABLE `news_events`
-  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbl_blocks`
