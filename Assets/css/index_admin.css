@@ -321,6 +321,15 @@ tr.odd td {
 .cont-dash hr {
   color: var(--color1);
 }
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+
+}
+.title-total-dead, .title-total-customer{
+  color: var(--color1);
+}
 
 /* ------------------------------CUSTOMER PAGE------------------------------ */
 i.req {

@@ -72,13 +72,6 @@
         </a>
       </li>
 
-      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Reports">
-        <a href="#">
-          <i class='bx bx-bar-chart-square'></i>
-          <span class="link_name">Reports</span>
-        </a>
-      </li>
-
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Slideshow">
         <a href="#">
           <i class='bx bx-carousel' ></i>
@@ -195,6 +188,35 @@
                         </div>
                     </div>
                   </div>
+
+                
+                    <div class="row mt-4 gx-3">
+                      <div class="col-lg-6">
+                        <div class="p-3 shadow rounded ">
+                          <div class="title-total-dead">
+                            <h4>Total Deceased Persons in Sites</h4>
+                            <hr>
+                          </div>
+                          <div class="chart-container mt-5" style="height: 50%">
+                              <canvas id="chart1"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="p-3 shadow rounded h-100">
+                          <div class="title-total-customer">
+                            <h4>Number of Customers per Week</h4>
+                            <hr>
+                          </div>
+                          <div class="chart-container mt-5" style="height: 50%">
+                              <canvas id="chart2"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+             
+             
+
                 </div>
               </div>
             </div>
@@ -202,11 +224,8 @@
         </div>
       </div>
     </div>
-    
-
-
   </section>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
   <script src="https://kit.fontawesome.com/ec4303cca5.js" crossorigin="anonymous"></script>
   <script src="../Assets/js/jquery.min.js"></script>
@@ -214,5 +233,75 @@
   <script type="text/javascript" src="../Assets/DataTables/datatables.min.js"></script>
   <script src="../Assets/js/index_admin.js" defer></script>
 
+  <script>
+   const data1 = {
+      labels: [
+        'Joy Garden',
+        'Peace Garden',
+        'Hope Garden',
+        'Faith Garden',
+        'Love Garden'
+      ],
+      datasets: [{
+        label: 'My First Dataset',
+        data: [30, 50, 25, 20, 44],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)',
+          'rgb(255, 20, 10)',
+          'rgb(205, 31, 100)',
+        ],
+        hoverOffset: 4
+      }]
+    };
+
+    var options = {
+      maintainAspectRatio: false
+      
+    };
+
+    new Chart('chart1', {
+      type: 'pie',
+      options: options,
+      data: data1
+    });
+
+   const data2 = {
+      labels: [
+        'Mon',
+        'Tue',
+        'Wed',
+        'Thurs',
+        'Fri',
+        'Sat',
+        'Sun'
+      ],
+      datasets: [{
+        label: 'Number of Customers per Week',
+        data: [30, 50, 25, 20, 44, 40, 32],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)',
+          'rgb(255, 20, 10)',
+          'rgb(205, 31, 100)',
+        ],
+        hoverOffset: 4
+      }]
+    };
+
+    var options = {
+      maintainAspectRatio: false
+      
+    };
+
+    new Chart('chart2', {
+      type: 'bar',
+      options: options,
+      data: data2
+    });
+
+  </script>
 </body>
 </html>
