@@ -81,13 +81,6 @@
         </a>
       </li>
 
-      <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Reports">
-        <a href="#">
-          <i class='bx bx-bar-chart-square'></i>
-          <span class="link_name">Reports</span>
-        </a>
-      </li>
-
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Slideshow">
         <a href="#">
           <i class='bx bx-carousel' ></i>
