@@ -39,7 +39,7 @@
 </head>
 <body>
 
-    <header class="primary-header">
+    <header class="primary-header" style="z-index:1000">
         <div class="logo">
             <img src="Assets/image/logopngplain.png" alt="navLogo" class="navlogo">
         </div>
