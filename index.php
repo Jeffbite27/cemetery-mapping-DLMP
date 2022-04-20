@@ -1,18 +1,13 @@
 <?php 
-  if(!isset($_SESSION)){
-    session_start();    
-  }
-  include("config.php");
-  $con=connect();
 
-  if(isset($_SESSION["username"])){
-    $news_events=$con->query("SELECT * FROM `news_events`");
-    $news_events_edit=$con->query("SELECT * FROM `news_events`");
-    $news_thumbnail=$con->query("SELECT * FROM `news_events`");
+include("config.php");
+$con=connect();
 
-  }else{
-    header("Location: index.php");
-  }
+
+$news_events=$con->query("SELECT * FROM `news_events`");
+$news_events_edit=$con->query("SELECT * FROM `news_events`");
+$news_thumbnail=$con->query("SELECT * FROM `news_events`");
+
 ?>
 
 
