@@ -6,7 +6,8 @@
   $con=connect();
 
   if(isset($_SESSION["username"])){
-
+    $sql_sites=$con->query("SELECT * FROM `tbl_sites`");
+    
   }else{
     header("Location: index.php");
   }
@@ -194,11 +195,11 @@
                       <div class="col-lg-6">
                         <div class="p-3 shadow rounded ">
                           <div class="title-total-dead">
-                            <h4>Total Deceased Persons in Sites</h4>
+                            <h4>Number Deceased Persons in Garden Sites</h4>
                             <hr>
                           </div>
                           <div class="chart-container mt-5" style="height: 50%">
-                              <canvas id="chart1"></canvas>
+                            <canvas id="chart1" class="" height="450px">asd</canvas>
                           </div>
                         </div>
                       </div>
@@ -208,8 +209,8 @@
                             <h4>Number of Customers per Week</h4>
                             <hr>
                           </div>
-                          <div class="chart-container mt-5" style="height: 50%">
-                              <canvas id="chart2"></canvas>
+                          <div class="chart-container mt-5" style="height: 80%">
+                              <canvas id="chart2" height="450px"></canvas>
                           </div>
                         </div>
                       </div>
@@ -234,23 +235,33 @@
   <script src="../Assets/js/index_admin.js" defer></script>
 
   <script>
+     //PIE CHART
    const data1 = {
       labels: [
-        'Joy Garden',
-        'Peace Garden',
-        'Hope Garden',
-        'Faith Garden',
-        'Love Garden'
+        <?php while($row=$sql_sites->fetch_array()) { 
+          echo "'".$row["site_name"]."',"; 
+        }?>
       ],
       datasets: [{
-        label: 'My First Dataset',
-        data: [30, 50, 25, 20, 44],
+        label: 'Total Deceased Persons in Sites',
+        data: [
+          <?php 
+            $sql_sites1=$con->query("SELECT * FROM `tbl_sites`");
+            while($row=$sql_sites1->fetch_array()){
+              $site=$row["site_id"];
+              $sql_site_count=$con->query("SELECT * FROM `deceased_persons` INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id WHERE deceased_persons.site_id=$site");
+              $count_dead=$sql_site_count->num_rows;
+              echo "'".$count_dead."',";
+
+            }
+          ?>
+        ],
         backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)',
-          'rgb(255, 20, 10)',
-          'rgb(205, 31, 100)',
+          "#4b77a9",
+          "#5f255f",
+          "#c25904",
+          "#ded300",
+          "#25de00",
         ],
         hoverOffset: 4
       }]
@@ -258,47 +269,77 @@
 
     var options = {
       maintainAspectRatio: false
-      
     };
-
-    new Chart('chart1', {
+    var ctx = document.getElementById("chart1").getContext('2d');
+    
+    new Chart(ctx, {
       type: 'pie',
       options: options,
       data: data1
     });
-
+    //BAR GRAPH
    const data2 = {
       labels: [
-        'Mon',
-        'Tue',
-        'Wed',
-        'Thurs',
-        'Fri',
-        'Sat',
-        'Sun'
+        <?php 
+          date_default_timezone_set('Asia/Manila');
+          for ($i=0; $i<7;$i++){
+            $lastweek = date("Y-m-d", strtotime(date("d") ? "$i days ago" : "last week"));
+            echo "'".date("M j, Y", strtotime($lastweek))."',";
+          }
+        ?>
       ],
       datasets: [{
-        label: 'Number of Customers per Week',
-        data: [30, 50, 25, 20, 44, 40, 32],
+        label: 'Number of Customer(s)',
+        data: [
+          <?php 
+          for ($i=0; $i<7;$i++){
+            $lastweek = date("Y-m-d", strtotime(date("d") ? "$i days ago" : "last week"));
+            $sql_count_customer=$con->query("SELECT * FROM `customers` WHERE `date`='$lastweek'");  
+            $count_customer=$sql_count_customer->num_rows;
+            echo "'".$count_customer."',";
+          }
+          ?>
+        ],
         backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)',
-          'rgb(255, 20, 10)',
-          'rgb(205, 31, 100)',
+          "#6b1515",
+          "#4b77a9",
+          "#5f255f",
+          "#c25904",
+          "#ded300",
+          "#25de00",
+          "#008073",
         ],
         hoverOffset: 4
       }]
     };
 
-    var options = {
-      maintainAspectRatio: false
-      
+    var options1 = {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          max:
+          <?php 
+            $max_customer=$con->query("SELECT * FROM `customers`");
+            $max_count=$max_customer->num_rows;
+            echo $max_count;  
+          ?>
+          ,
+          beginAtZero: true
+        },
+      },
+      ticks: {
+        precision:0
+      }
     };
-
-    new Chart('chart2', {
+    var ctx2 = document.getElementById("chart2").getContext('2d');
+    new Chart(ctx2, {
       type: 'bar',
-      options: options,
+      options: options1,
       data: data2
     });
 
