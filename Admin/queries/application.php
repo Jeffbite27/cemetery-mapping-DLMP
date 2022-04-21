@@ -14,12 +14,15 @@ if(isset($_POST["btn-submit-customer"])){
   $citizenship=mysqli_real_escape_string($con, $_POST["citizenship"]);
   $civil_status=mysqli_real_escape_string($con, $_POST["civil-status"]);
   $work=mysqli_real_escape_string($con, $_POST["work"]);
+  date_default_timezone_set('Asia/Manila');
+  $date=date("Y-m-d");
 
   $sql=$con->query("SELECT * FROM `customers` WHERE `family_name`='$family_name' AND `first_name`='$first_name' AND `middle_name`='$middle_name'");
   $row=$sql->fetch_array();
+  
 
   if($family_name!=isset($row["family_name"])&&$first_name!=isset($row["first_name"])&&$middle_name!=isset($row["middle_name"])){
-    $sql=$con->query("INSERT INTO `customers`(`family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`) VALUES ('$family_name','$first_name','$middle_name','$nickname','$address','$contact','$email','$bday','$gender','$religion','$citizenship','$civil_status','$work')");
+    $sql=$con->query("INSERT INTO `customers`(`family_name`, `first_name`, `middle_name`, `nickname`, `address`, `contact`, `email`, `bday`, `gender`, `religion`, `citizenship`, `status`, `work`, `date`) VALUES ('$family_name','$first_name','$middle_name','$nickname','$address','$contact','$email','$bday','$gender','$religion','$citizenship','$civil_status','$work', '$date')");
 
     echo "<script>
     Swal.fire({
