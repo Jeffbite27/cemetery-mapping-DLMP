@@ -252,22 +252,23 @@
               $sql_site_count=$con->query("SELECT * FROM `deceased_persons` INNER JOIN `tbl_sites` ON deceased_persons.site_id=tbl_sites.site_id WHERE deceased_persons.site_id=$site");
               $count_dead=$sql_site_count->num_rows;
               echo "'".$count_dead."',";
+
             }
           ?>
         ],
         backgroundColor: [
           "#4b77a9",
           "#5f255f",
-          "#d21243",
-          "#B27200"
+          "#c25904",
+          "#ded300",
+          "#25de00",
         ],
         hoverOffset: 4
       }]
     };
 
     var options = {
-      maintainAspectRatio: false,
-      barPercentage: 10
+      maintainAspectRatio: false
     };
     var ctx = document.getElementById("chart1").getContext('2d');
     
@@ -279,23 +280,34 @@
     //BAR GRAPH
    const data2 = {
       labels: [
-        'Mon',
-        'Tue',
-        'Wed',
-        'Thurs',
-        'Fri',
-        'Sat',
-        'Sun'
+        <?php 
+          date_default_timezone_set('Asia/Manila');
+          for ($i=0; $i<7;$i++){
+            $lastweek = date("Y-m-d", strtotime(date("d") ? "$i days ago" : "last week"));
+            echo "'".date("M j, Y", strtotime($lastweek))."',";
+          }
+        ?>
       ],
       datasets: [{
-        label: 'Number of Customers per Week',
-        data: [10, 50, 25, 20, 44, 40, 32],
+        label: 'Number of Customer(s)',
+        data: [
+          <?php 
+          for ($i=0; $i<7;$i++){
+            $lastweek = date("Y-m-d", strtotime(date("d") ? "$i days ago" : "last week"));
+            $sql_count_customer=$con->query("SELECT * FROM `customers` WHERE `date`='$lastweek'");  
+            $count_customer=$sql_count_customer->num_rows;
+            echo "'".$count_customer."',";
+          }
+          ?>
+        ],
         backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)',
-          'rgb(255, 20, 10)',
-          'rgb(205, 31, 100)',
+          "#6b1515",
+          "#4b77a9",
+          "#5f255f",
+          "#c25904",
+          "#ded300",
+          "#25de00",
+          "#008073",
         ],
         hoverOffset: 4
       }]
@@ -303,10 +315,25 @@
 
     var options1 = {
       maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
       scales: {
         y: {
+          max:
+          <?php 
+            $max_customer=$con->query("SELECT * FROM `customers`");
+            $max_count=$max_customer->num_rows;
+            echo $max_count;  
+          ?>
+          ,
           beginAtZero: true
-        }
+        },
+      },
+      ticks: {
+        precision:0
       }
     };
     var ctx2 = document.getElementById("chart2").getContext('2d');
