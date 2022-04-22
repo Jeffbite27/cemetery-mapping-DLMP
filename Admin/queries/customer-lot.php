@@ -6,7 +6,7 @@ include("../../config.php");
 $con=connect();
 extract($_POST);
 
-$customer_lot=$con->query("SELECT * FROM `tbl_lots` WHERE `site_id`='$site_id' AND `block_id`='$block' ORDER BY `lot_name` ASC");
+$customer_lot=$con->query("SELECT * FROM `tbl_lots` WHERE `site_id`='$site_id' AND `block_id`='$block' ORDER BY `lot_id` ASC");
 $output='';
 if($customer_lot->num_rows!=0){
   while($row=$customer_lot->fetch_array()){
