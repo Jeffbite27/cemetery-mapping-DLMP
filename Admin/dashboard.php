@@ -194,10 +194,16 @@
                     <div class="row mt-4 gx-3">
                       <div class="col-lg-6">
                         <div class="p-3 shadow rounded ">
-                          <div class="title-total-dead">
+                          <div class="title-total-dead d-flex align-items-center justify-content-between"">
                             <h4>Number Deceased Persons in Garden Sites</h4>
-                            <hr>
+                            <a href="queries/print-deceased-persons.php" target="_blank">
+                              <button class="btn btn-primary d-flex align-items-center ">
+                                <i class='bx bxs-printer text-white'></i>
+                                &nbsp;Print Deceased Persons
+                              </button>
+                            </a>
                           </div>
+                          <hr>
                           <div class="chart-container mt-5" style="height: 50%">
                             <canvas id="chart1" class="" height="450px">asd</canvas>
                           </div>
@@ -205,10 +211,16 @@
                       </div>
                       <div class="col-lg-6">
                         <div class="p-3 shadow rounded h-100">
-                          <div class="title-total-customer">
+                          <div class="title-total-customer d-flex align-items-center justify-content-between">
                             <h4>Number of Customers per Week</h4>
-                            <hr>
+                            <a href="queries/print-customers.php" target="_blank">
+                              <button class="btn btn-primary d-flex align-items-center ">
+                                <i class='bx bxs-printer text-white'></i>
+                                &nbsp;Print Customers
+                              </button>
+                            </a>
                           </div>
+                          <hr>
                           <div class="chart-container mt-5" style="height: 80%">
                               <canvas id="chart2" height="450px"></canvas>
                           </div>

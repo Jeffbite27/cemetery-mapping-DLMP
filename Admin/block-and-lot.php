@@ -17,6 +17,34 @@
 
     $lots_edit=$con->query("SELECT tbl_lots.lot_id, tbl_lots.lot_name, tbl_sites.site_name, tbl_lots.site_id, tbl_blocks.block_name, tbl_blocks.block_id, tbl_blocks.sector, tbl_lots.lawn_type FROM ((`tbl_lots` INNER JOIN `tbl_blocks` ON tbl_lots.block_id=tbl_blocks.block_id) INNER JOIN `tbl_sites` ON tbl_lots.site_id=tbl_sites.site_id)");
 
+    //UPDATE TOTAL BLOCKS AND LOTS IN SITE
+    $sql_sites=$con->query("SELECT * FROM `tbl_sites`");
+    while($rows=$sql_sites->fetch_array()){
+      $site_id=$rows["site_id"];
+      //BLOCKS
+      $sql=$con->query("SELECT * FROM `tbl_blocks` WHERE `site_id`='$site_id'");
+      $total_blocks=$sql->num_rows;
+
+      $sql=$con->query("UPDATE `tbl_sites` SET `total_blocks`='$total_blocks' WHERE `site_id`='$site_id'");
+
+      //LOTS
+      $sql=$con->query("SELECT * FROM `tbl_lots` WHERE `site_id`='$site_id'");
+      $total_lots=$sql->num_rows;
+      $sql=$con->query("UPDATE `tbl_sites` SET `total_lots`='$total_lots' WHERE `site_id`='$site_id'");
+
+    }
+
+    //UPDATE TOTAL LOTS IN BLOCKS
+    $sql_blocks=$con->query("SELECT * FROM `tbl_blocks`");
+    while($rows=$sql_blocks->fetch_array()){
+      $block_id=$rows["block_id"];
+      $sql=$con->query("SELECT * FROM `tbl_lots` WHERE `block_id`='$block_id'");
+      $total_lots_block=$sql->num_rows;
+      $sqls=$con->query("UPDATE `tbl_blocks` SET `total_lots`='$total_lots_block' WHERE `block_id`='$block_id'");
+    }
+
+    
+
   }else{
     header("Location: index.php");
   }
