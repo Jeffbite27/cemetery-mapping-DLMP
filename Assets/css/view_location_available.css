@@ -49,6 +49,11 @@
 }
 
 /* VIEW LOCATION */
+
+
+/* ---------------------------JOY SECTOR A-------------------------- */
+
+
 .available-Joy-A-block-1-lot-1 {
   position: absolute;
   top: var(--toprow1);
@@ -11715,9 +11720,11 @@
   /* background-color: red !important; */
   border: 4px solid var(--available-color) !important;
 }
-/* End of Block 50 */
 
-/* Joy Garden Site B */
+
+/* ---------------------------JOY SECTOR B-------------------------- */
+
+
 
 .available-Joy-B-block-1-lot-1 {
   position: absolute;
