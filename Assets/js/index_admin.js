@@ -393,3 +393,66 @@ $(document).ready(function () {
     });
   });
 });
+//-------------------------------SLIDE SHOW PAGE------------------------------
+//Add Slideshow function
+$("#slideshow-type").change(function(){
+  if($(this).val()=="Announcement"){
+    $("#announcement").show()
+    $("#banner").hide();
+    $("#what, #who, #when, #where").prop("required", true);
+    $("#banner-img").prop("required", false);
+  }else if($(this).val()=="Banner"){
+    $("#banner").show()
+    $("#announcement").hide();
+    $("#what, #who, #when, #where").prop("required", false);
+    $("#banner-img").prop("required", true);
+  }
+});
+$(".reset-slideshow, .btn-close-slideshow").click(function(){
+  $("#slideshow-type").val("");
+  $("#banner").hide();
+  $("#announcement").hide();
+})
+//edit announce funciton
+$(".edit-slideshow-type-announce").change(function(){
+  if($(this).val()=="Announcement"){
+    $(".edit-announcement-announce").show()
+    $(".edit-banner-announce").hide();
+    $(".edit-what-announce, .edit-when-announce, .edit-where-announce, .edit-who-announce").prop("required", true);
+    $(".edit-banner-img-announce").prop("required", false);
+  }else if($(this).val()=="Banner"){
+    $(".edit-announcement-announce").hide()
+    $(".edit-banner-announce").show();
+    $(".edit-what-announce, .edit-when-announce, .edit-where-announce, .edit-who-announce").prop("required", false);
+    $(".edit-banner-img-announce").prop("required", true);
+  }
+})
+$(".reset-announce, .btn-close-announce").click(function(){
+  $(".edit-slideshow-type-announce").val("Announcement");
+  $(".edit-banner-img-announce").prop("required", true);
+  $(".edit-announcement-announce").show()
+  $(".edit-banner-announce").hide();
+})
+
+//edit banner function
+$(".edit-slideshow-type-banner").change(function(){
+  if($(this).val()=="Announcement"){
+    $(".edit-announcement-banner").show()
+    $(".edit-banner").hide();
+    $(".edit-what-banner, .edit-when-banner, .edit-where-banner, .edit-who-banner").prop("required", true);
+    $(".edit-banner-img-banner").prop("required", false);
+    $(".edit-what-banner, .edit-when-banner, .edit-where-banner, .edit-who-banner").val("");
+  }else if($(this).val()=="Banner"){
+    $(".edit-banner-img-banner").prop("required", true);
+    $(".edit-what-banner, .edit-when-banner, .edit-where-banner, .edit-who-banner").prop("required", false);
+    $(".edit-announcement-banner").hide()
+    $(".edit-banner").show();
+  }
+})
+
+$(".reset-banner, .btn-close-banner").click(function(){
+  $(".edit-slideshow-type-banner").val("Banner");
+  $(".edit-banner-img-banner").prop("required", true);
+  $(".edit-announcement-banner").hide()
+  $(".edit-banner").show();
+})
