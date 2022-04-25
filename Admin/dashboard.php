@@ -74,7 +74,7 @@
       </li>
 
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Slideshow">
-        <a href="#">
+        <a href="slideshow.php">
           <i class='bx bx-carousel' ></i>
           <span class="link_name">Slideshow</span>
         </a>
@@ -205,7 +205,7 @@
                           </div>
                           <hr>
                           <div class="chart-container mt-5" style="height: 50%">
-                            <canvas id="chart1" class="" height="450px">asd</canvas>
+                            <canvas id="chart1" class="" height="450px"></canvas>
                           </div>
                         </div>
                       </div>

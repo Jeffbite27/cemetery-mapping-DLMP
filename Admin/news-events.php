@@ -19,7 +19,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../Assets/image/logopngplain.png" type="image/x-icon">
-    <title>Dashboard | Divine Life Memorial Park</title>
+    <title>News and Events | Divine Life Memorial Park</title>
 
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -85,7 +85,7 @@
       </li>
 
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Slideshow">
-        <a href="#">
+        <a href="slideshow.php">
           <i class='bx bx-carousel' ></i>
           <span class="link_name">Slideshow</span>
         </a>
