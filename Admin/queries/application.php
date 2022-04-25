@@ -641,3 +641,223 @@ if(isset($_POST["btn-edit-news"])){
       header("refresh: 1;");
   }
 }
+if(isset($_POST["btn-submit-slideshow"])){
+  $type=mysqli_real_escape_string($con, $_POST["slideshow-type"]);
+  if($type=="Announcement"){
+    $what=mysqli_real_escape_string($con, $_POST["what"]);
+    $when=mysqli_real_escape_string($con, $_POST["when"]);
+    $where=mysqli_real_escape_string($con, $_POST["where"]);
+    $who=mysqli_real_escape_string($con, $_POST["who"]);
+    $banner_img="no-img.jpg";
+
+    $sql=$con->query("INSERT INTO `slideshow`(`type`, `what`, `when`, `where`, `who`, `banner_image`) VALUES ('$type','$what','$when','$where','$who','$banner_img')");
+
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Announcement Successfully Added!',
+      text: 'You added new announcement',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+    header("refresh: 1;");
+
+  }else if($type=="Banner"){
+    $time=time();
+    $banner_img=$time.'.'.pathinfo($_FILES["banner-img"]['name'], PATHINFO_EXTENSION);
+    $banner_Target="files/banner_img/".$banner_img;
+    move_uploaded_file($_FILES["banner-img"]["tmp_name"], $banner_Target);
+
+    $sql=$con->query("INSERT INTO `slideshow`(`type`, `what`, `when`, `where`, `who`, `banner_image`) VALUES ('$type','N/A','N/A','N/A','N/A','$banner_img')");
+    
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Banner Successfully Added!',
+      text: 'You added new banner',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+    header("refresh: 1;");
+  }
+}
+//ANNOUNCEMENT
+if(isset($_POST["btn-edit-slideshow-announce"])){
+  $type=mysqli_real_escape_string($con, $_POST["edit-slideshow-type-announce"]);
+  $id=mysqli_real_escape_string($con, $_POST["edit-id-announce"]);
+  if($type=="Announcement"){
+    $what=mysqli_real_escape_string($con, $_POST["edit-what-announce"]);
+    $when=mysqli_real_escape_string($con, $_POST["edit-when-announce"]);
+    $where=mysqli_real_escape_string($con, $_POST["edit-where-announce"]);
+    $who=mysqli_real_escape_string($con, $_POST["edit-who-announce"]);
+    $banner_img="no-img.jpg";
+
+    $sql=$con->query("UPDATE `slideshow` SET `type`='$type',`what`='$what',`when`='$when',`where`='$where',`who`='$who',`banner_image`='$banner_img' WHERE `slideshow_id`='$id'");
+
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Successfully Updated',
+      text: 'You updated a slideshow',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  
+    header("refresh: 1;");
+
+  }else if ($type=="Banner"){
+    $time=time();
+    $banner_img=$time.'.'.pathinfo($_FILES["edit-banner-img-announce"]['name'], PATHINFO_EXTENSION);
+    $banner_Target="files/banner_img/".$banner_img;
+    move_uploaded_file($_FILES["edit-banner-img-announce"]["tmp_name"], $banner_Target);
+
+    $sql=$con->query("UPDATE `slideshow` SET `type`='$type',`what`='N/A',`when`='N/A',`where`='N/A',`who`='N/A',`banner_image`='$banner_img' WHERE `slideshow_id`='$id'");
+
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Successfully Updated',
+      text: 'You updated a slideshow',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  
+    header("refresh: 1;");
+  }
+}
+//BANNER
+if(isset($_POST["btn-edit-slideshow-banner"])){
+  $type=mysqli_real_escape_string($con, $_POST["edit-slideshow-type-banner"]);
+  $id=mysqli_real_escape_string($con, $_POST["edit-id-banner"]);
+  $sql1=$con->query("SELECT * FROM `slideshow` WHERE `slideshow_id`='$id'");
+  $row=$sql1->fetch_array();
+
+  if($type=="Announcement"){
+    
+    unlink("files/banner_img/".$row["banner_image"]);
+    $what=mysqli_real_escape_string($con, $_POST["edit-what-banner"]);
+    $when=mysqli_real_escape_string($con, $_POST["edit-when-banner"]);
+    $where=mysqli_real_escape_string($con, $_POST["edit-where-banner"]);
+    $who=mysqli_real_escape_string($con, $_POST["edit-who-banner"]);
+    $banner_img="no-img.jpg";
+
+    $sql=$con->query("UPDATE `slideshow` SET `type`='$type',`what`='$what',`when`='$when',`where`='$where',`who`='$who',`banner_image`='$banner_img' WHERE `slideshow_id`='$id'");
+
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Successfully Updated',
+      text: 'You updated a slideshow',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  
+    header("refresh: 1;");
+
+  }else if ($type=="Banner"){
+    unlink("files/banner_img/".$row["banner_image"]);
+    
+    $time=time();
+    $banner_img=$time.'.'.pathinfo($_FILES["edit-banner-img-banner"]['name'], PATHINFO_EXTENSION);
+    $banner_Target="files/banner_img/".$banner_img;
+    move_uploaded_file($_FILES["edit-banner-img-banner"]["tmp_name"], $banner_Target);
+
+    $sql=$con->query("UPDATE `slideshow` SET `type`='$type',`what`='N/A',`when`='N/A',`where`='N/A',`who`='N/A',`banner_image`='$banner_img' WHERE `slideshow_id`='$id'");
+   
+
+    echo "<script>
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Successfully Updated',
+      text: 'You updated a slideshow',
+      showConfirmButton: false,
+      timer: 2000,
+      allowOutsideClick: () => {
+        const popup = Swal.getPopup()
+        popup.classList.remove('swal2-show')
+        setTimeout(() => {
+          popup.classList.add('animate__animated', 'animate__headShake')
+        })
+        setTimeout(() => {
+          popup.classList.remove('animate__animated', 'animate__headShake')
+        }, 500)
+        return false
+      }
+    })
+    window.history.replaceState( null, null, window.location.href );
+    </script>";
+  
+    header("refresh: 1;");
+  }
+}
