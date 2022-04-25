@@ -8,6 +8,8 @@ $news_events=$con->query("SELECT * FROM `news_events`");
 $news_events_edit=$con->query("SELECT * FROM `news_events`");
 $news_thumbnail=$con->query("SELECT * FROM `news_events`");
 
+$slideshow_announcement=$con->query("SELECT * FROM `slideshow` WHERE `type`='Announcement'");
+$slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'");
 ?>
 
 
@@ -66,42 +68,105 @@ $news_thumbnail=$con->query("SELECT * FROM `news_events`");
 
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide slide1">
-              <div class="slide1-cont1">
-                  <h1>Find your loved ones</h1>
-                  <p>Introducing our new Locate a Grave feature. An easiest way to locate and track grave of your loved ones with convenience in just few seconds.
-                    Within minutes of arriving at the cemetery, you can be standing in front of the grave by using locate a grave feature </p>
-                <div class="text-start">
-                <a href="User/Find_Grave.php"> 
-                    <button type="submit" class="btn-find"><b>TRY IT NOW</b></button>
-                </a>
+            <div class="swiper-slide slide1">
+                <div class="slide1-cont1">
+                    <h1>Find your loved ones</h1>
+                    <p>Introducing our new Locate a Grave feature. An easiest way to locate and track grave of your loved ones with convenience in just few seconds.
+                        Within minutes of arriving at the cemetery, you can be standing in front of the grave by using locate a grave feature </p>
+                    <div class="text-start">
+                    <a href="User/Find_Grave.php"> 
+                        <button type="submit" class="btn-find"><b>TRY IT NOW</b></button>
+                    </a>
+                    </div>
+                    
                 </div>
-                
-              </div>
-              <div class="slide1-cont2">
-                  <img src="Assets/image/Location tracking-rafiki.svg" alt="">
-              </div>
-          </div>
-          <div class="swiper-slide slide2">
-              <div class="slide2-cont1">
-                  <img src="Assets/image/People sightseeing outdoors-cuate.svg" alt="">
-              </div>
-              <div class="slide2-cont2">
-                  <h1>Visiting Hours</h1>
-                  <p>We are glad to welcome you at Divine Memorial Park Cemetery, whether you are remembering a loved one or attending a holiday event.</p>
-                  <!-- <p>The grounds are open for visitation every day including holidays, 8am-5:30pm </p> -->
-                  <div class="visiting-hrs">
-                    <h2>Opens 7 days a week: <span><b>7:00 AM - 8:00 PM</b></span></h2> 
-                  </div>
-                  <h1 class="office_hours">Office Hours</h1>
-                  <p>The Cemetery office is anticipated to be closed, keep updated to our news and events</p>
-                  <div class="office-hrs">
-                    <h2>Monday - Friday: <b>8:00 AM - 4:00 PM</b></h2>
-                    <h2>Saturday: <b>9:00 AM - 12:00 PM</b></h2>    
-                  </div>
-                  
-              </div>
-          </div>
+                <div class="slide1-cont2">
+                    <img src="Assets/image/Location tracking-rafiki.svg" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide slide2">
+                <div class="slide2-cont1">
+                    <img src="Assets/image/People sightseeing outdoors-cuate.svg" alt="">
+                </div>
+                <div class="slide2-cont2">
+                    <h1>Visiting Hours</h1>
+                    <p>We are glad to welcome you at Divine Memorial Park Cemetery, whether you are remembering a loved one or attending a holiday event.</p>
+                    <div class="visiting-hrs">
+                        <h2>Opens 7 days a week: <span><b>7:00 AM - 8:00 PM</b></span></h2> 
+                    </div>
+                    <h1 class="office_hours">Office Hours</h1>
+                    <p>The Cemetery office is anticipated to be closed, keep updated to our news and events</p>
+                    <div class="office-hrs">
+                        <h2>Monday - Friday: <b>8:00 AM - 4:00 PM</b></h2>
+                        <h2>Saturday: <b>9:00 AM - 12:00 PM</b></h2>    
+                    </div>
+                    
+                </div>
+            </div>
+            <?php while($row=$slideshow_announcement->fetch_array()){ ?>
+            <div class="swiper-slide announcement ">
+              <center>
+                <div class="announcement-title text-uppercase">
+                    <h1>Announcement</h1>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="announcement-ws">
+                            <h2>WHAT</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12">
+                        <div class="announcement-desc text-start">
+                            <h3 class="text-capitalize"><?php echo $row["what"] ?></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="announcement-ws">
+                            <h2>WHEN</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12">
+                        <div class="announcement-desc text-start">
+                            <h3><?php echo date("M j, Y", strtotime($row["when"])) ?></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="announcement-ws">
+                            <h2>WHERE</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="announcement-desc text-start">
+                            <h3><?php echo $row["where"] ?></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="announcement-ws">
+                            <h2>WHO</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12">
+                        <div class="announcement-desc text-start">
+                            <h3><?php echo $row["who"] ?></h3>
+                        </div>
+                    </div>
+                </div> 
+              </center>
+            </div>
+            <?php }?>
+            <?php while($row=$slideshow_banner->fetch_array()){ ?>
+            <div class="swiper-slide banner">
+                <div class="banner-img">
+                    <img src="Admin/files/banner_img/<?php echo $row["banner_image"] ?>" alt="image" border="0">
+                </div>
+            </div>
+            <?php }?>
         </div>
         <div class="swiper-button-next">
             <i class="fa fa-chevron-right"></i>

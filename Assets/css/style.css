@@ -329,6 +329,70 @@ p{
     margin-left: 1em;
 } */
 
+.announcement{
+  position: relative;
+  transition: opacity 1s ease-in-out;
+  background-image:linear-gradient(rgba(255, 255, 255, 0.800), rgba(255, 255, 255, 0.753), rgba(255, 255, 255, 0.800)), url("../image/02home.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  /* background-color: #832121; */
+  /* background-attachment: fixed; */
+}
+
+/* .announcement .announcement-title .h1{
+  text-transform: uppercase;
+} */
+.announcement{
+  padding: 20%;
+}
+.announcement-title h1{
+  letter-spacing: 10px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: 900; 
+  margin: 50px; 
+  font-size: 3rem;
+}
+.announcement-ws h2{
+  color: var(--color1);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2rem;
+}
+.announcement-desc h3{
+ text-align: justify;
+ font-size: 1.5rem;
+}
+
+.banner{
+  position: relative;
+  transition: opacity 1s ease-in-out;
+  background-image:linear-gradient(rgba(255, 255, 255, 0.800), rgba(255, 255, 255, 0.753), rgba(255, 255, 255, 0.800)), url("../image/02home.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  /* background-color: #832121; */
+  /* background-attachment: fixed; */
+}
+.banner .banner-img{
+  width:100%;
+  height: auto;
+  filter: brightness(40%);
+}
+/* .slideshow .slideshow-cont{
+  width: 50%;
+}
+.slideshow .slideshow-cont2{
+  width: 50%;
+  margin-left: 3em;
+  margin-top: -3em;
+  padding-right: 5em;
+}
+.slideshow .slideshow-cont img{
+  width: 700px;
+  margin-left: 10em;
+} */
 
 .swiper-button-next {
     padding: 0 3em 0 0em;
@@ -337,7 +401,7 @@ p{
 .swiper-button-next i{
     color: #832121;
     font-size: 2em;
-    opacity: .2;
+    opacity: .5;
 }
 
 .swiper-button-next::after {
@@ -351,7 +415,7 @@ p{
 .swiper-button-prev i{
   color: #832121;
   font-size: 2em;
-  opacity: .2;
+  opacity: .5;
 }
 
 .swiper-button-prev::after{
@@ -1872,7 +1936,4 @@ p#signup:hover{
     font-size: 20px;
   }
   
-}
-.news-banner{
-
 }

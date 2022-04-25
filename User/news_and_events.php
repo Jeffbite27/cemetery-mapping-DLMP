@@ -132,7 +132,7 @@
               <p class="lead fst-italic fs-6"><?php echo $rows["news_subtitle"] ?></p>
             </div>
             <div class="other-news-date mt-2 mx-3">
-              <p class="m-0 fs-8 fw-light"><?php echo date("M j, Y", strtotime($row["news_date"]))?></p>
+              <p class="m-0 fs-8 fw-light"><?php echo date("M j, Y", strtotime($rows["news_date"])); ?></p>
             </div>
             <div class="mx-3">
               <a href="news_and_events.php?item=<?php echo $rows["news_id"] ?>">

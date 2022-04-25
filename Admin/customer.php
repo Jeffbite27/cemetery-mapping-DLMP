@@ -79,7 +79,7 @@
       </li>
 
       <li class="tabs" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Slideshow">
-        <a href="#">
+        <a href="slideshow.php">
           <i class='bx bx-carousel' ></i>
           <span class="link_name">Slideshow</span>
         </a>
