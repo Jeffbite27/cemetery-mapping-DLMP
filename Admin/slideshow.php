@@ -217,7 +217,7 @@
               </div>
               <div class="col-lg-6 col-md-12 mb-2">
                 <label for="when" class="">When:<i class="req">*</i></label>
-                <input type="text" class="form-control w-100" id="when" name="when" required>
+                <input type="date" class="form-control w-100" id="when" name="when" required>
               </div>
               <div class="col-lg-6 col-md-12 mb-2">
                 <label for="where" class="">Where:<i class="req">*</i></label>
