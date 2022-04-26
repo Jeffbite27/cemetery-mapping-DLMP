@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2022 at 06:23 PM
+-- Generation Time: Apr 26, 2022 at 03:35 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -60,7 +60,8 @@ CREATE TABLE `customers` (
   `religion` varchar(255) NOT NULL,
   `citizenship` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `work` varchar(255) NOT NULL
+  `work` varchar(255) NOT NULL,
+  `Date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -105,6 +106,37 @@ CREATE TABLE `lot_owners` (
   `block_id` int(11) NOT NULL,
   `lot_id` int(11) NOT NULL,
   `deed_of_sale` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news_events`
+--
+
+CREATE TABLE `news_events` (
+  `news_id` int(11) NOT NULL,
+  `news_title` varchar(50) NOT NULL,
+  `news_subtitle` varchar(50) NOT NULL,
+  `news_description` varchar(250) NOT NULL,
+  `news_date` varchar(150) NOT NULL,
+  `news_img` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slideshow`
+--
+
+CREATE TABLE `slideshow` (
+  `slideshow_id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `what` longtext NOT NULL,
+  `when` varchar(255) NOT NULL,
+  `where` varchar(255) NOT NULL,
+  `who` varchar(255) NOT NULL,
+  `banner_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -178,6 +210,18 @@ ALTER TABLE `lot_owners`
   ADD PRIMARY KEY (`lot_owner_id`);
 
 --
+-- Indexes for table `news_events`
+--
+ALTER TABLE `news_events`
+  ADD PRIMARY KEY (`news_id`);
+
+--
+-- Indexes for table `slideshow`
+--
+ALTER TABLE `slideshow`
+  ADD PRIMARY KEY (`slideshow_id`);
+
+--
 -- Indexes for table `tbl_blocks`
 --
 ALTER TABLE `tbl_blocks`
@@ -222,6 +266,18 @@ ALTER TABLE `deceased_persons`
 --
 ALTER TABLE `lot_owners`
   MODIFY `lot_owner_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `news_events`
+--
+ALTER TABLE `news_events`
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `slideshow`
+--
+ALTER TABLE `slideshow`
+  MODIFY `slideshow_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_blocks`

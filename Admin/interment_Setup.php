@@ -229,7 +229,7 @@
                                           <td class="align-middle"><?php echo $row["deceased_id"]?></td>
                                           <td class="align-middle"><?php echo $row["dead_fname"]." ".$row["dead_mname"]." ".$row["dead_family_name"]?></td>
                                           <td class="align-middle"><?php echo $row["dead_gender"]?></td>
-                                          <td class="align-middle"><?php echo $row["dead_relative"]." ".$row["dead_relative_surname"]?></td>
+                                          <td class="align-middle"><?php echo $row["first_name"]." ".$row["family_name"]?></td>
                                           <td class="align-middle"><?php echo $row["dead_relationship"]?></td>
                                           <td class="align-middle"><?php echo date("M j, Y", strtotime($row["internment_date"]))?></td>
                                           <td class="align-middle"><?php echo date("M j, Y", strtotime($row["date_of_birth"]))?></td>

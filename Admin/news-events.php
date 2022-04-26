@@ -40,6 +40,7 @@
    </head>
 <body>
 <?php include("queries/application.php");?>
+<?php include("queries/delete-items.php");?>
   
   <div class="sidebar close">
 
@@ -140,7 +141,7 @@
                       <th>Subtitle</th>
                       <th>Description</th>
                       <th style="width: 20%">News Image</th>  
-                      <th>Action</th>
+                      <th  style="width: 10%">Action</th>
                     </thead>
 
                     <tbody>
@@ -153,9 +154,18 @@
                           <td class="align-middle"><?php echo $row["news_description"] ?></td>
                           <td class="align-middle text-center"><img style="width: 60%;" src="files/news_img/<?php echo $row["news_img"] ?>"></td>
                           <td class="align-middle text-center">
-                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-news-<?php echo $row["news_id"]?>">
+                          <form action="" method="POST" >
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-news-<?php echo $row["news_id"]?>">
                               <i class='bx bxs-edit'></i>
                             </button>
+
+                            <input type="hidden" name="news-id" value="<?php echo $row["news_id"] ?>">
+
+                            <button class="btn btn-danger delete-news" name="btn-del-news">
+                                <i class='bx bxs-trash'></i>
+                            </button>
+
+                          </form>
                           </td>
                         </tr>
                       <?php }?>
