@@ -5,6 +5,7 @@ $con=connect();
 
 
 $news_events=$con->query("SELECT * FROM `news_events`");
+$count_news=$news_events->num_rows;
 $news_events_edit=$con->query("SELECT * FROM `news_events`");
 $news_thumbnail=$con->query("SELECT * FROM `news_events`");
 
@@ -349,6 +350,7 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
             <h1>NEWS AND EVENTS</h1>
         </div>
         <div class="container">
+            <?php if($count_news!=0){ ?>
             <div class="row row-cols-lg-3 row-cols-sm-1">
                 <?php while($row=$news_events->fetch_array()){ ?>
                     <div class="col-lg-4 col-md-6 col-sm-12 p-2 pt-5">
@@ -384,7 +386,11 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
                     </div>
                 <?php }?>
             </div>
-
+            <?php } else { ?>
+            <div class="row mt-5 text-center">
+                <h1>No News and Events Available</h1>
+            </div>
+            <?php }?>
             <div class="loadmore">
                 <div class="box loadmorebtn">
                     <i class="fa fa-plus"></i>
