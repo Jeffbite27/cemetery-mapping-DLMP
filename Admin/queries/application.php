@@ -641,6 +641,8 @@ if(isset($_POST["btn-edit-news"])){
       header("refresh: 1;");
   }
 }
+
+
 if(isset($_POST["btn-submit-slideshow"])){
   $type=mysqli_real_escape_string($con, $_POST["slideshow-type"]);
   if($type=="Announcement"){

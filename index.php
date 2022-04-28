@@ -217,135 +217,66 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
         </div>
     </div>
 
-
-    <!-- <div class="news-events" id="news">
-        <div class="news-header">
-            <h1>NEWS AND EVENTS</h1>
+    <div class="faq" id="faq">
+        <div class="container faq-cont">
+            <div class="faq-title text-center py-5">
+                <h1>Frequently Asked Questions (FAQ)</h1>
+            </div>
+            <div class="row row-cols-md-2">
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="accordion w-100" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Accordion Item #1
+                            </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                Accordion Item #2
+                            </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body">
+                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                Accordion Item #3
+                            </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                            <div class="accordion-body">
+                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-none d-sm-block">
+                    <div class="faq-img">
+                        <img src="Assets/image/faq.svg" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="news-content">
-            <div class="content-card">
-                <div class="card-img">
-                    <img src="Assets/image/service-type1.jpg" alt="">
-                </div>
-                <div class="card-content">
-                    <div class="content-header">
-                        <h2>DIVINE LIFE MEMORIAL PARK <span class="date">MM/DD/YYYY</span></h2>
-                    </div>
-                    <div class="content-body">
-                        <h1>Title</h1>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum iusto minima eligendi nobis culpa placeat tempora labore exercitationem quasi recusandae. Voluptatem fugiat eaque earum incidunt fugit quos atque minima voluptatum.</p>
-                        
-                    </div>
+    </div>
 
-                    <div class="link">
-                        <a href="#">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-            <div class="content-card">
-                <div class="card-img">
-                    <img src="Assets/image/service-type1.jpg" alt="">
-                </div>
-                <div class="card-content">
-                    <div class="content-header">
-                        <h2>DIVINE LIFE MEMORIAL PARK <span class="date">MM/DD/YYYY</span></h2>
-                    </div>
-                    <div class="content-body">
-                        <h1>Title</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, maiores. Facere fugiat excepturi ullam earum dignissimos,</p>
-                    </div>
-                </div>
-                <div class="link">
-                    <a href="#">READ MORE</a>
-                </div>
-            </div>
-            <div class="content-card">
-                <div class="card-img">
-                    <img src="Assets/image/service-type1.jpg" alt="">
-                </div>
-                <div class="card-content">
-                    <div class="content-header">
-                        <h2>DIVINE LIFE MEMORIAL PARK <span class="date">MM/DD/YYYY</span></h2>
-                    </div>
-                    <div class="content-body">
-                        <h1>Title</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, maiores. Facere fugiat excepturi ullam earum dignissimos,</p>
-                    </div>
-                </div>
-                <div class="link">
-                    <a href="#">READ MORE</a>
-                </div>
-            </div>
-            <div class="content-card">
-                <div class="card-img">
-                    <img src="Assets/image/service-type1.jpg" alt="">
-                </div>
-                <div class="card-content">
-                    <div class="content-header">
-                        <h2>DIVINE LIFE MEMORIAL PARK <span class="date">MM/DD/YYYY</span></h2>
-                    </div>
-                    <div class="content-body">
-                        <h1>Title</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, maiores. Facere fugiat excepturi ullam earum dignissimos,</p>
-                    </div>
-                </div>
-                <div class="link">
-                    <a href="#">READ MORE</a>
-                </div>
-            </div>
-            <div class="content-card">
-                <div class="card-img">
-                    <img src="Assets/image/service-type1.jpg" alt="">
-                </div>
-                <div class="card-content">
-                    <div class="content-header">
-                        <h2>DIVINE LIFE MEMORIAL PARK <span class="date">MM/DD/YYYY</span></h2>
-                    </div>
-                    <div class="content-body">
-                        <h1>Title</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, maiores. Facere fugiat excepturi ullam earum dignissimos,</p>
-                    </div>
-                </div>
-                <div class="link">
-                    <a href="#" >READ MORE</a>
-                </div>
-            </div>
-            <div class="content-card">
-                <div class="card-img">
-                    <img src="Assets/image/service-type1.jpg" alt="">
-                </div>
-                <div class="card-content">
-                    <div class="content-header">
-                        <h2>DIVINE LIFE MEMORIAL PARK <span class="date">MM/DD/YYYY</span></h2>
-                    </div>
-                    <div class="content-body">
-                        <h1>Title</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, maiores. Facere fugiat excepturi ullam earum dignissimos,</p>
-                    </div>
-                </div>
-                <div class="link">
-                    <a href="#" >READ MORE</a>
-                </div>
-            </div>
-            
-        </div> -->
 
-        <!-- <div class="loadmore">
-            <div class="box loadmorebtn">
-                <i class="fa fa-plus"></i>
-                <h2>LOAD MORE</h2>
-            </div>
-
-            <div class="box loadlessbtn">
-                <i class="fa fa-plus"></i>
-                <h2>LOAD LESS</h2>
-            </div>
-            
-        </div> -->
     </div>
     <div id="news"></div>
     <section class="news pt-5 mt-5">
-        <div class="news-header ">
+        <div class="news-header">
             <h1>NEWS AND EVENTS</h1>
         </div>
         <div class="container">

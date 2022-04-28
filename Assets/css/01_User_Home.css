@@ -599,8 +599,39 @@ h4 .news_sub {
   font-size: 0.5rem;
 }
 
-/* .content-body {
-} */
+/* Frequently Asked Questions */
+
+.faq .faq-cont{
+  margin-top: 10em;
+  margin-bottom: 5em;
+}
+
+.faq h1{
+  font-size: 1.8rem;
+  color: var(--color1);
+}
+
+.faq .accordion-item{
+  border-left: white;
+  border-right: white;
+  border-top: white;
+  padding: 1em;
+  outline: none;
+}
+
+.faq .accordion{
+  color: var(--color1);
+}
+
+.accordion-button{
+  color: var(--color1);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0,0,0,.125);
+}
+
 
 .content-body h1 {
   font-size: 1.8rem;

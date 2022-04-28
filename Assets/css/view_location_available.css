@@ -33114,3 +33114,20 @@
   /* background-color: red !important; */
   border: 4px solid var(--available-color) !important;
 }
+
+
+
+/* ---------------------------JOY SECTOR D-------------------------- */
+
+.available-Joy-D-block-1-lot-1 {
+  position: absolute;
+  top: var(--toprow1c);
+  bottom: 0%;
+  left: 4.9%;
+  right: 0%;
+  height: var(--Cheight);
+  width: 1.8%;
+  /*background-color: var(--available-color) !important;*/
+  /* background-color: red !important; */
+  border: 4px solid var(--available-color) !important;
+}
