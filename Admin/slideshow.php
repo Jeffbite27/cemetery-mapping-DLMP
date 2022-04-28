@@ -41,6 +41,7 @@
    </head>
 <body>
 <?php include("queries/application.php");?>
+<?php include("queries/delete-items.php");?>
   
   <div class="sidebar close">
 
@@ -164,9 +165,17 @@
                           <td class="align-middle"><?php echo $row["who"] ?></td>
                           <td class="align-middle text-center"><img style="width: 60%;" src="files/banner_img/<?php echo $row["banner_image"] ?>"></td>
                           <td class="align-middle text-center">
-                            <button class="btn btn-success edit-slideshow" data-bs-toggle="modal" data-bs-target="#edit-slideshow-<?php echo $row["slideshow_id"]?>">
-                              <i class='bx bxs-edit'></i>
-                            </button>
+                          <form action="" method="POST" >
+                              <button type="button" class="btn btn-success edit-slideshow" data-bs-toggle="modal" data-bs-target="#edit-slideshow-<?php echo $row["slideshow_id"]?>">
+                                <i class='bx bxs-edit'></i>
+                              </button>
+                            
+                              <input type="hidden" name="slide-show-id" value="<?php echo $row["slideshow_id"] ?>">
+
+                              <button class="btn btn-danger delete-slideshow" name="btn-del-slideshow">
+                                <i class='bx bxs-trash'></i>
+                              </button>
+                            </form>
                           </td>
                         </tr>
                       <?php }?>
@@ -217,7 +226,7 @@
               </div>
               <div class="col-lg-6 col-md-12 mb-2">
                 <label for="when" class="">When:<i class="req">*</i></label>
-                <input type="text" class="form-control w-100" id="when" name="when" required>
+                <input type="date" class="form-control w-100" id="when" name="when" required>
               </div>
               <div class="col-lg-6 col-md-12 mb-2">
                 <label for="where" class="">Where:<i class="req">*</i></label>
