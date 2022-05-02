@@ -220,7 +220,7 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
             </div>
         </div>
     </div>
-            <br>
+    <br>
     <div id="faqs"></div>
     <div class="faq mt-5" id="faq">
         <div class="container faq-cont">
