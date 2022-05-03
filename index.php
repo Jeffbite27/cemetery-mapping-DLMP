@@ -57,6 +57,9 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
                     <a href="#about">ABOUT</a> 
                 </li>
                 <li> 
+                    <a href="#faqs">FAQs</a> 
+                </li>
+                <li> 
                     <a href="#news">NEWS & EVENTS</a> 
                 </li>
                 <li> 
@@ -217,11 +220,12 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
             </div>
         </div>
     </div>
-
-    <div class="faq" id="faq">
+    <br>
+    <div id="faqs"></div>
+    <div class="faq mt-5" id="faq">
         <div class="container faq-cont">
             <div class="faq-title text-center py-5">
-                <h1>Frequently Asked Questions (FAQ)</h1>
+                <h1>FREQUENTLY ASKED QUESTIONS (FAQs)</h1>
             </div>
             <div class="row row-cols-md-2">
                 <div class="col-md-6 d-flex align-items-center">
@@ -285,8 +289,6 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
         </div>
     </div>
 
-
-    </div>
     <div id="news"></div>
     <section class="news pt-5 mt-5">
         <div class="news-header">
