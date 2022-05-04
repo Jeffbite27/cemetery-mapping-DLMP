@@ -96,7 +96,7 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
                     <h1>Visiting Hours</h1>
                     <p>We are glad to welcome you at Divine Memorial Park Cemetery, whether you are remembering a loved one or attending a holiday event.</p>
                     <div class="visiting-hrs">
-                        <h2>Opens 7 days a week: <span><b>7:00 AM - 8:00 PM</b></span></h2> 
+                        <h2>Opens 7 days a week: <span><b>7:00 AM - 7:00 PM</b></span></h2> 
                     </div>
                     <h1 class="office_hours">Office Hours</h1>
                     <p>The Cemetery office is anticipated to be closed, keep updated to our news and events</p>
@@ -238,19 +238,25 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
                             </h2>
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                             <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                
+                                <p> Our <strong> Main Office </strong> is Located at <strong> 238 JP Rizal Street, Brgy. Poblacion, Cabuyao, Laguna </strong> at the back of Entrepreneur Bank</p>
+                                <p> <strong> Main Site</strong> is Located at <strong> Brgy. Gulod 4024 Cabuyao, Laguna </strong>. You can view our contact page for more info</p>
+                                
                             </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                What time and day is available to visit?
+                                What day is available to visit?
                             </button>
                             </h2>
                             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                             <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <p>You can visit Divine Life Memorial Park daily at <strong>7:00 AM - 7:00 PM</strong></p>
+                                <p>Our main office opens <strong>Monday-Friday 8:00 AM - 4:00 PM</strong> , and in <Strong>Saturdays 9:00 AM - 12:00 PM</Strong> </p>
+                                
+                                
                             </div>
                             </div>
                         </div>
@@ -262,19 +268,10 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
                             </h2>
                             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                             <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-                                Why we shoud do that here?
-                            </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
-                            <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <p>It only needs <strong> Valid ID, Proof of Billing and Buyers Form (BAF) </strong></p>
+
+                                <p>- Assists Buyer and Seller on choosing their desired lot location </p>
+                                <p>- Discuss about product type and description, payment, plan, term and other park policies </p>
                             </div>
                             </div>
                         </div>
@@ -396,7 +393,7 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
                     <div class="container">
                         <img src="Assets/image/clock-solid.svg" alt="clock-icon">
                         <h2>OPEN HOURS</h2>
-                        <p>6:00 - 8:00pm</p>
+                        <p>8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
                 <div class="map-img">
@@ -419,7 +416,7 @@ $slideshow_banner=$con->query("SELECT * FROM `slideshow` WHERE `type`='Banner'")
                     <div class="container">
                         <img src="Assets/image/clock-solid.svg" alt="clock-icon">
                         <h2>OPEN HOURS</h2>
-                        <p>6:00 - 8:00pm</p>
+                        <p>8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
             </div>
