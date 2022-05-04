@@ -76,6 +76,9 @@
                     <a href="../index.php#about">ABOUT</a> 
                 </li>
                 <li> 
+                    <a href="../index.php#faqs">FAQs</a> 
+                </li>
+                <li> 
                     <a href="../index.php#news">NEWS & EVENTS</a> 
                 </li>
                 <li> 
