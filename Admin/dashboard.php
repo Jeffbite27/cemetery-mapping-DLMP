@@ -86,16 +86,26 @@
           <span class="link_name">News & Events</span>
         </a>
       </li>
-      
     </ul>
-
+    <button id="logout" data-username="<?php echo  $_SESSION["username"] ?>">
+    <div class="admin-content">
+      <div class="admin d-flex align-items-center">
+        <div class="admin-details ">
+          <i class='bx bx-log-out-circle' style="cursor: pointer"></i>
+          <div class="admin-label">
+            Logout
+          </div>
+        </div>
+      </div>
+    </div>
+    </button>
   </div>
+  <div class="notif"></div>
 
   <section class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
     </div>
-
     <div class="main-container">
       <div class="content active">
         <div class="div-content">
