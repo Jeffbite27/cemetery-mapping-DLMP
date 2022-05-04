@@ -33,7 +33,33 @@ tabs.forEach((tab, index) => {
     contents[index].classList.add("active");
   });
 });
-
+// ----------------------------LOGOUT-------------------------------------
+$("#logout").click(function(){
+  
+  Swal.fire({
+    title: 'Are you sure to log out?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#0d6efd',
+    cancelButtonColor: '#dc3545',
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      var user = $(this).attr("data-username");
+      $.ajax({
+        url: "queries/logout.php",
+        method: "post",
+        data: {user:user},
+        success:function(data){
+          $(".notif").html(data);
+          location.reload();
+        }
+      })
+    }
+})
+  
+})
 // ----------------------------CUSTOMER PAGE-------------------------------------
 $(document).ready(function () {
   $("#tbl-customer").DataTable({

@@ -313,7 +313,48 @@ tr.odd td {
   color: white;
   font-size: 0.5rem;
 }
+/* ------------------------------LOGOUT BUTTON------------------------------ */
+.admin-content {
+  position: absolute;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: auto;
+}
+.admin-content .admin {
+  position: relative;
 
+  height: 60px;
+  background: rgb(90, 13, 13);
+  pointer-events: auto;
+}
+.admin-content .admin .admin-details {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.admin .admin-details i {
+  color: white;
+  height: 50px;
+  min-width: 78px;
+  line-height: 50px;
+  font-size: 25px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+  text-align: center;
+}
+.admin .admin-details .admin-label {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar.close .admin .admin-details .admin-label {
+  opacity: 0;
+  pointer-events: none;
+}
 /* ------------------------------DASHBOARD PAGE------------------------------ */
 .cont-dash p,
 .cont-dash i,
