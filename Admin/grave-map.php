@@ -138,7 +138,7 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link text-dark d-flex align-items-center grave-maps" id="view-map-btn" data-bs-toggle="tab" data-bs-target="#view-maps" type="button" role="tab" aria-controls="view-maps" aria-selected="false">
                           <i class='bx bxs-map-pin fs-5' ></i>
-                          &nbsp;View Map
+                          &nbsp;View Map 
                       </button>
                     </li>
                   </ul>

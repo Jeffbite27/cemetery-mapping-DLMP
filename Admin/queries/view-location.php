@@ -12,7 +12,7 @@ $output="";
 if($sql->num_rows!=0){
   while($row=$sql->fetch_array()){
     $output.= "
-      <div class='".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]' style='border: 3px solid red !important;' title='$row[dead_fname] $row[dead_family_name]'>
+      <div class='".explode(' ', trim($row["site_name"] ))[0]."-$row[sector]-block-$row[block_name]-lot-$row[lot_name]' style='border: 4px solid red !important;' title='$row[dead_fname] $row[dead_family_name]'>
            <!--button>$row[lot_name]</!--button----->    
       </div>
     ";
