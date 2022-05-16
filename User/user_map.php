@@ -88,7 +88,7 @@
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam eos vero ullam eius unde ut ex voluptas reprehenderit ab cumque?</p>
                 <div class="search-container d-flex justify-content-center">
                   <i class='bx bx-search fs-3'></i>
-                  <input type="text" class="form-control form-search w-25" placeholder="Search your loved ones..." name="" id="">
+                  <input type="text" class="form-control form-search w-25" placeholder="Search your loved ones..." name="" id="search">
                 </div>
                
                 <button class="btn mt-3 px-5 view-map-btn text-white" data-bs-toggle="modal" data-bs-target="#view-map-modal">
@@ -109,26 +109,21 @@
                     List of Deceased Persons
                 </h4>
             </div>
-            <table class="tbl-find-map table table-striped table-bordered w-100" id="tbl-find-map">
+            <table class="tbl-find-map table table-striped mt-4 table-bordered w-100" id="tbl-find-map">
                 <thead class="tbl-header text-light">
                     <th scope="col">#</th>
                     <th scope="col">Fullname</th>
-                    <th scope="col">Relative</th>
-                    <th scope="col">Relationship</th>
-                    <th scope="col">Details</th>
                     <th scope="col">Grave Address</th>
                     <th scope="col">Action</th>
                 </thead>
-                <tbody>
-                    <?php while($row =$query->fetch_array()){ ?>
+                <tbody id="tbl-deceased-persons">
+                    <tr>
+                      <td colspan='4' class='text-center'>Search to generate data</td>
+                    </tr>
+                    <!-- <?php while($row =$query->fetch_array()){ ?>
                             <tr>
                                 <td class="align-middle"><?php echo $row["deceased_id"]?></td>
                                 <td class="align-middle"><?php echo $row["dead_fname"]." ".$row["dead_mname"]." ".$row["dead_family_name"]?></td>
-                                <td class="align-middle"><?php echo $row["dead_relative"]." ".$row["dead_relative_surname"]?></td>
-                                <td class="align-middle"><?php echo $row["dead_relationship"]?></td>
-                                <td class="align-middle">
-                                <?php echo "<br>Gender: ".$row["dead_gender"]."<br>Date Born: ".date("M j, Y", strtotime($row["date_of_birth"]))."<br>Date Died: ".date("M j, Y", strtotime($row["date_of_death"]))."<br>Internment Date: ".date("M j, Y", strtotime($row["internment_date"])) ?>
-                                </td>
                                 <td class="align-middle">
                                 <?php echo "<br>Site: ".$row["site_name"]."<br>Sector: ".$row["sector"]."<br>Block #: ".$row["block_name"]."<br>Lot #: ".$row["lot_name"]?>
                                 </td>
@@ -141,7 +136,7 @@
                                 </button>
                                 </td>
                             </tr>
-                    <?php } ?>
+                    <?php } ?> -->
                 </tbody>
             </table>
         </div>
