@@ -86,6 +86,11 @@
             <div class="container-fluid  py-4 cont-main">
                 <h1>Guiding Path To Your Loved Ones</h1>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam eos vero ullam eius unde ut ex voluptas reprehenderit ab cumque?</p>
+                <div class="search-container d-flex justify-content-center">
+                  <i class='bx bx-search fs-3'></i>
+                  <input type="text" class="form-control form-search w-25" placeholder="Search your loved ones..." name="" id="">
+                </div>
+               
                 <button class="btn mt-3 px-5 view-map-btn text-white" data-bs-toggle="modal" data-bs-target="#view-map-modal">
                     <div class="d-flex align-items-center">
                         <i class='bx bxs-map-pin fs-3'></i>
