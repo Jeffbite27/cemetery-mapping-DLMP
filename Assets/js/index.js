@@ -22,9 +22,25 @@ window.addEventListener("scroll", function(){
 });
 //USER MAP
 $(document).ready(function(){
-  $("#tbl-find-map").DataTable({
-    responsive: true,
-   });
+  $("#search").keyup(function(){
+    var search = $(this).val();
+    if(search==""){
+      $("#tbl-deceased-persons").html("<tr><td colspan=4 class=text-center>Search to generate data</td></tr>");
+    }else{
+      $.ajax({
+        url: "queries/find-deceased-persons.php",
+        method: "post",
+        data: {search:search},
+        success:function(data){
+          $("#tbl-deceased-persons").html(data);
+        }
+      })
+    }
+    
+  });
+  // $("#tbl-find-map").DataTable({
+  //   responsive: true,
+  //  });
 })
 
 $(".btn-reset-view-location").click(function(){
@@ -80,8 +96,8 @@ $(".rdo-owned").click(function () {
       },
     });
 });
-  
 
+  
 
 
 
