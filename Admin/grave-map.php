@@ -356,7 +356,7 @@
                     <small>-Premium</small> <br>
                   </div>
                   <div class="text-end p-1" style="border: 1px solid black; border-radius: 5px">
-                      <img width="200px" src="../Assets/image/minimap/<?php echo $row["site_name"] ?>-<?php echo $row["sector"] ?>.png" alt="">
+                      <img width="350px" src="../Assets/image/minimap/<?php echo $row["site_name"] ?>-<?php echo $row["sector"] ?>.png" alt="">
                   </div>
                 </div>
                 
