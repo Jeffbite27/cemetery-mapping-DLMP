@@ -296,8 +296,12 @@
                     <i class='bx bxs-checkbox' style="color: #e1e32b;"></i>
                     <small>-Premium</small> <br>
                   </div>
-                  <div class="text-end p-1" style="border: 1px solid black; border-radius: 5px">
+                  <div class="p-1" style="border: 1px solid black; border-radius: 5px">
                       <img width="350px" src="../Assets/image/minimap/<?php echo $row["site_name"] ?>-<?php echo $row["sector"] ?>.png" alt="">
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Switch Map</label>
+                      </div>
                   </div>
                 </div>
                 
