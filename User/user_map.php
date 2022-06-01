@@ -296,17 +296,32 @@
                     <i class='bx bxs-checkbox' style="color: #e1e32b;"></i>
                     <small>-Premium</small> <br>
                   </div>
-                  <div class="text-end p-1" style="border: 1px solid black; border-radius: 5px">
-                      <img width="350px" src="../Assets/image/minimap/<?php echo $row["site_name"] ?>-<?php echo $row["sector"] ?>.png" alt="">
+                  <div class="p-1" style="border: 1px solid black; border-radius: 5px">
+                      <div class="form-check form-switch mx-2 my-2">
+                        <input class="form-check-input" type="checkbox" id="switchMap" style="cursor:pointer">
+                        <label class="form-check-label" for="switchMap" style="cursor:pointer">
+                          <span style="font-size: 15px; font-weight: 500">Switch Map</span>
+                        </label>
+                      </div>
+                      <div id="miniMap">
+                        <img width="350px" src="../Assets/image/minimap/<?php echo $row["site_name"] ?>-<?php echo $row["sector"] ?>.png" alt="">
+                      </div>
+                      <div id="sectorMap">
+                        <img width="350px" height="200px" src="../Assets/image/map/<?php echo $row["site_name"] ?> - <?php echo $row["sector"] ?>.png" alt="">
+                      </div>
                   </div>
                 </div>
-                
               </div>
               <div class="img-sector text-center">
-                <img class="img-fluid rounded img-sector" src="../Assets/image/map/<?php echo $row["site_name"] ?> - <?php echo $row["sector"] ?>.png" alt="">
-                
-                <div class="lot_info">
+                <div id="sectorMap2">
+                  <img class="img-fluid rounded img-sector" src="../Assets/image/map/<?php echo $row["site_name"] ?> - <?php echo $row["sector"] ?>.png" alt="">
                   
+                  <div class="lot_info">
+                    
+                  </div>
+                </div>
+                <div id="miniMap2">
+                  <img class="img-fluid rounded img-sector" src="../Assets/image/minimap/<?php echo $row["site_name"] ?>-<?php echo $row["sector"] ?>.png" alt="">
                 </div>
               </div>
             </div>
